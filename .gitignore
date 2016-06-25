@@ -49,3 +49,7 @@ bld/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+/Selecao/Selecao-Entity/target/
+/Selecao/Selecao-Security/target/
+/Selecao/Selecao-Service/target/
+/Selecao/Selecao-Web/target/

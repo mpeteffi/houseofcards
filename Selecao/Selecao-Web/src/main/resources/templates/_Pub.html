@@ -1,0 +1,19 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h4>Nova Publicação!</h4>
+    </div>
+    <div class="panel-body">
+        <form action="#" th:action="@{/publicar}" method="POST">
+            <div class="form-group"> 
+                <textarea name="texto" class="form-control" rows="3" placeholder="Digite a mensagem de sua nova publicação." required="required"></textarea> 
+            </div>
+            <div class="input-group hide imgShowInput">
+                <span class="input-group-addon" id="basic-addon1">Img</span>
+                <input name="imagem" class="form-control imgShowInput" aria-describedby="basic-addon1" placeholder="Informe a url." type="text"/> 
+            </div>
+            <button class="btn btn-sm btn-primary imgShowButton" type="button">Adicionar Imagem</button><br/>
+            <button class="btn btn-sm btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-sm btn-primary" type="reset">Limpar</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,135 @@
+.container{
+  margin-top: 83px;
+}
+
+.hide{
+    display: none;
+}
+
+.item {
+ padding: 0px 10px;
+ margin: 0px;
+ height: auto;
+ max-width: 350px;
+}
+
+.user, .pub {
+  text-align: center;
+}
+
+.item img {
+  width: 50px;
+  heght: 50px;
+}
+
+.item .panel-heading{
+    height: 71px;
+}
+
+.user .panel-heading{
+    height: auto;
+}
+
+.item .panel-heading > p {
+  position: absolute;
+  top: 15px;
+  left: 90px;
+}
+
+.item .panel-heading > p:last-child {
+  top: 35px;
+}
+
+.user img {
+  width: 70%;
+}
+
+.panel-body{
+  position: relative;
+}
+
+.panel-body img {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.pub button {
+  margin: auto 2px;
+  margin-top: 10px;
+}
+
+.viewMoreButton{
+    display: block;
+    margin: 15px auto 25px auto;
+}
+
+.likeFail {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.nav-tabs {
+    padding: 0px 10px;
+}
+
+.amigo{
+    max-width: 750px;
+}
+
+.inputAmigo{
+    height: 35px;
+    padding: 5px 15px;
+}
+
+.bodyAmigo{
+    padding: 0px;
+}
+
+.listaAmigos{
+    margin-bottom: 0px;
+}
+
+.liAmigos{
+    padding: 15px;
+    height: 82px;
+}
+
+.listaAmigos img {
+    width: 50px;
+    display: inline;
+    margin: 0px;
+}
+
+.listaAmigos h3 {
+    top: 5px;
+    position: relative;
+    display: inline;
+    margin-left: 10px; 
+}
+
+.listaAmigos h2 {
+    margin: 0px auto; 
+    padding: 10px;
+}
+
+.listaAmigos button {
+    float: right;
+    margin: 3px 2px 0px 2px;
+}
+
+.erroSolicitar{
+    float: right;
+    color: red;
+    clear: both;
+}
+
+@media (max-width: 750px) {
+  .container {
+    max-width: 350px;
+  }
+  .amigo {
+      max-width: 600px;
+      min-width: 370px;
+  }
+}

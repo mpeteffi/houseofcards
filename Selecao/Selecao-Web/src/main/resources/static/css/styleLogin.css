@@ -1,0 +1,16 @@
+.container{
+    margin-top: 50px;
+    max-width: 550px;
+}
+
+a{
+    color: #fff;
+}
+
+.container-fluid{
+    padding: 0px;
+}
+
+.navbar-brand{
+    margin:0px;
+}

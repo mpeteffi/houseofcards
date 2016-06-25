@@ -1,0 +1,15 @@
+<div th:each="post : ${posts}" class="item">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <img th:src="@{${post.idPublicacao.idPerfil.idPessoa.imagem}}" th:alt="${post.idPublicacao.idPerfil.idPessoa.nmPessoa}"/>
+            <p th:text="${post.idPublicacao.idPerfil.idPessoa.nmPessoa}">Usuário Fulano</p>
+            <p th:text="${post.idPublicacao.dtPublicacao}">xx-xx-xxxx</p>
+        </div>
+        <div class="panel-body">
+            <img th:if="${post.imagem != null}" th:src="@{${post.imagem}}" th:alt="${post.idPublicacao.idPerfil.idPessoa.nmPessoa}"/>
+            <p th:text="${post.conteudo}">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button class="btn btn-xs btn-primary like" type="button" th:attr="data-pub=${post.idPublicacao.idPublicacao}">Curtir</button>
+            <span th:text="${post.idPublicacao.publicacaolikeList.size()}" th:attr="data-pub=${post.idPublicacao.idPublicacao}">0</span><span> Likes</span>
+        </div>
+    </div>
+</div>

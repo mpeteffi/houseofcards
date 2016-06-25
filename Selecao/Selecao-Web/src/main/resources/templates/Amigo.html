@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>ProjectJ</title>
+</head>
+<body>
+        
+    <nav th:include="_Header" class="navbar navbar-default navbar-fixed-top"></nav>
+    
+    <p th:text="${parametro}" class="param hide"></p>
+    
+    <div class="container amigo" >
+        <ul class="nav nav-tabs">
+            <li role="presentation" data-tipo="amigos" class="switch active"><a href="#">Amigos</a></li>
+            <li role="presentation" data-tipo="solicitacoes" class="switch"><a href="#">Solicitações</a></li>
+            <li role="presentation" data-tipo="outros" class="switch"><a href="#">Demais Usuários</a></li>
+        </ul>
+        <div class="panel panel-primary conteudoAmigo"></div>
+    </div>
+    
+
+    <script th:src="@{/js/jquery-2.2.3.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/scriptAmigo.js}" type="text/javascript"></script>
+</body>
+</html>

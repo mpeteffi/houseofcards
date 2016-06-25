@@ -1,0 +1,16 @@
+<div class="panel-heading amigo">
+    <br/>
+</div>
+<div class="panel-body bodyAmigo">
+    <ul class="list-group listaAmigos">
+        <li th:if="${solicitacoes.size() == 0}" class="list-group-item liAmigos">
+            <h2>Você não tem novas solicitações!</h2>
+        </li> 
+        <li th:each="solicitacao : ${solicitacoes}" class="list-group-item liAmigos">
+            <img th:src="@{${solicitacao.idPerfil.idPessoa.imagem}}" th:alt="${solicitacao.idPerfil.idPessoa.nmPessoa}"/>
+            <h3 th:text="${solicitacao.idPerfil.idPessoa.nmPessoa}">Usuário Fulano</h3>
+            <button class="btn btn-sm btn-primary rejeitar" type="button" th:attr="data-rejeitar=${solicitacao.idPerfil.idPerfil}">Rejeitar</button>
+            <button class="btn btn-sm btn-primary aceitar" type="button" th:attr="data-perfil=${solicitacao.idPerfil.idPerfil}">Aceitar</button>
+            </li> 
+    </ul>
+</div>

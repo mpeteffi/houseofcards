@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <title>ProjectJ</title>
+</head>
+<body>
+        
+    <nav th:include="_Header" class="navbar navbar-default navbar-fixed-top"></nav>
+    
+    <div class="container waterfall" data-col-min-width="280" data-autoresize="true">
+        <div th:include="_User" class="item user"></div>
+        <div th:include="_Pub" class="item pub"></div>
+    </div>
+    
+    <button class="btn btn-primary viewMoreButton viewMore" type="button" data-page="0">Ver mais publicações</button>
+    
+    <script th:src="@{/js/jquery-2.2.3.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+    <script th:src="@{/js/dfcreative.js}" type="text/javascript"></script>
+    <script th:src="@{/js/scriptFeed.js}" type="text/javascript"></script>
+    <script th:src="@{/js/scriptForm.js}" type="text/javascript"></script>
+</body>
+</html>
