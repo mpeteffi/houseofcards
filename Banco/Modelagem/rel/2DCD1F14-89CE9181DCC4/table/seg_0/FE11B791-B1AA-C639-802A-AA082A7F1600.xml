@@ -85,5 +85,14 @@
 <colUsage columnID="7D4BB1E7-DDD5-0818-9D0E-7A2CC0AEDD37"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="8BFC5D6B-4FDE-CC8E-4DFE-68840FCB4795" name="USUARIO_IDX">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 02:35:21 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99D53754-AC93-F517-F906-6F69AF65B244"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>
