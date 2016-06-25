@@ -2,6 +2,11 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="br.com.crescer_Social-Entity_jar_1.0.0.0PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.com.crescer.selecao.entities.Interessado</class>
+    <class>br.com.crescer.selecao.entities.Processoseletivo</class>
+    <class>br.com.crescer.selecao.entities.Entrevista</class>
+    <class>br.com.crescer.selecao.entities.Usuario</class>
+    <class>br.com.crescer.selecao.entities.Candidato</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="REDE"/>
