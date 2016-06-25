@@ -1,0 +1,216 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8BFE4E08-6E31-C3C2-CD28-D81DFB7E3487" name="ENTREVISTA">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:33:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdEntrevista" id="3726FD40-EB0C-C898-95E5-655644636537">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataEntrevista" id="FBB10ECB-488F-D498-5ACD-C31B2B5CFBEF">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ParecerRH" id="1E3D559E-AA39-5D30-5DE3-FDF8085C78A9">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ParecerTecnico" id="3E0A8746-AFC2-BA6E-37AE-DAAAE8197BCE">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000</dataTypeSize>
+<ownDataTypeParameters>4000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ProvaG36" id="FC1195D9-496A-6BAD-CDB5-C4EBA83319F2">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,3,1</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ProvaAC" id="20016B79-6AAE-29B5-FF1B-790B6F839179">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,3,1</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ProvaTecnica" id="FF3A4FDA-E7ED-9AF3-2CB3-41E136552568">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT026</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,3,1</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IdCandidato" id="3F295C98-33BC-9C42-0DA5-413B29D0BFC8">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:39:31 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D55F87C1-8A27-2BDC-2532-190F4BEB4B54" referredColumn="59A0A1FD-C5D1-6104-66F3-03DD926039DA"/>
+</associations>
+</Column>
+<Column name="IdUsuario" id="AD74F050-84A7-4B1F-D1FB-679AB97570E9">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:42:30 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B78DDA4E-A6A4-FC4B-4DC7-0A65A42D6629" referredColumn="99D53754-AC93-F517-F906-6F69AF65B244"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C11C471-2FBB-B968-ECCB-861CD8B68B53" name="ENTREVISTA_PK">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:38:18 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3726FD40-EB0C-C898-95E5-655644636537"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F2D743DB-1E63-9762-EA4F-63B7A5AF6A4A" name="G36_UN">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:59:19 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FC1195D9-496A-6BAD-CDB5-C4EBA83319F2"/>
+<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D0BFF90A-4E86-2889-36AD-C54BF68EBFD9" name="AC_UN">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:59:19 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="20016B79-6AAE-29B5-FF1B-790B6F839179"/>
+<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F6C6745-D81B-AE54-D8A6-7AE4DA265A2A" name="Tecnica_UN">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:59:19 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF3A4FDA-E7ED-9AF3-2CB3-41E136552568"/>
+<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C22B6D07-824D-CD5C-1C5A-2F264626E678" name="ENTREVISTA_IDX">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 02:03:45 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3726FD40-EB0C-C898-95E5-655644636537"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DBAF35B4-F6BE-47B8-CD45-550C96BC7A04" name="ENTREVISTA_CANDIDATO_IDX">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 02:03:45 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A994D8BA-F4FF-5539-2486-CCD065B76DFE" name="ENTREVISTA_USUARIO_IDX">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 02:03:45 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD74F050-84A7-4B1F-D1FB-679AB97570E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6A9E8986-F5FC-1A8B-C5A3-6833FBA281A4" name="CANDIDATOENTREVISTA_FK">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:39:30 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="42ED28E6-14E6-A2D4-CC7E-E3C224EF451A" name="USUARIOENTREVISTA_FK">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:42:30 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD74F050-84A7-4B1F-D1FB-679AB97570E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

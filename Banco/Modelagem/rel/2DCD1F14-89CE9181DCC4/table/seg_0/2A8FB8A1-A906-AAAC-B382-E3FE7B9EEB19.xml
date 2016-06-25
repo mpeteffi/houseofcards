@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2A8FB8A1-A906-AAAC-B382-E3FE7B9EEB19" name="INTERESSADO">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:47:31 UTC</createdTime>
+<generatorID>F9CCBC96-DFE9-4A7F-6EEA-D7E9726B6655</generatorID>
+<ownerDesignName>Modelagem</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdInteressado" id="C71B9E33-3F2B-072E-7FF1-85B06CD0C9DE">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:47:31 UTC</createdTime>
+<generatorID>DB0110FF-D53E-55CE-2026-6895ABFC4F09</generatorID>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="E591A83E-C65C-878F-7FB3-B835D1BD78F3">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:51:21 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="471DF663-4E55-437D-8032-7432C44D9179">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:51:21 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="InstituicaoEnsino" id="BE5E80D4-4E1A-547C-D1BB-B7664AEDA634">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:51:21 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Curso" id="2C063CDC-D4F8-223E-F9C8-70D44865E76C">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:51:21 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PrevisaoFormatura" id="54FF3FCE-A3F9-B870-802C-724DA3CF911C">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:51:21 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Status" id="F4EC5BD9-CD1B-8B22-0BC1-559E7B7DE4C3">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:51:21 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="134B8C35-D932-6D0A-DED2-496B1AA93009" name="INTERESSADO_PK">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:47:31 UTC</createdTime>
+<generatorID>809005D1-F5E2-2CA9-32A8-9BA60765EF48</generatorID>
+<ownerDesignName>Modelagem</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C71B9E33-3F2B-072E-7FF1-85B06CD0C9DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A0F834D4-464B-8494-58DB-4B532689ABD1" name="INTERESSADO_UN">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:53:14 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="471DF663-4E55-437D-8032-7432C44D9179"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F120CFD7-74EC-0F33-0123-4D8495D80624" name="INTERESSADO_IDX">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 02:01:15 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C71B9E33-3F2B-072E-7FF1-85B06CD0C9DE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

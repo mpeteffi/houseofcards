@@ -1,0 +1,89 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE11B791-B1AA-C639-802A-AA082A7F1600" name="USUARIO">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:14:30 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdUsuario" id="99D53754-AC93-F517-F906-6F69AF65B244">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:17:38 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="8A511317-0CA8-30DE-F878-441D806A62A6">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:17:38 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Email" id="7D4BB1E7-DDD5-0818-9D0E-7A2CC0AEDD37">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:17:38 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>250</dataTypeSize>
+<ownDataTypeParameters>250,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Senha" id="361DCF40-531A-7334-5C16-548AB5AD86B2">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:17:38 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>400</dataTypeSize>
+<ownDataTypeParameters>400,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Imagem" id="6D06192F-857B-9524-8A1C-83056B5F9629">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:17:38 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>400</dataTypeSize>
+<ownDataTypeParameters>400,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B732173D-14CF-D9ED-18AB-A1C29BE5A2FB" name="USUARIO_PK">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:17:38 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99D53754-AC93-F517-F906-6F69AF65B244"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="59D91979-5E4F-3F86-752C-FA689586EE0B" name="USUARIO_UN">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:17:38 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7D4BB1E7-DDD5-0818-9D0E-7A2CC0AEDD37"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A5D5412C-3AE5-E17C-F833-6845ACF5C4D3" containerWithKeyObject="40CEA129-5A89-EFC7-EE24-3CCC7F4C6CDB" localFKIndex="B7EDE9B9-322A-D86E-44B6-50A443101DA6" name="PROCESSOSELETIVO_CANDIDATO_FK">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:18:31 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>06A28D72-1FC8-07C0-901E-131748DC2133</referredTableID>
+<keyObject>CF4DAAEF-BAA0-7BF6-84A5-F2FD209816AD</keyObject>
+<referredKeyID>CF4DAAEF-BAA0-7BF6-84A5-F2FD209816AD</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

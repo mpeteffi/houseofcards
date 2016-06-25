@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="06A28D72-1FC8-07C0-901E-131748DC2133" name="PROCESSOSELETIVO">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 00:55:12 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdProcessoSeletivo" id="F818B50A-84BA-E746-C8F1-2BCCAFDBA1CF">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Edicao" id="EA8CF2E9-C114-CA17-30DD-EC5998F31F88">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="InicioSelecao" id="F4DBEF1F-B6EF-E2CC-F3F6-81C6B9641433">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FinalSelecao" id="B6264B4F-E1A2-69AB-B825-0B85705E3962">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="InicioAula" id="7F6EE103-F991-3E06-82B2-E5F3D9FFB43C">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FinalAula" id="620ABC24-BF33-2DCE-5348-ACBEA7EA78D1">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CF4DAAEF-BAA0-7BF6-84A5-F2FD209816AD" name="PROCESSOSELETIVO_PK">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F818B50A-84BA-E746-C8F1-2BCCAFDBA1CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FE6AD7C3-07DC-2A31-2522-478E0650AE90" name="PROCESSOSELETIVO_UN">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 01:00:05 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA8CF2E9-C114-CA17-30DD-EC5998F31F88"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DE783C06-4A0E-7910-5756-2627F1791EFD" name="PROCESSOSELETIVO_IDX">
+<createdBy>Murillo</createdBy>
+<createdTime>2016-06-25 02:01:52 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F818B50A-84BA-E746-C8F1-2BCCAFDBA1CF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
