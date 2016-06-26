@@ -1,0 +1,1 @@
+INSERT INTO USUARIO (NOME, EMAIL, SENHA, IMAGEM) VALUES ('Administrador', 'rh@cwi.com.br', '$2a$10$LVAx7/xyEpi9/VesmBNQ6Op7eCdpqaUauOMVOK57/J3U3etbYiODW', '/img/user.jpg');
