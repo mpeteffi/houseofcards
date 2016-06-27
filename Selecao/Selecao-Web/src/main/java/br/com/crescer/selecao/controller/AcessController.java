@@ -1,6 +1,11 @@
 package br.com.crescer.selecao.controller;
 
+import br.com.crescer.selecao.captcha.RecaptchaService;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,11 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class AcessController {
-    
-    @RequestMapping(value="/")
-    String index() {
-        return "Index";
-    } 
     
     @RequestMapping(value="/login")
     String login() {
