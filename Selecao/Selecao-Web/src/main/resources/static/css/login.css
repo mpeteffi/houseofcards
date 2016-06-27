@@ -1,6 +1,6 @@
 /*----Inicio_Login---- */
 .background-cinza{
-    background-color: #272125;
+    background-color: #262A33;
 }
 .content-wrapper{
     margin-top: 10%;
@@ -15,7 +15,7 @@
 
 .panel,.panel-default,.panel-body,.panel-heading{
     border:none;
-    background-color: #272125 !important;
+    background-color: #262A33 !important;
 }
 .btn-login{
     width: 100%;
@@ -28,19 +28,15 @@
     background-color:#EF940F !important;
     border:none!important;
 }
-
 #logo-login{
     width: 8.4em;
     height: 3em;
 }
 /*-----Fim_Login---- */
-
-
  @media all and (min-width:0px) and (max-width: 500px) {
   /*----Inicio_Login---- */
 .content-wrapper{
     margin-top: 10%;
 }
-
  /*-----Fim_Login---- */
 }
