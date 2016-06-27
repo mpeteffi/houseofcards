@@ -14,12 +14,12 @@ public class CandidatoService {
     @Autowired
     CandidatoRepository candidatoRepository;
     
-    public boolean save(Candidato candidato){
+    public Candidato save(Candidato candidato){
         try {
-            candidatoRepository.save(candidato);
-            return true;
+            candidato.setStatus("INICIAL");            
+            return candidatoRepository.save(candidato);
         } catch (Exception e) {
-            return false;
+            return null;
         }
     }
 }
