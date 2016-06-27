@@ -39,7 +39,7 @@ public class EmailService {
             email.addTo(candidato.getEmail());
             
             // set the html message
-            email.setHtmlMsg("<html>Quase lá... <p>Para confirmar o interesse no projeto: <a href=\"http://localhost:9090/confirmar/"+token+"\">link</a> </html>");
+            email.setHtmlMsg("<html>Quase lá... <p>Para confirmar o interesse no projeto: <a href=\"http://localhost:9090/email/confirmar?token="+token+"\">link</a> </html>");
             // set the alternative message
             email.setTextMsg("Your email client does not support HTML messages");
 
