@@ -20,7 +20,7 @@ public class EmailController {
     @RequestMapping(value="/enviar", method = RequestMethod.GET)
     String enviarEmail() {
         
-        emailService.enviarEmail("michelmf_rs@hotmail.com", "Assunto", "Mensagem");
+        //emailService.enviarEmail(, "token gigante");
         
         return "administrativo";
     } 
