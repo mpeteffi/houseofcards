@@ -52,8 +52,7 @@ public class Token implements Serializable {
         this.idtoken = idtoken;
     }
 
-    public Token(int idtoken, int idparaconfirmar, String token, String status, String tipo) {
-        this.idtoken = idtoken;
+    public Token(int idparaconfirmar, String token, String status, String tipo) {
         this.idparaconfirmar = idparaconfirmar;
         this.token = token;
         this.status = status;

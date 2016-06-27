@@ -8,4 +8,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface InteressadoRepository extends PagingAndSortingRepository<Interessado, Long> {
     
+    Interessado findOneByIdInteressado(int idInteressado);
 }
