@@ -1,0 +1,20 @@
+.img-perfil{
+    width: 100px;
+    height: 100px;
+}
+
+.menu-nav{
+    top:0;
+    width: 100%;
+    border: none;
+    border-radius: 0px;
+}
+
+.sidebar-brand{
+    background-color: #262A33;
+}
+
+#logo-adm{
+    width: 9em;
+    height: 4em;
+}
