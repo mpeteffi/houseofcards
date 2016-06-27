@@ -1,8 +1,6 @@
 package br.com.crescer.selecao.controller;
 
 import br.com.crescer.selecao.captcha.RecaptchaService;
-import br.com.crescer.selecao.service.services.InteressadoService;
-import java.net.Authenticator;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +15,6 @@ public class InteressadoController {
     
     @Autowired
     RecaptchaService recaptchaService;
-    
-    @Autowired
-    InteressadoService interessadoService;
     
     @RequestMapping(value="/")
     String index() {

@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F8AA269F-95D2-5B4D-E938-8B1E1128B042" name="TOKEN">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:18:09 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<ordsAlias>table_6</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdToken" id="14F79C10-0BE8-4856-1EA0-3026E8FEAC31">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:28:57 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IdParaConfirmar" id="2074A95D-2170-2DAD-14AF-DA1690CBCBA7">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:28:57 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Token" id="A81D96E6-3CF2-6A1C-A84C-87873513E274">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:28:57 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>400</dataTypeSize>
+<ownDataTypeParameters>400,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Status" id="41261C32-53CD-2B09-A6D8-01127520AAFA">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:28:57 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tipo" id="2577183D-E794-18E7-F78F-B93F9846C047">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:28:57 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="999F5EC9-6818-A1A9-DDF5-1F8D3D1A5D46" name="TOKEN_PK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:28:57 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14F79C10-0BE8-4856-1EA0-3026E8FEAC31"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D650C872-25E0-D009-B965-8FD21C75E615" name="TOKEN_UN">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:30:51 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A81D96E6-3CF2-6A1C-A84C-87873513E274"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3C9ACD36-A0ED-ACB0-6EEE-E63E3F00D2CA" name="IDTOKEN_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 15:29:30 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14F79C10-0BE8-4856-1EA0-3026E8FEAC31"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2BEAFFF0-BE79-8270-DEA5-5AA204FE6EDF" name="TOKENSTRING_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 18:27:56 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A81D96E6-3CF2-6A1C-A84C-87873513E274"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A526CB6-F419-3CA2-2632-BC8285D9670D" name="STATUS_IDXv1">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 18:34:33 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="41261C32-53CD-2B09-A6D8-01127520AAFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="042D5D5A-0725-AF2A-DA1E-77170FD9C591" name="TIPO_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 18:34:43 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2577183D-E794-18E7-F78F-B93F9846C047"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -9,14 +9,13 @@ import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author Murillo
+ * @author murillo.peteffi
  */
 @Entity
-@Table(name = "USUARIO", uniqueConstraints={@UniqueConstraint(columnNames = {"EMAIL"})})
+@Table(name = "USUARIO")
 @XmlRootElement
 public class Usuario implements Serializable {
 

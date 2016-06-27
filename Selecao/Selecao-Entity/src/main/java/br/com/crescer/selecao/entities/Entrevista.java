@@ -1,7 +1,6 @@
 package br.com.crescer.selecao.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * @author Murillo
+ * @author murillo.peteffi
  */
 @Entity
 @Table(name = "ENTREVISTA", uniqueConstraints={
@@ -52,13 +51,13 @@ public class Entrevista implements Serializable {
     private String parecertecnico;
     
     @Column(name = "PROVAG36")
-    private BigDecimal provag36;
+    private Double provag36;
     
     @Column(name = "PROVAAC")
-    private BigDecimal provaac;
+    private Double provaac;
     
     @Column(name = "PROVATECNICA")
-    private BigDecimal provatecnica;
+    private Double provatecnica;
     
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
     @ManyToOne(optional = false)
@@ -75,12 +74,10 @@ public class Entrevista implements Serializable {
         this.identrevista = identrevista;
     }
 
-    public Entrevista(Date dataentrevista, String parecerrh, String parecertecnico, Candidato candidato, Usuario usuario) {
+    public Entrevista(Date dataentrevista, String parecerrh, String parecertecnico) {
         this.dataentrevista = dataentrevista;
         this.parecerrh = parecerrh;
         this.parecertecnico = parecertecnico;
-        this.idcandidato = candidato;
-        this.idusuario = usuario;
     }
 
     public int getIdentrevista() {
@@ -115,27 +112,27 @@ public class Entrevista implements Serializable {
         this.parecertecnico = parecertecnico;
     }
 
-    public BigDecimal getProvag36() {
+    public Double getProvag36() {
         return provag36;
     }
 
-    public void setProvag36(BigDecimal provag36) {
+    public void setProvag36(Double provag36) {
         this.provag36 = provag36;
     }
 
-    public BigDecimal getProvaac() {
+    public Double getProvaac() {
         return provaac;
     }
 
-    public void setProvaac(BigDecimal provaac) {
+    public void setProvaac(Double provaac) {
         this.provaac = provaac;
     }
 
-    public BigDecimal getProvatecnica() {
+    public Double getProvatecnica() {
         return provatecnica;
     }
 
-    public void setProvatecnica(BigDecimal provatecnica) {
+    public void setProvatecnica(Double provatecnica) {
         this.provatecnica = provatecnica;
     }
 

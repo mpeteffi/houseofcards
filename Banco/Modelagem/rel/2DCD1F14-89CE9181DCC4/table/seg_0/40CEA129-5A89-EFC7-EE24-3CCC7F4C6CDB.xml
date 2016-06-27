@@ -86,74 +86,6 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Telefone" id="EB7B889E-F232-C885-411E-EBD852AC90BE">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:07:49 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="DataNascimento" id="5C099448-243E-B80F-9103-B48DA891C0D2">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:07:49 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Cidade" id="AB5B987A-F69E-D22E-685D-76ADE29A4286">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:07:49 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>250</dataTypeSize>
-<ownDataTypeParameters>250,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="UrlLinkedin" id="F29A9162-EDD7-1A37-BCCD-D56A1C7D3035">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:07:49 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>250</dataTypeSize>
-<ownDataTypeParameters>250,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Senha" id="D59B7A2A-D4E3-0DDF-674E-8F4E782A626A">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:07:49 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>400</dataTypeSize>
-<ownDataTypeParameters>400,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="IdProcessoSeletivo" id="43A7F85B-A857-DB21-D896-93FDA12A2475">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:18:31 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="A5D5412C-3AE5-E17C-F833-6845ACF5C4D3" referredColumn="F818B50A-84BA-E746-C8F1-2BCCAFDBA1CF"/>
-</associations>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="0BF40EDB-09A5-E5A0-39D1-29FCD84E3C56" name="CANDIDATOS_PK">
@@ -167,15 +99,14 @@
 <colUsage columnID="59A0A1FD-C5D1-6104-66F3-03DD926039DA"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="A3C6841F-FFA2-43EA-E047-E65E742925D0" name="CANDIDATOS_UN">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:08:04 UTC</createdTime>
+<ind_PK_UK id="9583D01B-4F31-B133-1A05-2E826C8CCB87" name="CANDIDATO_UN">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 17:51:37 UTC</createdTime>
 <ownerDesignName>Modelagem</ownerDesignName>
 <indexState>Unique Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="641F8ED7-685D-33A4-7944-EDF20D8D3F0B"/>
-<colUsage columnID="43A7F85B-A857-DB21-D896-93FDA12A2475"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="C733C1DB-5B46-2CA6-2D67-7172A3451F40" name="CANDIDATO_IDX">
@@ -187,23 +118,31 @@
 <colUsage columnID="59A0A1FD-C5D1-6104-66F3-03DD926039DA"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6A687DA5-9ADF-432D-BBF2-16BAB5EB254E" name="CANDIDATO_PROCESSO_IDX">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 02:02:35 UTC</createdTime>
+<ind_PK_UK id="E6F2B79B-8AA4-4532-A775-60445256F0FB" name="EMAIL_IDXv2">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 18:31:24 UTC</createdTime>
 <ownerDesignName>Modelagem</ownerDesignName>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="43A7F85B-A857-DB21-D896-93FDA12A2475"/>
+<colUsage columnID="641F8ED7-685D-33A4-7944-EDF20D8D3F0B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="B7EDE9B9-322A-D86E-44B6-50A443101DA6" name="PROCESSOSELETIVO_CANDIDATO_FK">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:18:31 UTC</createdTime>
+<ind_PK_UK id="5E65AA2B-2CA3-C6A0-B828-EAAF00138188" name="STATUS_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 18:31:47 UTC</createdTime>
 <ownerDesignName>Modelagem</ownerDesignName>
-<indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="43A7F85B-A857-DB21-D896-93FDA12A2475"/>
+<colUsage columnID="0AAF2838-9247-26AD-B609-CE8D17784449"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0CC70EFB-4E53-8B2A-1B62-A90DAA0332B7" name="NOME_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 18:33:26 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FED4DAB3-E55C-07BB-0CBA-2E0F6187EAA3"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

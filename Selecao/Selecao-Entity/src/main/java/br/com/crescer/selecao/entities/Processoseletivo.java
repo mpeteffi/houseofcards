@@ -2,25 +2,21 @@ package br.com.crescer.selecao.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * @author Murillo
+ * @author murillo.peteffi
  */
 @Entity
 @Table(name = "PROCESSOSELETIVO", uniqueConstraints={@UniqueConstraint(columnNames = {"EDICAO"})})
@@ -59,9 +55,6 @@ public class Processoseletivo implements Serializable {
     @Column(name = "FINALAULA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date finalaula;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idprocessoseletivo")
-    private List<Candidato> candidatoList;
 
     public Processoseletivo() {
     }
@@ -126,17 +119,9 @@ public class Processoseletivo implements Serializable {
         this.finalaula = finalaula;
     }
 
-    @XmlTransient
-    public List<Candidato> getCandidatoList() {
-        return candidatoList;
-    }
-
-    public void setCandidatoList(List<Candidato> candidatoList) {
-        this.candidatoList = candidatoList;
-    }
-
     @Override
     public String toString() {
         return "br.com.crescer.selecao.entities.Processoseletivo[ idprocessoseletivo=" + idprocessoseletivo + " ]";
-    }    
+    }
+    
 }

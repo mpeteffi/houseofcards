@@ -8,6 +8,7 @@
     <class>br.com.crescer.selecao.entities.Usuario</class>
     <class>br.com.crescer.selecao.entities.Candidato</class>
     <class>br.com.crescer.selecao.entities.Token</class>
+    <class>br.com.crescer.selecao.entities.Informacao</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
       <property name="javax.persistence.jdbc.user" value="REDE"/>

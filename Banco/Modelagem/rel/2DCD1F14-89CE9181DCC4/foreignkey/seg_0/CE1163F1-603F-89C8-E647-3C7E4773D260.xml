@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="A5D5412C-3AE5-E17C-F833-6845ACF5C4D3" containerWithKeyObject="40CEA129-5A89-EFC7-EE24-3CCC7F4C6CDB" localFKIndex="B7EDE9B9-322A-D86E-44B6-50A443101DA6" name="PROCESSOSELETIVO_CANDIDATO_FK">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:18:31 UTC</createdTime>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CE1163F1-603F-89C8-E647-3C7E4773D260" containerWithKeyObject="2A8FB8A1-A906-AAAC-B382-E3FE7B9EEB19" localFKIndex="0624D7EF-103C-C8DC-9388-AC3E40FF618F" name="INFORMACAO_PROCESSOSELETIVO_FK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 17:50:12 UTC</createdTime>
 <ownerDesignName>Modelagem</ownerDesignName>
 <deleteRule>NO ACTION</deleteRule>
 <referredTableID>06A28D72-1FC8-07C0-901E-131748DC2133</referredTableID>

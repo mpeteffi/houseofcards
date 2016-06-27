@@ -21,7 +21,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Token implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "TOKEN_IDTOKEN_SEQ")
     @SequenceGenerator(name = "TOKEN_IDTOKEN_SEQ", sequenceName = "TOKEN_IDTOKEN_SEQ", allocationSize = 1)

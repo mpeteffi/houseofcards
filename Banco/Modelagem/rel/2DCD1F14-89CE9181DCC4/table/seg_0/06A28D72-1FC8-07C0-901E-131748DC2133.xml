@@ -103,5 +103,14 @@
 <colUsage columnID="F818B50A-84BA-E746-C8F1-2BCCAFDBA1CF"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="3FD35785-7562-BDF0-EA7C-E03CABCCFF59" name="EDICAO_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-06-27 18:25:32 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA8CF2E9-C114-CA17-30DD-EC5998F31F88"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>
