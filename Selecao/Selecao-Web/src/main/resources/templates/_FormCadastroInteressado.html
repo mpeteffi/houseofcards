@@ -1,23 +1,23 @@
-<form th:action="@{/cadastro}" method="POST">
+<form th:action="@{/cadastro}" th:object="${candidato}" method="POST">
     <div class="form-group">
         <label>Nome</label>
-        <input required="required" class="form-control" type="text" name="nome"/> 
+        <input required="required" class="form-control" type="text" th:field="*{nome}"/> 
     </div>
     <div class="form-group">
         <label>Email</label>
-        <input required="required" class="form-control" type="email" name="email"/> 
+        <input required="required" class="form-control" type="email" th:field="*{email}"/> 
     </div>
     <div class="form-group">
         <label>Instituição de Ensino</label>
-        <input required="required" class="form-control" type="text" name="instEnsino"/> 
+        <input required="required" class="form-control" type="text" th:field="*{instituicaoensino}"/> 
     </div>
     <div class="form-group">
         <label>Curso</label>
-        <input required="required" class="form-control" type="text" name="curso"/> 
+        <input required="required" class="form-control" type="text" th:field="*{curso}"/> 
     </div>
     <div class="form-group">
         <label>Previsao Formatura</label>
-        <input required="required" class="form-control" type="date" name="prevFormatura"/> 
+        <input required="required" class="form-control" type="date" th:field="*{previsaoformatura}"/> 
     </div>
     <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
     <div class="form-group"><br/>
