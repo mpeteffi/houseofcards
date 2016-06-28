@@ -17,8 +17,11 @@
                         <h3 style="color:white;" class="text-center" th:text="${mensagemFormCadastro}"></h3>
                     </div>
                     <div class="alert btn-login" th:if="${mensagemConfirmacaoEmail}">
-                        <h3 style="color:white;" th:text="${mensagemConfirmacaoEmail}"></h3>
-                    </div>                                         
+                        <h3 style="color:white;" class="text-center" th:text="${mensagemConfirmacaoEmail}"></h3>
+                    </div>
+                    <div class="alert btn-login" th:if="${mensagemSucessoInscricao}">
+                        <h3 style="color:white;" class="text-center" th:text="${mensagemSucessoInscricao}"></h3>
+                    </div>   
                 </div>
             </div>
         </div>
