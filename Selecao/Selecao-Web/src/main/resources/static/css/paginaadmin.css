@@ -20,7 +20,7 @@
 }
 
 #logo-descricao{
-  color:white;  
+  color:white; 
 }
 
 #logo-nome{
@@ -39,6 +39,7 @@
 
 .div-perfil{
     margin-top: 24px;
+    text-indent: 0px!important;
 }
 
 .sidebar-lista-titulo{

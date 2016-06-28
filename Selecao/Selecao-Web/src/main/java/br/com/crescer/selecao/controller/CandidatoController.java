@@ -7,6 +7,7 @@ package br.com.crescer.selecao.controller;
 
 import br.com.crescer.selecao.captcha.RecaptchaService;
 import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.CandidatoFiltroDTO;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.service.services.CandidatoService;
 import br.com.crescer.selecao.service.services.EmailService;
@@ -52,7 +53,7 @@ public class CandidatoController {
         if(captchaValido) {
             try {
                 if(candidatoService.save(candidato) != null){
-                    emailService.enviarEmail(candidato);
+                    emailService.enviarEmailParaConfirmacaoDeInteresse(candidato);
                 }else{
                     //email ja existe
                 }
@@ -71,12 +72,14 @@ public class CandidatoController {
     }
     
     @RequestMapping(value="/candidatos")
-    String candidatos(String status, String nome, String email, String telefone, Integer page, Model model) {
+    String candidatos(CandidatoFiltroDTO filtro, Integer page, Model model) {
         if (page == null){ page = 0;}
-        Page<Informacao> candidatos = candidatoService.findByFilters(status, nome, email, telefone, page);
+        Page<Informacao> candidatos = candidatoService.findByFilters(filtro.getStatus(), filtro.getNome(), filtro.getEmail(), 
+                                                                     filtro.getTelefone(), page);
         for(Informacao i : candidatos){
             i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
         }
+        model.addAttribute("valorAntigoInput", filtro);
         model.addAttribute("candidatos", candidatos);
         model.addAttribute("pagina", page);
         return "_Candidatos";
