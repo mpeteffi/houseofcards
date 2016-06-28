@@ -32,7 +32,7 @@ public class EmailService {
         email.setSSLOnConnect(true);
     }
 
-    public void enviarEmail(Candidato candidato) {
+    public void enviarEmailParaConfirmacaoDeInteresse(Candidato candidato) {
         HtmlEmail email = new HtmlEmail();
         configurar(email);
         String token = tokenService.newTokenForCandidato(candidato);
@@ -40,14 +40,14 @@ public class EmailService {
             email.setFrom("processoseletivocwi@gmail.com");
             email.setSubject("Confirmação de interesse");
             email.addTo(candidato.getEmail());
-            email.setHtmlMsg("<html>Quase lá... <p>Para confirmar o interesse no projeto: <a href=\"http://localhost:9090/email/confirmar?token=" + token + "\">link</a> </html>");
+            email.setHtmlMsg("<html>Quase lá... <p>Para confirmar o interesse no projeto: <a href=\"http://localhost:9090/email/confirmar-interesse?token=" + token + "\">link</a> </html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void enviarEmailParaTodosInteressados(Candidato candidato, Processoseletivo processoSeletivo) {
+    public void enviarEmailParaInteressado(Candidato candidato, Processoseletivo processoSeletivo) {
         HtmlEmail email = new HtmlEmail();
         configurar(email);
         String token = tokenService.newTokenForCandidato(candidato);

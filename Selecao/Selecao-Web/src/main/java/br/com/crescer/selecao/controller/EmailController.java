@@ -30,7 +30,7 @@ public class EmailController {
         return "administrativo";
     } 
     
-    @RequestMapping(value="/confirmar", method = RequestMethod.GET)
+    @RequestMapping(value="/confirmar-interesse", method = RequestMethod.GET)
     String confirmarToken(String token,Model model) {
         
         Boolean confirmado = tokenService.confirmarInteresse(token);

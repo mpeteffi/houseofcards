@@ -52,7 +52,7 @@ public class CandidatoController {
         if(captchaValido) {
             try {
                 if(candidatoService.save(candidato) != null){
-                    emailService.enviarEmail(candidato);
+                    emailService.enviarEmailParaConfirmacaoDeInteresse(candidato);
                 }else{
                     //email ja existe
                 }
