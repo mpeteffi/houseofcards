@@ -7,11 +7,15 @@ package br.com.crescer.selecao.controller;
 
 import br.com.crescer.selecao.captcha.RecaptchaService;
 import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.service.services.CandidatoService;
 import br.com.crescer.selecao.service.services.EmailService;
+import java.util.Calendar;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -66,4 +70,26 @@ public class CandidatoController {
         return new Candidato();
     }
     
+    @RequestMapping(value="/candidatos")
+    String candidatos(String status, String nome, String email, String telefone, Integer page, Model model) {
+        if (page == null){ page = 0;}
+        Page<Informacao> candidatos = candidatoService.findByFilters(status, nome, email, telefone, page);
+        for(Informacao i : candidatos){
+            i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
+        }
+        model.addAttribute("candidatos", candidatos);
+        model.addAttribute("pagina", page);
+        return "_Candidatos";
+    }
+    
+    public Date tempoDecorrido(Date date) {
+        Calendar c = Calendar.getInstance();
+        if (date == null) {
+            return null;
+        }
+        long diff = new Date().getTime() - date.getTime();
+        c.setTime(new Date(diff));
+
+        return c.getTime();
+    }
 }

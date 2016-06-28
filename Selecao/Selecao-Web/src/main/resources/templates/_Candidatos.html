@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/css/candidato.css"/>
+        <title>Titulo do Projeto</title>
+    </head>
+    <body>
+        <form class="form-inline" id="pesq" th:attr="data-page=${pagina}">
+            <div class="input-group">
+                <input name="nome" id="txtNome" class="form-control" placeholder="Nome" type="text"/> 
+            </div>
+            <div class="input-group">
+                <input name="email" id="txtEmail" class="form-control" placeholder="Email" type="text"/> 
+            </div>
+            <div class="input-group">
+                <input name="telefone" id="txtTelefone" class="form-control" placeholder="Telefone" type="text"/> 
+            </div>
+            <div class="input-group">
+                <select class="form-control" id="txtStatus" name="status">
+                    <option value=""></option>
+                    <option value="AGUARDANDO CONTATO">AGUARDANDO CONTATO</option>
+                    <option value="ENTREVISTADO">ENTREVISTADO</option>
+                    <option value="NAO INTERESSADO">NAO INTERESSADO</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <button class="btn btn-default" type="submit">Filtrar!</button>
+            </div>
+        </form>
+        <div th:each="candidato : ${candidatos}" class="panel panel-default candidatoList">
+            <div class="panel-heading">
+                <p th:text="${candidato.idcandidato.nome}"></p>
+            </div>
+            <div class="panel-body">
+                <p th:text="'Telefone: ' + ${candidato.telefone}"></p>
+                <p th:text="'Idade: ' + (${#dates.format(candidato.datanascimento, 'yyyy')} - 1970)"></p>
+                <p th:text="'Email: ' + ${candidato.idcandidato.email}"></p>
+                <p th:text="'Status: ' + ${candidato.idcandidato.status}"></p>
+                <a th:href="${candidato.urllinkedin}">Linkedin</a>
+                <a th:href="${candidato.urllinkedin}">Ver Mais</a>
+                <a th:href="${candidato.urllinkedin}">Entrevistas</a>
+            </div>
+        </div>
+
+        
+        <ul class="pagination">
+            <li th:class="${candidatos.first} ? 'disabled' : ''">
+                <a class="btnPag" href="#" th:attr="data-page= ${candidatos.first} ? null : ${pagina}-1">Anterior</a>
+            </li>
+            <li th:class="${candidatos.last} ? 'disabled' : ''">
+                <a class="btnPag" href="#" th:attr="data-page= ${candidatos.last} ? null : ${pagina}+1">Próximo</a>
+            </li>
+        </ul>
+        <script th:src="@{/js/jquery-2.2.3.min.js}" type="text/javascript"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+        <script th:src="@{/js/scriptCandidato.js}" type="text/javascript"></script>
+    </body>
+</html>
