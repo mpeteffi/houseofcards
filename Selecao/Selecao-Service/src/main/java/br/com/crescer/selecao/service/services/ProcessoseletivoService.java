@@ -28,4 +28,9 @@ public class ProcessoseletivoService {
         }
         processoseletivoRepository.save(p);
     }
+    
+    public Processoseletivo buscarProcessoAtual(){
+        return processoseletivoRepository.findTopByOrderByEdicaoDesc();
+    }
+    
 }

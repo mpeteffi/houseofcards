@@ -8,4 +8,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface ProcessoseletivoRepository extends PagingAndSortingRepository<Processoseletivo, Long> {
     
+    Processoseletivo findTopByOrderByEdicaoDesc();
+    
 }
