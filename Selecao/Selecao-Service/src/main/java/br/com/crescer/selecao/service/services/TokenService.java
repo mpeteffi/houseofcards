@@ -51,6 +51,23 @@ public class TokenService {
             return false;
         }
     }
+        
+    public Candidato confirmarInscricao(String codigo){
+        
+        Token token = tokenRepository.findOneByTokenAndStatusAndTipo(codigo, "PENDENTE", "INTERESSADO");
+        if(token != null) {            
+            Candidato candidato = candidatoRepository.findOneByIdcandidato(token.getIdparaconfirmar());            
+            return candidato;
+        } else {
+            return null;
+        }
+    }
+    
+    public void invalidarTokenParaCandidato(Candidato candidato){
+        Token token = tokenRepository.findOneByIdparaconfirmarAndStatusAndTipo(candidato.getIdcandidato(),"PENDENTE","INTERESSADO");
+        token.setStatus("FINAL");
+        tokenRepository.save(token);
+    }
     
     private String gerarCodigo(){
         
