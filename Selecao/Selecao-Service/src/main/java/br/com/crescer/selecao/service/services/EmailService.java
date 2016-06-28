@@ -3,6 +3,7 @@ package br.com.crescer.selecao.service.services;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.mail.Email;
@@ -24,6 +25,8 @@ public class EmailService {
 
     @Autowired
     CandidatoService candidatoService;
+    
+    private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     private static void configurar(Email email) {
         email.setHostName("smtp.gmail.com");
@@ -56,10 +59,10 @@ public class EmailService {
             email.setSubject("Confirmação de inscrição");
             email.addTo(candidato.getEmail());
             email.setHtmlMsg("<html><h3>Iniciado o precesso seletivo do projeto crescer " + processoSeletivo.getEdicao() + "</h3>"
-                    + "<p>Data início do agendamento de entrevista:" + processoSeletivo.getInicioselecao() + "</p>"
-                    + "<p>Data final do agendamento de entrevista:" + processoSeletivo.getFinalselecao() + "</p>"
-                    + "<p>Data início dasaulas:" + processoSeletivo.getInicioaula() + "</p>"
-                    + "<p>Data início dasaulas:" + processoSeletivo.getFinalaula() + "</p>"
+                    + "<p>Data início do agendamento de entrevista:" + sdf.format(processoSeletivo.getInicioselecao()) + "</p>"
+                    + "<p>Data final do agendamento de entrevista:" + sdf.format(processoSeletivo.getFinalselecao()) + "</p>"
+                    + "<p>Data início dasaulas:" + sdf.format(processoSeletivo.getInicioaula()) + "</p>"
+                    + "<p>Data início dasaulas:" + sdf.format(processoSeletivo.getFinalaula()) + "</p>"
                     + "<p>Para confirmar sua inscrição no projeto, acesse: <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">link</a> </html>");
             email.send();
             candidato.setStatus("NOTIFICADO");
