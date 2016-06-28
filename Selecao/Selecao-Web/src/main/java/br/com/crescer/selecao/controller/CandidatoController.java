@@ -55,7 +55,7 @@ public class CandidatoController {
             } catch (Exception e){
                 return "redirect:cadastro?erroEmail";
             }
-            model.addAttribute("mensagemFormCadastro", "Sucesso, confirme a inscrição acessando seu email e clicando no link de confirmação");
+            model.addAttribute("mensagemFormCadastro", "Confirme a inscrição acessando seu email e clicando no link de confirmação");
             return "Sucesso";
         }        
         return "redirect:cadastro?erroCaptcha";
