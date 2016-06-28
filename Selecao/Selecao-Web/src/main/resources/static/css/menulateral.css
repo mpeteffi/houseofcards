@@ -84,6 +84,7 @@
     height: 55px;
     font-size: 21px;
     line-height: 60px;
+    text-indent: 0px;
 }
 
 .sidebar-nav > .sidebar-brand a {

@@ -1,19 +1,19 @@
 <form class="form-inline" id="pesq" th:attr="data-page=${pagina}">
     <div class="input-group col-xs-6 col-sm-5 col-md-3">
-        <input name="nome" id="txtNome" class="form-control" placeholder="Nome" type="text"/> 
+        <input name="nome" id="txtNome" class="form-control" placeholder="Nome:" type="text"/> 
     </div>
     <div class="input-group col-xs-5 col-sm-5 col-md-3">
-        <input name="email" id="txtEmail" class="form-control" placeholder="Email" type="text"/> 
+        <input name="email" id="txtEmail" class="form-control" placeholder="Email:" type="text"/> 
     </div>
     <div class="input-group col-xs-6 col-sm-5 col-md-2">
-        <input name="telefone" id="txtTelefone" class="form-control" placeholder="Telefone" type="text"/> 
+        <input name="telefone" id="txtTelefone" class="form-control" placeholder="Telefone:" type="text"/> 
     </div>
     <div class="input-group col-xs-5 col-sm-5 col-md-2">
         <select class="form-control" id="txtStatus" name="status">
-            <option value=""></option>
+            <option value="" class="optionDisable">Status:</option>
             <option value="AGUARDANDO CONTATO">Aguardando Contato</option>
             <option value="ENTREVISTADO">Entrevistado</option>
-            <option value="NAO INTERESSADO">Não Interessado</option>
+            <option value="SEM INTERESS">Sem Interesse</option>
         </select>
     </div>
     <div class="input-group col-xs-12 col-sm-1 col-md-1">
