@@ -1,14 +1,14 @@
 <form class="form-inline" id="pesq" th:attr="data-page=${pagina}">
-    <div class="input-group">
+    <div class="input-group col-xs-6 col-sm-5 col-md-3">
         <input name="nome" id="txtNome" class="form-control" placeholder="Nome" type="text"/> 
     </div>
-    <div class="input-group">
+    <div class="input-group col-xs-5 col-sm-5 col-md-3">
         <input name="email" id="txtEmail" class="form-control" placeholder="Email" type="text"/> 
     </div>
-    <div class="input-group">
+    <div class="input-group col-xs-6 col-sm-5 col-md-2">
         <input name="telefone" id="txtTelefone" class="form-control" placeholder="Telefone" type="text"/> 
     </div>
-    <div class="input-group">
+    <div class="input-group col-xs-5 col-sm-5 col-md-2">
         <select class="form-control" id="txtStatus" name="status">
             <option value=""></option>
             <option value="AGUARDANDO CONTATO">Aguardando Contato</option>
@@ -16,7 +16,7 @@
             <option value="NAO INTERESSADO">Não Interessado</option>
         </select>
     </div>
-    <div class="input-group">
+    <div class="input-group col-xs-12 col-sm-1 col-md-1">
         <button class="btn btn-default" type="submit">Filtrar!</button>
     </div>
 </form>

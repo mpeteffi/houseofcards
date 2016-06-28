@@ -11,3 +11,12 @@
     padding: 0px 10px;
     margin: 0px;
 }
+
+#pesq {
+    margin-bottom: 15px;
+}
+
+#pesq > .input-group {
+    display: inline-flex;
+    margin-bottom: 5px;
+} 

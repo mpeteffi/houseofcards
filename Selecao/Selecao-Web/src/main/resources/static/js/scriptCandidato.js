@@ -30,7 +30,6 @@ function atualizarPaginaLista(page){
         }).done(function(res){
             $('.corpo').empty();
             $('.corpo').append(res);
-            atribuirFuncoes();
         });
     }
 }
