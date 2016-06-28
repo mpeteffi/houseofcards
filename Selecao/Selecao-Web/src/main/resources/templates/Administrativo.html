@@ -1,46 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-        <link rel="stylesheet" th:href="@{/css/menulateral.css}"/>
-        <link rel="stylesheet" th:href="@{/css/paginaadmin.css}"/>
+    <head th:replace="fragments :: head">        
         <title>Titulo do Projeto</title>
     </head>
     <body class="body-admin">
         <div id="wrapper">
-            <div id="sidebar-wrapper" th:fragment="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand text-center">
-                        <span id="logo-nome">Crescer</span><span id="logo-descricao">Inscrições</span>        
-                    </li>
-                    <li class="text-center div-perfil">
-                        <img class="img-circle img-perfil" src="http://unshelteredvoices.org/img/people/anon.jpg"/>
-                        <span style="color:white;"><p>Olá, <span sec:authentication="name" ></span></p></span>
-                    </li>
-                    <li class="sidebar-lista-titulo">
-                        <span>PÁGINAS</span>
-                    </li>
-                    <li>
-                        <a href="#" th:href="@{/listacandidato}"><span class="glyphicon glyphicon-list icon-menu"></span>Lista de Candidatos</a>
-                    </li>
-                    <li>
-                        <a href="#" th:href="@{/novaedicao}"><span class="glyphicon glyphicon-education icon-menu"></span>Nova Edição</a>
-                    </li>
-                     <li>
-                        <a href="#" th:href="@{/logout}"><span class="glyphicon glyphicon-log-out icon-menu"></span>Sair</a>
-                    </li>
-                </ul>
+            <div id="sidebar-wrapper"  th:replace="fragments :: sidebar-wrapper">
+                
             </div>
             
-            <nav class="navbar navbar-default menu-nav nav-admin">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#" id="menu-toggle">
-                        <span class="glyphicon glyphicon-align-justify"></span>
-                    </a>
-                </div>
+            <nav class="navbar navbar-default menu-nav nav-admin"  th:replace="fragments :: nav">
+                
             </nav>  
             
             <div id="page-content-wrapper">
