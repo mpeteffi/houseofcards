@@ -9,30 +9,33 @@
         <link rel="stylesheet" th:href="@{/css/paginaadmin.css}"/>
         <title>Titulo do Projeto</title>
     </head>
-    <body>
+    <body class="body-admin">
         <div id="wrapper">
             <div id="sidebar-wrapper" th:fragment="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand text-center">
-                        <img src="http://www.cwi.com.br/Content/Site/img/logo_cwisoftware.png" class="img-responsive"></img>                
+                        <span id="logo-nome">Crescer</span><span id="logo-descricao">Inscrições</span>        
                     </li>
                     <li class="text-center div-perfil">
                         <img class="img-circle img-perfil" src="http://unshelteredvoices.org/img/people/anon.jpg"/>
-                        <p sec:authentication="name" style="color:white;"></p>
+                        <span style="color:white;"><p>Olá, <span sec:authentication="name" ></span></p></span>
+                    </li>
+                    <li class="sidebar-lista-titulo">
+                        <span>PÁGINAS</span>
                     </li>
                     <li>
-                        <a href="#" th:href="@{/home}">Lista de Candidatos</a>
+                        <a href="#" th:href="@{/home}"><span class="glyphicon glyphicon-list icon-menu"></span>Lista de Candidatos</a>
                     </li>
                     <li>
-                        <a href="#" th:href="@{/amigos}">Nova Edição</a>
+                        <a href="#" th:href="@{/amigos}"><span class="glyphicon glyphicon-education icon-menu"></span>Nova Edição</a>
                     </li>
                      <li>
-                        <a href="#" th:href="@{/logout}">Sair</a>
+                        <a href="#" th:href="@{/logout}"><span class="glyphicon glyphicon-log-out icon-menu"></span>Sair</a>
                     </li>
                 </ul>
             </div>
             
-            <nav class="navbar navbar-default menu-nav">
+            <nav class="navbar navbar-default menu-nav nav-admin">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#" id="menu-toggle">
                         <span class="glyphicon glyphicon-align-justify"></span>
@@ -41,7 +44,6 @@
             </nav>  
             
             <div id="page-content-wrapper">
-                
                 <div class="container-fluid">
                     <div class="row">
                         

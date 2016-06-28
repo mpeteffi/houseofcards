@@ -18,3 +18,38 @@
     width: 9em;
     height: 4em;
 }
+
+#logo-descricao{
+  color:white;  
+}
+
+#logo-nome{
+  color:#EF940F;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.body-admin{
+    background-color: #E5E9EC;
+}
+
+.nav-admin{
+    height: 55px;
+}
+
+.div-perfil{
+    margin-top: 24px;
+}
+
+.sidebar-lista-titulo{
+    background-color: #23272E;
+    color:#EF940F;
+    font-weight: bold;
+}
+.icon-menu{
+    margin-right: 10px;
+}
+
+li{
+    border-bottom: 1px solid #14161A;
+}
