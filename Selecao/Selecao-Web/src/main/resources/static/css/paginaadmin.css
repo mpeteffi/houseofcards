@@ -54,3 +54,20 @@
 li{
     border-bottom: 1px solid #14161A;
 }
+
+.error{
+    color: red;
+}
+#nova-edicao-form{
+    margin-top: 10%;
+}
+.error:focus {
+    border: 1px solid red;
+}
+
+form label.error{
+    font:13px Tahoma,sans-serif;
+    color:#ED7476;
+    margin-left:5px;
+    display:inline;
+}
