@@ -1,0 +1,13 @@
+.candidatoList{
+    margin-bottom: 2px;
+}
+
+.candidatoList > .panel-heading > p {
+    font-weight: bold;
+}
+
+.candidatoList p, .candidatoList a {
+    display: inline-block;
+    padding: 0px 10px;
+    margin: 0px;
+}
