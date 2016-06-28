@@ -1,6 +1,7 @@
 package br.com.crescer.selecao.service.services;
 
 import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.Processoseletivo;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,9 +18,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class EmailService {
-    
+
     @Autowired
     TokenService tokenService;
+
+    @Autowired
+    CandidatoService candidatoService;
 
     private static void configurar(Email email) {
         email.setHostName("smtp.gmail.com");
@@ -35,18 +39,35 @@ public class EmailService {
         try {
             email.setFrom("processoseletivocwi@gmail.com");
             email.setSubject("Confirmação de interesse");
-            //email.setMsg(msg);
             email.addTo(candidato.getEmail());
-            
-            // set the html message
-            email.setHtmlMsg("<html>Quase lá... <p>Para confirmar o interesse no projeto: <a href=\"http://localhost:9090/email/confirmar?token="+token+"\">link</a> </html>");
-            // set the alternative message
-            email.setTextMsg("Your email client does not support HTML messages");
-
+            email.setHtmlMsg("<html>Quase lá... <p>Para confirmar o interesse no projeto: <a href=\"http://localhost:9090/email/confirmar?token=" + token + "\">link</a> </html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void enviarEmailParaTodosInteressados(Candidato candidato, Processoseletivo processoSeletivo) {
+        HtmlEmail email = new HtmlEmail();
+        configurar(email);
+        String token = tokenService.newTokenForCandidato(candidato);
+        try {
+            email.setFrom("processoseletivocwi@gmail.com");
+            email.setSubject("Confirmação de inscrição");
+            email.addTo(candidato.getEmail());
+            email.setHtmlMsg("<html><h3>Iniciado o precesso seletivo do projeto crescer " + processoSeletivo.getEdicao() + "</h3>"
+                    + "<p>Data início do agendamento de entrevista:" + processoSeletivo.getInicioselecao() + "</p>"
+                    + "<p>Data final do agendamento de entrevista:" + processoSeletivo.getFinalselecao() + "</p>"
+                    + "<p>Data início dasaulas:" + processoSeletivo.getInicioaula() + "</p>"
+                    + "<p>Data início dasaulas:" + processoSeletivo.getFinalaula() + "</p>"
+                    + "<p>Para confirmar sua inscrição no projeto, acesse: <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">link</a> </html>");
+            email.send();
+            candidato.setStatus("NOTIFICADO");
+            candidatoService.salvar(candidato);
+        } catch (EmailException ex) {
+            Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

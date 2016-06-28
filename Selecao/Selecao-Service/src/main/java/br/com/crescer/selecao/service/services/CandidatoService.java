@@ -23,6 +23,10 @@ public class CandidatoService {
     @Autowired
     InformacaoRepository informacaoRepository;
     
+    public Candidato salvar(Candidato candidato){
+        return candidatoRepository.save(candidato);
+    }
+    
     public Candidato save(Candidato candidato){
         try {
             candidato.setStatus("INICIAL");            
@@ -30,6 +34,10 @@ public class CandidatoService {
         } catch (Exception e) {
             return null;
         }
+    }
+    
+    public Iterable<Candidato> findByStatus(String status){
+        return candidatoRepository.findByStatus(status);
     }
     
     public Page<Informacao> findByFilters(String status, String nome, String email, String telefone, int pagina){

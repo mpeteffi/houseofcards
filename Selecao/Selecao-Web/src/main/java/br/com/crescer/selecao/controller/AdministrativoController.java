@@ -3,6 +3,7 @@ package br.com.crescer.selecao.controller;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.service.services.CandidatoService;
+import br.com.crescer.selecao.service.services.EmailService;
 import br.com.crescer.selecao.service.services.ProcessoseletivoService;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,6 +28,9 @@ public class AdministrativoController {
     @Autowired
     ProcessoseletivoService processoSeletivoService;
     
+    @Autowired
+    EmailService emailService;
+    
     @RequestMapping(value="/administrativo")
     String login() {
         return "Administrativo";
@@ -39,7 +43,7 @@ public class AdministrativoController {
     
     @RequestMapping(value="/cadastro-nova-edicao", method = RequestMethod.POST)
     String save(@Valid Processoseletivo processoseletivo,Model model) {
-        processoSeletivoService.save(processoseletivo);
+        processoSeletivoService.save(processoseletivo);    
        return "Administrativo";
     }
 }
