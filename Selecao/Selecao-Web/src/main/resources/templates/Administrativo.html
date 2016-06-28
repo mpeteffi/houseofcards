@@ -1,47 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-        <link rel="stylesheet" th:href="@{/css/menulateral.css}"/>
-        <link rel="stylesheet" th:href="@{/css/paginaadmin.css}"/>
+    <head th:replace="fragments :: head">        
         <title>Titulo do Projeto</title>
     </head>
-    <body>
+    <body class="body-admin">
         <div id="wrapper">
-            <div id="sidebar-wrapper" th:fragment="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand text-center">
-                        <img src="http://www.cwi.com.br/Content/Site/img/logo_cwisoftware.png" class="img-responsive"></img>                
-                    </li>
-                    <li class="text-center div-perfil">
-                        <img class="img-circle img-perfil" src="http://unshelteredvoices.org/img/people/anon.jpg"/>
-                        <p sec:authentication="name" style="color:white;"></p>
-                    </li>
-                    <li>
-                        <a href="#" th:href="@{/home}">Lista de Candidatos</a>
-                    </li>
-                    <li>
-                        <a href="#" th:href="@{/amigos}">Nova Edição</a>
-                    </li>
-                     <li>
-                        <a href="#" th:href="@{/logout}">Sair</a>
-                    </li>
-                </ul>
+            <div id="sidebar-wrapper"  th:replace="fragments :: sidebar-wrapper">
+                
             </div>
             
-            <nav class="navbar navbar-default menu-nav">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#" id="menu-toggle">
-                        <span class="glyphicon glyphicon-align-justify"></span>
-                    </a>
-                </div>
+            <nav class="navbar navbar-default menu-nav nav-admin"  th:replace="fragments :: nav">
+                
             </nav>  
             
             <div id="page-content-wrapper">
-                
                 <div class="container-fluid">
                     <div class="row">
                         

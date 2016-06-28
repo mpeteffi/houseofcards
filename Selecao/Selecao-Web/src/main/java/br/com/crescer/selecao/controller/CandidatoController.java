@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,7 +40,7 @@ public class CandidatoController {
     } 
     
     @RequestMapping(value="/cadastro", method = RequestMethod.POST)
-    String save(@Valid Candidato candidato, HttpServletRequest req) {
+    String save(@Valid Candidato candidato, HttpServletRequest req,Model model) {
         String response = req.getParameter("g-recaptcha-response");
         String ipAcesso = req.getRemoteAddr();
         boolean captchaValido = recaptchaService.isResponseValid(ipAcesso, response);
@@ -54,7 +55,8 @@ public class CandidatoController {
             } catch (Exception e){
                 return "redirect:cadastro?erroEmail";
             }
-            return "TelaSucesso";
+            model.addAttribute("mensagemFormCadastro", "Sucesso, confirme a inscrição acessando seu email e clicando no link de confirmação");
+            return "Sucesso";
         }        
         return "redirect:cadastro?erroCaptcha";
     }
