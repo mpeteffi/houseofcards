@@ -29,23 +29,25 @@ public class TokenServiceTest {
     @Before
     public void init() {
         MockitoAnnotations.initMocks(this);
+        String codigo = "CodigoValido";
         when(tokenRepository.save(new Token())).thenReturn(null);
+        when(tokenRepository.findOneByTokenAndStatusAndTipo(null, "PENDENTE", "INTERESSADO")).thenReturn(null);
+        when(tokenRepository.findOneByTokenAndStatusAndTipo("CodigoInvalido", "PENDENTE", "INTERESSADO")).thenReturn(null);
+        when(tokenRepository.findOneByTokenAndStatusAndTipo(codigo, "PENDENTE", "INTERESSADO")).thenReturn(new Token(1, codigo, codigo, codigo));
+        when(candidatoRepository.save(new Candidato())).thenReturn(null);
+        when(candidatoRepository.findOneByIdcandidato(1)).thenReturn(new Candidato());
     }
     
     @Test
     public void newTokenRetornaStringValida() {
         Candidato candidato = new Candidato();
-//        Token token = new Token();
-//        when(tokenRepository.save(token)).thenReturn(null);
         String codigo = tokenService.newTokenForCandidato(candidato);
-        assertTrue(codigo != null);
+        assertTrue(codigo != null && !codigo.isEmpty());
     }
     
     @Test(expected=NullPointerException.class)
     public void newTokenRetornaNullPointerExceptionParaCandidatoNull() {
         Candidato candidato = null;
-//        Token token = new Token();
-//        when(tokenRepository.save(token)).thenReturn(null);
         tokenService.newTokenForCandidato(candidato);
     }
     
@@ -54,8 +56,6 @@ public class TokenServiceTest {
         Candidato candidato1 = new Candidato();
         Candidato candidato2 = new Candidato();
         Candidato candidato3 = new Candidato();
-//        Token token = new Token();
-//        when(tokenRepository.save(token)).thenReturn(null);
         String codigo1 = tokenService.newTokenForCandidato(candidato1);
         String codigo2 = tokenService.newTokenForCandidato(candidato2);
         String codigo3 = tokenService.newTokenForCandidato(candidato3);
@@ -65,24 +65,29 @@ public class TokenServiceTest {
     @Test
     public void newTokenRetornaChavesDiferentesParaMesmoCandidato() {
         Candidato candidato1 = new Candidato();
-//        Token token = new Token();
-//        when(tokenRepository.save(token)).thenReturn(null);
         String codigo1 = tokenService.newTokenForCandidato(candidato1);
         String codigo2 = tokenService.newTokenForCandidato(candidato1);
         String codigo3 = tokenService.newTokenForCandidato(candidato1);
         assertTrue(!codigo1.equals(codigo2) && !codigo2.equals(codigo3) && !codigo3.equals(codigo1));
     }
-
     
-//    @Test
-//    public void testConfirmarInteresse() {
-//        System.out.println("confirmarInteresse");
-//        String codigo = "";
-//        TokenService instance = new TokenService();
-//        boolean expResult = false;
-//        boolean result = instance.confirmarInteresse(codigo);
-//        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
-//    }
+    @Test
+    public void confirmarInteresseComTokenValidoRetornaTrue() {
+        String codigo = "CodigoValido";
+        boolean confirmado = tokenService.confirmarInteresse(codigo);
+        assertTrue(confirmado);
+    }
+    
+    @Test
+    public void confirmarInteresseComTokenInvalidoRetornaFalso() {
+        String codigo = "CodigoInvalido";
+        boolean confirmado = tokenService.confirmarInteresse(codigo);
+        assertFalse(confirmado);
+    }
+    
+    @Test
+    public void confirmarInteresseComTokenNullRetornaFalse() {
+        boolean confirmado = tokenService.confirmarInteresse("CodigoInvalido");
+        assertFalse(confirmado);
+    }
 }
