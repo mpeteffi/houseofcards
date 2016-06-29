@@ -60,6 +60,10 @@ public class CandidatoService {
         return candidatoRepository.findByStatus(status);
     }
     
+    public Candidato findByIdCandidato(int id){
+        return candidatoRepository.findOneByIdcandidato(id);
+    }
+    
     public Page<Informacao> findByFilters(String status, String nome, String email, String telefone, int pagina){
         if(status == null){status = "";}
         if(email == null){email = "";}

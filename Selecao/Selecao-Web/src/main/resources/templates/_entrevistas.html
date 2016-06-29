@@ -1,0 +1,19 @@
+<div class="col-md-12">
+    <p th:text="${candidato.nome}+' ('+${candidato.email}+') - '+${candidato.faculdade}+'/'+${candidato.curso}"></p>
+</div>
+<div class="row">
+    <div th:if="${not #lists.isEmpty(${entrevista})" th:each="entrevista : ${entrevista}" class="panel panel-default candidatoList">
+        <div class="panel-heading">
+            <p th:text="${candidato.idcandidato.nome}"></p>
+        </div>
+        <div class="panel-body">
+            <p th:text="'Telefone: ' + ${candidato.telefone}"></p>
+            <p th:text="'Idade: ' + (${#dates.format(candidato.datanascimento, 'yyyy')} - 1970)"></p>
+            <p th:text="'Email: ' + ${candidato.idcandidato.email}"></p>
+            <p th:text="'Status: ' + ${candidato.idcandidato.status}"></p>
+            <a th:href="${candidato.urllinkedin}">Linkedin</a>
+            <a th:href="${candidato.urllinkedin}">Ver Mais</a>
+            <a th:href="${candidato.urllinkedin}">Entrevistas</a>
+        </div>
+    </div>
+</div>

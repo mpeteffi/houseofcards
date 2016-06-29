@@ -23,7 +23,7 @@ mainView.prototype.postForm = function (pagina,dados) {
 //https://api.jquery.com/serializeArray/
 mainView.prototype.serializeArrayToObj = function (serializeArray) { 
     var objRetorno = {};
-    $.each(serializeArray, function(item) {
+    $.each(serializeArray, function(i,item) {
         objRetorno[item.name] = item.value;
     });
     return objRetorno;  
@@ -44,9 +44,9 @@ mainView.prototype.init = function () {
             evento:'submit',
             obj:'.form-filtro',
             funcao:function(e){
-                $('.input-pagina').val($(this).data(0));
+                $('.input-pagina').val(0);                
+                self.atualizaView($(this).data('url'),self.serializeArrayToObj($('.form-filtro').serializeArray()));
                 e.preventDefault();
-                self.atualizaView(this.data('url')),self.serializeArrayToObj($('.form-filtro').serialize());
             }
     });
     
@@ -54,9 +54,8 @@ mainView.prototype.init = function () {
             evento:'click',
             obj:'.btn-paginacao',
             funcao:function(e){
-                $('.input-pagina').val($(this).data('page'));
-                e.preventDefault();
-                self.atualizaView(this.data('url')),self.serializeArrayToObj($('.form-filtro').serialize());
+                $('.input-pagina').val($(this).data('page'));                
+                self.atualizaView($(this).data('url'),self.serializeArrayToObj($('.form-filtro').serializeArray()));
             }
     });
     
@@ -72,7 +71,7 @@ mainView.prototype.init = function () {
             evento:'submit',
             obj:'#nova-edicao-form',
             funcao:function(e){                
-                self.postForm($(this).data('url'),self.serializeArrayToObj($(this).serialize()));
+                self.postForm($(this).data('url'),self.serializeArrayToObj($(this).serializeArray()));
                 e.preventDefault();
             }
     });

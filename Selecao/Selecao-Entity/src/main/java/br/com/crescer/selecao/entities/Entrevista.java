@@ -61,7 +61,7 @@ public class Entrevista implements Serializable {
     
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
     @ManyToOne(optional = false)
-    private Candidato idcandidato;
+    private Candidato idCandidato;
     
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
     @ManyToOne(optional = false)
@@ -136,12 +136,12 @@ public class Entrevista implements Serializable {
         this.provatecnica = provatecnica;
     }
 
-    public Candidato getIdcandidato() {
-        return idcandidato;
+    public Candidato getIdCandidato() {
+        return idCandidato;
     }
 
-    public void setIdcandidato(Candidato idcandidato) {
-        this.idcandidato = idcandidato;
+    public void setIdCandidato(Candidato idcandidato) {
+        this.idCandidato = idcandidato;
     }
 
     public Usuario getIdusuario() {
