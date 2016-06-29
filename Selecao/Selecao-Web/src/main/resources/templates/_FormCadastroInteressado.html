@@ -2,22 +2,27 @@
     <div class="form-group">
         <label>Nome</label>
         <input required="required" class="form-control" type="text" th:field="*{nome}"/> 
+        <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
     </div>
     <div class="form-group">
         <label>Email</label>
-        <input required="required" class="form-control" type="email" th:field="*{email}"/> 
+        <input required="required" class="form-control" type="email" th:field="*{email}"/>
+        <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
     </div>
     <div class="form-group">
         <label>Instituição de Ensino</label>
         <input required="required" class="form-control" type="text" th:field="*{instituicaoensino}"/> 
+        <p class="text-danger" th:if="${#fields.hasErrors('instituicaoensino')}" th:errors="*{instituicaoensino}"></p>
     </div>
     <div class="form-group">
         <label>Curso</label>
-        <input required="required" class="form-control" type="text" th:field="*{curso}"/> 
+        <input required="required" class="form-control" type="text" th:field="*{curso}"/>
+        <p class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></p>
     </div>
     <div class="form-group">
         <label>Previsao Formatura</label>
-        <input required="required" class="form-control" type="date" th:field="*{previsaoformatura}"/> 
+        <input required="required" class="form-control" type="date" th:field="*{previsaoformatura}"/>
+        <p class="text-danger" th:if="${#fields.hasErrors('previsaoformatura')}" th:errors="*{previsaoformatura}"></p>
     </div>
     <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
     <div class="form-group"><br/>

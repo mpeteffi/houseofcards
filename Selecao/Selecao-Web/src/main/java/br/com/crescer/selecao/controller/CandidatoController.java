@@ -66,7 +66,6 @@ public class CandidatoController {
                         //email ja existe
                     }
                 } else {
-                    model.addAttribute("errors", bindingResult.getAllErrors());
                     return "_InteressadoCadastro";
                 }
             } catch (Exception e) {

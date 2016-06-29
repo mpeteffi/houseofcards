@@ -15,7 +15,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * @author murillo.peteffi
@@ -34,23 +39,30 @@ public class Informacao implements Serializable {
     @Column(name = "IDINFORMACAO")
     private int idinformacao;
     
+    @Pattern(regexp="^([0-9]{2})?(\\([0-9]{2})\\)([0-9]{3}|[0-9]{4})-[0-9]{4}$",message="Informe seu número de telefone corretamente com DDD")
     @Basic(optional = false)
     @Column(name = "TELEFONE")
     private String telefone;
     
+    @NotNull(message="Campo Data de nascimento deve ser preenchido")
+    @Past(message="Informe uma data válida")
     @Basic(optional = false)
     @Column(name = "DATANASCIMENTO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date datanascimento;
     
+    @NotBlank(message="Campo Cidade deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "CIDADE")
     private String cidade;
     
+    @NotBlank(message="Campo Url linkedin deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "URLLINKEDIN")
     private String urllinkedin;    
-
+    
+    @NotBlank(message="Campo Senha deve ser preenchido")
+    @Size(min=6,message="Sua senha deve conter no mínimo 6 dígitos")
     @Basic(optional = false)
     @Column(name = "SENHA")
     private String senha;
