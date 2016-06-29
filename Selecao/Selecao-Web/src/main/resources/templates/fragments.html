@@ -17,8 +17,8 @@
                         <span id="logo-nome">Crescer</span><span id="logo-descricao">Inscrições</span>        
                     </li>
                     <li class="text-center div-perfil">
-                        <img class="img-circle img-perfil" src="http://unshelteredvoices.org/img/people/anon.jpg"/>
-                        <span style="color:white;"><p>Olá, <span sec:authentication="name" ></span></p></span>
+                        <img class="img-circle img-perfil" th:src="@{${user.imagem}}"/>
+                        <span style="color:white;"><p>Olá, <span th:text="${user.nome}" ></span></p></span>
                     </li>
                     <li class="sidebar-lista-titulo">
                         <span>PÁGINAS</span>

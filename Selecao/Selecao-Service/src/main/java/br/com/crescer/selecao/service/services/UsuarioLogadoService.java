@@ -1,6 +1,7 @@
 package br.com.crescer.selecao.service.services;
 
 import br.com.crescer.selecao.entities.Usuario;
+import br.com.crescer.selecao.entities.UsuarioLogadoModel;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class UsuarioLogadoService {
         
     public Usuario getUsuarioLogado(){
-        return (Usuario)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UsuarioLogadoModel logado = (UsuarioLogadoModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return logado.getUsuarioLogado();
     }
 }
