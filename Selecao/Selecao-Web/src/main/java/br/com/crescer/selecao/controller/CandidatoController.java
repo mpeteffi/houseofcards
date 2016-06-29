@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,55 +31,64 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class CandidatoController {
-    
+
     @Autowired
     RecaptchaService recaptchaService;
-    
+
     @Autowired
     CandidatoService candidatoService;
-    
+
     @Autowired
     EmailService emailService;
-    
-    @RequestMapping(value="/cadastro", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/cadastro", method = RequestMethod.GET)
     String exemplo() {
         return "_InteressadoCadastro";
-    } 
-    
-    @RequestMapping(value="/cadastro", method = RequestMethod.POST)
-    String save(@Valid Candidato candidato, HttpServletRequest req,Model model) {
+    }
+
+    @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
+    String save(@Valid Candidato candidato, BindingResult bindingResult, HttpServletRequest req, Model model) {
         String response = req.getParameter("g-recaptcha-response");
         String ipAcesso = req.getRemoteAddr();
         boolean captchaValido = recaptchaService.isResponseValid(ipAcesso, response);
-        
-        if(captchaValido) {
+
+        if (captchaValido) {
             try {
-                if(candidatoService.save(candidato) != null){
-                    emailService.enviarEmailParaConfirmacaoDeInteresse(candidato);
-                }else{
-                    //email ja existe
+                if (!bindingResult.hasErrors()) {
+                    if (candidatoService.save(candidato) != null) {
+                        emailService.enviarEmailParaConfirmacaoDeInteresse(candidato);
+                    } else {
+                        //email ja existe
+                    }
+                } else {
+                    model.addAttribute("errors", bindingResult.getAllErrors());
+                    return "_InteressadoCadastro";
                 }
-            } catch (Exception e){
+            } catch (Exception e) {
                 return "redirect:cadastro?erroEmail";
             }
             model.addAttribute("mensagemFormCadastro", "Confirme a inscrição acessando seu email e clicando no link de confirmação");
             return "Sucesso";
-        }        
+        }
         return "redirect:cadastro?erroCaptcha";
     }
-    
+
     @ModelAttribute("candidato")
     public Candidato candidato() {
         return new Candidato();
     }
-    
-    @RequestMapping(value="/candidatos")
+
+    @RequestMapping(value = "/candidatos")
     String candidatos(@RequestParam(required = false) CandidatoFiltroDTO filtro, Integer page, Model model) {
-        if (page == null){ page = 0;}
-        if (filtro == null){ filtro = new CandidatoFiltroDTO(null,null,null,null);}
-        Page<Informacao> candidatos = candidatoService.findByFilters(filtro.getStatus(), filtro.getNome(), filtro.getEmail(), 
-                                                                     filtro.getTelefone(), page);
-        for(Informacao i : candidatos){
+        if (page == null) {
+            page = 0;
+        }
+        if (filtro == null) {
+            filtro = new CandidatoFiltroDTO(null, null, null, null);
+        }
+        Page<Informacao> candidatos = candidatoService.findByFilters(filtro.getStatus(), filtro.getNome(), filtro.getEmail(),
+                filtro.getTelefone(), page);
+        for (Informacao i : candidatos) {
             i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
         }
         model.addAttribute("valorAntigoInput", filtro);
@@ -86,7 +96,7 @@ public class CandidatoController {
         model.addAttribute("pagina", page);
         return "_Candidatos";
     }
-    
+
     public Date tempoDecorrido(Date date) {
         Calendar c = Calendar.getInstance();
         if (date == null) {

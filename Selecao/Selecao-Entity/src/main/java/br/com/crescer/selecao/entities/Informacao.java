@@ -49,8 +49,8 @@ public class Informacao implements Serializable {
     
     @Basic(optional = false)
     @Column(name = "URLLINKEDIN")
-    private String urllinkedin;
-    
+    private String urllinkedin;    
+
     @Basic(optional = false)
     @Column(name = "SENHA")
     private String senha;
