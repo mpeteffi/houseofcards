@@ -20,9 +20,11 @@
                         </div>
                         <div class="panel-body">
 
-                            <ul th:if="${errors}">
-                                <li th:each="err : ${errors}" th:text="${err.message}"></li>
-                            </ul>
+                            <div th:if="${errors}">
+                                <div class="alert alert-danger" role="alert" th:each="err : ${errors}" >
+                                    <span th:text="${err.defaultMessage}"></span>
+                                </div>
+                            </div>
 
                             <div th:include="_FormCadastroInteressado"></div>
 

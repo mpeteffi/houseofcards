@@ -35,28 +35,28 @@ public class Candidato implements Serializable {
     @Column(name = "IDCANDIDATO")
     private int idcandidato;
     
-    @NotBlank(message="Campo nome deve ser preenchido")
+    @NotBlank(message="Campo Nome deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "NOME")
     private String nome;
     
-    @NotBlank(message="Campo email deve ser preenchido")
+    @NotBlank(message="Campo Email deve ser preenchido")
     @Email(message="Digite um endereço de email válido")
     @Basic(optional = false)
     @Column(name = "EMAIL")
     private String email;
     
-    @NotBlank(message="Campo instituição de ensino deve ser preenchido")
+    @NotBlank(message="Campo Instituição de ensino deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "INSTITUICAOENSINO")
     private String instituicaoensino;    
     
-    @NotBlank(message="Campo curso deve ser preenchido")
+    @NotBlank(message="Campo Curso deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "CURSO")
     private String curso;
     
-    @NotBlank(message="Campo previsão formatura deve ser preenchido")
+    @NotBlank(message="Campo Previsão de formatura deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "PREVISAOFORMATURA")
     private String previsaoformatura;
