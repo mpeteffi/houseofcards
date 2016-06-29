@@ -21,10 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author murillo.peteffi
  */
 @Entity
-@Table(name = "ENTREVISTA", uniqueConstraints={
-    @UniqueConstraint(columnNames = {"IDCANDIDATO","PROVAG36"}), 
-    @UniqueConstraint(columnNames = {"IDCANDIDATO","PROVAAC"}), 
-    @UniqueConstraint(columnNames = {"IDCANDIDATO","PROVATECNICA"})})
+@Table(name = "ENTREVISTA")
 @XmlRootElement
 public class Entrevista implements Serializable {
 
