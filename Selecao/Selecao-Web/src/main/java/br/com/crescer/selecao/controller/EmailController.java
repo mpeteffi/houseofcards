@@ -80,7 +80,6 @@ public class EmailController {
             model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
             return "Sucesso";
         } else {
-            model.addAttribute("errors",bindingResult.getFieldErrors());
             return "FormConfirmarInscricao";
         }
 

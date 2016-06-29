@@ -3,11 +3,13 @@ function mainView(options) {
     options = options || {};   
     this.$corpo = options.$corpo;
     this.$html = $('html');
+    this.edicaoAtual = options.edicaoAtual;
 };
 
 mainView.prototype.atualizaView = function (pagina,obj) { 
     var self = this;
     var dados = obj ? self.serializeArrayToObj(obj.serializeArray()) : {};
+    dados.edicao = this.edicaoAtual;
     $.get(pagina,dados, function(res) {
         self.appendCorpo(res);
     });      

@@ -1,7 +1,7 @@
 "use strict";
 (function(){ 
     
-    var view = new mainView({$corpo:$('.corpo')});
+    var view = new mainView({$corpo:$('.corpo'),edicaoAtual:$('#edicao').text()});
   
     view.appendEventoNoHtml({
             evento:'click',
@@ -45,5 +45,23 @@
                 mainView.postForm($(this).data('url'),$(this));
                 e.preventDefault();
             }
+    });
+    
+    view.appendEventoNoHtml({
+        evento: 'click',
+        obj: '.btnLogout',
+        funcao: function(){swal({
+            title: 'Logout solicitado.',
+            text: "Tem certeza que deseja sair?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Sair!'
+            }).then(function() {
+                window.location.href = "/logout";
+            }).done();
+        }
     });
 })();

@@ -35,6 +35,8 @@ public class AdministrativoController {
     String login(Model model) {
         Usuario user = usuarioLogadoService.getUsuarioLogado();
         model.addAttribute("user", user);
+        String edicao = processoSeletivoService.buscarProcessoAtual().getEdicao();
+        model.addAttribute("edicao", edicao);
         return "Administrativo";
     } 
     

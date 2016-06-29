@@ -64,7 +64,6 @@ public class CandidatoController {
                         //email ja existe
                     }
                 } else {
-                    model.addAttribute("errors", bindingResult.getAllErrors());
                     return "_InteressadoCadastro";
                 }
             } catch (Exception e) {
@@ -82,11 +81,11 @@ public class CandidatoController {
     }
 
     @RequestMapping(value = "/candidatos")
-    String candidatos(String nome,String email,String telefone,String status, Integer page, Model model) {
+    String candidatos(String nome,String email,String telefone,String status, String edicao, Integer page, Model model) {
         if (page == null) {
             page = 0;
         }
-        Page<Informacao> candidatos = candidatoService.findByFilters(status, nome, email,telefone, page);
+        Page<Informacao> candidatos = candidatoService.findByFilters(edicao, status, nome, email,telefone, page);
         for (Informacao i : candidatos) {
             i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
         }
