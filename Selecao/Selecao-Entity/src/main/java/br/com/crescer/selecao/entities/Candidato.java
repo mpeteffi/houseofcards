@@ -10,7 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -30,22 +35,28 @@ public class Candidato implements Serializable {
     @Column(name = "IDCANDIDATO")
     private int idcandidato;
     
+    @NotBlank(message="Campo nome deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "NOME")
     private String nome;
     
+    @NotBlank(message="Campo email deve ser preenchido")
+    @Email(message="Digite um endereço de email válido")
     @Basic(optional = false)
     @Column(name = "EMAIL")
     private String email;
     
+    @NotBlank(message="Campo instituição de ensino deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "INSTITUICAOENSINO")
-    private String instituicaoensino;
+    private String instituicaoensino;    
     
+    @NotBlank(message="Campo curso deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "CURSO")
     private String curso;
     
+    @NotBlank(message="Campo previsão formatura deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "PREVISAOFORMATURA")
     private String previsaoformatura;

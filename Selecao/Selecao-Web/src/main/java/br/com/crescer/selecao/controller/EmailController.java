@@ -29,10 +29,10 @@ public class EmailController {
 
     @Autowired
     TokenService tokenService;
-    
+
     @Autowired
     CandidatoService candidatoService;
-    
+
     @Autowired
     ProcessoseletivoService processoseletivoService;
 
@@ -71,14 +71,19 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/confirmar-inscricao", method = RequestMethod.POST)
-    String confirmarTokenInteresse(@Valid Informacao informacao,BindingResult bindingResult, Model model) {       
-        
-        Processoseletivo processo = processoseletivoService.buscarProcessoAtual();        
-        candidatoService.salvarInformacoes(informacao,processo);
-        tokenService.invalidarTokenParaCandidato(informacao.getIdcandidato());
-        model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
-        return "Sucesso";
-        
+    String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult, Model model) {
+
+        if (!bindingResult.hasErrors()) {
+            Processoseletivo processo = processoseletivoService.buscarProcessoAtual();
+            candidatoService.salvarInformacoes(informacao, processo);
+            tokenService.invalidarTokenParaCandidato(informacao.getIdcandidato());
+            model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
+            return "Sucesso";
+        } else {
+            model.addAttribute("errors",bindingResult.getFieldErrors());
+            return "FormConfirmarInscricao";
+        }
+
     }
 
 }
