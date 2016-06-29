@@ -7,7 +7,6 @@ package br.com.crescer.selecao.controller;
 
 import br.com.crescer.selecao.captcha.RecaptchaService;
 import br.com.crescer.selecao.entities.Candidato;
-import br.com.crescer.selecao.entities.CandidatoFiltroDTO;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.service.services.CandidatoService;
@@ -15,6 +14,7 @@ import br.com.crescer.selecao.service.services.EmailService;
 import br.com.crescer.selecao.service.services.EntrevistaService;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +25,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
 /**
  *
  * @author michel.fernandes
@@ -83,19 +81,22 @@ public class CandidatoController {
     }
 
     @RequestMapping(value = "/candidatos")
-    String candidatos(@RequestParam(required = false) CandidatoFiltroDTO filtro, Integer page, Model model) {
+    String candidatos(String nome,String email,String telefone,String status, Integer page, Model model) {
         if (page == null) {
             page = 0;
         }
-        if (filtro == null) {
-            filtro = new CandidatoFiltroDTO(null, null, null, null);
-        }
-        Page<Informacao> candidatos = candidatoService.findByFilters(filtro.getStatus(), filtro.getNome(), filtro.getEmail(),
-                filtro.getTelefone(), page);
+        Page<Informacao> candidatos = candidatoService.findByFilters(status, nome, email,telefone, page);
         for (Informacao i : candidatos) {
             i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
         }
-        model.addAttribute("valorAntigoInput", filtro);
+        model.addAttribute("valorAntigoInput", new HashMap<String, String>(){
+            {
+                put("nome", nome);
+                put("telefone", telefone);
+                put("email", email);
+                put("status", status);
+            }
+        });
         model.addAttribute("candidatos", candidatos);
         model.addAttribute("pagina", page);
         return "_Candidatos";

@@ -25,12 +25,9 @@
         </div>
         <script th:src="@{/js/jquery-2.2.3.min.js}" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/sweetalert2/4.0.6/sweetalert2.min.js" type="text/javascript"></script>
         <script th:src="@{/js/slidemenu.js}" type="text/javascript"></script>
         <script th:src="@{/js/mainView.js}" type="text/javascript"></script>
-        <script type="text/javascript">
-            new mainView({
-                $corpo:$('.corpo')
-            }).init();
-        </script>
+        <script th:src="@{/js/script.js}" type="text/javascript"></script>
     </body>
 </html>

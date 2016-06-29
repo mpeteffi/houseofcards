@@ -39,5 +39,3 @@
 
 <button  th:disabled="${candidatos.first}" class="btn-paginacao btn btn-default" data-url="/candidatos" href="#" th:attr="data-page= ${candidatos.first} ? null : ${pagina}-1">Anterior</button>
 <button th:disabled="${candidatos.last}" class="btn-paginacao btn btn-default" data-url="/candidatos" href="#" th:attr="data-page= ${candidatos.last} ? null : ${pagina}+1">Próximo</button>
-
-
