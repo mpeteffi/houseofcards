@@ -8,9 +8,11 @@ package br.com.crescer.selecao.controller;
 import br.com.crescer.selecao.captcha.RecaptchaService;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.CandidatoFiltroDTO;
+import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.service.services.CandidatoService;
 import br.com.crescer.selecao.service.services.EmailService;
+import br.com.crescer.selecao.service.services.EntrevistaService;
 import java.util.Calendar;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
@@ -34,10 +36,13 @@ public class CandidatoController {
 
     @Autowired
     RecaptchaService recaptchaService;
-
+    
     @Autowired
     CandidatoService candidatoService;
-
+    
+    @Autowired
+    EntrevistaService entrevistaService;
+    
     @Autowired
     EmailService emailService;
 
@@ -106,5 +111,16 @@ public class CandidatoController {
         c.setTime(new Date(diff));
 
         return c.getTime();
+    }
+    
+    
+    @RequestMapping(value="/entrevistas")
+    String entrevistas(Integer idCandidato, Model model) {
+        if (idCandidato == null){ idCandidato = 0;}
+        Candidato candidato = candidatoService.findByIdCandidato(idCandidato);
+        Entrevista entrevistas = entrevistaService.findByCandidato(candidato);        
+        model.addAttribute("candidato", candidato);
+        model.addAttribute("entrevistas", entrevistas);
+        return "_entrevistas";
     }
 }
