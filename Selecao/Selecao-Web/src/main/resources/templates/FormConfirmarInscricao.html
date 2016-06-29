@@ -19,63 +19,11 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            
-                            <form th:action="@{/email/confirmar-inscricao}" th:object="${informacao}" method="POST">
-                                <input type="hidden" th:value="${candidato.idcandidato}" name="idcandidato.idcandidato"></input>
-                                <div class="form-group">
-                                    <label>Nome</label>
-                                    <input required="required" class="form-control" type="text" th:value="${candidato.nome}" name="idcandidato.nome"/>
-                                    <p class="text-danger" th:if="${#fields.hasErrors('idcandidato.nome')}" th:errors="*{idcandidato.nome}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input required="required" class="form-control" type="email" th:value="${candidato.email}" name="idcandidato.email"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('idcandidato.email')}" th:errors="*{idcandidato.email}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Instituição de Ensino</label>
-                                    <input required="required" class="form-control" type="text" th:value="${candidato.instituicaoensino}" name="idcandidato.instituicaoensino"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('idcandidato.instituicaoensino')}" th:errors="*{idcandidato.instituicaoensino}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Curso</label>
-                                    <input required="required" class="form-control" type="text" th:value="${candidato.curso}" name="idcandidato.curso"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('idcandidato.curso')}" th:errors="*{idcandidato.curso}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Previsao Formatura</label>
-                                    <input required="required" class="form-control" type="date" th:value="${candidato.previsaoformatura}" name="idcandidato.previsaoformatura"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('idcandidato.previsaoformatura')}" th:errors="*{idcandidato.previsaoformatura}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Telefone</label>
-                                    <input required="required" class="form-control" type="text" name="telefone"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Data de nascimento</label>
-                                    <input required="required" class="form-control" type="text" name="datanascimento"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('datanascimento')}" th:errors="*{datanascimento}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Cidade</label>
-                                    <input required="required" class="form-control" type="text" name="cidade"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Linkedin URL</label>
-                                    <input required="required" class="form-control" type="text" name="urllinkedin"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('urllinkedin')}" th:errors="*{urllinkedin}"></p>
-                                </div>
-                                <div class="form-group">
-                                    <label>Senha</label>
-                                    <input required="required" class="form-control" type="password" name="senha"/> 
-                                    <p class="text-danger" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></p>
-                                </div>
-                                <div class="form-group"><br/>
-                                    <button type="submit" value="Sign In" class="btn btn-success">Enviar</button>
-                                </div>
-                            </form>
+                            <div th:if="${erros}">
+                                <p class="text-danger" th:each="err:${erros}" th:text="${err.defaultMessage}" ></p>
+                            </div>
+                            <div th:include="formulario-candidato"> </div>
+
                         </div>
                     </div>
                 </div>

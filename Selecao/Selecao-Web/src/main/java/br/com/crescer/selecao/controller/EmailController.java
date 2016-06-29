@@ -62,6 +62,7 @@ public class EmailController {
         Candidato candidato = tokenService.confirmarInscricao(token);
 
         if (candidato != null) {
+            model.addAttribute("token", token);
             model.addAttribute("informacao", new Informacao());
             model.addAttribute("candidato", candidato);
             return "FormConfirmarInscricao";
@@ -71,7 +72,7 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/confirmar-inscricao", method = RequestMethod.POST)
-    String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult, Model model) {
+    String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult,String token, Model model) {
 
         if (!bindingResult.hasErrors()) {
             Processoseletivo processo = processoseletivoService.buscarProcessoAtual();
@@ -80,7 +81,8 @@ public class EmailController {
             model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
             return "Sucesso";
         } else {
-            return "FormConfirmarInscricao";
+            model.addAttribute("erros", bindingResult.getAllErrors());
+            return confirmarTokenInscricao(token,model);
         }
 
     }

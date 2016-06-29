@@ -21,6 +21,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @author murillo.peteffi
@@ -39,11 +40,12 @@ public class Informacao implements Serializable {
     @Column(name = "IDINFORMACAO")
     private int idinformacao;
     
-    @Pattern(regexp="^([0-9]{2})?(\\([0-9]{2})\\)([0-9]{3}|[0-9]{4})-[0-9]{4}$",message="Informe seu número de telefone corretamente com DDD")
+    @NotNull(message="Campo Telefone deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "TELEFONE")
     private String telefone;
     
+    @DateTimeFormat(pattern="dd/MM/YYYY")
     @NotNull(message="Campo Data de nascimento deve ser preenchido")
     @Past(message="Informe uma data válida")
     @Basic(optional = false)
@@ -59,7 +61,7 @@ public class Informacao implements Serializable {
     @NotBlank(message="Campo Url linkedin deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "URLLINKEDIN")
-    private String urllinkedin;    
+    private String urllinkedin;
     
     @NotBlank(message="Campo Senha deve ser preenchido")
     @Size(min=6,message="Sua senha deve conter no mínimo 6 dígitos")
