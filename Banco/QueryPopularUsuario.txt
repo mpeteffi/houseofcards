@@ -67,3 +67,310 @@ INTO INFORMACAO (TELEFONE, DATANASCIMENTO, CIDADE, URLLINKEDIN, SENHA, IDCANDIDA
 INTO INFORMACAO (TELEFONE, DATANASCIMENTO, CIDADE, URLLINKEDIN, SENHA, IDCANDIDATO, IDPROCESSOSELETIVO) 
 	VALUES ('(51)99997777', TO_DATE('1992/12/27', 'yyyy/mm/dd'), 'Novo Hamburgo', 'http://www.linkedin.com', '$2a$10$LVAx7/xyEpi9/VesmBNQ6Op7eCdpqaUauOMVOK57/J3U3etbYiODW', '15', '1')
 SELECT 1 FROM DUAL;
+
+
+
+INSERT ALL 
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/11', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 1,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO,IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/21', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  1,1)
+  
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/28', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  1,1)
+  
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/12', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  2,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 2,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/21', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  2,1)
+  
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/12', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  3,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 3,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/21', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  3,1)
+  
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/12', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  4,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 4,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/25', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  4,1)
+  
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/12', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 5,1)
+ 
+  
+   INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/12', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  6,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 6,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/25', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  6,1)
+  
+
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 7,1)
+
+  
+   INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/12', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  8,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 8,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO,IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/25', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  8,1)
+  
+   INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/12', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  9,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO, PROVAG36, PROVAAC, PROVATECNICA, IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/15', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  5.6, 8.8, 9.8, 9,1)
+  INTO ENTREVISTA (DATAENTREVISTA, PARECERRH, PARECERTECNICO,IDCANDIDATO, IDUSUARIO) 
+	VALUES (TO_DATE('2016/06/25', 'yyyy/mm/dd'),'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.' 
+  , 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in tortor ut sapien efficitur 
+  mattis. Etiam aliquam at urna eu vestibulum. Nam consequat neque vitae risus maximus, sagittis euismod purus egestas. Fusce eleifend orci eros,
+  in mattis quam congue vitae. Ut dapibus velit massa, non faucibus metus viverra vitae. Nulla volutpat elit non nisl imperdiet dignissim. 
+  Cras tristique non neque quis efficitur. Etiam posuere ipsum vel ante interdum aliquam. Nullam interdum vestibulum arcu ut posuere. 
+  Aliquam convallis mi non augue maximus, et sagittis sem placerat. Aliquam malesuada nibh dolor, et auctor nisl molestie a.', 
+  9,1)
+  
+SELECT 1 FROM DUAL;
+
