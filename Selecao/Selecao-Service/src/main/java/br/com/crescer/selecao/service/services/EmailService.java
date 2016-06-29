@@ -70,7 +70,5 @@ public class EmailService {
         } catch (EmailException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
-
 }

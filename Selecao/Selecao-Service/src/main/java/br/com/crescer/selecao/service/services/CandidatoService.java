@@ -25,17 +25,26 @@ public class CandidatoService {
     @Autowired
     InformacaoRepository informacaoRepository;
     
-    public Informacao salvarInformacoes(Informacao informacao,Processoseletivo processo){
+    public Informacao salvarInformacoes(Informacao informacao, Processoseletivo processo){
         informacao.getIdcandidato().setStatus("AGUARDANDO CONTATO");
         informacao.setIdprocessoseletivo(processo);
         String senha = new BCryptPasswordEncoder().encode(informacao.getSenha());
         informacao.setSenha(senha);
-        candidatoRepository.save(informacao.getIdcandidato());
-        return informacaoRepository.save(informacao);
+        
+        try {
+            candidatoRepository.save(informacao.getIdcandidato());
+            return informacaoRepository.save(informacao);
+        } catch (Exception e){
+            return null;
+        }
     } 
     
     public Candidato salvar(Candidato candidato){
-        return candidatoRepository.save(candidato);
+        try {
+            return candidatoRepository.save(candidato);
+        } catch (Exception e){
+            return null;
+        }
     }
     
     public Candidato save(Candidato candidato){
@@ -59,6 +68,5 @@ public class CandidatoService {
         
         Pageable pageable = new PageRequest(pagina, 5, Sort.Direction.DESC, "idinformacao");
         return informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusContainingIgnoreCaseAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase("2016/02", status, nome, email, telefone, pageable);
-        //return informacaoRepository.findByIdcandidato_StatusAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(status, nome, email, telefone, pageable);
     }
 }
