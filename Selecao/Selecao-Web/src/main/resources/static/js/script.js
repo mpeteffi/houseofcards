@@ -1,7 +1,7 @@
 "use strict";
 (function(){ 
     
-    var view = new mainView({$corpo:$('.corpo')});
+    var view = new mainView({$corpo:$('.corpo'),edicaoAtual:$('#edicao').text()});
   
     view.appendEventoNoHtml({
             evento:'click',
