@@ -21,12 +21,20 @@ public class ProcessoseletivoService {
     @Autowired
     CandidatoService candidatoService;
     
-    public void save(Processoseletivo p){        
-        Iterable<Candidato> candidatos = candidatoService.findByStatus("INTERESSADO");
-        for(Candidato candidato : candidatos){
-        emailService.enviarEmailParaInteressado(candidato, p);
+    public boolean save(Processoseletivo p){  
+        
+        try {
+            Processoseletivo processo = processoseletivoRepository.save(p);
+            Iterable<Candidato> candidatos = candidatoService.findByStatus("INTERESSADO");
+            
+            for(Candidato candidato : candidatos){
+                emailService.enviarEmailParaInteressado(candidato, processo);
+            }
+            return true;
+            
+        } catch (Exception e) {
+            return false;
         }
-        processoseletivoRepository.save(p);
     }
     
     public Processoseletivo buscarProcessoAtual(){
