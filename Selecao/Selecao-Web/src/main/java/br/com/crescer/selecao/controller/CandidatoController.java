@@ -22,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -72,8 +73,9 @@ public class CandidatoController {
     }
     
     @RequestMapping(value="/candidatos")
-    String candidatos(CandidatoFiltroDTO filtro, Integer page, Model model) {
+    String candidatos(@RequestParam(required = false) CandidatoFiltroDTO filtro, Integer page, Model model) {
         if (page == null){ page = 0;}
+        if (filtro == null){ filtro = new CandidatoFiltroDTO(null,null,null,null);}
         Page<Informacao> candidatos = candidatoService.findByFilters(filtro.getStatus(), filtro.getNome(), filtro.getEmail(), 
                                                                      filtro.getTelefone(), page);
         for(Informacao i : candidatos){

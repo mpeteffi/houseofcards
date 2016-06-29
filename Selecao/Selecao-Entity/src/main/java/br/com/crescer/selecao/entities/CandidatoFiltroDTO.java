@@ -13,6 +13,7 @@ public class CandidatoFiltroDTO {
     private String status;
     private String nome;
     private String email;
+    private String telefone;
 
     public CandidatoFiltroDTO(String status, String nome, String email, String telefone) {
         this.status = status;
@@ -21,7 +22,7 @@ public class CandidatoFiltroDTO {
         this.telefone = telefone;
     }
     
-    private String telefone;
+   
 
     public String getStatus() {
         return status;

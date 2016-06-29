@@ -1,4 +1,5 @@
-<form class="form-inline" id="pesq" th:attr="data-page=${pagina}">
+<form class="form-inline form-filtro"  th:attr="data-page=${pagina}" data-url="/candidatos">
+     <input name="page"  type="hidden" class="input-pagina"/> 
     <div class="input-group col-xs-6 col-sm-5 col-md-3">
         <input name="nome" id="txtNome" class="form-control"  th:value="${valorAntigoInput.nome}" placeholder="Nome:" type="text"/> 
     </div>
@@ -18,7 +19,7 @@
     </div>
     <div class="input-group col-xs-12 col-sm-1 col-md-1">
         <button class="btn btn-default" type="submit">Filtrar</button>
-    </div>
+    </div>   
 </form>
 
 <div th:each="candidato : ${candidatos}" class="panel panel-default candidatoList">
@@ -38,9 +39,9 @@
 
 <ul class="pagination">
     <li th:class="${candidatos.first} ? 'disabled' : ''">
-        <a class="btnPag" href="#" th:attr="data-page= ${candidatos.first} ? null : ${pagina}-1">Anterior</a>
+        <a class="btn-paginacao" data-url="/candidatos" href="#" th:attr="data-page= ${candidatos.first} ? null : ${pagina}-1">Anterior</a>
     </li>
     <li th:class="${candidatos.last} ? 'disabled' : ''">
-        <a class="btnPag" href="#" th:attr="data-page= ${candidatos.last} ? null : ${pagina}+1">Próximo</a>
+        <a class="btn-paginacao" data-url="/candidatos" href="#" th:attr="data-page= ${candidatos.last} ? null : ${pagina}+1">Próximo</a>
     </li>
 </ul>

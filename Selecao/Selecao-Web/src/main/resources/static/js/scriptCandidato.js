@@ -7,7 +7,7 @@ $(function(){
         atualizarPaginaLista(0);
     });
     $('html').on('click', '.btnPag', function(){
-        atualizarPaginaLista($(this).data('page'));
+        atualizarPaginaLista();
     });
     
     atualizarPaginaLista(0);
