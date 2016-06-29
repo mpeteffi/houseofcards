@@ -5,59 +5,61 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
-        <link rel="stylesheet" th:href="@{/css/style.css}"/>
         <title>Titulo do Projeto</title>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 ">
+                <div class="col-md-12">
+                    <h1 class="text-center">Projeto Crescer</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Sobre o projeto</h2>
+                    <p>Sed ac accumsan lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum molestie faucibus interdum. Etiam nec feugiat tellus, sed viverra metus. Cras pretium metus id lectus pulvinar, consectetur rhoncus metus tincidunt. Vivamus id ligula tempus ante placerat laoreet. Integer tincidunt augue eu felis ornare, quis cursus elit faucibus. In vitae tortor id libero gravida porttitor. Duis sodales justo ut tellus viverra, sed lacinia libero placerat. Donec id lacus iaculis, dignissim arcu sit amet, efficitur sapien. Etiam mauris enim, sodales non leo pharetra, volutpat accumsan metus. Sed at orci dolor. Proin ligula sapien, lobortis blandit sodales vel, suscipit sit amet nisl. Suspendisse iaculis lorem ipsum, quis scelerisque tortor posuere et. </p>
+                    <p>Sed ac accumsan lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum molestie faucibus interdum. Etiam nec feugiat tellus, sed viverra metus. Cras pretium metus id lectus pulvinar, consectetur rhoncus metus tincidunt. Vivamus id ligula tempus ante placerat laoreet. Integer tincidunt augue eu felis ornare, quis cursus elit faucibus. In vitae tortor id libero gravida porttitor. Duis sodales justo ut tellus viverra, sed lacinia libero placerat. Donec id lacus iaculis, dignissim arcu sit amet, efficitur sapien. Etiam mauris enim, sodales non leo pharetra, volutpat accumsan metus. Sed at orci dolor. Proin ligula sapien, lobortis blandit sodales vel, suscipit sit amet nisl. Suspendisse iaculis lorem ipsum, quis scelerisque tortor posuere et. </p>
+                </div>
+                <div class="col-md-6 ">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="container-fluid">
-                                <a class="navbar-brand" href="#">Cadastro de Interessado</a>
+                                <a class="navbar-brand" href="#">Cadastro de Interesse</a>
                             </div>
                         </div>
                         <div class="panel-body">
-
-                            <div th:if="${errors}">
-                                <div class="alert alert-danger alert-dismissible fade in" role="alert" th:each="err : ${errors}" >
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <span th:text="${err.defaultMessage}"></span>
-                                </div>
-                            </div>
                             
-                            <div th:include="_FormCadastroInteressado"></div>
-
-                            <!--                            <form th:action="@{/cadastro}" method="POST">
-                                                            <div class="form-group">
-                                                                <label>Nome</label>
-                                                                <input required="required" class="form-control" type="text" name="nome"/> 
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Email</label>
-                                                                <input required="required" class="form-control" type="email" name="email"/> 
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Instituição de Ensino</label>
-                                                                <input required="required" class="form-control" type="text" name="instEnsino"/> 
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Curso</label>
-                                                                <input required="required" class="form-control" type="text" name="curso"/> 
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Previsao Formatura</label>
-                                                                <input required="required" class="form-control" type="date" name="prevFormatura"/> 
-                                                            </div>
-                                                            <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
-                                                            <div class="form-group"><br/>
-                                                                <button type="submit" value="Sign In" class="btn btn-success">Entrar</button>
-                                                                <button type="reset" class="btn btn-primary">Limpar</button>
-                                                            </div>
-                                                        </form>-->
+                            <form th:action="@{/cadastro}" th:object="${candidato}" method="POST">
+                                <div class="form-group">
+                                    <label>Nome</label>
+                                    <input required="required" class="form-control" type="text" th:field="*{nome}"/> 
+                                    <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input required="required" class="form-control" type="email" th:field="*{email}"/>
+                                    <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Instituição de Ensino</label>
+                                    <input required="required" class="form-control" type="text" th:field="*{instituicaoensino}"/> 
+                                    <p class="text-danger" th:if="${#fields.hasErrors('instituicaoensino')}" th:errors="*{instituicaoensino}"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Curso</label>
+                                    <input required="required" class="form-control" type="text" th:field="*{curso}"/>
+                                    <p class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></p>
+                                </div>
+                                <div class="form-group">
+                                    <label>Previsao Formatura</label>
+                                    <input required="required" class="form-control" type="date" th:field="*{previsaoformatura}"/>
+                                    <p class="text-danger" th:if="${#fields.hasErrors('previsaoformatura')}" th:errors="*{previsaoformatura}"></p>
+                                </div>
+                                <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
+                                <div class="form-group"><br/>
+                                    <button type="submit" value="Sign In" class="btn btn-success">Entrar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
