@@ -38,12 +38,13 @@ public class EmailController {
     @RequestMapping(value = "/confirmar-inscricao", method = RequestMethod.GET)
     String confirmarTokenInscricao(String token, Model model) {
 
+        Informacao informacao = new Informacao();
         Candidato candidato = webService.getTokenService().confirmarInscricao(token);
+        informacao.setIdcandidato(candidato);
 
         if (candidato != null) {
             model.addAttribute("token", token);
-            model.addAttribute("informacao", new Informacao());
-            model.addAttribute("candidato", candidato);
+            model.addAttribute("informacao", informacao);
             return "FormConfirmarInscricao";
         } else {
             return "paginaErro";
@@ -51,17 +52,22 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/confirmar-inscricao", method = RequestMethod.POST)
-    String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult,String token, Model model) {
+    String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult, String token, Model model) {
 
         if (!bindingResult.hasErrors()) {
-            Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
-            webService.getCandidatoService().salvarInformacoes(informacao, processo);
-            webService.getTokenService().invalidarTokenParaCandidato(informacao.getIdcandidato());
-            model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
-            return "Sucesso";
+            if (informacao.getIdinformacao() == 0) {
+                Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
+                webService.getCandidatoService().salvarInformacoes(informacao, processo);
+                webService.getTokenService().invalidarTokenParaCandidato(informacao.getIdcandidato());
+                model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
+                return "Sucesso";
+            } else {
+                webService.getCandidatoService().saveInformacao(informacao);                
+                return "paginaAposEdicao";
+            }
         } else {
             model.addAttribute("erros", bindingResult.getAllErrors());
-            return confirmarTokenInscricao(token,model);
+            return confirmarTokenInscricao(token, model);
         }
     }
 }
