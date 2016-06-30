@@ -11,6 +11,7 @@
             }
     });
     
+    
     view.appendEventoNoHtml({
             evento:'submit',
             obj:'.form-filtro',
@@ -44,6 +45,14 @@
             funcao:function(e){                
                 mainView.postForm($(this).data('url'),$(this));
                 e.preventDefault();
+            }
+    });
+    
+    view.appendEventoNoHtml({
+            evento:'click',
+            obj:'.entrevistas-candidatos',
+            funcao:function(){
+                view.atualizaView($(this).data('url'));
             }
     });
     
