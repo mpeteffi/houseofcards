@@ -1,0 +1,25 @@
+.corpo{
+    background-color: rgb(65, 44, 69);
+    color: white;
+}
+.divs{
+    padding: 20px;
+}
+.titulo{
+    font-family: "Segoe Script","ZurichLtCnBTLight";
+}
+.fonte-laranja{
+    font-weight: bold;
+    font-family: "Rockwell","ZurichLtCnBTLight";
+    text-shadow: 1px 3px 0 rgba(0,0,0,.5);
+    color: #ffad00;
+    letter-spacing: -1px;    
+}
+.fonte-media{
+    font-size: 61px;
+}
+.fundo-cima{
+    background-color: white;
+    border-bottom-right-radius: 150px;
+    border-bottom-left-radius: 150px;
+}
