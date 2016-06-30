@@ -20,13 +20,13 @@
 }
 
 #logo-descricao{
-  color:white; 
+    color:white; 
 }
 
 #logo-nome{
-  color:#EF940F;
-  font-size: 23px;
-  font-weight: bold;
+    color:#EF940F;
+    font-size: 23px;
+    font-weight: bold;
 }
 
 .body-admin{
@@ -73,5 +73,22 @@ form label.error{
 }
 
 .navbar-right{
-    margin: 15px 15px 0px 0px;
+    position: absolute;
+    right: 25px;
+    top: 15px;
+}
+
+.welcome-corpo{
+    min-width: 280px;
+    max-width: 450px;
+    margin: 10px auto;
+}
+
+.welcome-panel{
+    text-align: center;
+}
+
+.welcome-panel > h1 > span {
+    color:#EF940F;
+    font-weight: bold;
 }
