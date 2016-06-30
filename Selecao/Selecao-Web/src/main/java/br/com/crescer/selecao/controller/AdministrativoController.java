@@ -1,11 +1,8 @@
 package br.com.crescer.selecao.controller;
 
+import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.Usuario;
-import br.com.crescer.selecao.service.services.CandidatoService;
-import br.com.crescer.selecao.service.services.EmailService;
-import br.com.crescer.selecao.service.services.ProcessoseletivoService;
-import br.com.crescer.selecao.service.services.UsuarioLogadoService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,22 +17,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AdministrativoController {
     
     @Autowired
-    CandidatoService candidatoservice;
-    
-    @Autowired
-    ProcessoseletivoService processoSeletivoService;
-    
-    @Autowired
-    UsuarioLogadoService usuarioLogadoService;
-    
-    @Autowired
-    EmailService emailService;
+    WebService webService;
     
     @RequestMapping(value="/administrativo")
     String login(Model model) {
-        Usuario user = usuarioLogadoService.getUsuarioLogado();
+        Usuario user = webService.getUsuarioLogadoService().getUsuarioLogado();
         model.addAttribute("user", user);
-        String edicao = processoSeletivoService.buscarProcessoAtual().getEdicao();
+        String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
         model.addAttribute("edicao", edicao);
         return "Administrativo";
     } 
@@ -47,7 +35,7 @@ public class AdministrativoController {
     
     @RequestMapping(value="/cadastro-nova-edicao", method = RequestMethod.POST)
     String save(@Valid Processoseletivo processoseletivo,Model model) {
-        processoSeletivoService.save(processoseletivo);    
+        webService.getProcessoseletivoService().save(processoseletivo);    
        return "Administrativo";
     }
 }

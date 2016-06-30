@@ -3,21 +3,16 @@ package br.com.crescer.selecao.controller;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.entities.Processoseletivo;
-import br.com.crescer.selecao.service.services.CandidatoService;
-import br.com.crescer.selecao.service.services.EmailService;
-import br.com.crescer.selecao.service.services.ProcessoseletivoService;
-import br.com.crescer.selecao.service.services.TokenService;
+import br.com.crescer.selecao.webservices.WebService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- *
  * @author michel.fernandes
  */
 @Controller
@@ -25,28 +20,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class EmailController {
 
     @Autowired
-    EmailService emailService;
-
-    @Autowired
-    TokenService tokenService;
-
-    @Autowired
-    CandidatoService candidatoService;
-
-    @Autowired
-    ProcessoseletivoService processoseletivoService;
-
-    @RequestMapping(value = "/enviar", method = RequestMethod.GET)
-    String enviarEmail() {
-
-        //emailService.enviarEmail(, "token gigante");
-        return "administrativo";
-    }
+    WebService webService;
 
     @RequestMapping(value = "/confirmar-interesse", method = RequestMethod.GET)
-    String confirmarToken(String token, Model model) {
+    String confirmarTokenInteresse(String token, Model model) {
 
-        Boolean confirmado = tokenService.confirmarInteresse(token);
+        Boolean confirmado = webService.getTokenService().confirmarInteresse(token);
 
         if (confirmado) {
             model.addAttribute("mensagemConfirmacaoEmail", "Inscrição efetuada com êxito");
@@ -59,7 +38,7 @@ public class EmailController {
     @RequestMapping(value = "/confirmar-inscricao", method = RequestMethod.GET)
     String confirmarTokenInscricao(String token, Model model) {
 
-        Candidato candidato = tokenService.confirmarInscricao(token);
+        Candidato candidato = webService.getTokenService().confirmarInscricao(token);
 
         if (candidato != null) {
             model.addAttribute("token", token);
@@ -75,16 +54,14 @@ public class EmailController {
     String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult,String token, Model model) {
 
         if (!bindingResult.hasErrors()) {
-            Processoseletivo processo = processoseletivoService.buscarProcessoAtual();
-            candidatoService.salvarInformacoes(informacao, processo);
-            tokenService.invalidarTokenParaCandidato(informacao.getIdcandidato());
+            Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
+            webService.getCandidatoService().salvarInformacoes(informacao, processo);
+            webService.getTokenService().invalidarTokenParaCandidato(informacao.getIdcandidato());
             model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
             return "Sucesso";
         } else {
             model.addAttribute("erros", bindingResult.getAllErrors());
             return confirmarTokenInscricao(token,model);
         }
-
     }
-
 }
