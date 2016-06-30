@@ -51,8 +51,8 @@
     margin-right: 10px;
 }
 
-li{
-    border-bottom: 1px solid #14161A;
+.li-opcao-menu{
+    border-bottom: 1px solid #14161A !important;
 }
 
 .error{
@@ -91,4 +91,21 @@ form label.error{
 .welcome-panel > h1 > span {
     color:#EF940F;
     font-weight: bold;
+}
+
+.table{
+    background-color: white;   
+}
+
+.candidatos-acoes{
+    margin-left:12px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.candidato-entrevista-div{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 400px;
 }

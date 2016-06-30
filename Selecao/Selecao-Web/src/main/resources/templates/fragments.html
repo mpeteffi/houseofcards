@@ -3,7 +3,8 @@
     <head th:fragment="head">
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>        
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/4.0.6/sweetalert2.min.css"/>
         <link rel="stylesheet" th:href="@{/css/menulateral.css}"/>
@@ -24,13 +25,13 @@
                     <li class="sidebar-lista-titulo">
                         <span>PÁGINAS</span>
                     </li>
-                    <li>
+                    <li class="li-opcao-menu">
                         <a href="#" data-url="/candidatos" class="opcao-side-bar" ><span class="glyphicon glyphicon-list icon-menu"></span>Lista de Candidatos</a>
                     </li>
-                    <li>
+                    <li class="li-opcao-menu">
                         <a href="#"  data-url="/nova-edicao" class="opcao-side-bar" ><span class="glyphicon glyphicon-education icon-menu"></span>Nova Edição</a>
                     </li>
-                     <li>
+                     <li class="li-opcao-menu">
                         <a href="#" class="btnLogout"><span class="glyphicon glyphicon-log-out icon-menu"></span>Sair</a>
                     </li>
                 </ul>

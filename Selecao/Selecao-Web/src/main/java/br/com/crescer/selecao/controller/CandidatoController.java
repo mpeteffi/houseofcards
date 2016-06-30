@@ -101,7 +101,7 @@ public class CandidatoController {
     String entrevistas(Integer idCandidato, Model model) {
         if (idCandidato == null){ idCandidato = 0;}
         Candidato candidato = webService.getCandidatoService().findByIdCandidato(idCandidato);
-        Entrevista entrevistas = webService.getEntrevistaService().findByCandidato(candidato);        
+        Iterable<Entrevista> entrevistas = webService.getEntrevistaService().findByCandidato(candidato);            
         model.addAttribute("candidato", candidato);
         model.addAttribute("entrevistas", entrevistas);
         return "_entrevistas";
