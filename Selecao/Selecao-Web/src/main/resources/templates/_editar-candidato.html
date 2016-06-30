@@ -1,29 +1,46 @@
 <div class="col-md-5 col-md-offset-3">
     <form id="nova-edicao-form" data-url="/editar-candidato" role="form"  method="POST">
-        <input type="number" hidden="hidden" th:value="${idCandidato}" name="idcandidato" />
+        <input type="number" hidden="hidden" th:value="${candidato.idcandidato.idcandidato}" name="idcandidato" />
+        <input type="number" hidden="hidden" th:value="${candidato.idinformacao}" name="idinformacao" />
         <div class="form-group">
-          <label for="data">Data entrevista:</label>
-          <input type="text" class="form-control input-data" placeholder="dd/mm/aaaa" name="dataentrevista" required="required"/>
+          <label for="data">Nome:</label>
+          <input type="text" class="form-control input-data" placeholder="fulano" name="nome" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Parecer Rh:</label>
-          <input type="text" class="form-control input-data" placeholder="Descrição do parecer rh" name="parecerrh" required="required"/>
+          <label for="data">Email:</label>
+          <input type="text" class="form-control input-data" placeholder="fulano@exemplo.com" name="email" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Parecer Técnico:</label>
-          <input type="text" class="form-control input-data" placeholder="Descrição do parecer técnico" name="parecertecnico" required="required"/>
+          <label for="data">Instituição de ensino:</label>
+          <input type="text" class="form-control input-data" placeholder="Unisinos" name="instituicaoensino" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Nota da prova G36:</label>
-          <input type="text" class="form-control input-data" placeholder="0.0" name="provag36" required="required"/>
+          <label for="data">Curso:</label>
+          <input type="text" class="form-control input-data" placeholder="Ciência da computação" name="curso" required="required"/>
         </div> 
         <div class="form-group">
-          <label for="data">Nota da prova AC:</label>
-          <input type="text" class="form-control input-data" placeholder="0.0" name="provaac" required="required"/>
-        </div>  
+          <label for="data">Previsão de formatura:</label>
+          <input type="text" class="form-control input-data" placeholder="2018/1" name="previsaoformatura" required="required"/>
+        </div> 
         <div class="form-group">
-          <label for="data">Nota da prova Técnica:</label>
-          <input type="text" class="form-control input-data" placeholder="0.0" name="provatecnica" required="required"/>
+          <label for="data">Telefone:</label>
+          <input type="text" class="form-control input-data" placeholder="(51)99999999" name="telefone" required="required"/>
+        </div>
+        <div class="form-group">
+          <label for="data">Data de nascimento:</label>
+          <input type="text" class="form-control input-data" placeholder="dd/mm/aaaa" name="datanascimento" required="required"/>
+        </div>
+        <div class="form-group">
+          <label for="data">Cidade</label>
+          <input type="text" class="form-control input-data" placeholder="São Leopoldo" name="cidade" required="required"/>
+        </div>
+        <div class="form-group">
+          <label for="data">Url Linkedin:</label>
+          <input type="text" class="form-control input-data" placeholder="www.linkedin.com/fulano" name="urllinkedin" required="required"/>
+        </div>
+        <div class="form-group">
+          <label for="data">Status:</label>
+          <input type="text" class="form-control input-data" placeholder="Sem interesse" name="status" required="required"/>
         </div>
         <button type="submit" class="btn btn-default">Salvar</button>
     </form>

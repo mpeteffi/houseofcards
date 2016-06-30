@@ -130,7 +130,7 @@ public class CandidatoController {
     @RequestMapping(value="/editar-candidato",method = RequestMethod.GET)
     String editarCandidatoGET(Integer idCandidato, Model model) {        
         model.addAttribute("candidato", webService.getCandidatoService().findInformcaoesDoCandidato(new Candidato(idCandidato)));
-        return "editar-candidato";
+        return "_editar-candidato";
     }
     
     @RequestMapping(value="/editar-candidato",method = RequestMethod.POST)

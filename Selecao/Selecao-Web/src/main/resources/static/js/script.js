@@ -43,7 +43,7 @@
             evento:'submit',
             obj:'#nova-edicao-form',
             funcao:function(e){                
-                mainView.postForm($(this).data('url'),$(this));
+                view.postForm($(this).data('url'),$(this));
                 e.preventDefault();
             }
     });
@@ -58,11 +58,20 @@
     
     view.appendEventoNoHtml({
             evento:'click',
-            obj:'.btn-novo-candidato',
+            obj:'.editar-candidato',
             funcao:function(){
                 view.atualizaView($(this).data('url'));
             }
     });
+    
+     view.appendEventoNoHtml({
+            evento:'click',
+            obj:'.btn-nova-entrevista',
+            funcao:function(){
+                view.atualizaView($(this).data('url'));
+            }
+    });
+    
     
     view.appendEventoNoHtml({
         evento: 'click',

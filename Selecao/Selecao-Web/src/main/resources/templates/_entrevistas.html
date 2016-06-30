@@ -1,7 +1,7 @@
 <div class="row top15">
     <div class="col-md-12">
         <p th:text="${candidato.nome}+' ('+${candidato.email}+') - '+${candidato.instituicaoensino}+'/'+${candidato.curso}"></p>
-        <button class="btn btn-default btn-novo-candidato" th:attr="data-url='/nova-entrevista?idCandidato='+${candidato.idcandidato}">Nova entrevista</button>
+        <button class="btn btn-default btn-nova-entrevista" th:attr="data-url='/nova-entrevista?idCandidato='+${candidato.idcandidato}">Nova entrevista</button>
     </div>
 </div>
 <div class="row top25">
