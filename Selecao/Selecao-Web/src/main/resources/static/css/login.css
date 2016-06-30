@@ -3,7 +3,7 @@
     background-color: #262A33;
 }
 .content-wrapper{
-    margin-top: 10%;
+    margin-top: 6%;
 }
 #form-nome-login{
     color:white;
@@ -27,10 +27,6 @@
 .btn-login:focus{
     background-color:#EF940F !important;
     border:none!important;
-}
-#logo-login{
-    width: 8.4em;
-    height: 3em;
 }
 /*-----Fim_Login---- */
  @media all and (min-width:0px) and (max-width: 500px) {

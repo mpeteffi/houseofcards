@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.crescer.selecao.controller;
 
-import br.com.crescer.selecao.captcha.RecaptchaService;
+import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Informacao;
-import br.com.crescer.selecao.service.services.CandidatoService;
-import br.com.crescer.selecao.service.services.EmailService;
-import br.com.crescer.selecao.service.services.EntrevistaService;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,27 +17,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
 /**
- *
  * @author michel.fernandes
  */
 @Controller
 public class CandidatoController {
-
-    @Autowired
-    RecaptchaService recaptchaService;
     
     @Autowired
-    CandidatoService candidatoService;
+    WebService webService; 
     
-    @Autowired
-    EntrevistaService entrevistaService;
-    
-    @Autowired
-    EmailService emailService;
-
     @RequestMapping(value = "/cadastro", method = RequestMethod.GET)
-    String exemplo() {
+    String cadastro() {
         return "_InteressadoCadastro";
     }
 
@@ -53,13 +36,13 @@ public class CandidatoController {
     String save(@Valid Candidato candidato, BindingResult bindingResult, HttpServletRequest req, Model model) {
         String response = req.getParameter("g-recaptcha-response");
         String ipAcesso = req.getRemoteAddr();
-        boolean captchaValido = recaptchaService.isResponseValid(ipAcesso, response);
+        boolean captchaValido = webService.getRecaptchaService().isResponseValid(ipAcesso, response);
 
         if (captchaValido) {
             try {
                 if (!bindingResult.hasErrors()) {
-                    if (candidatoService.save(candidato) != null) {
-                        emailService.enviarEmailParaConfirmacaoDeInteresse(candidato);
+                    if (webService.getCandidatoService().save(candidato) != null) {
+                        webService.getEmailService().enviarEmailParaConfirmacaoDeInteresse(candidato);
                     } else {
                         //email ja existe
                     }
@@ -85,7 +68,7 @@ public class CandidatoController {
         if (page == null) {
             page = 0;
         }
-        Page<Informacao> candidatos = candidatoService.findByFilters(edicao, status, nome, email,telefone, page);
+        Page<Informacao> candidatos = webService.getCandidatoService().findByFilters(edicao, status, nome, email,telefone, page);
         for (Informacao i : candidatos) {
             i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
         }
@@ -117,8 +100,8 @@ public class CandidatoController {
     @RequestMapping(value="/entrevistas")
     String entrevistas(Integer idCandidato, Model model) {
         if (idCandidato == null){ idCandidato = 0;}
-        Candidato candidato = candidatoService.findByIdCandidato(idCandidato);
-        Entrevista entrevistas = entrevistaService.findByCandidato(candidato);        
+        Candidato candidato = webService.getCandidatoService().findByIdCandidato(idCandidato);
+        Entrevista entrevistas = webService.getEntrevistaService().findByCandidato(candidato);        
         model.addAttribute("candidato", candidato);
         model.addAttribute("entrevistas", entrevistas);
         return "_entrevistas";
