@@ -81,4 +81,23 @@
             }).done();
         }
     });
+    
+    view.appendEventoNoHtml({
+        evento: 'click',
+        obj: '.btn-new-processo',
+        funcao: function(res){
+            if(!res){
+                
+            } else {
+                swal({
+                title: 'Você não pode fazer isso.',
+                text: "Já existe um processo seletivo em andamento.",
+                type: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Entendi'
+                }).then().done();
+            }
+        }
+    });
 })();
