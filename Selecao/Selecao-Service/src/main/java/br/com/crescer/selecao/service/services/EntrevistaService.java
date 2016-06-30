@@ -18,4 +18,8 @@ public class EntrevistaService {
     public Iterable<Entrevista> findByCandidato(Candidato candidato){
         return entrevistaRepository.findAllByIdCandidato(candidato);
     }
+    public void save(Entrevista entrevista){
+        entrevistaRepository.save(entrevista);
+    }
+    
 }

@@ -57,6 +57,14 @@
     });
     
     view.appendEventoNoHtml({
+            evento:'click',
+            obj:'.btn-novo-candidato',
+            funcao:function(){
+                view.atualizaView($(this).data('url'));
+            }
+    });
+    
+    view.appendEventoNoHtml({
         evento: 'click',
         obj: '.btnLogout',
         funcao: function(){swal({

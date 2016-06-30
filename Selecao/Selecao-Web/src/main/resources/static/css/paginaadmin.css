@@ -109,3 +109,9 @@ form label.error{
     border-radius: 10px;
     min-height: 400px;
 }
+.nav-tabs li a {color:#CF940F;}
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top25 { margin-top:25px; }

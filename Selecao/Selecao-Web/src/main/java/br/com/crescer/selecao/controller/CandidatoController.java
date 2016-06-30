@@ -97,7 +97,7 @@ public class CandidatoController {
     }
     
     
-    @RequestMapping(value="/entrevistas")
+    @RequestMapping(value="/entrevistas",method = RequestMethod.GET)
     String entrevistas(Integer idCandidato, Model model) {
         if (idCandidato == null){ idCandidato = 0;}
         Candidato candidato = webService.getCandidatoService().findByIdCandidato(idCandidato);
@@ -105,5 +105,39 @@ public class CandidatoController {
         model.addAttribute("candidato", candidato);
         model.addAttribute("entrevistas", entrevistas);
         return "_entrevistas";
+    }
+    
+    @RequestMapping(value="/nova-entrevista",method = RequestMethod.GET)
+    String novaEntrevistaGET(Integer idCandidato, Model model) {        
+        model.addAttribute("idCandidato", idCandidato);        
+        return "_nova-entrevista";
+    }
+    
+    @RequestMapping(value="/nova-entrevista",method = RequestMethod.POST)
+    String salvarEntrevistaPOST(int idCandidato,Date dataentrevista,String parecerrh,String  parecertecnico,Double provag36,Double provaac,Double provatecnica) {        
+       webService.getEntrevistaService().save(new Entrevista(   dataentrevista,
+                                                                parecerrh,
+                                                                parecertecnico,
+                                                                provag36,
+                                                                provaac,
+                                                                provatecnica,
+                                                                new Candidato(idCandidato),
+                                                                webService.getUsuarioLogadoService().getUsuarioLogado()
+                                                            ));   
+       return "Sucesso";
+    }
+    
+    @RequestMapping(value="/editar-candidato",method = RequestMethod.GET)
+    String editarCandidatoGET(Integer idCandidato, Model model) {        
+        model.addAttribute("candidato", webService.getCandidatoService().findInformcaoesDoCandidato(new Candidato(idCandidato)));        ffffff
+    @RequestMapping(value="/editar-candidato",method = RequestMethod.POSTfffffffffffffffffffffffffffffffffffffffff)
+    String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,String status, String telefone, Date datanascimento, String cidade, String urllinkedin) {
+  e        webService.getCandidatoService().salvarInformcaoesDoCandidato(new Informacao(   telefone,ffffffffffffff
+                                                                datanascimento,
+                                                                cidade,fffffffffffffffffffffffffffff
+                                                                urllinkedin,
+                                                                candidato                                                                
+                                                            ));   
+        return "Sucesso";
     }
 }

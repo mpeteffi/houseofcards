@@ -82,4 +82,12 @@ public class CandidatoService {
         Pageable pageable = new PageRequest(pagina, 5, Sort.Direction.DESC, "idinformacao");
         return informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusContainingIgnoreCaseAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, status, nome, email, telefone, pageable);
     }
+    //TODO:Mover informação para um service dela mesmo
+    public Informacao findInformcaoesDoCandidato(Candidato candidato){
+        return informacaoRepository.findByIdCandidato(candidato);
+    }
+    
+    public void salvarInformcaoesDoCandidato(Informacao informacao){
+        informacaoRepository.save(informacao);
+    }
 }

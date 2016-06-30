@@ -25,8 +25,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Entrevista implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ENTREVISTA_IDENTREVISTA_SEQ")
     @SequenceGenerator(name = "ENTREVISTA_IDENTREVISTA_SEQ", sequenceName = "ENTREVISTA_IDENTREVISTA_SEQ", allocationSize = 1)
@@ -71,10 +69,15 @@ public class Entrevista implements Serializable {
         this.identrevista = identrevista;
     }
 
-    public Entrevista(Date dataentrevista, String parecerrh, String parecertecnico) {
+    public Entrevista(Date dataentrevista, String parecerrh, String parecertecnico, Double provag36, Double provaac, Double provatecnica, Candidato idCandidato, Usuario idusuario) {
         this.dataentrevista = dataentrevista;
         this.parecerrh = parecerrh;
         this.parecertecnico = parecertecnico;
+        this.provag36 = provag36;
+        this.provaac = provaac;
+        this.provatecnica = provatecnica;
+        this.idCandidato = idCandidato;
+        this.idusuario = idusuario;
     }
 
     public int getIdentrevista() {

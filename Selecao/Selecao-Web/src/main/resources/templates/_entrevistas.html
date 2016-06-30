@@ -1,10 +1,10 @@
-   <div th:with="local=${true}" th:if="${local}"></div>
-<div class="row">
+<div class="row top15">
     <div class="col-md-12">
         <p th:text="${candidato.nome}+' ('+${candidato.email}+') - '+${candidato.instituicaoensino}+'/'+${candidato.curso}"></p>
+        <button class="btn btn-default btn-novo-candidato" th:attr="data-url='/nova-entrevista?idCandidato='+${candidato.idcandidato}">Nova entrevista</button>
     </div>
 </div>
-<div class="row">
+<div class="row top25">
     <div class="col-md-8 col-md-offset-2 candidato-entrevista-div">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home">Inicio</a></li>
@@ -20,9 +20,19 @@
             </div>
             <div th:each="entrevista : ${entrevistas}" th:id="'menu'+${entrevista.identrevista}" class="tab-pane fade">
               <h4>Parecer Rh:</h4>
-              <p th:text="${entrevista.parecerrh}"></p>
+              <p th:text="${entrevista.parecerrh}" class='pre-scrollable'></p>
               <h4>Parecer tecnico:</h4>
-              <p th:text="${entrevista.parecertecnico}"></p> 
+              <p th:text="${entrevista.parecertecnico}" class='pre-scrollable'></p>
+              <h4>Notas das provas:</h4>             
+              <ul class="list-inline">
+                <li class="h5">G36:</li>
+                <li th:text="${entrevista.provag36} != null ? ${entrevista.provag36}:'--' "></li>
+                <li class="h5">AC:</li>
+                <li th:text="${entrevista.provaac} != null ? ${entrevista.provaac}:'--'"></li>
+                <li class="h5">Técnica:</li>
+                <li th:text="${entrevista.provatecnica} != null ? ${entrevista.provatecnica}:'--'"></li>
+              </ul>
+              <p class="text-center"><strong>Usuario:</strong><mark><span th:text="${entrevista.idusuario.nome}"></span></mark></p>
             </div>        
         </div> 
     </div>
