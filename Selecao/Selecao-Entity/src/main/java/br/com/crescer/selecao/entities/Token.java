@@ -1,9 +1,13 @@
 package br.com.crescer.selecao.entities;
 
+import br.com.crescer.selecao.entities.enums.StatusToken;
+import br.com.crescer.selecao.entities.enums.TipoToken;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
@@ -36,13 +40,15 @@ public class Token implements Serializable {
     @Column(name = "TOKEN")
     private String token;
     
+    @Enumerated(EnumType.STRING)
     @Basic(optional = false)
     @Column(name = "STATUS")
-    private String status;
+    private StatusToken status;
     
+    @Enumerated(EnumType.STRING)
     @Basic(optional = false)
     @Column(name = "TIPO")
-    private String tipo;
+    private TipoToken tipo;
 
     public Token() {
     }
@@ -51,7 +57,7 @@ public class Token implements Serializable {
         this.idtoken = idtoken;
     }
 
-    public Token(int idparaconfirmar, String token, String status, String tipo) {
+    public Token(int idparaconfirmar, String token, StatusToken status, TipoToken tipo) {
         this.idparaconfirmar = idparaconfirmar;
         this.token = token;
         this.status = status;
@@ -82,19 +88,19 @@ public class Token implements Serializable {
         this.token = token;
     }
 
-    public String getStatus() {
+    public StatusToken getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusToken status) {
         this.status = status;
     }
 
-    public String getTipo() {
+    public TipoToken getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoToken tipo) {
         this.tipo = tipo;
     }
 

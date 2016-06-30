@@ -1,9 +1,12 @@
 package br.com.crescer.selecao.entities;
 
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
@@ -63,9 +66,10 @@ public class Candidato implements Serializable {
     @Column(name = "PREVISAOFORMATURA")
     private String previsaoformatura;
     
+    @Enumerated(EnumType.STRING)
     @Basic(optional = false)
     @Column(name = "STATUS")
-    private String status;
+    private StatusCandidato status;
 
     public Candidato() {
     }
@@ -74,7 +78,7 @@ public class Candidato implements Serializable {
         this.idcandidato = idcandidato;
     }
 
-    public Candidato(String nome, String email, String instituicaoensino, String curso, String previsaoformatura, String status) {
+    public Candidato(String nome, String email, String instituicaoensino, String curso, String previsaoformatura, StatusCandidato status) {
         this.nome = nome;
         this.email = email;
         this.instituicaoensino = instituicaoensino;
@@ -84,7 +88,7 @@ public class Candidato implements Serializable {
     }
     
     
-    public Candidato(int idcandidato, String nome, String email, String instituicaoensino, String curso, String previsaoformatura, String status) {
+    public Candidato(int idcandidato, String nome, String email, String instituicaoensino, String curso, String previsaoformatura, StatusCandidato status) {
         this.idcandidato = idcandidato;
         this.nome = nome;
         this.email = email;
@@ -142,11 +146,11 @@ public class Candidato implements Serializable {
         this.previsaoformatura = previsaoformatura;
     }
 
-    public String getStatus() {
+    public StatusCandidato getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(StatusCandidato status) {
         this.status = status;
     }
     

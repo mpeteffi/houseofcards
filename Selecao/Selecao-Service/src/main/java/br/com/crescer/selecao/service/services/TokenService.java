@@ -2,6 +2,9 @@ package br.com.crescer.selecao.service.services;
 
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Token;
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
+import br.com.crescer.selecao.entities.enums.StatusToken;
+import br.com.crescer.selecao.entities.enums.TipoToken;
 import br.com.crescer.selecao.service.repository.CandidatoRepository;
 import br.com.crescer.selecao.service.repository.TokenRepository;
 import java.util.Date;
@@ -25,7 +28,7 @@ public class TokenService {
     public String newTokenForCandidato(Candidato candidato){
         
         String codigo = gerarCodigo();
-        Token token = new Token(candidato.getIdcandidato(), codigo, "PENDENTE", "INTERESSADO");
+        Token token = new Token(candidato.getIdcandidato(), codigo, StatusToken.PENDENTE, TipoToken.INTERESSE);
         try{
             tokenRepository.save(token);
             return codigo;
@@ -40,10 +43,10 @@ public class TokenService {
         if(token != null) {
             
             Candidato candidato = candidatoRepository.findOneByIdcandidato(token.getIdparaconfirmar());
-            candidato.setStatus("INTERESSADO");
+            candidato.setStatus(StatusCandidato.INTERESSADO);
             candidatoRepository.save(candidato);
             
-            token.setStatus("FINAL");
+            token.setStatus(StatusToken.FINAL);
             tokenRepository.save(token);
             
             return true;
@@ -65,7 +68,7 @@ public class TokenService {
     
     public void invalidarTokenParaCandidato(Candidato candidato){
         Token token = tokenRepository.findOneByIdparaconfirmarAndStatusAndTipo(candidato.getIdcandidato(),"PENDENTE","INTERESSADO");
-        token.setStatus("FINAL");
+        token.setStatus(StatusToken.FINAL);
         tokenRepository.save(token);
     }
     

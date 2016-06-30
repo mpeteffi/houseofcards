@@ -2,6 +2,7 @@ package br.com.crescer.selecao.service.services;
 
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Processoseletivo;
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -65,7 +66,7 @@ public class EmailService {
                     + "<p>Data início dasaulas:" + sdf.format(processoSeletivo.getFinalaula()) + "</p>"
                     + "<p>Para confirmar sua inscrição no projeto, acesse: <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">link</a> </html>");
             email.send();
-            candidato.setStatus("NOTIFICADO");
+            candidato.setStatus(StatusCandidato.NOTIFICADO);
             candidatoService.salvar(candidato);
         } catch (EmailException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);

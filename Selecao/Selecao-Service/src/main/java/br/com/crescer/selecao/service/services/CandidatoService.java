@@ -3,6 +3,7 @@ package br.com.crescer.selecao.service.services;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.entities.Processoseletivo;
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.repository.CandidatoRepository;
 import br.com.crescer.selecao.service.repository.InformacaoRepository;
 import br.com.crescer.selecao.service.repository.ProcessoseletivoRepository;
@@ -34,7 +35,7 @@ public class CandidatoService {
     }
     
     public Informacao salvarInformacoes(Informacao informacao, Processoseletivo processo){
-        informacao.getIdcandidato().setStatus("AGUARDANDO CONTATO");
+        informacao.getIdcandidato().setStatus(StatusCandidato.AGUARDANDO_CONTATO);
         informacao.setIdprocessoseletivo(processo);
         String senha = new BCryptPasswordEncoder().encode(informacao.getSenha());
         informacao.setSenha(senha);
@@ -57,7 +58,7 @@ public class CandidatoService {
     
     public Candidato save(Candidato candidato){
         try {
-            candidato.setStatus("INICIAL");            
+            candidato.setStatus(StatusCandidato.INICIAL);            
             return candidatoRepository.save(candidato);
         } catch (Exception e) {
             return null;

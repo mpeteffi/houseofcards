@@ -4,6 +4,7 @@ import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Informacao;
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -134,7 +135,7 @@ public class CandidatoController {
     }
     
     @RequestMapping(value="/editar-candidato",method = RequestMethod.POST)
-    String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,String status, String telefone, Date datanascimento, String cidade, String urllinkedin) {
+    String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,StatusCandidato status, String telefone, Date datanascimento, String cidade, String urllinkedin) {
         Candidato candidato = new Candidato(idCandidato,nome,email,instituicaoensino,curso,previsaoformatura,status); 
         webService
                 .getCandidatoService()
