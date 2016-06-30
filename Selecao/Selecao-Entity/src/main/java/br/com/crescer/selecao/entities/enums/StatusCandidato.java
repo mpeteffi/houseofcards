@@ -14,5 +14,5 @@ public enum StatusCandidato {
     ENTREVISTADO,
     EM_ANALISE,
     NAO_CLASSIFICADO,
-    PRE_SELECIONADO
+    PRE_SELECIONADO;
 }

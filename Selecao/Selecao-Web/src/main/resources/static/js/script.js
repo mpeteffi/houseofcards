@@ -1,8 +1,9 @@
 "use strict";
 (function(){ 
     
-    var view = new mainView({$corpo:$('.corpo'),edicaoAtual:$('#edicao').text()});
-  
+    var view = new mainView({$corpo:$('.corpo'),edicaoAtual:$('#edicao').text()});   
+    
+    
     view.appendEventoNoHtml({
             evento:'click',
             obj:'#menu-toggle',
@@ -72,6 +73,13 @@
             }
     });
     
+    view.appendEventoNoHtml({
+            evento:'submit',
+            obj:'.edicao-candidato',
+            funcao:function(){
+                view.atualizaView($(this).data('url'));
+            }
+    });
     
     view.appendEventoNoHtml({
         evento: 'click',

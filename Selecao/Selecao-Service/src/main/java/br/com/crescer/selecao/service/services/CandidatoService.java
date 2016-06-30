@@ -6,7 +6,7 @@ import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.repository.CandidatoRepository;
 import br.com.crescer.selecao.service.repository.InformacaoRepository;
-import br.com.crescer.selecao.service.repository.ProcessoseletivoRepository;
+import br.com.crescer.selecao.service.repository.ProcessoseletivoRepository; 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -73,15 +73,14 @@ public class CandidatoService {
         return candidatoRepository.findOneByIdcandidato(id);
     }
     
-    public Page<Informacao> findByFilters(String edicao, String status, String nome, String email, String telefone, int pagina){
-        if(status == null){status = "";}
+    public Page<Informacao> findByFilters(String edicao, StatusCandidato status, String nome, String email, String telefone, int pagina){
         if(email == null){email = "";}
         if(telefone == null){telefone = "";}
         if(nome == null){nome = "";}
         if(edicao == null){edicao = processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();}
         
         Pageable pageable = new PageRequest(pagina, 10, Sort.Direction.DESC, "idinformacao");
-        return informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusContainingIgnoreCaseAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, status, nome, email, telefone, pageable);
+        return informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusInAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, status == null? StatusCandidato.values() : new StatusCandidato[] { status}, nome, email, telefone, pageable);
     }
     //TODO:Mover informação para um service dela mesmo
     public Informacao findInformcaoesDoCandidato(Candidato candidato){

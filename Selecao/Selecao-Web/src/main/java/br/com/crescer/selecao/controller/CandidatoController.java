@@ -65,7 +65,7 @@ public class CandidatoController {
     }
 
     @RequestMapping(value = "/candidatos")
-    String candidatos(String nome,String email,String telefone,String status, String edicao, Integer page, Model model) {
+    String candidatos(String nome,String email,String telefone,StatusCandidato status, String edicao, Integer page, Model model) {
         if (page == null) {
             page = 0;
         }
@@ -73,7 +73,7 @@ public class CandidatoController {
         for (Informacao i : candidatos) {
             i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
         }
-        model.addAttribute("valorAntigoInput", new HashMap<String, String>(){
+        model.addAttribute("valorAntigoInput", new HashMap<String, Object>(){
             {
                 put("nome", nome);
                 put("telefone", telefone);
