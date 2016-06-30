@@ -29,6 +29,10 @@ public class CandidatoService {
     @Autowired
     InformacaoRepository informacaoRepository;
     
+    public Informacao saveInformacao(Informacao informacao){
+        return informacaoRepository.save(informacao);
+    }
+    
     public Informacao salvarInformacoes(Informacao informacao, Processoseletivo processo){
         informacao.getIdcandidato().setStatus("AGUARDANDO CONTATO");
         informacao.setIdprocessoseletivo(processo);
