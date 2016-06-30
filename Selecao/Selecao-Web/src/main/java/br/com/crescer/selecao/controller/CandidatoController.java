@@ -29,7 +29,7 @@ public class CandidatoController {
     
     @RequestMapping(value = "/cadastro", method = RequestMethod.GET)
     String cadastro() {
-        return "_InteressadoCadastro";
+        return "index";
     }
 
     @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
@@ -47,7 +47,7 @@ public class CandidatoController {
                         //email ja existe
                     }
                 } else {
-                    return "_InteressadoCadastro";
+                    return "index";
                 }
             } catch (Exception e) {
                 return "redirect:cadastro?erroEmail";
