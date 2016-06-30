@@ -11,6 +11,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Email;
@@ -56,6 +57,7 @@ public class Candidato implements Serializable {
     @Column(name = "CURSO")
     private String curso;
     
+    @Pattern(regexp="^\\d{4}\\/(0?[1-9]|1[0-2])",message="Informe a previsão de formatura no formato indicado")
     @NotBlank(message="Campo Previsão de formatura deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "PREVISAOFORMATURA")

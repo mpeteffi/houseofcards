@@ -31,7 +31,7 @@ public class EmailController {
             model.addAttribute("mensagemConfirmacaoEmail", "Inscrição efetuada com êxito");
             return "Sucesso";
         } else {
-            return "paginaErro";
+            return "pagina-erro";
         }
     }
 
@@ -47,7 +47,7 @@ public class EmailController {
             model.addAttribute("informacao", informacao);
             return "FormConfirmarInscricao";
         } else {
-            return "paginaErro";
+            return "pagina-erro";
         }
     }
 

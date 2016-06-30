@@ -15,12 +15,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
@@ -63,12 +65,13 @@ public class Informacao implements Serializable {
     @Column(name = "URLLINKEDIN")
     private String urllinkedin;
     
-    @NotBlank(message="Campo Senha deve ser preenchido")
+    @NotEmpty(message="Campo Senha deve ser preenchido")
     @Size(min=6,message="Sua senha deve conter no mínimo 6 dígitos")
     @Basic(optional = false)
     @Column(name = "SENHA")
     private String senha;
     
+    @Valid
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
     @ManyToOne(optional = false)
     private Candidato idcandidato;

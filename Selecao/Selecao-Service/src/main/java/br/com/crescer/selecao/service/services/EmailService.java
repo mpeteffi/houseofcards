@@ -43,7 +43,7 @@ public class EmailService {
             email.setFrom("processoseletivocwi@gmail.com");
             email.setSubject("Confirmação de interesse");
             email.addTo(candidato.getEmail());
-            email.setHtmlMsg("<html>Quase lá... <p>Para confirmar o interesse no projeto: <a href=\"http://localhost:9090/email/confirmar-interesse?token=" + token + "\">link</a> </html>");
+            email.setHtmlMsg("<html>Ola "+candidato.getNome()+" <p>Voce preencheu o formulário de interesse no projeto, clique <a href=\"http://localhost:9090/email/confirmar-interesse?token=" + token + "\">aqui</a> para confirmar a inscrição</p></html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
