@@ -27,7 +27,7 @@ public class CandidatoController {
     @Autowired
     WebService webService; 
     
-    @RequestMapping(value = "/cadastro", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     String cadastro() {
         return "index";
     }
