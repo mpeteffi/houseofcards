@@ -15,7 +15,7 @@ public class EntrevistaService {
     @Autowired
     EntrevistaRepository entrevistaRepository;
     
-    public Entrevista findByCandidato(Candidato candidato){
-        return entrevistaRepository.findByIdCandidato(candidato);
+    public Iterable<Entrevista> findByCandidato(Candidato candidato){
+        return entrevistaRepository.findAllByIdCandidato(candidato);
     }
 }
