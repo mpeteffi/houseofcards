@@ -19,9 +19,6 @@ public class ProcessoseletivoServiceTest {
     
     @InjectMocks
     private ProcessoseletivoService processoseletivoService;
-
-    @Mock
-    private EmailService emailService;
     
     @Mock
     private CandidatoService candidatoService;
@@ -47,15 +44,15 @@ public class ProcessoseletivoServiceTest {
         assertTrue(processo != null);
     } 
     
-    @Test
-    public void salvarProcessoValidoRetornaTrue() {
-        boolean save = processoseletivoService.save(new Processoseletivo()) ;
-        assertTrue(save);
-    } 
-    
-    @Test
-    public void salvarProcessoInvalidoRetornaFalse() {
-        boolean save = processoseletivoService.save(null);
-        assertFalse(save);
-    } 
+//    @Test
+//    public void salvarProcessoValidoRetornaTrue() {
+//        boolean save = processoseletivoService.save(new Processoseletivo()) ;
+//        assertTrue(save);
+//    } 
+//    
+//    @Test
+//    public void salvarProcessoInvalidoRetornaFalse() {
+//        boolean save = processoseletivoService.save(null);
+//        assertFalse(save);
+//    } 
 }
