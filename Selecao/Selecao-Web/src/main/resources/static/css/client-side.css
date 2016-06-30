@@ -8,9 +8,9 @@
 .titulo{
     font-family: "Segoe Script","ZurichLtCnBTLight";
 }
-.fonte-laranja{
+.fonte-laranja,label{
     font-weight: bold;
-    font-family: "Rockwell","ZurichLtCnBTLight";
+    font-family: "Rockwell","arial";
     text-shadow: 1px 3px 0 rgba(0,0,0,.5);
     color: #ffad00;
     letter-spacing: -1px;    
@@ -22,4 +22,16 @@
     background-color: white;
     border-bottom-right-radius: 150px;
     border-bottom-left-radius: 150px;
+}
+input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: gray;
+}
+input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+  color: gray;
+}
+input[type="text"]:-ms-input-placeholder { /* IE 10+ */
+  color: gray;
+}
+input[type="text"]:-moz-placeholder { /* Firefox 18- */
+  color: gray;
 }

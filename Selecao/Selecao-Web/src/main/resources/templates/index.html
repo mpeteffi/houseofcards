@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
-        <link rel="stylesheet" th:href="@{/css/index.css}"/>
+        <link rel="stylesheet" th:href="@{/css/client-side.css}"/>
         <title>Titulo do Projeto</title>
     </head>
     <body class="corpo">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Previsao Formatura</label>
-                            <input required="required" class="form-control" type="date" th:field="*{previsaoformatura}"/>
+                            <input required="required" class="form-control" type="text" th:field="*{previsaoformatura}" placeholder="aaaa/mm"/>
                             <p class="text-danger" th:if="${#fields.hasErrors('previsaoformatura')}" th:errors="*{previsaoformatura}"></p>
                         </div>
                         <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
