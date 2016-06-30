@@ -129,15 +129,22 @@ public class CandidatoController {
     
     @RequestMapping(value="/editar-candidato",method = RequestMethod.GET)
     String editarCandidatoGET(Integer idCandidato, Model model) {        
-        model.addAttribute("candidato", webService.getCandidatoService().findInformcaoesDoCandidato(new Candidato(idCandidato)));        ffffff
-    @RequestMapping(value="/editar-candidato",method = RequestMethod.POSTfffffffffffffffffffffffffffffffffffffffff)
+        model.addAttribute("candidato", webService.getCandidatoService().findInformcaoesDoCandidato(new Candidato(idCandidato)));
+        return "editar-candidato";
+    }
+    
+    @RequestMapping(value="/editar-candidato",method = RequestMethod.POST)
     String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,String status, String telefone, Date datanascimento, String cidade, String urllinkedin) {
-  e        webService.getCandidatoService().salvarInformcaoesDoCandidato(new Informacao(   telefone,ffffffffffffff
-                                                                datanascimento,
-                                                                cidade,fffffffffffffffffffffffffffff
-                                                                urllinkedin,
-                                                                candidato                                                                
-                                                            ));   
+        Candidato candidato = new Candidato(idCandidato,nome,email,instituicaoensino,curso,previsaoformatura,status); 
+        webService
+                .getCandidatoService()
+                .salvarInformcaoesDoCandidato(new Informacao( 
+                                                    telefone,
+                                                    datanascimento,
+                                                    cidade,
+                                                    urllinkedin,
+                                                    candidato                                                                
+                                                ));   
         return "Sucesso";
     }
 }

@@ -79,12 +79,12 @@ public class CandidatoService {
         if(nome == null){nome = "";}
         if(edicao == null){edicao = processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();}
         
-        Pageable pageable = new PageRequest(pagina, 5, Sort.Direction.DESC, "idinformacao");
+        Pageable pageable = new PageRequest(pagina, 10, Sort.Direction.DESC, "idinformacao");
         return informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusContainingIgnoreCaseAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, status, nome, email, telefone, pageable);
     }
     //TODO:Mover informação para um service dela mesmo
     public Informacao findInformcaoesDoCandidato(Candidato candidato){
-        return informacaoRepository.findByIdCandidato(candidato);
+        return informacaoRepository.findByIdcandidato(candidato);
     }
     
     public void salvarInformcaoesDoCandidato(Informacao informacao){

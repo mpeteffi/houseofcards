@@ -82,6 +82,17 @@ public class Candidato implements Serializable {
         this.previsaoformatura = previsaoformatura;
         this.status = status;
     }
+    
+    
+    public Candidato(int idcandidato, String nome, String email, String instituicaoensino, String curso, String previsaoformatura, String status) {
+        this.idcandidato = idcandidato;
+        this.nome = nome;
+        this.email = email;
+        this.instituicaoensino = instituicaoensino;
+        this.curso = curso;
+        this.previsaoformatura = previsaoformatura;
+        this.status = status;
+      }
 
     public int getIdcandidato() {
         return idcandidato;

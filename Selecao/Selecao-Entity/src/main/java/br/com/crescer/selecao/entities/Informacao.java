@@ -97,6 +97,14 @@ public class Informacao implements Serializable {
         this.idprocessoseletivo = processoseletivo;
     }
 
+    public Informacao(String telefone, Date datanascimento, String cidade, String urllinkedin, Candidato candidato) {
+         this.telefone = telefone;
+         this.datanascimento = datanascimento;
+         this.cidade = cidade;
+         this.urllinkedin = urllinkedin;
+         this.idcandidato = candidato;
+     }
+
     public int getIdinformacao() {
         return idinformacao;
     }
