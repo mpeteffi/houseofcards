@@ -88,6 +88,6 @@ public class CandidatoService {
     }
     
     public void salvarInformcaoesDoCandidato(Informacao informacao){
-        informacaoRepository.save(informacao);
+         informacaoRepository.save(informacao);
     }
 }
