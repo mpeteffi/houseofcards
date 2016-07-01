@@ -46,8 +46,7 @@
                     <a th:href="${candidato.urlLinkedin}" target="_blank"><i class="fa fa-linkedin-square candidatos-acoes"></i ></a>
                 </td>
                 <td>
-                    <i class="fa fa-pencil editar-candidato candidatos-acoes" th:attr="data-url='/editar-candidato?idCandidato='+${candidato.idCandidato.idCandidato}"></i>           
-                    <i class="fa fa-file-text entrevistas-candidatos candidatos-acoes" th:attr="data-url='/entrevistas?idCandidato='+${candidato.idCandidato.idCandidato}"></i>
+                    <span class="glyphicon glyphicon-list-alt" th:attr="data-url='/editar-candidato?idCandidato='+${candidato.idCandidato.idCandidato}"></span>           
                 </td>
             </tr> 
         </tbody>

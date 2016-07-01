@@ -74,8 +74,8 @@ public class CandidatoController {
     
     @RequestMapping(value="/entrevistas",method = RequestMethod.GET)
     String entrevistas(Integer idCandidato, Model model) {
-        Candidato candidato = webService.getCandidatoService().buscarCandidatoPorId(idCandidato);
-        Iterable<Entrevista> entrevistas = webService.getEntrevistaService().buscarEntrevistasPorCandidato(candidato);            
+        Informacao candidato = webService.getCandidatoService().buscarInformacoesDeCandidato(new Candidato(idCandidato));
+        Iterable<Entrevista> entrevistas = webService.getEntrevistaService().buscarEntrevistasPorCandidato(candidato.getIdCandidato());            
         model.addAttribute("candidato", candidato);
         model.addAttribute("entrevistas", entrevistas);
         return "_entrevistas";
@@ -100,12 +100,7 @@ public class CandidatoController {
                                                             ));   
        return "Sucesso";
     }
-    
-    @RequestMapping(value="/editar-candidato",method = RequestMethod.GET)
-    String editarCandidatoGET(Integer idCandidato, Model model) {        
-        model.addAttribute("candidato", webService.getCandidatoService().buscarInformacoesDeCandidato(new Candidato(idCandidato)));
-        return "_editar-candidato";
-    }
+
     
     @RequestMapping(value="/editar-candidato",method = RequestMethod.POST)
     String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,StatusCandidato status, String telefone, Date datanascimento, String cidade, String urllinkedin) {

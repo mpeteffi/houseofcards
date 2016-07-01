@@ -1,11 +1,10 @@
 <div class="row top15">
     <div class="col-md-12">
-        <p th:text="${candidato.nome}+' ('+${candidato.email}+') - '+${candidato.instituicaoEnsino}+'/'+${candidato.curso}"></p>
-        <button class="btn btn-default btn-nova-entrevista" th:attr="data-url='/nova-entrevista?idCandidato='+${candidato.idCandidato}">Nova entrevista</button>
+        <p th:text="${candidato.idCandidato.nome}+' ('+${candidato.idCandidato.email}+') - '+${candidato.idCandidato.instituicaoEnsino}+'/'+${candidato.idCandidato.curso}"></p>
     </div>
 </div>
 <div class="row top25">
-    <div class="col-md-8 col-md-offset-2 candidato-entrevista-div">
+    <div class="col-md-10 col-md-offset-1 candidato-entrevista-div">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home">Inicio</a></li>
             <li th:each="entrevista : ${entrevistas}">
@@ -14,9 +13,52 @@
         </ul> 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-                <h3>Inicio</h3>
-                <p th:if="${not #lists.isEmpty(entrevistas)}">Selecione a data desejada para ver os detalhes da entrevista.</p>
-                <p th:if="${#lists.isEmpty(entrevistas)}">Não há nenhuma entrevista para este candidato nesta edição.</p>
+                <h3>Informações do Candidato</h3>
+                <form id="edicao-candidato" data-url="/editar-candidato" role="form"  method="POST">
+                    <input type="number" hidden="hidden" th:value="${candidato.idCandidato.idCandidato}" name="idCandidato" />
+                    <input type="number" hidden="hidden" th:value="${candidato.idInformacao}" name="idInformacao" />
+                    <div class="input-group">
+                        <span for="nome" class="input-group-addon" id="basic-addon1">Nome</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.nome}" placeholder="fulano" name="nome" required="required" aria-describedby="basic-addon1"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="email" class="input-group-addon" id="basic-addon2">Email:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.email}" placeholder="fulano@exemplo.com" name="email" required="required" aria-describedby="basic-addon2"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="instituicaoEnsino" class="input-group-addon" id="basic-addon3">Instituição de ensino:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.instituicaoEnsino}" placeholder="Unisinos" name="instituicaoEnsino" required="required" aria-describedby="basic-addon3"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="curso" class="input-group-addon" id="basic-addon4">Curso:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.curso}" placeholder="Ciência da computação" name="curso" required="required" aria-describedby="basic-addon4"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="previsaoFormatura" class="input-group-addon" id="basic-addon5">Previsão de formatura:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.previsaoFormatura}" placeholder="2018/1" name="previsaoFormatura" required="required" aria-describedby="basic-addon5"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="telefone" class="input-group-addon" id="basic-addon6">Telefone:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.telefone}" placeholder="(51)99999999" name="telefone" required="required" aria-describedby="basic-addon6"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="dataNascimento" class="input-group-addon" id="basic-addon7">Data de nascimento:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.dataNascimento}" placeholder="dd/mm/aaaa" name="dataNascimento" required="required" aria-describedby="basic-addon7"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="cidade" class="input-group-addon" id="basic-addon8">Cidade</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.cidade}" placeholder="São Leopoldo" name="cidade" required="required" aria-describedby="basic-addon8"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="urlLinkedin" class="input-group-addon" id="basic-addon9">Url Linkedin:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.urlLinkedin}" placeholder="www.linkedin.com/fulano" name="urlLinkedin" required="required" aria-describedby="basic-addon9"/>
+                    </div>
+                    <div class="input-group">
+                        <span for="status" class="input-group-addon" id="basic-addon10">Status:</span>
+                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.status}" placeholder="Sem interesse" name="status" required="required" aria-describedby="basic-addon10"/>
+                    </div>
+                    <button type="submit" class="btn btn-default">Salvar</button>
+                </form>    
             </div>
             <div th:each="entrevista : ${entrevistas}" th:id="'menu'+${entrevista.idEntrevista}" class="tab-pane fade">
                 <h4>Parecer Rh:</h4>

@@ -94,7 +94,7 @@ public class Candidato implements Serializable {
         this.status = status;
       }
 
-    public int getIdCandidato() {
+    public Integer getIdCandidato() {
         return idCandidato;
     }
 
