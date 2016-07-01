@@ -7,21 +7,20 @@ function mainView(options) {
 }
 ;
 
-mainView.prototype.atualizaView = function (pagina, obj) {
+mainView.prototype.atualizaView = function (obj) { 
+    var objeto = $(obj);
     var self = this;
-    var dados = obj ? self.serializeArrayToObj(obj.serializeArray()) : {};
+    var dados = objeto ? self.serializeArrayToObj(objeto.serializeArray()) : {};
     dados.edicao = this.edicaoAtual;
-    $.get(pagina, dados, function (res) {
+    return $.get(objeto.data('url'),dados, function(res) {
         self.appendCorpo(res);
     });
 };
 
-mainView.prototype.postForm = function (pagina) {
+mainView.prototype.postForm = function (obj) { 
     dados = dados || {};
-
-    $.post(pagina, dados, function (res) {
-
-    });
+    pagina = $(obj).data('url');    
+    return $.post(pagina,dados);
 };
 
 //https://api.jquery.com/serializeArray/

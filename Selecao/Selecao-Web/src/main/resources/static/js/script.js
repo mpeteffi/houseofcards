@@ -12,73 +12,91 @@
     });
 
     view.appendEventoNoHtml({
-        evento: 'submit',
-        obj: '.form-filtro',
-        funcao: function (e) {
-            $('.input-pagina').val(0);
-            view.atualizaView($(this).data('url'), $(this));
-            e.preventDefault();
-        }
+            evento:'submit',
+            obj:'.form-filtro',
+            funcao:function(e){
+                $('.input-pagina').val(0);                
+                view.atualizaView(this);
+                e.preventDefault();
+            }
     });
 
     view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.btn-paginacao',
-        funcao: function () {
-            $('.input-pagina').val($(this).data('page'));
-            view.atualizaView($(this).data('url'), $('.form-filtro'));
-        }
+            evento:'click',
+            obj:'.btn-paginacao',
+            funcao:function(){
+                $('.input-pagina').val($(this).data('page'));                
+                view.atualizaView('.form-filtro');
+            }
     });
 
     view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.opcao-side-bar',
-        funcao: function () {
-            view.atualizaView($(this).data('url'));
-        }
+            evento:'click',
+            obj:'.opcao-side-bar',
+            funcao:function(){                
+                view.atualizaView(this);
+            }
     });
 
     view.appendEventoNoHtml({
-        evento: 'submit',
-        obj: '#nova-edicao-form',
-        funcao: function (e) {
-            view.postForm($(this).data('url'), $(this));
-            e.preventDefault();
-        }
+            evento:'submit',
+            obj:'#nova-edicao-form',
+            funcao:function(e){                
+                view.postForm(this);
+                e.preventDefault();
+            }
+    });   
+    view.appendEventoNoHtml({
+            evento:'click',
+            obj:'.editar-candidato',
+            funcao:function(){
+                view.atualizaView(this);
+            }
+    });
+    
+     view.appendEventoNoHtml({
+            evento:'click',
+            obj:'.btn-nova-entrevista',
+            funcao:function(){
+                view.atualizaView(this);
+            }
     });
 
     view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.entrevistas-candidatos',
-        funcao: function () {
-            view.atualizaView($(this).data('url'));
-        }
+            evento:'submit',
+            obj:'.edicao-candidato',
+            funcao:function(){
+                view.atualizaView(this)
+            }
     });
-
+    
+    
     view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.editar-candidato',
-        funcao: function () {
-            view.atualizaView($(this).data('url'));
-        }
-    });
+            evento:'click',
+            obj:'.btn-novo-agendamento',
+            funcao:function(){                
+                view.atualizaView(this).always(function(){
+                    new calendarioView($('#calendar'),{
+                        lang: 'pt-br',
+                        selectable:true,
+                        selectHelper:true,
+                        editable: true,
+                        hiddenDays: [ 6,0 ] ,
+                        header:
+                            {
+                                    left: 'prev,next today',
+                                    center: 'title',
+                                    right: 'month,agendaWeek,agendaDay'
+                            },                            			
+			eventLimit: true 
 
-    view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.btn-nova-entrevista',
-        funcao: function () {
-            view.atualizaView($(this).data('url'));
-        }
+                    }).init();                    
+                });
+            }
     });
-
-    view.appendEventoNoHtml({
-        evento: 'submit',
-        obj: '.edicao-candidato',
-        funcao: function () {
-            view.atualizaView($(this).data('url'));
-        }
-    });
-
+    
+    
+    
     view.appendEventoNoHtml({
         evento: 'click',
         obj: '.btnLogout',
@@ -103,9 +121,10 @@
         obj: '.btn-new-processo',
         funcao: function () {
             var self = this;
-            $.get('/verificarProcessoSeletivo').done(function (res) {
-                if (!res) {
-                    view.atualizaView($(self).data('url'));
+            
+            $.get('/verificarProcessoSeletivo').done(function(res){
+                if(!res){
+                    view.atualizaView(self);
                 } else {
                     swal({
                         title: 'Você não pode fazer isso.',

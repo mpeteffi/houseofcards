@@ -28,7 +28,9 @@
     font-size: 23px;
     font-weight: bold;
 }
-
+#calendar{
+    background-color: white;
+}
 .body-admin{
     background-color: #E5E9EC;
 }
