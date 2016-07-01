@@ -60,6 +60,14 @@ public class Entrevista implements Serializable {
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
     @ManyToOne(optional = false)
     private Usuario idUsuario;
+    
+    @JoinColumn(name = "IDGRUPODEPROVAS", referencedColumnName = "IDGRUPODEPROVAS")
+    @ManyToOne(optional = false)
+    private GrupoDeProvas grupoDeProvas;
+    
+    @JoinColumn(name = "IDDATAHORA", referencedColumnName = "IDDATAHORA")
+    @ManyToOne(optional = false)
+    private DataHora entrevistaRH;   
 
     public Entrevista() {
     }

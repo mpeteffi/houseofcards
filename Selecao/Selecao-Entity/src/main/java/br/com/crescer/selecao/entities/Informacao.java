@@ -78,6 +78,10 @@ public class Informacao implements Serializable {
     @JoinColumn(name = "IDPROCESSOSELETIVO", referencedColumnName = "IDPROCESSOSELETIVO")
     @ManyToOne(optional = false)
     private Processoseletivo idProcessoSeletivo;
+    
+    @JoinColumn(name = "IDGRUPODEPROVAS", referencedColumnName = "IDGRUPODEPROVAS")
+    @ManyToOne(optional = false)
+    private GrupoDeProvas idGrupoDeProvas;
 
     public Informacao() {
     }
