@@ -3,8 +3,11 @@ package br.com.crescer.selecao;
 import br.com.crescer.selecao.captcha.RecaptchaService;
 import br.com.crescer.selecao.controller.CandidatoController;
 import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.Informacao;
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.services.CandidatoService;
 import br.com.crescer.selecao.webservices.WebService;
+import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,15 +42,17 @@ public class CandidatoControllerTest {
     @Mock BindingResult bindingResult;
     @Mock HttpServletRequest request;
     @Mock Candidato candidato;
-            
+      
     @Before
     public void setUp() {
+        Iterable<Informacao> candidatos = new ArrayList<>();
         doReturn(false).when(bindingResult).hasErrors();
         doReturn(recaptchaService).when(webService).getRecaptchaService();
         doReturn(true).when(recaptchaService).isResponseValid("127.0.0.1", "TOKEN_VALIDO");
         doReturn(false).when(recaptchaService).isResponseValid("127.0.0.1", "TOKEN_INVALIDO");
         doReturn(candidatoService).when(webService).getCandidatoService();
         doReturn(new Candidato()).when(candidatoService).salvarCandidato(any(Candidato.class));
+        //doReturn(candidatos).when(candidatoService).buscarCandidatosPorFiltros("",StatusCandidato.ENTREVISTADO,"","","",0);
         
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/templates/");
@@ -64,7 +69,7 @@ public class CandidatoControllerTest {
     }
     
     @Test
-    public void postComDadosValidosRetornaSucesso() throws Exception{
+    public void postIndexComDadosValidosRetornaSucesso() throws Exception{
         mockMvc.perform(post("/")
             .param("g-recaptcha-response", "TOKEN_VALIDO")
             .param("nome", "Candidato")
@@ -78,7 +83,7 @@ public class CandidatoControllerTest {
     }
     
     @Test
-    public void postComDadosValidosETokenInvalidoRetornaIndex() throws Exception{
+    public void postIndexComDadosValidosETokenInvalidoRetornaIndex() throws Exception{
         mockMvc.perform(post("/")
             .param("g-recaptcha-response", "TOKEN_INVALIDO")
             .param("nome", "Candidato")
@@ -91,7 +96,7 @@ public class CandidatoControllerTest {
     }
     
     @Test
-    public void postComEmailIinvalidoRetornaIndex() throws Exception{
+    public void postIndexComEmailIinvalidoRetornaIndex() throws Exception{
         mockMvc.perform(post("/")
             .param("g-recaptcha-response", "TOKEN_VALIDO")
             .param("nome", "Candidato")
@@ -104,7 +109,20 @@ public class CandidatoControllerTest {
     }
     
     @Test
-    public void postComEmailETokenIinvalidosRetornaIndex() throws Exception{
+    public void postIndexComEmailETokenIinvalidosRetornaIndex() throws Exception{
+        mockMvc.perform(post("/")
+            .param("g-recaptcha-response", "TOKEN_INVALIDO")
+            .param("nome", "Candidato")
+            .param("email", "EMAIL_INVALIDO")
+            .param("instituicaoEnsino", "Crescer")
+            .param("curso", "Crescer")
+            .param("previsaoFormatura", "2016/01"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("index"));
+    }
+    
+    @Test
+    public void candidatos() throws Exception{
         mockMvc.perform(post("/")
             .param("g-recaptcha-response", "TOKEN_INVALIDO")
             .param("nome", "Candidato")

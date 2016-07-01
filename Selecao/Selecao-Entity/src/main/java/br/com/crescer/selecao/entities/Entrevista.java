@@ -14,6 +14,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -24,23 +26,25 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Entrevista implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "ENTREVISTA_IDENTREVISTA_SEQ")
     @SequenceGenerator(name = "ENTREVISTA_IDENTREVISTA_SEQ", sequenceName = "ENTREVISTA_IDENTREVISTA_SEQ", allocationSize = 1)
     @Basic(optional = false)
+    @NotNull
     @Column(name = "IDENTREVISTA")
     private Integer idEntrevista;
     
-    @Basic(optional = false)
     @Column(name = "DATAENTREVISTA")
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataEntrevista;
     
-    @Basic(optional = false)
+    @Size(max = 4000)
     @Column(name = "PARECERRH")
     private String parecerRh;
     
-    @Basic(optional = false)
+    @Size(max = 4000)
     @Column(name = "PARECERTECNICO")
     private String parecerTecnico;
     
@@ -61,13 +65,13 @@ public class Entrevista implements Serializable {
     @ManyToOne(optional = false)
     private Usuario idUsuario;
     
-    @JoinColumn(name = "IDGRUPODEPROVAS", referencedColumnName = "IDGRUPODEPROVAS")
-    @ManyToOne(optional = false)
-    private GrupoDeProvas grupoDeProvas;
-    
     @JoinColumn(name = "IDDATAHORA", referencedColumnName = "IDDATAHORA")
-    @ManyToOne(optional = false)
-    private DataHora entrevistaRH;   
+    @ManyToOne
+    private Datahora idDataHora;
+    
+    @JoinColumn(name = "IDGRUPODEPROVAS", referencedColumnName = "IDGRUPODEPROVAS")
+    @ManyToOne
+    private Grupodeprovas idGrupoDeProvas;
 
     public Entrevista() {
     }
@@ -76,18 +80,34 @@ public class Entrevista implements Serializable {
         this.idEntrevista = identrevista;
     }
 
-    public Entrevista(Date dataentrevista, String parecerrh, String parecertecnico, Double provag36, Double provaac, Double provatecnica, Candidato idCandidato, Usuario idusuario) {
-        this.dataEntrevista = dataentrevista;
-        this.parecerRh = parecerrh;
-        this.parecerTecnico = parecertecnico;
-        this.provaG36 = provag36;
-        this.provaAc = provaac;
-        this.provaTecnica = provatecnica;
+    public Entrevista(Date dataEntrevista, String parecerRh, String parecerTecnico, Double provaG36, Double provaAc, Double provaTecnica, Candidato idCandidato, Usuario idUsuario) {
+        this.dataEntrevista = dataEntrevista;
+        this.parecerRh = parecerRh;
+        this.parecerTecnico = parecerTecnico;
+        this.provaG36 = provaG36;
+        this.provaAc = provaAc;
+        this.provaTecnica = provaTecnica;
         this.idCandidato = idCandidato;
-        this.idUsuario = idusuario;
+        this.idUsuario = idUsuario;
     }
 
-    public int getIdEntrevista() {
+    public Candidato getIdCandidato() {
+        return idCandidato;
+    }
+
+    public void setIdCandidato(Candidato idCandidato) {
+        this.idCandidato = idCandidato;
+    }
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public Integer getIdEntrevista() {
         return idEntrevista;
     }
 
@@ -143,20 +163,20 @@ public class Entrevista implements Serializable {
         this.provaTecnica = provaTecnica;
     }
 
-    public Candidato getIdCandidato() {
-        return idCandidato;
+    public Datahora getIdDataHora() {
+        return idDataHora;
     }
 
-    public void setIdCandidato(Candidato idcandidato) {
-        this.idCandidato = idcandidato;
+    public void setIdDataHora(Datahora idDataHora) {
+        this.idDataHora = idDataHora;
     }
 
-    public Usuario getIdUsuario() {
-        return idUsuario;
+    public Grupodeprovas getIdGrupoDeProvas() {
+        return idGrupoDeProvas;
     }
 
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdGrupoDeProvas(Grupodeprovas idGrupoDeProvas) {
+        this.idGrupoDeProvas = idGrupoDeProvas;
     }
 
     @Override
