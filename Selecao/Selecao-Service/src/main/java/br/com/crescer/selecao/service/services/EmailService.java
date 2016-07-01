@@ -35,11 +35,15 @@ public class EmailService {
         email.setAuthentication("processoseletivocwi@gmail.com", "cwisoftware2");
         email.setSSLOnConnect(true);
     }
+    
+    private String gerarToken(Candidato candidato){
+        return tokenService.criarTokenParaCandidato(candidato);
+    }
 
     public void enviarEmailParaConfirmacaoDeInteresse(Candidato candidato) {
         HtmlEmail email = new HtmlEmail();
         configurar(email);
-        String token = tokenService.criarTokenParaCandidato(candidato);
+        String token = gerarToken(candidato);
         try {
             email.setFrom("processoseletivocwi@gmail.com");
             email.setSubject("Confirmação de interesse");
@@ -54,7 +58,7 @@ public class EmailService {
     public void enviarEmailParaInteressado(Candidato candidato, Processoseletivo processoSeletivo) {
         HtmlEmail email = new HtmlEmail();
         configurar(email);
-        String token = tokenService.criarTokenParaCandidato(candidato);
+        String token = gerarToken(candidato);
         try {
             email.setFrom("processoseletivocwi@gmail.com");
             email.setSubject("Confirmação de inscrição");
@@ -62,9 +66,9 @@ public class EmailService {
             email.setHtmlMsg("<html><h3>Iniciado o precesso seletivo do projeto crescer " + processoSeletivo.getEdicao() + "</h3>"
                     + "<p>Data início do agendamento de entrevista:" + sdf.format(processoSeletivo.getInicioselecao()) + "</p>"
                     + "<p>Data final do agendamento de entrevista:" + sdf.format(processoSeletivo.getFinalselecao()) + "</p>"
-                    + "<p>Data início dasaulas:" + sdf.format(processoSeletivo.getInicioaula()) + "</p>"
-                    + "<p>Data início dasaulas:" + sdf.format(processoSeletivo.getFinalaula()) + "</p>"
-                    + "<p>Para confirmar sua inscrição no projeto, acesse: <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">link</a> </html>");
+                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getInicioaula()) + "</p>"
+                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getFinalaula()) + "</p>"
+                    + "<p>Para confirmar sua inscrição no projeto, clique <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">aqui</a>para preencher seus dados e completar a inscrição</html>");
             email.send();
             candidato.setStatus(StatusCandidato.NOTIFICADO);
             candidatoService.salvarCandidato(candidato);

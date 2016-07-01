@@ -55,16 +55,13 @@ public class EmailController {
     String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult, String token, Model model) {
 
         if (!bindingResult.hasErrors()) {
-            if (informacao.getIdinformacao() == 0) {
-                Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
-                webService.getCandidatoService().salvarInformacao(informacao, processo);
-                webService.getTokenService().invalidarTokenParaCandidato(informacao.getIdcandidato());
-                model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
-                return "Sucesso";
-            } else {
-                webService.getCandidatoService().atualizarInformacao(informacao);                
-                return "paginaAposEdicao";
-            }
+
+            Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
+            webService.getCandidatoService().salvarInformacao(informacao, processo);
+            webService.getTokenService().invalidarTokenParaCandidato(informacao.getIdcandidato());
+            model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
+            return "Sucesso";
+
         } else {
             model.addAttribute("erros", bindingResult.getAllErrors());
             return confirmarTokenInscricao(token, model);
