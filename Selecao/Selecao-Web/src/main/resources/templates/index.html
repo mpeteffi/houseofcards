@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-md-6 divs">
                     <div>
-                    <h2 class="text-center fonte-laranja">Quero participar</h2>
+                        <h2 class="text-center fonte-laranja">Quero participar</h2>
                     </div>
                     <form th:action="@{/cadastro}" th:object="${candidato}" method="POST">
                         <div class="form-group">
@@ -39,8 +39,8 @@
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Instituição de Ensino</label>
-                            <input required="required" class="form-control" type="text" th:field="*{instituicaoensino}"/> 
-                            <p class="text-danger" th:if="${#fields.hasErrors('instituicaoensino')}" th:errors="*{instituicaoensino}"></p>
+                            <input required="required" class="form-control" type="text" th:field="*{instituicaoEnsino}"/> 
+                            <p class="text-danger" th:if="${#fields.hasErrors('instituicaoEnsino')}" th:errors="*{instituicaoEnsino}"></p>
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Curso</label>
@@ -49,16 +49,14 @@
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Previsao Formatura</label>
-                            <input required="required" class="form-control" type="text" th:field="*{previsaoformatura}" placeholder="aaaa/mm"/>
-                            <p class="text-danger" th:if="${#fields.hasErrors('previsaoformatura')}" th:errors="*{previsaoformatura}"></p>
+                            <input required="required" class="form-control" type="text" th:field="*{previsaoFormatura}" placeholder="aaaa/mm"/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('previsaoFormatura')}" th:errors="*{previsaoFormatura}"></p>
                         </div>
                         <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
                         <div class="form-group"><br/>
                             <button type="submit" value="Sign In" class="btn btn-danger">Enviar</button>
                         </div>
                     </form>
-
-
                 </div>
             </div>
         </div>

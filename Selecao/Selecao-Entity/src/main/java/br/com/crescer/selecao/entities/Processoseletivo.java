@@ -30,7 +30,7 @@ public class Processoseletivo implements Serializable {
     @SequenceGenerator(name = "PROCESSOSELETIVO_IDPROCESSOSEL", sequenceName = "PROCESSOSELETIVO_IDPROCESSOSEL", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDPROCESSOSELETIVO")
-    private Integer idprocessoseletivo;
+    private Integer idProcessoSeletivo;
     
     @Basic(optional = false)
     @Column(name = "EDICAO")
@@ -39,44 +39,44 @@ public class Processoseletivo implements Serializable {
     @Basic(optional = false)
     @Column(name = "INICIOSELECAO")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date inicioselecao;
+    private Date inicioSelecao;
     
     @Basic(optional = false)
     @Column(name = "FINALSELECAO")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date finalselecao;
+    private Date finalSelecao;
     
     @Basic(optional = false)
     @Column(name = "INICIOAULA")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date inicioaula;
+    private Date inicioAula;
     
     @Basic(optional = false)
     @Column(name = "FINALAULA")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date finalaula;
+    private Date finalAula;
 
     public Processoseletivo() {
     }
 
     public Processoseletivo(Integer idprocessoseletivo) {
-        this.idprocessoseletivo = idprocessoseletivo;
+        this.idProcessoSeletivo = idprocessoseletivo;
     }
 
     public Processoseletivo(String edicao, Date inicioselecao, Date finalselecao, Date inicioaula, Date finalaula) {
         this.edicao = edicao;
-        this.inicioselecao = inicioselecao;
-        this.finalselecao = finalselecao;
-        this.inicioaula = inicioaula;
-        this.finalaula = finalaula;
+        this.inicioSelecao = inicioselecao;
+        this.finalSelecao = finalselecao;
+        this.inicioAula = inicioaula;
+        this.finalAula = finalaula;
     }
 
-    public int getIdprocessoseletivo() {
-        return idprocessoseletivo;
+    public int getIdProcessoSeletivo() {
+        return idProcessoSeletivo;
     }
 
-    public void setIdprocessoseletivo(Integer idprocessoseletivo) {
-        this.idprocessoseletivo = idprocessoseletivo;
+    public void setIdProcessoSeletivo(Integer idProcessoSeletivo) {
+        this.idProcessoSeletivo = idProcessoSeletivo;
     }
 
     public String getEdicao() {
@@ -87,41 +87,41 @@ public class Processoseletivo implements Serializable {
         this.edicao = edicao;
     }
 
-    public Date getInicioselecao() {
-        return inicioselecao;
+    public Date getInicioSelecao() {
+        return inicioSelecao;
     }
 
-    public void setInicioselecao(Date inicioselecao) {
-        this.inicioselecao = inicioselecao;
+    public void setInicioSelecao(Date inicioSelecao) {
+        this.inicioSelecao = inicioSelecao;
     }
 
-    public Date getFinalselecao() {
-        return finalselecao;
+    public Date getFinalSelecao() {
+        return finalSelecao;
     }
 
-    public void setFinalselecao(Date finalselecao) {
-        this.finalselecao = finalselecao;
+    public void setFinalSelecao(Date finalSelecao) {
+        this.finalSelecao = finalSelecao;
     }
 
-    public Date getInicioaula() {
-        return inicioaula;
+    public Date getInicioAula() {
+        return inicioAula;
     }
 
-    public void setInicioaula(Date inicioaula) {
-        this.inicioaula = inicioaula;
+    public void setInicioAula(Date inicioAula) {
+        this.inicioAula = inicioAula;
     }
 
-    public Date getFinalaula() {
-        return finalaula;
+    public Date getFinalAula() {
+        return finalAula;
     }
 
-    public void setFinalaula(Date finalaula) {
-        this.finalaula = finalaula;
+    public void setFinalAula(Date finalAula) {
+        this.finalAula = finalAula;
     }
 
     @Override
     public String toString() {
-        return "br.com.crescer.selecao.entities.Processoseletivo[ idprocessoseletivo=" + idprocessoseletivo + " ]";
+        return "br.com.crescer.selecao.entities.Processoseletivo[ idprocessoseletivo=" + idProcessoSeletivo + " ]";
     }
     
 }

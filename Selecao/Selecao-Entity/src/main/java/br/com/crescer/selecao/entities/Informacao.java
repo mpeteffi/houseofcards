@@ -39,7 +39,7 @@ public class Informacao implements Serializable {
     @SequenceGenerator(name = "INFORMACAO_IDINFORMACAO_SEQ", sequenceName = "INFORMACAO_IDINFORMACAO_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDINFORMACAO")
-    private Integer idinformacao;
+    private Integer idInformacao;
     
     @NotNull(message="Campo Telefone deve ser preenchido")
     @Basic(optional = false)
@@ -52,7 +52,7 @@ public class Informacao implements Serializable {
     @Basic(optional = false)
     @Column(name = "DATANASCIMENTO")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date datanascimento;
+    private Date dataNascimento;
     
     @NotBlank(message="Campo Cidade deve ser preenchido")
     @Basic(optional = false)
@@ -62,7 +62,7 @@ public class Informacao implements Serializable {
     @NotBlank(message="Campo Url linkedin deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "URLLINKEDIN")
-    private String urllinkedin;
+    private String urlLinkedin;
     
     @NotEmpty(message="Campo Senha deve ser preenchido")
     @Size(min=6,message="Sua senha deve conter no mínimo 6 dígitos")
@@ -73,43 +73,43 @@ public class Informacao implements Serializable {
     @Valid
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
     @ManyToOne(optional = false)
-    private Candidato idcandidato;
+    private Candidato idCandidato;
     
     @JoinColumn(name = "IDPROCESSOSELETIVO", referencedColumnName = "IDPROCESSOSELETIVO")
     @ManyToOne(optional = false)
-    private Processoseletivo idprocessoseletivo;
+    private Processoseletivo idProcessoSeletivo;
 
     public Informacao() {
     }
 
     public Informacao(Integer idinformacao) {
-        this.idinformacao = idinformacao;
+        this.idInformacao = idinformacao;
     }
 
     public Informacao(String telefone, Date datanascimento, String cidade, String urllinkedin, String senha, Candidato candidato, Processoseletivo processoseletivo) {
         this.telefone = telefone;
-        this.datanascimento = datanascimento;
+        this.dataNascimento = datanascimento;
         this.cidade = cidade;
-        this.urllinkedin = urllinkedin;
+        this.urlLinkedin = urllinkedin;
         this.senha = senha;
-        this.idcandidato = candidato;
-        this.idprocessoseletivo = processoseletivo;
+        this.idCandidato = candidato;
+        this.idProcessoSeletivo = processoseletivo;
     }
 
     public Informacao(String telefone, Date datanascimento, String cidade, String urllinkedin, Candidato candidato) {
          this.telefone = telefone;
-         this.datanascimento = datanascimento;
+         this.dataNascimento = datanascimento;
          this.cidade = cidade;
-         this.urllinkedin = urllinkedin;
-         this.idcandidato = candidato;
+         this.urlLinkedin = urllinkedin;
+         this.idCandidato = candidato;
      }
 
-    public int getIdinformacao() {
-        return idinformacao;
+    public int getIdInformacao() {
+        return idInformacao;
     }
 
-    public void setIdinformacao(Integer idinformacao) {
-        this.idinformacao = idinformacao;
+    public void setIdInformacao(Integer idInformacao) {
+        this.idInformacao = idInformacao;
     }
 
     public String getTelefone() {
@@ -120,12 +120,12 @@ public class Informacao implements Serializable {
         this.telefone = telefone;
     }
 
-    public Date getDatanascimento() {
-        return datanascimento;
+    public Date getDataNascimento() {
+        return dataNascimento;
     }
 
-    public void setDatanascimento(Date datanascimento) {
-        this.datanascimento = datanascimento;
+    public void setDataNascimento(Date dataNascimento) {
+        this.dataNascimento = dataNascimento;
     }
 
     public String getCidade() {
@@ -136,12 +136,12 @@ public class Informacao implements Serializable {
         this.cidade = cidade;
     }
 
-    public String getUrllinkedin() {
-        return urllinkedin;
+    public String getUrlLinkedin() {
+        return urlLinkedin;
     }
 
-    public void setUrllinkedin(String urllinkedin) {
-        this.urllinkedin = urllinkedin;
+    public void setUrlLinkedin(String urlLinkedin) {
+        this.urlLinkedin = urlLinkedin;
     }
 
     public String getSenha() {
@@ -152,25 +152,25 @@ public class Informacao implements Serializable {
         this.senha = senha;
     }
 
-    public Candidato getIdcandidato() {
-        return idcandidato;
+    public Candidato getIdCandidato() {
+        return idCandidato;
     }
 
-    public void setIdcandidato(Candidato idcandidato) {
-        this.idcandidato = idcandidato;
+    public void setIdCandidato(Candidato idCandidato) {
+        this.idCandidato = idCandidato;
     }
 
-    public Processoseletivo getIdprocessoseletivo() {
-        return idprocessoseletivo;
+    public Processoseletivo getIdProcessoSeletivo() {
+        return idProcessoSeletivo;
     }
 
-    public void setIdprocessoseletivo(Processoseletivo idprocessoseletivo) {
-        this.idprocessoseletivo = idprocessoseletivo;
+    public void setIdProcessoSeletivo(Processoseletivo idProcessoSeletivo) {
+        this.idProcessoSeletivo = idProcessoSeletivo;
     }
 
     @Override
     public String toString() {
-        return "br.com.crescer.selecao.entities.Informacao[ idinformacao=" + idinformacao + " ]";
+        return "br.com.crescer.selecao.entities.Informacao[ idinformacao=" + idInformacao + " ]";
     }
     
 }

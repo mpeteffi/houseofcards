@@ -55,18 +55,18 @@ public class CandidatoService {
     }
     
     public Informacao buscarInformacoesDeCandidato(Candidato candidato){
-        return informacaoRepository.findByIdcandidato(candidato);
+        return informacaoRepository.findByIdCandidato(candidato);
     }
     
     public Informacao salvarInformacao(Informacao informacao, Processoseletivo processo){
         
-        informacao.getIdcandidato().setStatus(StatusCandidato.AGUARDANDO_CONTATO);
-        informacao.setIdprocessoseletivo(processo);
+        informacao.getIdCandidato().setStatus(StatusCandidato.AGUARDANDO_CONTATO);
+        informacao.setIdProcessoSeletivo(processo);
         String senha = new BCryptPasswordEncoder().encode(informacao.getSenha());
         informacao.setSenha(senha);
         
         try {
-            candidatoRepository.save(informacao.getIdcandidato());
+            candidatoRepository.save(informacao.getIdCandidato());
             return informacaoRepository.save(informacao);
         } catch (Exception e){
             return null;
@@ -79,7 +79,7 @@ public class CandidatoService {
     
     public Candidato buscarCandidatoPorId(Integer id){
         if (id == null){ id = 0;}
-        return candidatoRepository.findOneByIdcandidato(id);
+        return candidatoRepository.findOneByIdCandidato(id);
     }
     
     public Page<Informacao> buscarCandidatosPorFiltros(String edicao, StatusCandidato status, String nome, String email, String telefone, Integer pagina){
@@ -90,11 +90,11 @@ public class CandidatoService {
         edicao = edicao != null ? edicao : processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();
         StatusCandidato[] listaStatus = status == null ? StatusCandidato.values() : new StatusCandidato[]{status};
         
-        Pageable pageable = new PageRequest(pagina, 10, Sort.Direction.DESC, "idinformacao");
-        Page<Informacao> candidatos = informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusInAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, listaStatus, nome, email, telefone, pageable);
+        Pageable pageable = new PageRequest(pagina, 10, Sort.Direction.DESC, "idInformacao");
+        Page<Informacao> candidatos = informacaoRepository.findByIdProcessoSeletivo_EdicaoContainingIgnoreCaseAndIdCandidato_StatusInAndIdCandidato_NomeContainingIgnoreCaseAndIdCandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, listaStatus, nome, email, telefone, pageable);
         
         for (Informacao i : candidatos) {
-            i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
+            i.setDataNascimento(tempoDecorrido(i.getDataNascimento()));
         }
         
         return candidatos;

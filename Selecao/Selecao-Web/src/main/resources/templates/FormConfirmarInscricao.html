@@ -21,7 +21,6 @@
                     <div>
                         <h2 class="text-center fonte-laranja">Confirmar inscrição</h2>
                     </div>
-
                     <div th:if="${erros}">
                         <p class="text-danger" th:each="err:${erros}" th:text="${err.defaultMessage}"></p>
                     </div>

@@ -12,6 +12,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface InformacaoRepository extends PagingAndSortingRepository<Informacao, Long> {
     
-    Page<Informacao> findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusInAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(String edicao, StatusCandidato[] status, String nome, String email, String telefone, Pageable pegeable);
-    Informacao findByIdcandidato(Candidato candidato);
+    Page<Informacao> findByIdProcessoSeletivo_EdicaoContainingIgnoreCaseAndIdCandidato_StatusInAndIdCandidato_NomeContainingIgnoreCaseAndIdCandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(String edicao, StatusCandidato[] status, String nome, String email, String telefone, Pageable pegeable);
+    Informacao findByIdCandidato(Candidato candidato);
 }

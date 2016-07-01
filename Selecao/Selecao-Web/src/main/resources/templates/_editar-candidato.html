@@ -1,46 +1,46 @@
 <div class="col-md-5 col-md-offset-3">
     <form id="edicao-candidato" data-url="/editar-candidato" role="form"  method="POST">
-        <input type="number" hidden="hidden" th:value="${candidato.idcandidato.idcandidato}" name="idcandidato" />
-        <input type="number" hidden="hidden" th:value="${candidato.idinformacao}" name="idinformacao" />
+        <input type="number" hidden="hidden" th:value="${candidato.idCandidato.idCandidato}" name="idCandidato" />
+        <input type="number" hidden="hidden" th:value="${candidato.idInformacao}" name="idInformacao" />
         <div class="form-group">
-          <label for="data">Nome:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.idcandidato.nome}" placeholder="fulano" name="nome" required="required"/>
+            <label for="data">Nome:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.nome}" placeholder="fulano" name="nome" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Email:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.idcandidato.email}" placeholder="fulano@exemplo.com" name="email" required="required"/>
+            <label for="data">Email:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.email}" placeholder="fulano@exemplo.com" name="email" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Instituição de ensino:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.idcandidato.instituicaoensino}" placeholder="Unisinos" name="instituicaoensino" required="required"/>
+            <label for="data">Instituição de ensino:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.instituicaoEnsino}" placeholder="Unisinos" name="instituicaoEnsino" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Curso:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.idcandidato.curso}" placeholder="Ciência da computação" name="curso" required="required"/>
+            <label for="data">Curso:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.curso}" placeholder="Ciência da computação" name="curso" required="required"/>
         </div> 
         <div class="form-group">
-          <label for="data">Previsão de formatura:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.idcandidato.previsaoformatura}" placeholder="2018/1" name="previsaoformatura" required="required"/>
+            <label for="data">Previsão de formatura:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.previsaoFormatura}" placeholder="2018/1" name="previsaoFormatura" required="required"/>
         </div> 
         <div class="form-group">
-          <label for="data">Telefone:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.telefone}" placeholder="(51)99999999" name="telefone" required="required"/>
+            <label for="data">Telefone:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.telefone}" placeholder="(51)99999999" name="telefone" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Data de nascimento:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.datanascimento}" placeholder="dd/mm/aaaa" name="datanascimento" required="required"/>
+            <label for="data">Data de nascimento:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.dataNascimento}" placeholder="dd/mm/aaaa" name="dataNascimento" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Cidade</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.cidade}" placeholder="São Leopoldo" name="cidade" required="required"/>
+            <label for="data">Cidade</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.cidade}" placeholder="São Leopoldo" name="cidade" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Url Linkedin:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.urllinkedin}" placeholder="www.linkedin.com/fulano" name="urllinkedin" required="required"/>
+            <label for="data">Url Linkedin:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.urlLinkedin}" placeholder="www.linkedin.com/fulano" name="urlLinkedin" required="required"/>
         </div>
         <div class="form-group">
-          <label for="data">Status:</label>
-          <input type="text" class="form-control input-data" th:value="${candidato.idcandidato.status}" placeholder="Sem interesse" name="status" required="required"/>
+            <label for="data">Status:</label>
+            <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.status}" placeholder="Sem interesse" name="status" required="required"/>
         </div>
         <button type="submit" class="btn btn-default">Salvar</button>
     </form>

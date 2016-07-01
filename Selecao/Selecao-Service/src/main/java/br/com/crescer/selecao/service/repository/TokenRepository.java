@@ -9,6 +9,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 public interface TokenRepository extends PagingAndSortingRepository<Token, Long>{
     
     Token findOneByTokenAndStatusAndTipo(String token, String status, String tipo);
-    Token findOneByIdparaconfirmarAndStatusAndTipo(int idparaconfirmar,String status,String tipo);
+    Token findOneByIdParaConfirmarAndStatusAndTipo(int idparaconfirmar,String status,String tipo);
 }
 

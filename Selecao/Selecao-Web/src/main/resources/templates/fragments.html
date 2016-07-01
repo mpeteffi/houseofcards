@@ -13,40 +13,39 @@
         <title>Titulo do Projeto</title>
     </head>
     <body>
-            <div id="sidebar-wrapper" th:fragment="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand text-center">
-                        <span id="logo-nome">Crescer</span><span id="logo-descricao">Seleção</span>        
-                    </li>
-                    <li class="text-center div-perfil">
-                        <img class="img-circle img-perfil" th:src="@{${user.imagem}}"/>
-                        <span style="color:white;"><p>Olá, <span th:text="${user.nome}" ></span></p></span>
-                    </li>
-                    <li class="sidebar-lista-titulo">
-                        <span>PÁGINAS</span>
-                    </li>
-                    <li class="li-opcao-menu">
-                        <a href="#" data-url="/candidatos" class="opcao-side-bar" ><span class="glyphicon glyphicon-list icon-menu"></span>Lista de Candidatos</a>
-                    </li>
-                    <li class="li-opcao-menu">
-                        <a href="#"  data-url="/novaedicao" class="btn-new-processo" ><span class="glyphicon glyphicon-education icon-menu"></span>Nova Edição</a>
-                    </li>
-                     <li class="li-opcao-menu">
-                        <a href="#" class="btnLogout"><span class="glyphicon glyphicon-log-out icon-menu"></span>Sair</a>
-                    </li>
-                </ul>
+        <div id="sidebar-wrapper" th:fragment="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand text-center">
+                    <span id="logo-nome">Crescer</span><span id="logo-descricao">Seleção</span>        
+                </li>
+                <li class="text-center div-perfil">
+                    <img class="img-circle img-perfil" th:src="@{${user.imagem}}"/>
+                    <span style="color:white;"><p>Olá, <span th:text="${user.nome}" ></span></p></span>
+                </li>
+                <li class="sidebar-lista-titulo">
+                    <span>PÁGINAS</span>
+                </li>
+                <li class="li-opcao-menu">
+                    <a href="#" data-url="/candidatos" class="opcao-side-bar" ><span class="glyphicon glyphicon-list icon-menu"></span>Lista de Candidatos</a>
+                </li>
+                <li class="li-opcao-menu">
+                    <a href="#"  data-url="/novaedicao" class="btn-new-processo" ><span class="glyphicon glyphicon-education icon-menu"></span>Nova Edição</a>
+                </li>
+                <li class="li-opcao-menu">
+                    <a href="#" class="btnLogout"><span class="glyphicon glyphicon-log-out icon-menu"></span>Sair</a>
+                </li>
+            </ul>
+        </div>
+        <nav class="navbar navbar-default menu-nav nav-admin" th:fragment="nav">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#" id="menu-toggle">
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                </a>
+                <span class="navbar-right">
+                    <span class="edicao" th:text="${'Crescer - Edição '}"></span>
+                    <span id="edicao" th:text="${edicao}"></span>
+                </span>
             </div>
-            
-            <nav class="navbar navbar-default menu-nav nav-admin" th:fragment="nav">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#" id="menu-toggle">
-                        <span class="glyphicon glyphicon-align-justify"></span>
-                    </a>
-                    <span class="navbar-right">
-                        <span class="edicao" th:text="${'Crescer - Edição '}"></span>
-                        <span id="edicao" th:text="${edicao}"></span>
-                    </span>
-                </div>
-            </nav>       
+        </nav>       
     </body>
 </html>

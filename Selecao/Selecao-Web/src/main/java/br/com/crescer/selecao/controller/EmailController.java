@@ -40,7 +40,7 @@ public class EmailController {
 
         Informacao informacao = new Informacao();
         Candidato candidato = webService.getTokenService().confirmarCandidatura(token);
-        informacao.setIdcandidato(candidato);
+        informacao.setIdCandidato(candidato);
 
         if (candidato != null) {
             model.addAttribute("token", token);
@@ -58,7 +58,7 @@ public class EmailController {
 
             Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
             webService.getCandidatoService().salvarInformacao(informacao, processo);
-            webService.getTokenService().invalidarTokenParaCandidato(informacao.getIdcandidato());
+            webService.getTokenService().invalidarTokenParaCandidato(informacao.getIdCandidato());
             model.addAttribute("mensagemSucessoInscricao", "Confirmação efetuada com sucesso");
             return "Sucesso";
 

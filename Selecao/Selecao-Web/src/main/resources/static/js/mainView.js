@@ -1,35 +1,36 @@
 'use strict';
 function mainView(options) {
-    options = options || {};   
+    options = options || {};
     this.$corpo = options.$corpo;
     this.$html = $('html');
     this.edicaoAtual = options.edicaoAtual;
-};
+}
+;
 
-mainView.prototype.atualizaView = function (pagina,obj) { 
+mainView.prototype.atualizaView = function (pagina, obj) {
     var self = this;
     var dados = obj ? self.serializeArrayToObj(obj.serializeArray()) : {};
     dados.edicao = this.edicaoAtual;
-    $.get(pagina,dados, function(res) {
+    $.get(pagina, dados, function (res) {
         self.appendCorpo(res);
-    });      
+    });
 };
 
-mainView.prototype.postForm = function (pagina) { 
-    dados = dados || {};  
-    
-    $.post(pagina,dados, function(res) {
-        
-    });      
+mainView.prototype.postForm = function (pagina) {
+    dados = dados || {};
+
+    $.post(pagina, dados, function (res) {
+
+    });
 };
 
 //https://api.jquery.com/serializeArray/
-mainView.prototype.serializeArrayToObj = function (serializeArray) { 
+mainView.prototype.serializeArrayToObj = function (serializeArray) {
     var objRetorno = {};
-    $.each(serializeArray, function(i,item) {
+    $.each(serializeArray, function (i, item) {
         objRetorno[item.name] = item.value;
     });
-    return objRetorno;  
+    return objRetorno;
 };
 
 mainView.prototype.appendCorpo = function (item) {
@@ -37,5 +38,5 @@ mainView.prototype.appendCorpo = function (item) {
 };
 
 mainView.prototype.appendEventoNoHtml = function (options) {
-    this.$html.on(options.evento,options.obj, options.funcao);
+    this.$html.on(options.evento, options.obj, options.funcao);
 };

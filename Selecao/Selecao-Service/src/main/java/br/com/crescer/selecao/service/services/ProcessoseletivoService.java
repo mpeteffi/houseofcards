@@ -24,9 +24,9 @@ public class ProcessoseletivoService {
     
     public boolean criarProcessoSeletivo(Processoseletivo p){  
         
-        if(p.getInicioselecao().before(p.getFinalselecao())
-            && p.getFinalselecao().before(p.getInicioaula())
-            && p.getInicioaula().before(p.getFinalaula())){
+        if(p.getInicioSelecao().before(p.getFinalSelecao())
+            && p.getFinalSelecao().before(p.getInicioAula())
+            && p.getInicioAula().before(p.getFinalAula())){
             
             try {
                 Processoseletivo processo = processoseletivoRepository.save(p);
@@ -51,7 +51,7 @@ public class ProcessoseletivoService {
         
     public boolean verificarExistenciaDeProcessoAtivo (){
         Date dataAtual = new Date();
-        Date finalProcessoCorrente = buscarProcessoAtual().getFinalselecao();
+        Date finalProcessoCorrente = buscarProcessoAtual().getFinalSelecao();
         return dataAtual.before(finalProcessoCorrente);
     }
 }

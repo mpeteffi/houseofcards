@@ -1,7 +1,7 @@
 <div class="row top15">
     <div class="col-md-12">
-        <p th:text="${candidato.nome}+' ('+${candidato.email}+') - '+${candidato.instituicaoensino}+'/'+${candidato.curso}"></p>
-        <button class="btn btn-default btn-nova-entrevista" th:attr="data-url='/nova-entrevista?idCandidato='+${candidato.idcandidato}">Nova entrevista</button>
+        <p th:text="${candidato.nome}+' ('+${candidato.email}+') - '+${candidato.instituicaoEnsino}+'/'+${candidato.curso}"></p>
+        <button class="btn btn-default btn-nova-entrevista" th:attr="data-url='/nova-entrevista?idCandidato='+${candidato.idCandidato}">Nova entrevista</button>
     </div>
 </div>
 <div class="row top25">
@@ -9,30 +9,30 @@
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home">Inicio</a></li>
             <li th:each="entrevista : ${entrevistas}">
-                <a data-toggle="tab" th:href="'#menu'+${entrevista.identrevista}" th:text="${#dates.format(entrevista.dataentrevista, 'dd MMM yyyy')}"></a>
+                <a data-toggle="tab" th:href="'#menu'+${entrevista.idEntrevista}" th:text="${#dates.format(entrevista.dataEntrevista, 'dd MMM yyyy')}"></a>
             </li>
         </ul> 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-              <h3>Inicio</h3>
-              <p th:if="${not #lists.isEmpty(entrevistas)}">Selecione a data desejada para ver os detalhes da entrevista.</p>
-              <p th:if="${#lists.isEmpty(entrevistas)}">Não há nenhuma entrevista para este candidato nesta edição.</p>
+                <h3>Inicio</h3>
+                <p th:if="${not #lists.isEmpty(entrevistas)}">Selecione a data desejada para ver os detalhes da entrevista.</p>
+                <p th:if="${#lists.isEmpty(entrevistas)}">Não há nenhuma entrevista para este candidato nesta edição.</p>
             </div>
-            <div th:each="entrevista : ${entrevistas}" th:id="'menu'+${entrevista.identrevista}" class="tab-pane fade">
-              <h4>Parecer Rh:</h4>
-              <p th:text="${entrevista.parecerrh}" class='pre-scrollable'></p>
-              <h4>Parecer tecnico:</h4>
-              <p th:text="${entrevista.parecertecnico}" class='pre-scrollable'></p>
-              <h4>Notas das provas:</h4>             
-              <ul class="list-inline">
-                <li class="h5">G36:</li>
-                <li th:text="${entrevista.provag36} != null ? ${entrevista.provag36}:'--' "></li>
-                <li class="h5">AC:</li>
-                <li th:text="${entrevista.provaac} != null ? ${entrevista.provaac}:'--'"></li>
-                <li class="h5">Técnica:</li>
-                <li th:text="${entrevista.provatecnica} != null ? ${entrevista.provatecnica}:'--'"></li>
-              </ul>
-              <p class="text-center"><strong>Usuario:</strong><mark><span th:text="${entrevista.idusuario.nome}"></span></mark></p>
+            <div th:each="entrevista : ${entrevistas}" th:id="'menu'+${entrevista.idEntrevista}" class="tab-pane fade">
+                <h4>Parecer Rh:</h4>
+                <p th:text="${entrevista.parecerRh}" class='pre-scrollable'></p>
+                <h4>Parecer tecnico:</h4>
+                <p th:text="${entrevista.parecerTecnico}" class='pre-scrollable'></p>
+                <h4>Notas das provas:</h4>             
+                <ul class="list-inline">
+                    <li class="h5">G36:</li>
+                    <li th:text="${entrevista.provaG36} != null ? ${entrevista.provaG36}:'--' "></li>
+                    <li class="h5">AC:</li>
+                    <li th:text="${entrevista.provaAc} != null ? ${entrevista.provaAc}:'--'"></li>
+                    <li class="h5">Técnica:</li>
+                    <li th:text="${entrevista.provaTecnica} != null ? ${entrevista.provaTecnica}:'--'"></li>
+                </ul>
+                <p class="text-center"><strong>Usuario:</strong><mark><span th:text="${entrevista.idUsuario.nome}"></span></mark></p>
             </div>        
         </div> 
     </div>

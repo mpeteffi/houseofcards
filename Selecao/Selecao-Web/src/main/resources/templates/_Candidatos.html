@@ -1,5 +1,5 @@
 <form class="form-inline form-filtro"  id="pesq" th:attr="data-page=${pagina}" data-url="/candidatos">
-     <input name="page"  type="hidden" class="input-pagina"/> 
+    <input name="page"  type="hidden" class="input-pagina"/> 
     <div class="input-group col-xs-6 col-sm-5 col-md-3">
         <input name="nome" id="txtNome" class="form-control"  th:value="${valorAntigoInput.nome}" placeholder="Nome" type="text"/> 
     </div>
@@ -26,28 +26,28 @@
     <table class="table table-hover">
         <thead class="thead-inverse">
             <tr class="active">
-              <th>Nome</th>
-              <th>Telefone</th>
-              <th>Idade</th>
-              <th>Email</th>
-              <th>Status</th>
-              <th>Linkedin</th>
-              <th>Ações</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Idade</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Linkedin</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="candidato : ${candidatos}">
-                <td scope="row" th:text="${candidato.idcandidato.nome}" ></td>
+                <td scope="row" th:text="${candidato.idCandidato.nome}" ></td>
                 <td th:text="${candidato.telefone}"></td>
-                <td th:text="(${#dates.format(candidato.datanascimento, 'yyyy')} - 1970)"></td>
-                <td th:text="${candidato.idcandidato.email}"></td>
-                <td th:text="${candidato.idcandidato.status}"></td>
+                <td th:text="(${#dates.format(candidato.dataNascimento, 'yyyy')} - 1970)"></td>
+                <td th:text="${candidato.idCandidato.email}"></td>
+                <td th:text="${candidato.idCandidato.status}"></td>
                 <td>
-                    <a th:href="${candidato.urllinkedin}" target="_blank"><i class="fa fa-linkedin-square candidatos-acoes"></i ></a>
+                    <a th:href="${candidato.urlLinkedin}" target="_blank"><i class="fa fa-linkedin-square candidatos-acoes"></i ></a>
                 </td>
                 <td>
-                    <i class="fa fa-pencil editar-candidato candidatos-acoes" th:attr="data-url='/editar-candidato?idCandidato='+${candidato.idcandidato.idcandidato}"></i>           
-                    <i class="fa fa-file-text entrevistas-candidatos candidatos-acoes" th:attr="data-url='/entrevistas?idCandidato='+${candidato.idcandidato.idcandidato}"></i>
+                    <i class="fa fa-pencil editar-candidato candidatos-acoes" th:attr="data-url='/editar-candidato?idCandidato='+${candidato.idCandidato.idCandidato}"></i>           
+                    <i class="fa fa-file-text entrevistas-candidatos candidatos-acoes" th:attr="data-url='/entrevistas?idCandidato='+${candidato.idCandidato.idCandidato}"></i>
                 </td>
             </tr> 
         </tbody>

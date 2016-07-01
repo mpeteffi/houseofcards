@@ -61,10 +61,10 @@ public class EmailService {
             email.setSubject("Confirmação de inscrição");
             email.addTo(candidato.getEmail());
             email.setHtmlMsg("<html><h3>Iniciado o precesso seletivo do projeto crescer " + processoSeletivo.getEdicao() + "</h3>"
-                    + "<p>Data início do agendamento de entrevista:" + sdf.format(processoSeletivo.getInicioselecao()) + "</p>"
-                    + "<p>Data final do agendamento de entrevista:" + sdf.format(processoSeletivo.getFinalselecao()) + "</p>"
-                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getInicioaula()) + "</p>"
-                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getFinalaula()) + "</p>"
+                    + "<p>Data início do agendamento de entrevista:" + sdf.format(processoSeletivo.getInicioSelecao()) + "</p>"
+                    + "<p>Data final do agendamento de entrevista:" + sdf.format(processoSeletivo.getFinalSelecao()) + "</p>"
+                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getInicioAula()) + "</p>"
+                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getFinalAula()) + "</p>"
                     + "<p>Para confirmar sua inscrição no projeto, clique <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">aqui</a>para preencher seus dados e completar a inscrição</html>");
             email.send();
             candidato.setStatus(StatusCandidato.NOTIFICADO);

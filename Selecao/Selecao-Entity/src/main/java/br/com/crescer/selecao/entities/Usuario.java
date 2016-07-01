@@ -26,7 +26,7 @@ public class Usuario implements Serializable {
     @SequenceGenerator(name = "USUARIO_IDUSUARIO_SEQ", sequenceName = "USUARIO_IDUSUARIO_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDUSUARIO")
-    private Integer idusuario;
+    private Integer idUsuario;
     
     @Basic(optional = false)
     @Column(name = "NOME")
@@ -48,7 +48,7 @@ public class Usuario implements Serializable {
     }
 
     public Usuario(Integer idusuario) {
-        this.idusuario = idusuario;
+        this.idUsuario = idusuario;
     }
 
     public Usuario(String nome, String email, String senha, String imagem) {
@@ -58,12 +58,12 @@ public class Usuario implements Serializable {
         this.imagem = imagem;
     }
 
-    public int getIdusuario() {
-        return idusuario;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdusuario(Integer idusuario) {
-        this.idusuario = idusuario;
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNome() {
@@ -100,7 +100,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.crescer.selecao.entities.Usuario[ idusuario=" + idusuario + " ]";
+        return "br.com.crescer.selecao.entities.Usuario[ idusuario=" + idUsuario + " ]";
     }
     
 }
