@@ -58,7 +58,7 @@ public class Usuario implements Serializable {
         this.imagem = imagem;
     }
 
-    public int getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 

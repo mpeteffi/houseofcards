@@ -71,7 +71,7 @@ public class Processoseletivo implements Serializable {
         this.finalAula = finalaula;
     }
 
-    public int getIdProcessoSeletivo() {
+    public Integer getIdProcessoSeletivo() {
         return idProcessoSeletivo;
     }
 

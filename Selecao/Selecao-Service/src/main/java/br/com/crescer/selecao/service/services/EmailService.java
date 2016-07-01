@@ -4,20 +4,22 @@ import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.apache.commons.mail.Email;
-import org.apache.commons.mail.EmailException;
-import org.apache.commons.mail.HtmlEmail;
+import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 /**
+ *
  * @author michel.fernandes
  */
 @Service
-public class EmailService {
+public class EmailService {    
 
+    @Autowired
+    JavaMailSenderImpl emailSender; 
+    
     @Autowired
     TokenService tokenService;
 
@@ -25,52 +27,47 @@ public class EmailService {
     CandidatoService candidatoService;
     
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-    private static void configurar(Email email) {
-        email.setHostName("smtp.gmail.com");
-        email.setSmtpPort(465);
-        email.setAuthentication("processoseletivocwi@gmail.com", "cwisoftware2");
-        email.setSSLOnConnect(true);
-    }
     
     private String gerarToken(Candidato candidato){
         return tokenService.criarTokenParaCandidato(candidato);
     }
-
+    
     public void enviarEmailParaConfirmacaoDeInteresse(Candidato candidato) {
-        HtmlEmail email = new HtmlEmail();
-        configurar(email);
+        MimeMessage message = emailSender.createMimeMessage();
         String token = gerarToken(candidato);
+        String html = "<html>Ola "+candidato.getNome()+" <p>Voce preencheu o formulário de interesse no projeto, clique <a href=\"http://localhost:9090/email/confirmar-interesse?token=" + token + "\">aqui</a> para confirmar a inscrição</p></html>";
         try {
-            email.setFrom("processoseletivocwi@gmail.com");
-            email.setSubject("Confirmação de interesse");
-            email.addTo(candidato.getEmail());
-            email.setHtmlMsg("<html>Ola "+candidato.getNome()+" <p>Voce preencheu o formulário de interesse no projeto, clique <a href=\"http://localhost:9090/email/confirmar-interesse?token=" + token + "\">aqui</a> para confirmar a inscrição</p></html>");
-            email.send();
-        } catch (EmailException ex) {
-            Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
+            message.setSubject("Confirmação de interesse");
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);      
+            helper.setTo(candidato.getEmail());
+            helper.setText(html, true);
+            emailSender.send(message);
+        } catch (Exception ex) {
+            System.out.println(ex);
+            //...
         }
     }
-
+    
     public void enviarEmailParaInteressado(Candidato candidato, Processoseletivo processoSeletivo) {
-        HtmlEmail email = new HtmlEmail();
-        configurar(email);
+        MimeMessage message = emailSender.createMimeMessage();
         String token = gerarToken(candidato);
-        try {
-            email.setFrom("processoseletivocwi@gmail.com");
-            email.setSubject("Confirmação de inscrição");
-            email.addTo(candidato.getEmail());
-            email.setHtmlMsg("<html><h3>Iniciado o precesso seletivo do projeto crescer " + processoSeletivo.getEdicao() + "</h3>"
+        String html = "<html><h3>Iniciado o precesso seletivo do projeto crescer " + processoSeletivo.getEdicao() + "</h3>"
                     + "<p>Data início do agendamento de entrevista:" + sdf.format(processoSeletivo.getInicioSelecao()) + "</p>"
                     + "<p>Data final do agendamento de entrevista:" + sdf.format(processoSeletivo.getFinalSelecao()) + "</p>"
                     + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getInicioAula()) + "</p>"
                     + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getFinalAula()) + "</p>"
-                    + "<p>Para confirmar sua inscrição no projeto, clique <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">aqui</a>para preencher seus dados e completar a inscrição</html>");
-            email.send();
+                    + "<p>Para confirmar sua inscrição no projeto, clique <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">aqui</a>para preencher seus dados e completar a inscrição</html>";
+            
+        try {
+            message.setSubject("Projeto Crescer");
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);      
+            helper.setTo(candidato.getEmail());
+            helper.setText(html, true);
+            emailSender.send(message);
             candidato.setStatus(StatusCandidato.NOTIFICADO);
             candidatoService.salvarCandidato(candidato);
-        } catch (EmailException ex) {
-            Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            //...
         }
     }
 }

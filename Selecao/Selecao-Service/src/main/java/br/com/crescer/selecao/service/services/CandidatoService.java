@@ -50,6 +50,7 @@ public class CandidatoService {
             emailService.enviarEmailParaConfirmacaoDeInteresse(candidato);
             return c;
         } catch (Exception e) {
+            System.out.println(e);
             return null;
         }
     }

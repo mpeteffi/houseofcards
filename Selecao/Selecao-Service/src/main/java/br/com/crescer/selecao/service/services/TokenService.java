@@ -33,6 +33,7 @@ public class TokenService {
             tokenRepository.save(token);
             return codigo;
         } catch (Exception e) {
+            System.out.println(e);
             return null;
         }
     }

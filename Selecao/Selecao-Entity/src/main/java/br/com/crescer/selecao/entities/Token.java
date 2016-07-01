@@ -64,7 +64,7 @@ public class Token implements Serializable {
         this.tipo = tipo;
     }
 
-    public int getIdToken() {
+    public Integer getIdToken() {
         return idToken;
     }
 

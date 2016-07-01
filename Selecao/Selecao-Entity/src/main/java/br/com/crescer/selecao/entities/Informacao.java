@@ -104,7 +104,7 @@ public class Informacao implements Serializable {
          this.idCandidato = candidato;
      }
 
-    public int getIdInformacao() {
+    public Integer getIdInformacao() {
         return idInformacao;
     }
 
