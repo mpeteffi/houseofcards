@@ -33,7 +33,7 @@ public class CandidatoController {
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    String cadastro() {
+    String index() {
         return "index";
     }
 
@@ -49,7 +49,7 @@ public class CandidatoController {
                 model.addAttribute("mensagemFormCadastro", "Confirme a inscrição acessando seu email e clicando no link de confirmação");
                 return "Sucesso";
             } else {
-                return "redirect:cadastro?erroEmail";
+                return "redirect:index?erroEmail";
             }
         } else {
             return "index";

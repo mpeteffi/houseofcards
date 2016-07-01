@@ -1,5 +1,6 @@
-package br.com.crescer.selecao.controller;
+package br.com.crescer.selecao;
 
+import br.com.crescer.selecao.controller.AdministrativoController;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.Usuario;
 import br.com.crescer.selecao.service.services.ProcessoseletivoService;
