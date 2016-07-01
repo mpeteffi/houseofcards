@@ -44,8 +44,8 @@ public class CandidatoControllerTest {
     public void setUp() {
         doReturn(false).when(bindingResult).hasErrors();
         doReturn(recaptchaService).when(webService).getRecaptchaService();
-        doReturn(true).when(recaptchaService).isResponseValid(any(String.class), "TOKEN_VALIDO");
-        doReturn(false).when(recaptchaService).isResponseValid(any(String.class), "TOKEN_INVALIDO");
+        doReturn(true).when(recaptchaService).isResponseValid("127.0.0.1", "TOKEN_VALIDO");
+        doReturn(false).when(recaptchaService).isResponseValid("127.0.0.1", "TOKEN_INVALIDO");
         doReturn(candidatoService).when(webService).getCandidatoService();
         doReturn(new Candidato()).when(candidatoService).salvarCandidato(any(Candidato.class));
         
