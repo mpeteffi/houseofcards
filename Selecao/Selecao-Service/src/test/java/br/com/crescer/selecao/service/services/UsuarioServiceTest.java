@@ -32,13 +32,13 @@ public class UsuarioServiceTest {
     
     @Test
     public void findByEmailValidoRetornaUser() {
-        Usuario user = usuarioService.findOneByEmail("EmailValido");
+        Usuario user = usuarioService.buscarUsuarioPorEmail("EmailValido");
         assertTrue(user != null);
     }
     
     @Test
     public void findByEmailInvalidoRetornaNull() {
-        Usuario user = usuarioService.findOneByEmail("EmailInvalido");
+        Usuario user = usuarioService.buscarUsuarioPorEmail("EmailInvalido");
         assertTrue(user == null);
     }
 }

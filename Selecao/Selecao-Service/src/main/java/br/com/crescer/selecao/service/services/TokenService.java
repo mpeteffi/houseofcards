@@ -25,7 +25,7 @@ public class TokenService {
     CandidatoRepository candidatoRepository;
     
     
-    public String newTokenForCandidato(Candidato candidato){
+    public String criarTokenParaCandidato(Candidato candidato){
         
         String codigo = gerarCodigo();
         Token token = new Token(candidato.getIdcandidato(), codigo, StatusToken.PENDENTE, TipoToken.INTERESSE);
@@ -55,7 +55,7 @@ public class TokenService {
         }
     }
         
-    public Candidato confirmarInscricao(String codigo){
+    public Candidato confirmarCandidatura(String codigo){
         
         Token token = tokenRepository.findOneByTokenAndStatusAndTipo(codigo, "PENDENTE", "INTERESSADO");
         if(token != null) {            
@@ -73,8 +73,6 @@ public class TokenService {
     }
     
     private String gerarCodigo(){
-        
-        //Gera um token aleatorio, encriptado a partir da data atual.
         String data = new Date().toString();
         return new BCryptPasswordEncoder().encode(data);
     }

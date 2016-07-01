@@ -21,7 +21,7 @@ public class AdministrativoController {
     
     @RequestMapping(value="/administrativo")
     String login(Model model) {
-        Usuario user = webService.getUsuarioLogadoService().getUsuarioLogado();
+        Usuario user = webService.getUsuarioLogadoService().buscarUsuarioLogado();
         model.addAttribute("user", user);
         String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
         model.addAttribute("edicao", edicao);
@@ -35,7 +35,7 @@ public class AdministrativoController {
     
     @RequestMapping(value="/cadastro-nova-edicao", method = RequestMethod.POST)
     String save(@Valid Processoseletivo processoseletivo,Model model) {
-        webService.getProcessoseletivoService().save(processoseletivo);    
+        webService.getProcessoseletivoService().criarProcessoSeletivo(processoseletivo);    
        return "Administrativo";
     }
 }

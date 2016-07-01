@@ -7,6 +7,8 @@ import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.repository.CandidatoRepository;
 import br.com.crescer.selecao.service.repository.InformacaoRepository;
 import br.com.crescer.selecao.service.repository.ProcessoseletivoRepository; 
+import java.util.Calendar;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,16 +27,39 @@ public class CandidatoService {
     CandidatoRepository candidatoRepository;
     
     @Autowired
+    EmailService emailService;
+    
+    @Autowired
     ProcessoseletivoRepository processoseletivoRepository;
     
     @Autowired
     InformacaoRepository informacaoRepository;
     
-    public Informacao saveInformacao(Informacao informacao){
+    public Informacao atualizarInformacao(Informacao informacao){
         return informacaoRepository.save(informacao);
     }
     
-    public Informacao salvarInformacoes(Informacao informacao, Processoseletivo processo){
+    public Candidato salvarCandidato(Candidato candidato){
+        
+        if(candidato.getStatus() == null){
+            candidato.setStatus(StatusCandidato.INICIAL);            
+        }
+        
+        try {
+            Candidato c = candidatoRepository.save(candidato);
+            emailService.enviarEmailParaConfirmacaoDeInteresse(candidato);
+            return c;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
+    public Informacao buscarInformacoesDeCandidato(Candidato candidato){
+        return informacaoRepository.findByIdcandidato(candidato);
+    }
+    
+    public Informacao salvarInformacao(Informacao informacao, Processoseletivo processo){
+        
         informacao.getIdcandidato().setStatus(StatusCandidato.AGUARDANDO_CONTATO);
         informacao.setIdprocessoseletivo(processo);
         String senha = new BCryptPasswordEncoder().encode(informacao.getSenha());
@@ -46,48 +71,43 @@ public class CandidatoService {
         } catch (Exception e){
             return null;
         }
-    } 
-    
-    public Candidato salvar(Candidato candidato){
-        try {
-            return candidatoRepository.save(candidato);
-        } catch (Exception e){
-            return null;
-        }
     }
     
-    public Candidato save(Candidato candidato){
-        try {
-            candidato.setStatus(StatusCandidato.INICIAL);            
-            return candidatoRepository.save(candidato);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-    
-    public Iterable<Candidato> findByStatus(String status){
+    public Iterable<Candidato> buscarCandidatosPorStatus(String status){
         return candidatoRepository.findByStatus(status);
     }
     
-    public Candidato findByIdCandidato(int id){
+    public Candidato buscarCandidatoPorId(Integer id){
+        if (id == null){ id = 0;}
         return candidatoRepository.findOneByIdcandidato(id);
     }
     
-    public Page<Informacao> findByFilters(String edicao, StatusCandidato status, String nome, String email, String telefone, int pagina){
-        if(email == null){email = "";}
-        if(telefone == null){telefone = "";}
-        if(nome == null){nome = "";}
-        if(edicao == null){edicao = processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();}
+    public Page<Informacao> buscarCandidatosPorFiltros(String edicao, StatusCandidato status, String nome, String email, String telefone, Integer pagina){
+        nome = nome != null ? nome : "";
+        email = email != null ? email : "";
+        pagina = pagina != null ? pagina : 0;
+        telefone = telefone != null ? telefone : "";
+        edicao = edicao != null ? edicao : processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();
+        StatusCandidato[] listaStatus = status == null ? StatusCandidato.values() : new StatusCandidato[]{status};
         
         Pageable pageable = new PageRequest(pagina, 10, Sort.Direction.DESC, "idinformacao");
-        return informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusInAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, status == null? StatusCandidato.values() : new StatusCandidato[] { status}, nome, email, telefone, pageable);
-    }
-    //TODO:Mover informação para um service dela mesmo
-    public Informacao findInformcaoesDoCandidato(Candidato candidato){
-        return informacaoRepository.findByIdcandidato(candidato);
+        Page<Informacao> candidatos = informacaoRepository.findByIdprocessoseletivo_EdicaoContainingIgnoreCaseAndIdcandidato_StatusInAndIdcandidato_NomeContainingIgnoreCaseAndIdcandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(edicao, listaStatus, nome, email, telefone, pageable);
+        
+        for (Informacao i : candidatos) {
+            i.setDatanascimento(tempoDecorrido(i.getDatanascimento()));
+        }
+        
+        return candidatos;
     }
     
-    public void salvarInformcaoesDoCandidato(Informacao informacao){
-         informacaoRepository.save(informacao);
+    private Date tempoDecorrido(Date date) {
+        Calendar c = Calendar.getInstance();
+        if (date == null) {
+            return null;
+        }
+        long diff = new Date().getTime() - date.getTime();
+        c.setTime(new Date(diff));
+
+        return c.getTime();
     }
 }

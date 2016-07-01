@@ -39,7 +39,7 @@ public class EmailService {
     public void enviarEmailParaConfirmacaoDeInteresse(Candidato candidato) {
         HtmlEmail email = new HtmlEmail();
         configurar(email);
-        String token = tokenService.newTokenForCandidato(candidato);
+        String token = tokenService.criarTokenParaCandidato(candidato);
         try {
             email.setFrom("processoseletivocwi@gmail.com");
             email.setSubject("Confirmação de interesse");
@@ -54,7 +54,7 @@ public class EmailService {
     public void enviarEmailParaInteressado(Candidato candidato, Processoseletivo processoSeletivo) {
         HtmlEmail email = new HtmlEmail();
         configurar(email);
-        String token = tokenService.newTokenForCandidato(candidato);
+        String token = tokenService.criarTokenParaCandidato(candidato);
         try {
             email.setFrom("processoseletivocwi@gmail.com");
             email.setSubject("Confirmação de inscrição");
@@ -67,7 +67,7 @@ public class EmailService {
                     + "<p>Para confirmar sua inscrição no projeto, acesse: <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">link</a> </html>");
             email.send();
             candidato.setStatus(StatusCandidato.NOTIFICADO);
-            candidatoService.salvar(candidato);
+            candidatoService.salvarCandidato(candidato);
         } catch (EmailException ex) {
             Logger.getLogger(EmailService.class.getName()).log(Level.SEVERE, null, ex);
         }

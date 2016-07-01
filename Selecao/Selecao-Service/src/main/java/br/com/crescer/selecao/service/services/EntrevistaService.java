@@ -15,10 +15,10 @@ public class EntrevistaService {
     @Autowired
     EntrevistaRepository entrevistaRepository;
     
-    public Iterable<Entrevista> findByCandidato(Candidato candidato){
+    public Iterable<Entrevista> buscarEntrevistasPorCandidato(Candidato candidato){
         return entrevistaRepository.findAllByIdCandidato(candidato);
     }
-    public void save(Entrevista entrevista){
+    public void salvarEntrevista(Entrevista entrevista){
         entrevistaRepository.save(entrevista);
     }
     

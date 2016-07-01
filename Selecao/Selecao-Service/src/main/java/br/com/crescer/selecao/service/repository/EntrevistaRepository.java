@@ -8,5 +8,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @author Murillo
  */
 public interface EntrevistaRepository extends PagingAndSortingRepository<Entrevista, Long> {
+    
     Iterable<Entrevista> findAllByIdCandidato(Candidato candidato);
 }

@@ -32,7 +32,7 @@ public class ProcessoseletivoServiceTest {
         Iterable<Candidato> candidatos = new ArrayList<>();
         Processoseletivo processoValido = new Processoseletivo();
         Processoseletivo processoNull = null;
-        when(candidatoService.findByStatus("INTERESSADO")).thenReturn(candidatos);
+        when(candidatoService.buscarCandidatosPorStatus("INTERESSADO")).thenReturn(candidatos);
         when(processoseletivoRepository.save(processoNull)).thenThrow(NullPointerException.class);
         when(processoseletivoRepository.save(processoValido)).thenReturn(new Processoseletivo());
         when(processoseletivoRepository.findTopByOrderByEdicaoDesc()).thenReturn(new Processoseletivo());

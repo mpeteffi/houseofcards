@@ -19,6 +19,6 @@ public class ProcessoseletivoController {
     @ResponseBody
     @RequestMapping(value="/verificarProcessoSeletivo")
     boolean logout() {
-        return webService.getProcessoseletivoService().existeProcessoAtivo();
+        return webService.getProcessoseletivoService().verificarExistenciaDeProcessoAtivo();
     }
 }

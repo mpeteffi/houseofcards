@@ -22,7 +22,7 @@ public class ProcessoseletivoService {
     @Autowired
     CandidatoService candidatoService;
     
-    public boolean save(Processoseletivo p){  
+    public boolean criarProcessoSeletivo(Processoseletivo p){  
         
         if(p.getInicioselecao().before(p.getFinalselecao())
             && p.getFinalselecao().before(p.getInicioaula())
@@ -30,7 +30,7 @@ public class ProcessoseletivoService {
             
             try {
                 Processoseletivo processo = processoseletivoRepository.save(p);
-                Iterable<Candidato> candidatos = candidatoService.findByStatus("INTERESSADO");
+                Iterable<Candidato> candidatos = candidatoService.buscarCandidatosPorStatus("INTERESSADO");
 
                 for(Candidato candidato : candidatos){
                     emailService.enviarEmailParaInteressado(candidato, processo);
@@ -45,16 +45,13 @@ public class ProcessoseletivoService {
         }
     }
     
-    public boolean existeProcessoAtivo (){
-    
+    public Processoseletivo buscarProcessoAtual(){   
+        return processoseletivoRepository.findTopByOrderByEdicaoDesc();
+    }
+        
+    public boolean verificarExistenciaDeProcessoAtivo (){
         Date dataAtual = new Date();
         Date finalProcessoCorrente = buscarProcessoAtual().getFinalselecao();
-        
         return dataAtual.before(finalProcessoCorrente);
-    }
-    
-    public Processoseletivo buscarProcessoAtual(){
-        
-        return processoseletivoRepository.findTopByOrderByEdicaoDesc();
     }
 }

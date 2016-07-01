@@ -14,7 +14,7 @@ public class UsuarioService {
     @Autowired
     UsuarioRepository usuarioRepository;
     
-    public Usuario findOneByEmail(String email){
+    public Usuario buscarUsuarioPorEmail(String email){
         return usuarioRepository.findOneByEmail(email);
     }
 }

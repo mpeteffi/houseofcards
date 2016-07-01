@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioLogadoService {
         
-    public Usuario getUsuarioLogado(){
+    public Usuario buscarUsuarioLogado(){
         UsuarioLogadoModel logado = (UsuarioLogadoModel)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return logado.getUsuarioLogado();
     }
