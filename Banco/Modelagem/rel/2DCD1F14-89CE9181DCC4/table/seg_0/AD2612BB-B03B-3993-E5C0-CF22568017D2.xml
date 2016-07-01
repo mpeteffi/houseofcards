@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AD2612BB-B03B-3993-E5C0-CF22568017D2" name="DATAHORA">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:21:50 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdDataHora" id="BEDB9FF1-7A64-D91B-005A-D208B825C5D2">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:25:06 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Titulo" id="E9DC5A2D-3DE0-BEC2-6F88-588E547F313F">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:26:15 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataHoraInicial" id="0E3A913E-73A0-232C-E295-C746E712080B">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:26:15 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataHoraFinal" id="159AFB14-3FD6-A9B8-44B6-6350B4DA1CD1">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:26:15 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="95D9DA8A-4A72-4E14-0314-35BB33478F7B" name="DATAHORA_PK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:25:06 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BEDB9FF1-7A64-D91B-005A-D208B825C5D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="605DEBA5-7C56-97D5-4B77-BBCB7B037B27" name="DATAHORA_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:25:06 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BEDB9FF1-7A64-D91B-005A-D208B825C5D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

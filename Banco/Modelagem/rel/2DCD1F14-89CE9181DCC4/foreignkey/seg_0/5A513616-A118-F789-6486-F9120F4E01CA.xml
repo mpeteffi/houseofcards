@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="5A513616-A118-F789-6486-F9120F4E01CA" containerWithKeyObject="8BFE4E08-6E31-C3C2-CD28-D81DFB7E3487" localFKIndex="9B940547-77C2-13E2-E1C0-71AC3F40D840" name="ENTREVISTA_GRUPODEPROVAS_FK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:33:59 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>00D4CCB3-57CD-4149-37EC-B789E0D6ED91</referredTableID>
+<keyObject>3B2BCC29-C3B9-B0A0-4D0E-5706581E08FC</keyObject>
+<referredKeyID>3B2BCC29-C3B9-B0A0-4D0E-5706581E08FC</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

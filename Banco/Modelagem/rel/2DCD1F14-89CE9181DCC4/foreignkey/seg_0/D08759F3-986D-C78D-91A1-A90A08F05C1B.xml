@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D08759F3-986D-C78D-91A1-A90A08F05C1B" containerWithKeyObject="8BFE4E08-6E31-C3C2-CD28-D81DFB7E3487" localFKIndex="3F293B97-0C3C-6A02-1EE1-02F6998BDFDD" name="ENTREVISTA_DATAHORA_FK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:27:47 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>AD2612BB-B03B-3993-E5C0-CF22568017D2</referredTableID>
+<keyObject>95D9DA8A-4A72-4E14-0314-35BB33478F7B</keyObject>
+<referredKeyID>95D9DA8A-4A72-4E14-0314-35BB33478F7B</referredKeyID>
+<mandatory>false</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

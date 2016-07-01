@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="00D4CCB3-57CD-4149-37EC-B789E0D6ED91" name="GRUPODEPROVAS">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:29:39 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<ordsAlias>table_8</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IdGrupoDeProvas" id="34D50A6D-1998-106C-7D02-51060203143A">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:30:45 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IdDataHora" id="2E8E0122-6D34-982B-AF0D-3CB11B65CD11">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:31:13 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CFF6CC05-69FB-BE88-CCFC-F2AFBA15408C" referredColumn="BEDB9FF1-7A64-D91B-005A-D208B825C5D2"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3B2BCC29-C3B9-B0A0-4D0E-5706581E08FC" name="GRUPODEPROVAS_PK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:30:45 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34D50A6D-1998-106C-7D02-51060203143A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="43224E37-B990-74B7-C5BF-EFEAAB3F374D" name="GRUPODEPROVAS_IDX">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:30:45 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="34D50A6D-1998-106C-7D02-51060203143A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="24DD19B0-645B-9046-190A-D87863A5178B" name="GRUPODEPROVAS_IDXv1">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:31:42 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E8E0122-6D34-982B-AF0D-3CB11B65CD11"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="717C9811-F53B-FC62-5DA9-3278709268B1" name="GRUPODEPROVAS_DATAHORA_FK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:31:13 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2E8E0122-6D34-982B-AF0D-3CB11B65CD11"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

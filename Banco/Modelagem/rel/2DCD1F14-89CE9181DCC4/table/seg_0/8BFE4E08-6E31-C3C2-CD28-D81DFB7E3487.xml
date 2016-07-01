@@ -24,6 +24,7 @@
 <createdBy>Murillo</createdBy>
 <createdTime>2016-06-25 01:38:18 UTC</createdTime>
 <ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
@@ -34,6 +35,7 @@
 <createdBy>Murillo</createdBy>
 <createdTime>2016-06-25 01:38:18 UTC</createdTime>
 <ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -45,6 +47,7 @@
 <createdBy>Murillo</createdBy>
 <createdTime>2016-06-25 01:38:18 UTC</createdTime>
 <ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -119,6 +122,36 @@
 <colAssociation fkAssociation="B78DDA4E-A6A4-FC4B-4DC7-0A65A42D6629" referredColumn="99D53754-AC93-F517-F906-6F69AF65B244"/>
 </associations>
 </Column>
+<Column name="IdDataHora" id="310A08CA-4996-098F-588E-331F443679B9">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:27:47 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D08759F3-986D-C78D-91A1-A90A08F05C1B" referredColumn="BEDB9FF1-7A64-D91B-005A-D208B825C5D2"/>
+</associations>
+</Column>
+<Column name="IdGrupoDeProvas" id="DD010E6E-F2F2-B47E-DFC0-9B27561DC4E9">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:33:59 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5A513616-A118-F789-6486-F9120F4E01CA" referredColumn="34D50A6D-1998-106C-7D02-51060203143A"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="8C11C471-2FBB-B968-ECCB-861CD8B68B53" name="ENTREVISTA_PK">
@@ -130,39 +163,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="3726FD40-EB0C-C898-95E5-655644636537"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="F2D743DB-1E63-9762-EA4F-63B7A5AF6A4A" name="G36_UN">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:59:19 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<indexState>Unique Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="FC1195D9-496A-6BAD-CDB5-C4EBA83319F2"/>
-<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="D0BFF90A-4E86-2889-36AD-C54BF68EBFD9" name="AC_UN">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:59:19 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<indexState>Unique Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="20016B79-6AAE-29B5-FF1B-790B6F839179"/>
-<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="8F6C6745-D81B-AE54-D8A6-7AE4DA265A2A" name="Tecnica_UN">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:59:19 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<indexState>Unique Constraint</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="FF3A4FDA-E7ED-9AF3-2CB3-41E136552568"/>
-<colUsage columnID="3F295C98-33BC-9C42-0DA5-413B29D0BFC8"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="C22B6D07-824D-CD5C-1C5A-2F264626E678" name="ENTREVISTA_IDX">
@@ -192,6 +192,24 @@
 <colUsage columnID="AD74F050-84A7-4B1F-D1FB-679AB97570E9"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="936DDE27-1063-AAB3-085B-47467428F110" name="ENTREVISTA_IDXv1">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:28:08 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="310A08CA-4996-098F-588E-331F443679B9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="70A944DF-A95E-2A6D-54F9-04E2FEE832CC" name="ENTREVISTA_IDXv2">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:34:19 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD010E6E-F2F2-B47E-DFC0-9B27561DC4E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="6A9E8986-F5FC-1A8B-C5A3-6833FBA281A4" name="CANDIDATOENTREVISTA_FK">
 <createdBy>Murillo</createdBy>
 <createdTime>2016-06-25 01:39:30 UTC</createdTime>
@@ -210,6 +228,26 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="AD74F050-84A7-4B1F-D1FB-679AB97570E9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3F293B97-0C3C-6A02-1EE1-02F6998BDFDD" name="ENTREVISTA_DATAHORA_FK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:27:47 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="310A08CA-4996-098F-588E-331F443679B9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9B940547-77C2-13E2-E1C0-71AC3F40D840" name="ENTREVISTA_GRUPODEPROVAS_FK">
+<createdBy>murillo.peteffi</createdBy>
+<createdTime>2016-07-01 18:33:59 UTC</createdTime>
+<ownerDesignName>Modelagem</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DD010E6E-F2F2-B47E-DFC0-9B27561DC4E9"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
