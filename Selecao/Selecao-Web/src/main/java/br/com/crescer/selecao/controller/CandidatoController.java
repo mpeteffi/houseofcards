@@ -37,7 +37,7 @@ public class CandidatoController {
         return "index";
     }
 
-    @RequestMapping(value = "/cadastro", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     String save(@Valid Candidato candidato, BindingResult bindingResult, HttpServletRequest req, Model model) {
         
         String response = req.getParameter("g-recaptcha-response");
@@ -52,7 +52,7 @@ public class CandidatoController {
                 return "redirect:cadastro?erroEmail";
             }
         } else {
-            return "redirect:cadastro?erroCaptcha";
+            return "index";
         }
     }
 

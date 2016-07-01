@@ -1,37 +1,51 @@
 .corpo{
-    background-color: #262A33;
-    color: white;
+    background-color: #fff;    
 }
-.divs{
-    padding: 20px;
+.laranja{
+    color: rgb(255, 102, 0);
 }
 .titulo{
-    font-family: "Segoe Script","ZurichLtCnBTLight";
+    font-style: italic;
+    font-family: Georgia,sans-serif;
+    font-size: 45px;
 }
-.fonte-laranja,label{
-    font-weight: bold;
-    font-family: "Rockwell","arial";
-    text-shadow: 1px 3px 0 rgba(0,0,0,.5);
-    color: #ffad00;
-    letter-spacing: -1px;    
+.fundo-cinza{
+    background-color: #3e3f3a;
+    color: #fff
 }
-.fonte-media{
-    font-size: 61px;
+.row-central{
+    margin-top: 30px;
+    margin-bottom: 35px;
 }
-.fundo-cima{
+.botao-submit{
+    width:100%;
+    height: 50px;
     background-color: white;
-    border-bottom-right-radius: 150px;
-    border-bottom-left-radius: 150px;
+    font-weight: bold;
+    color:black;
+    border-radius: 30px;
+    border:2px solid rgb(255, 102, 0);
+    transition: background-color 0.5s ease;
+    font-size: 22px;
+    font-style: italic;
+    font-family: Georgia,sans-serif;
+}
+.botao-submit:hover{
+    background-color: rgb(255, 102, 0);
+}
+.input-form{
+    border-radius: 20px;
+    height: 37px;
 }
 input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: gray;
+    color: gray;
 }
 input[type="text"]::-moz-placeholder { /* Firefox 19+ */
-  color: gray;
+    color: gray;
 }
 input[type="text"]:-ms-input-placeholder { /* IE 10+ */
-  color: gray;
+    color: gray;
 }
 input[type="text"]:-moz-placeholder { /* Firefox 18- */
-  color: gray;
+    color: gray;
 }

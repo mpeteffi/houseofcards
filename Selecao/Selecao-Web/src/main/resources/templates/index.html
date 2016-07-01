@@ -11,54 +11,68 @@
     <body class="corpo">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 fundo-cima">
-                    <h1 class="text-center fonte-laranja fonte-media">Projeto Crescer</h1>
+                <div class="col-md-12">
+                    <h1 class="text-center titulo">Candidatar-se ao <span class="laranja">projeto crescer</span></h1>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-central">
                 <div class="col-md-6 divs">
                     <h2 class="titulo">Sobre o projeto</h2>
                     <p>Sed ac accumsan lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum molestie faucibus interdum. Etiam nec feugiat tellus, sed viverra metus. Cras pretium metus id lectus pulvinar, consectetur rhoncus metus tincidunt. Vivamus id ligula tempus ante placerat laoreet. Integer tincidunt augue eu felis ornare, quis cursus elit faucibus. In vitae tortor id libero gravida porttitor. Duis sodales justo ut tellus viverra, sed lacinia libero placerat. Donec id lacus iaculis, dignissim arcu sit amet, efficitur sapien. Etiam mauris enim, sodales non leo pharetra, volutpat accumsan metus. Sed at orci dolor. Proin ligula sapien, lobortis blandit sodales vel, suscipit sit amet nisl. Suspendisse iaculis lorem ipsum, quis scelerisque tortor posuere et. </p>
-                    <h2 class="titulo">Benefícios</h2>
-                    <p>Sed ac accumsan lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum molestie faucibus interdum. Etiam nec feugiat tellus, sed viverra metus. Cras pretium metus id lectus pulvinar, consectetur rhoncus metus tincidunt. Vivamus id ligula tempus ante placerat laoreet. Integer tincidunt augue eu felis ornare, quis cursus elit faucibus. In vitae tortor id libero gravida porttitor. Duis sodales justo ut tellus viverra, sed lacinia libero placerat. Donec id lacus iaculis, dignissim arcu sit amet, efficitur sapien. Etiam mauris enim, sodales non leo pharetra, volutpat accumsan metus. Sed at orci dolor. Proin ligula sapien, lobortis blandit sodales vel, suscipit sit amet nisl. Suspendisse iaculis lorem ipsum, quis scelerisque tortor posuere et. </p>
                 </div>
-                <div class="col-md-6 divs">
-                    <div>
-                    <h2 class="text-center fonte-laranja">Quero participar</h2>
-                    </div>
-                    <form th:action="@{/cadastro}" th:object="${candidato}" method="POST">
+                <div class="col-md-1"></div>
+                <div class="col-md-4 divs">
+                    <form th:action="@{/}" th:object="${candidato}" method="POST">
                         <div class="form-group">
                             <label class="fonte-laranja">Nome</label>
-                            <input required="required" class="form-control" type="text" th:field="*{nome}"/> 
+                            <input required="required" class="form-control input-form" type="text" th:field="*{nome}"/> 
                             <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Email</label>
-                            <input required="required" class="form-control" type="email" th:field="*{email}"/>
+                            <input required="required" class="form-control input-form" type="email" th:field="*{email}"/>
                             <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Instituição de Ensino</label>
-                            <input required="required" class="form-control" type="text" th:field="*{instituicaoensino}"/> 
+                            <input required="required" class="form-control input-form" type="text" th:field="*{instituicaoensino}"/> 
                             <p class="text-danger" th:if="${#fields.hasErrors('instituicaoensino')}" th:errors="*{instituicaoensino}"></p>
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Curso</label>
-                            <input required="required" class="form-control" type="text" th:field="*{curso}"/>
+                            <input required="required" class="form-control input-form" type="text" th:field="*{curso}"/>
                             <p class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></p>
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Previsao Formatura</label>
-                            <input required="required" class="form-control" type="text" th:field="*{previsaoformatura}" placeholder="aaaa/mm"/>
+                            <input required="required" class="form-control input-form" type="text" th:field="*{previsaoformatura}" placeholder="aaaa/mm"/>
                             <p class="text-danger" th:if="${#fields.hasErrors('previsaoformatura')}" th:errors="*{previsaoformatura}"></p>
                         </div>
-                        <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
                         <div class="form-group"><br/>
-                            <button type="submit" value="Sign In" class="btn btn-danger">Enviar</button>
+                            <button type="submit" value="Sign In" class=" botao-submit">Enviar</button>
                         </div>
+                        <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
+                        
                     </form>
-
-
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="row fundo-cinza">
+                <div class="col-md-3 col-sm-3 text-center">
+                    <h4>Porto Alegre - RS</h4>
+                    <p>+55 (51) 3092-7500</p>
+                </div>
+                <div class="col-md-3 col-sm-3 text-center">
+                    <h4>São Leopoldo - RS</h4>
+                    <p>+55 (51) 3081-3600</p>
+                </div>
+                <div class="col-md-3 col-sm-3 text-center">
+                    <h4>Rio de Janeiro - RJ</h4>
+                    <p>+55 (21) 2586-6327</p>
+                </div>
+                <div class="col-md-3 col-sm-3 text-center">
+                    <h4>São Paulo - SP</h4>
+                    <p>+55 (11) 3614-7800</p>
                 </div>
             </div>
         </div>
