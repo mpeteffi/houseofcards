@@ -1,6 +1,8 @@
 package br.com.crescer.selecao.service.repository;
 
 import br.com.crescer.selecao.entities.Token;
+import br.com.crescer.selecao.entities.enums.StatusToken;
+import br.com.crescer.selecao.entities.enums.TipoToken;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -8,7 +10,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface TokenRepository extends PagingAndSortingRepository<Token, Long>{
     
-    Token findOneByTokenAndStatusAndTipo(String token, String status, String tipo);
-    Token findOneByIdParaConfirmarAndStatusAndTipo(int idparaconfirmar,String status,String tipo);
+    Token findOneByTokenAndStatusAndTipo(String token, StatusToken status, TipoToken tipo);
+    Token findOneByIdParaConfirmarAndStatusAndTipo(int idparaconfirmar,StatusToken status,TipoToken tipo);
 }
 

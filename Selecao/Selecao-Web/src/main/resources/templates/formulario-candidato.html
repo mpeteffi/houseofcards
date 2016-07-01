@@ -1,8 +1,7 @@
 
 <form th:action="@{/email/confirmar-inscricao}" th:object="${informacao}" method="POST">
     <input type="hidden" th:value="${token}" name="token"></input>
-    <input type="hidden" th:value="${informacao.idInformacao}" name="idInformacao"></input>
-    <input type="hidden" th:value="${informacao.idCandidato.idcandidato}" name="idCandidato.idCandidato"></input>
+    <input type="hidden" th:value="${informacao.idCandidato.idCandidato}" name="idCandidato.idCandidato"></input>
     <div class="form-group">
         <label>Nome</label>
         <input required="required" class="form-control" type="text" th:value="${informacao.idCandidato.nome}" name="idCandidato.nome"/>
@@ -48,7 +47,7 @@
         <input required="required" class="form-control" type="text" th:value="*{urlLinkedin}" name="urlLinkedin"/> 
         <p class="text-danger" th:if="${#fields.hasErrors('urlLinkedin')}" th:errors="*{urlLinkedin}"></p>
     </div>
-    <div class="form-group" th:if="${informacao.idInformacao} == 0">
+    <div class="form-group">
         <label>Senha</label>
         <input required="required" class="form-control" type="password" name="senha"/> 
         <p class="text-danger" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></p>

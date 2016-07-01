@@ -39,7 +39,7 @@ public class TokenService {
     
     public boolean confirmarInteresse(String codigo){
         
-        Token token = tokenRepository.findOneByTokenAndStatusAndTipo(codigo, "PENDENTE", "INTERESSADO");
+        Token token = tokenRepository.findOneByTokenAndStatusAndTipo(codigo, StatusToken.PENDENTE, TipoToken.INTERESSE);
         if(token != null) {
             
             Candidato candidato = candidatoRepository.findOneByIdCandidato(token.getIdparaconfirmar());
@@ -57,7 +57,7 @@ public class TokenService {
         
     public Candidato confirmarCandidatura(String codigo){
         
-        Token token = tokenRepository.findOneByTokenAndStatusAndTipo(codigo, "PENDENTE", "INTERESSADO");
+        Token token = tokenRepository.findOneByTokenAndStatusAndTipo(codigo, StatusToken.PENDENTE, TipoToken.INTERESSE);
         if(token != null) {            
             Candidato candidato = candidatoRepository.findOneByIdCandidato(token.getIdparaconfirmar());            
             return candidato;
@@ -67,7 +67,7 @@ public class TokenService {
     }
     
     public void invalidarTokenParaCandidato(Candidato candidato){
-        Token token = tokenRepository.findOneByIdParaConfirmarAndStatusAndTipo(candidato.getIdCandidato(),"PENDENTE","INTERESSADO");
+        Token token = tokenRepository.findOneByIdParaConfirmarAndStatusAndTipo(candidato.getIdCandidato(),StatusToken.PENDENTE,TipoToken.INTERESSE);
         token.setStatus(StatusToken.FINAL);
         tokenRepository.save(token);
     }
