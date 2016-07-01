@@ -19,8 +19,8 @@ public class AdministrativoController {
     @Autowired
     WebService webService;
     
-    @RequestMapping(value="/administrativo")
-    String login(Model model) {
+    @RequestMapping(value="/administrativo", method = RequestMethod.GET)
+    String adm(Model model) {
         Usuario user = webService.getUsuarioLogadoService().buscarUsuarioLogado();
         model.addAttribute("user", user);
         String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
@@ -28,14 +28,14 @@ public class AdministrativoController {
         return "Administrativo";
     } 
     
-    @RequestMapping(value="/novaedicao")
+    @RequestMapping(value="/novaedicao", method = RequestMethod.GET)
     String novaEdicao() {
         return "nova-edicao";
     } 
     
     @RequestMapping(value="/cadastro-nova-edicao", method = RequestMethod.POST)
-    String save(@Valid Processoseletivo processoseletivo,Model model) {
+    String save(@Valid Processoseletivo processoseletivo) {
         webService.getProcessoseletivoService().criarProcessoSeletivo(processoseletivo);    
-       return "Administrativo";
+        return "Administrativo";
     }
 }
