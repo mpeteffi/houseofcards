@@ -26,7 +26,7 @@ public class Usuario implements Serializable {
     @SequenceGenerator(name = "USUARIO_IDUSUARIO_SEQ", sequenceName = "USUARIO_IDUSUARIO_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDUSUARIO")
-    private int idusuario;
+    private Integer idusuario;
     
     @Basic(optional = false)
     @Column(name = "NOME")
@@ -47,7 +47,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(int idusuario) {
+    public Usuario(Integer idusuario) {
         this.idusuario = idusuario;
     }
 
@@ -62,7 +62,7 @@ public class Usuario implements Serializable {
         return idusuario;
     }
 
-    public void setIdusuario(int idusuario) {
+    public void setIdusuario(Integer idusuario) {
         this.idusuario = idusuario;
     }
 

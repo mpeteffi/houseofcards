@@ -30,7 +30,7 @@ public class Processoseletivo implements Serializable {
     @SequenceGenerator(name = "PROCESSOSELETIVO_IDPROCESSOSEL", sequenceName = "PROCESSOSELETIVO_IDPROCESSOSEL", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDPROCESSOSELETIVO")
-    private int idprocessoseletivo;
+    private Integer idprocessoseletivo;
     
     @Basic(optional = false)
     @Column(name = "EDICAO")
@@ -59,7 +59,7 @@ public class Processoseletivo implements Serializable {
     public Processoseletivo() {
     }
 
-    public Processoseletivo(int idprocessoseletivo) {
+    public Processoseletivo(Integer idprocessoseletivo) {
         this.idprocessoseletivo = idprocessoseletivo;
     }
 
@@ -75,7 +75,7 @@ public class Processoseletivo implements Serializable {
         return idprocessoseletivo;
     }
 
-    public void setIdprocessoseletivo(int idprocessoseletivo) {
+    public void setIdprocessoseletivo(Integer idprocessoseletivo) {
         this.idprocessoseletivo = idprocessoseletivo;
     }
 
