@@ -3,19 +3,16 @@ package br.com.crescer.selecao.service.services;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.SimpleEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
  * @author michel.fernandes
  */
 @Service
@@ -64,10 +61,10 @@ public class EmailService {
             email.setSubject("Confirmação de inscrição");
             email.addTo(candidato.getEmail());
             email.setHtmlMsg("<html><h3>Iniciado o precesso seletivo do projeto crescer " + processoSeletivo.getEdicao() + "</h3>"
-                    + "<p>Data início do agendamento de entrevista:" + sdf.format(processoSeletivo.getInicioselecao()) + "</p>"
-                    + "<p>Data final do agendamento de entrevista:" + sdf.format(processoSeletivo.getFinalselecao()) + "</p>"
-                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getInicioaula()) + "</p>"
-                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getFinalaula()) + "</p>"
+                    + "<p>Data início do agendamento de entrevista:" + sdf.format(processoSeletivo.getInicioSelecao()) + "</p>"
+                    + "<p>Data final do agendamento de entrevista:" + sdf.format(processoSeletivo.getFinalSelecao()) + "</p>"
+                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getInicioAula()) + "</p>"
+                    + "<p>Data início das aulas:" + sdf.format(processoSeletivo.getFinalAula()) + "</p>"
                     + "<p>Para confirmar sua inscrição no projeto, clique <a href=\"http://localhost:9090/email/confirmar-inscricao?token=" + token + "\">aqui</a>para preencher seus dados e completar a inscrição</html>");
             email.send();
             candidato.setStatus(StatusCandidato.NOTIFICADO);

@@ -35,8 +35,8 @@
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Instituição de Ensino</label>
-                            <input required="required" class="form-control input-form" type="text" th:field="*{instituicaoensino}"/> 
-                            <p class="text-danger" th:if="${#fields.hasErrors('instituicaoensino')}" th:errors="*{instituicaoensino}"></p>
+                            <input required="required" class="form-control input-form" type="text" th:field="*{instituicaoEnsino}"/> 
+                            <p class="text-danger" th:if="${#fields.hasErrors('instituicaoEnsino')}" th:errors="*{instituicaoEnsino}"></p>
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Curso</label>
@@ -45,8 +45,8 @@
                         </div>
                         <div class="form-group">
                             <label class="fonte-laranja">Previsao Formatura</label>
-                            <input required="required" class="form-control input-form" type="text" th:field="*{previsaoformatura}" placeholder="aaaa/mm"/>
-                            <p class="text-danger" th:if="${#fields.hasErrors('previsaoformatura')}" th:errors="*{previsaoformatura}"></p>
+                            <input required="required" class="form-control input-form" type="text" th:field="*{previsaoFormatura}" placeholder="aaaa/mm"/>
+                            <p class="text-danger" th:if="${#fields.hasErrors('previsaoFormatura')}" th:errors="*{previsaoFormatura}"></p>
                         </div>
                         <div class="form-group"><br/>
                             <button type="submit" value="Sign In" class=" botao-submit">Enviar</button>

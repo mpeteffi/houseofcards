@@ -29,10 +29,10 @@
     border:none!important;
 }
 /*-----Fim_Login---- */
- @media all and (min-width:0px) and (max-width: 500px) {
-  /*----Inicio_Login---- */
-.content-wrapper{
-    margin-top: 10%;
-}
- /*-----Fim_Login---- */
+@media all and (min-width:0px) and (max-width: 500px) {
+    /*----Inicio_Login---- */
+    .content-wrapper{
+        margin-top: 10%;
+    }
+    /*-----Fim_Login---- */
 }

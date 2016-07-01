@@ -19,7 +19,6 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
- *
  * @author murillo.peteffi
  */
 @Entity
@@ -34,7 +33,7 @@ public class Candidato implements Serializable {
     @SequenceGenerator(name = "CANDIDATO_IDCANDIDATO_SEQ", sequenceName = "CANDIDATO_IDCANDIDATO_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDCANDIDATO")
-    private Integer idcandidato;
+    private Integer idCandidato;
     
     @NotBlank(message="Campo Nome deve ser preenchido")
     @Basic(optional = false)
@@ -50,7 +49,7 @@ public class Candidato implements Serializable {
     @NotBlank(message="Campo Instituição de ensino deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "INSTITUICAOENSINO")
-    private String instituicaoensino;    
+    private String instituicaoEnsino;    
     
     @NotBlank(message="Campo Curso deve ser preenchido")
     @Basic(optional = false)
@@ -61,7 +60,7 @@ public class Candidato implements Serializable {
     @NotBlank(message="Campo Previsão de formatura deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "PREVISAOFORMATURA")
-    private String previsaoformatura;
+    private String previsaoFormatura;
     
     @Enumerated(EnumType.STRING)
     @Basic(optional = false)
@@ -72,35 +71,35 @@ public class Candidato implements Serializable {
     }
 
     public Candidato(Integer idcandidato) {
-        this.idcandidato = idcandidato;
+        this.idCandidato = idcandidato;
     }
 
     public Candidato(String nome, String email, String instituicaoensino, String curso, String previsaoformatura, StatusCandidato status) {
         this.nome = nome;
         this.email = email;
-        this.instituicaoensino = instituicaoensino;
+        this.instituicaoEnsino = instituicaoensino;
         this.curso = curso;
-        this.previsaoformatura = previsaoformatura;
+        this.previsaoFormatura = previsaoformatura;
         this.status = status;
     }
     
     
     public Candidato(Integer idcandidato, String nome, String email, String instituicaoensino, String curso, String previsaoformatura, StatusCandidato status) {
-        this.idcandidato = idcandidato;
+        this.idCandidato = idcandidato;
         this.nome = nome;
         this.email = email;
-        this.instituicaoensino = instituicaoensino;
+        this.instituicaoEnsino = instituicaoensino;
         this.curso = curso;
-        this.previsaoformatura = previsaoformatura;
+        this.previsaoFormatura = previsaoformatura;
         this.status = status;
       }
 
-    public int getIdcandidato() {
-        return idcandidato;
+    public int getIdCandidato() {
+        return idCandidato;
     }
 
-    public void setIdcandidato(Integer idcandidato) {
-        this.idcandidato = idcandidato;
+    public void setIdCandidato(Integer idCandidato) {
+        this.idCandidato = idCandidato;
     }
 
     public String getNome() {
@@ -119,12 +118,12 @@ public class Candidato implements Serializable {
         this.email = email;
     }
 
-    public String getInstituicaoensino() {
-        return instituicaoensino;
+    public String getInstituicaoEnsino() {
+        return instituicaoEnsino;
     }
 
-    public void setInstituicaoensino(String instituicaoensino) {
-        this.instituicaoensino = instituicaoensino;
+    public void setInstituicaoEnsino(String instituicaoEnsino) {
+        this.instituicaoEnsino = instituicaoEnsino;
     }
 
     public String getCurso() {
@@ -135,12 +134,12 @@ public class Candidato implements Serializable {
         this.curso = curso;
     }
 
-    public String getPrevisaoformatura() {
-        return previsaoformatura;
+    public String getPrevisaoFormatura() {
+        return previsaoFormatura;
     }
 
-    public void setPrevisaoformatura(String previsaoformatura) {
-        this.previsaoformatura = previsaoformatura;
+    public void setPrevisaoFormatura(String previsaoFormatura) {
+        this.previsaoFormatura = previsaoFormatura;
     }
 
     public StatusCandidato getStatus() {
@@ -153,7 +152,7 @@ public class Candidato implements Serializable {
     
     @Override
     public String toString() {
-        return "br.com.crescer.selecao.entities.Candidato[ idcandidato=" + idcandidato + " ]";
+        return "br.com.crescer.selecao.entities.Candidato[ idcandidato=" + idCandidato + " ]";
     }
     
 }

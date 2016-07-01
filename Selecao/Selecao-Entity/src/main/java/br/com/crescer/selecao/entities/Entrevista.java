@@ -29,29 +29,29 @@ public class Entrevista implements Serializable {
     @SequenceGenerator(name = "ENTREVISTA_IDENTREVISTA_SEQ", sequenceName = "ENTREVISTA_IDENTREVISTA_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDENTREVISTA")
-    private Integer identrevista;
+    private Integer idEntrevista;
     
     @Basic(optional = false)
     @Column(name = "DATAENTREVISTA")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dataentrevista;
+    private Date dataEntrevista;
     
     @Basic(optional = false)
     @Column(name = "PARECERRH")
-    private String parecerrh;
+    private String parecerRh;
     
     @Basic(optional = false)
     @Column(name = "PARECERTECNICO")
-    private String parecertecnico;
+    private String parecerTecnico;
     
     @Column(name = "PROVAG36")
-    private Double provag36;
+    private Double provaG36;
     
     @Column(name = "PROVAAC")
-    private Double provaac;
+    private Double provaAc;
     
     @Column(name = "PROVATECNICA")
-    private Double provatecnica;
+    private Double provaTecnica;
     
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
     @ManyToOne(optional = false)
@@ -59,80 +59,80 @@ public class Entrevista implements Serializable {
     
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
     @ManyToOne(optional = false)
-    private Usuario idusuario;
+    private Usuario idUsuario;
 
     public Entrevista() {
     }
 
     public Entrevista(Integer identrevista) {
-        this.identrevista = identrevista;
+        this.idEntrevista = identrevista;
     }
 
     public Entrevista(Date dataentrevista, String parecerrh, String parecertecnico, Double provag36, Double provaac, Double provatecnica, Candidato idCandidato, Usuario idusuario) {
-        this.dataentrevista = dataentrevista;
-        this.parecerrh = parecerrh;
-        this.parecertecnico = parecertecnico;
-        this.provag36 = provag36;
-        this.provaac = provaac;
-        this.provatecnica = provatecnica;
+        this.dataEntrevista = dataentrevista;
+        this.parecerRh = parecerrh;
+        this.parecerTecnico = parecertecnico;
+        this.provaG36 = provag36;
+        this.provaAc = provaac;
+        this.provaTecnica = provatecnica;
         this.idCandidato = idCandidato;
-        this.idusuario = idusuario;
+        this.idUsuario = idusuario;
     }
 
-    public int getIdentrevista() {
-        return identrevista;
+    public int getIdEntrevista() {
+        return idEntrevista;
     }
 
-    public void setIdentrevista(Integer identrevista) {
-        this.identrevista = identrevista;
+    public void setIdEntrevista(Integer idEntrevista) {
+        this.idEntrevista = idEntrevista;
     }
 
-    public Date getDataentrevista() {
-        return dataentrevista;
+    public Date getDataEntrevista() {
+        return dataEntrevista;
     }
 
-    public void setDataentrevista(Date dataentrevista) {
-        this.dataentrevista = dataentrevista;
+    public void setDataEntrevista(Date dataEntrevista) {
+        this.dataEntrevista = dataEntrevista;
     }
 
-    public String getParecerrh() {
-        return parecerrh;
+    public String getParecerRh() {
+        return parecerRh;
     }
 
-    public void setParecerrh(String parecerrh) {
-        this.parecerrh = parecerrh;
+    public void setParecerRh(String parecerRh) {
+        this.parecerRh = parecerRh;
     }
 
-    public String getParecertecnico() {
-        return parecertecnico;
+    public String getParecerTecnico() {
+        return parecerTecnico;
     }
 
-    public void setParecertecnico(String parecertecnico) {
-        this.parecertecnico = parecertecnico;
+    public void setParecerTecnico(String parecerTecnico) {
+        this.parecerTecnico = parecerTecnico;
     }
 
-    public Double getProvag36() {
-        return provag36;
+    public Double getProvaG36() {
+        return provaG36;
     }
 
-    public void setProvag36(Double provag36) {
-        this.provag36 = provag36;
+    public void setProvaG36(Double provaG36) {
+        this.provaG36 = provaG36;
     }
 
-    public Double getProvaac() {
-        return provaac;
+    public Double getProvaAc() {
+        return provaAc;
     }
 
-    public void setProvaac(Double provaac) {
-        this.provaac = provaac;
+    public void setProvaAc(Double provaAc) {
+        this.provaAc = provaAc;
     }
 
-    public Double getProvatecnica() {
-        return provatecnica;
+    public Double getProvaTecnica() {
+        return provaTecnica;
     }
 
-    public void setProvatecnica(Double provatecnica) {
-        this.provatecnica = provatecnica;
+    public void setProvaTecnica(Double provaTecnica) {
+        this.provaTecnica = provaTecnica;
     }
 
     public Candidato getIdCandidato() {
@@ -143,17 +143,17 @@ public class Entrevista implements Serializable {
         this.idCandidato = idcandidato;
     }
 
-    public Usuario getIdusuario() {
-        return idusuario;
+    public Usuario getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdusuario(Usuario idusuario) {
-        this.idusuario = idusuario;
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     @Override
     public String toString() {
-        return "br.com.crescer.selecao.entities.Entrevista[ identrevista=" + identrevista + " ]";
+        return "br.com.crescer.selecao.entities.Entrevista[ identrevista=" + idEntrevista + " ]";
     }
     
 }
