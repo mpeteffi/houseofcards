@@ -70,6 +70,22 @@ public class CandidatoController {
         model.addAttribute("candidatos", candidatos);
         model.addAttribute("pagina", page);
         return "_Candidatos";
+    }
+    
+    @RequestMapping(value = "/entrevistados")
+    String entrevistados(String nome,String email,String telefone,StatusCandidato status, String edicao, Integer page, Model model) {
+        Page<Informacao> candidatos = webService.getCandidatoService().buscarCandidatosPorFiltros(edicao, status, nome, email,telefone, page);
+        model.addAttribute("valorAntigoInput", new HashMap<String, Object>(){
+            {
+                put("nome", nome);
+                put("telefone", telefone);
+                put("email", email);
+                put("status", status);
+            }
+        });
+        model.addAttribute("candidatos", candidatos);
+        model.addAttribute("pagina", page);
+        return "Sucesso";
     }    
     
     @RequestMapping(value="/entrevistas",method = RequestMethod.GET)

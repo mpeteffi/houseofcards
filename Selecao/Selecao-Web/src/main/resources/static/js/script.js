@@ -37,6 +37,14 @@
                 view.atualizaView(this);
             }
     });
+    
+    view.appendEventoNoHtml({
+            evento:'click',
+            obj:'.opcao-entrevistados',
+            funcao:function(){                
+                view.atualizaView(this);
+            }
+    });
 
     view.appendEventoNoHtml({
             evento:'submit',
