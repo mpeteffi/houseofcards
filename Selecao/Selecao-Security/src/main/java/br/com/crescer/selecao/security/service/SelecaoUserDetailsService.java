@@ -2,7 +2,7 @@ package br.com.crescer.selecao.security.service;
 
 import br.com.crescer.selecao.entities.Usuario;
 import br.com.crescer.selecao.entities.UsuarioLogadoModel;
-import br.com.crescer.selecao.security.enumeration.SocialRoles;
+import br.com.crescer.selecao.security.enumeration.SelecaoRoles;
 import br.com.crescer.selecao.service.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * @author Murillo
  */
 @Service
-public class SocialUserDetailsService implements UserDetailsService {
+public class SelecaoUserDetailsService implements UserDetailsService {
     
     @Autowired
     UsuarioRepository usuarioRepository;
@@ -26,7 +26,7 @@ public class SocialUserDetailsService implements UserDetailsService {
         }
         
         Usuario usuario = usuarioRepository.findOneByEmail(username);
-        return new UsuarioLogadoModel(usuario, SocialRoles.valuesToList());
+        return new UsuarioLogadoModel(usuario, SelecaoRoles.valuesToList());
     }
 
 }

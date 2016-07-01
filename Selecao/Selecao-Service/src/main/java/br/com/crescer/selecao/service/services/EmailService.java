@@ -3,19 +3,16 @@ package br.com.crescer.selecao.service.services;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
-import org.apache.commons.mail.SimpleEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- *
  * @author michel.fernandes
  */
 @Service

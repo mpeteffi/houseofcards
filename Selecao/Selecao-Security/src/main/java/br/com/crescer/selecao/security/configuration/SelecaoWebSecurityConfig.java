@@ -1,6 +1,6 @@
 package br.com.crescer.selecao.security.configuration;
 
-import br.com.crescer.selecao.security.service.SocialUserDetailsService;
+import br.com.crescer.selecao.security.service.SelecaoUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -12,10 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * @author Murillo
  */
 @Configuration
-public class SocialWebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SelecaoWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    SocialUserDetailsService socialUserDetailsService;
+    SelecaoUserDetailsService socialUserDetailsService;
 
     @Override
     protected void configure(final HttpSecurity httpSecurity) throws Exception {

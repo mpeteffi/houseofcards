@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 /**
  * @author Murillo
  */
-public enum SocialRoles implements GrantedAuthority {
+public enum SelecaoRoles implements GrantedAuthority {
 
     ROLE_USER;
 
@@ -16,8 +16,8 @@ public enum SocialRoles implements GrantedAuthority {
         return toString();
     }
 
-    public static List<SocialRoles> valuesToList() {
-        return Arrays.asList(SocialRoles.values());
+    public static List<SelecaoRoles> valuesToList() {
+        return Arrays.asList(SelecaoRoles.values());
     }
 
 }
