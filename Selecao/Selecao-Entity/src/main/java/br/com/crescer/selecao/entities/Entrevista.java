@@ -14,7 +14,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.UniqueConstraint;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -30,7 +29,7 @@ public class Entrevista implements Serializable {
     @SequenceGenerator(name = "ENTREVISTA_IDENTREVISTA_SEQ", sequenceName = "ENTREVISTA_IDENTREVISTA_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDENTREVISTA")
-    private int identrevista;
+    private Integer identrevista;
     
     @Basic(optional = false)
     @Column(name = "DATAENTREVISTA")
@@ -65,7 +64,7 @@ public class Entrevista implements Serializable {
     public Entrevista() {
     }
 
-    public Entrevista(int identrevista) {
+    public Entrevista(Integer identrevista) {
         this.identrevista = identrevista;
     }
 
@@ -84,7 +83,7 @@ public class Entrevista implements Serializable {
         return identrevista;
     }
 
-    public void setIdentrevista(int identrevista) {
+    public void setIdentrevista(Integer identrevista) {
         this.identrevista = identrevista;
     }
 

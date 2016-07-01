@@ -30,11 +30,11 @@ public class Token implements Serializable {
     @SequenceGenerator(name = "TOKEN_IDTOKEN_SEQ", sequenceName = "TOKEN_IDTOKEN_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDTOKEN")
-    private int idtoken;
+    private Integer idtoken;
     
     @Basic(optional = false)
     @Column(name = "IDPARACONFIRMAR")
-    private int idparaconfirmar;
+    private Integer idparaconfirmar;
     
     @Basic(optional = false)
     @Column(name = "TOKEN")
@@ -53,11 +53,11 @@ public class Token implements Serializable {
     public Token() {
     }
 
-    public Token(int idtoken) {
+    public Token(Integer idtoken) {
         this.idtoken = idtoken;
     }
 
-    public Token(int idparaconfirmar, String token, StatusToken status, TipoToken tipo) {
+    public Token(Integer idparaconfirmar, String token, StatusToken status, TipoToken tipo) {
         this.idparaconfirmar = idparaconfirmar;
         this.token = token;
         this.status = status;
@@ -68,7 +68,7 @@ public class Token implements Serializable {
         return idtoken;
     }
 
-    public void setIdtoken(int idtoken) {
+    public void setIdtoken(Integer idtoken) {
         this.idtoken = idtoken;
     }
 
@@ -76,7 +76,7 @@ public class Token implements Serializable {
         return idparaconfirmar;
     }
 
-    public void setIdparaconfirmar(int idparaconfirmar) {
+    public void setIdparaconfirmar(Integer idparaconfirmar) {
         this.idparaconfirmar = idparaconfirmar;
     }
 

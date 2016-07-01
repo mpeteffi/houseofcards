@@ -13,13 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  *
@@ -37,7 +34,7 @@ public class Candidato implements Serializable {
     @SequenceGenerator(name = "CANDIDATO_IDCANDIDATO_SEQ", sequenceName = "CANDIDATO_IDCANDIDATO_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDCANDIDATO")
-    private int idcandidato;
+    private Integer idcandidato;
     
     @NotBlank(message="Campo Nome deve ser preenchido")
     @Basic(optional = false)
@@ -74,7 +71,7 @@ public class Candidato implements Serializable {
     public Candidato() {
     }
 
-    public Candidato(int idcandidato) {
+    public Candidato(Integer idcandidato) {
         this.idcandidato = idcandidato;
     }
 
@@ -88,7 +85,7 @@ public class Candidato implements Serializable {
     }
     
     
-    public Candidato(int idcandidato, String nome, String email, String instituicaoensino, String curso, String previsaoformatura, StatusCandidato status) {
+    public Candidato(Integer idcandidato, String nome, String email, String instituicaoensino, String curso, String previsaoformatura, StatusCandidato status) {
         this.idcandidato = idcandidato;
         this.nome = nome;
         this.email = email;
@@ -102,7 +99,7 @@ public class Candidato implements Serializable {
         return idcandidato;
     }
 
-    public void setIdcandidato(int idcandidato) {
+    public void setIdcandidato(Integer idcandidato) {
         this.idcandidato = idcandidato;
     }
 

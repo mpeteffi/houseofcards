@@ -18,7 +18,6 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotBlank;
@@ -40,7 +39,7 @@ public class Informacao implements Serializable {
     @SequenceGenerator(name = "INFORMACAO_IDINFORMACAO_SEQ", sequenceName = "INFORMACAO_IDINFORMACAO_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "IDINFORMACAO")
-    private int idinformacao;
+    private Integer idinformacao;
     
     @NotNull(message="Campo Telefone deve ser preenchido")
     @Basic(optional = false)
@@ -83,7 +82,7 @@ public class Informacao implements Serializable {
     public Informacao() {
     }
 
-    public Informacao(int idinformacao) {
+    public Informacao(Integer idinformacao) {
         this.idinformacao = idinformacao;
     }
 
@@ -109,7 +108,7 @@ public class Informacao implements Serializable {
         return idinformacao;
     }
 
-    public void setIdinformacao(int idinformacao) {
+    public void setIdinformacao(Integer idinformacao) {
         this.idinformacao = idinformacao;
     }
 
