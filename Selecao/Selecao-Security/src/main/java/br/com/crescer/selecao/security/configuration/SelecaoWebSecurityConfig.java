@@ -20,7 +20,7 @@ public class SelecaoWebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
-                .antMatchers("/", "/css/**", "/js/**", "/img/**", "/cadastro").permitAll()
+                .antMatchers("/", "/css/**", "/js/**", "/img/**", "/email/confirmar-inscricao/**", "/email/confirmar-interesse/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
