@@ -1,16 +1,42 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<form class="form-inline form-filtro"  id="pesq" data-url="/candidatos">
+    <div class="input-group col-xs-5 col-sm-5 col-md-2">
+        <select class="form-control" id="txtStatus" name="status">
+            <option value="" class="optionDisable">Status:</option>
+            <option value="ENTREVISTADO">Entrevistado</option>
+            <option value="EM_ANALISE">Em análise</option>
+            <option value="PRE_SELECIONADO">Pre selecionado</option>
+            <option value="SELECIONADO">Selecionado</option>
+            <option value="NAO_SELECIONADO">Nao selecionado</option>
+        </select>
+    </div>
+    <div class="input-group col-xs-12 col-sm-1 col-md-1">
+        <button class="btn btn-default" type="submit">Filtrar</button>
+    </div>   
+</form>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="thead-inverse">
+            <tr class="active">
+                <th>Nome</th>
+                <th>Prova G36</th>
+                <th>Prova AC</th>
+                <th>Prova Técnica</th>
+                <th>Parecer RH</th>
+                <th>Parecer Técnico</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="entrevista : ${entrevistas}">
+                <td scope="row" th:text="${entrevista.idCandidato.nome}"></td>
+                <td th:text="${entrevista.provaG36}"></td>
+                <td th:text="${entrevista.provaAc}"></td>
+                <td th:text="${entrevista.provaTecnica}"></td>
+                <td th:text="${entrevista.parecerRh}"></td>
+                <td th:text="${entrevista.parecerTecnico}"></td>
+                <td th:text="${entrevista.idCandidato.status}"></td>
+            </tr> 
+        </tbody>
+    </table>
+</div>
