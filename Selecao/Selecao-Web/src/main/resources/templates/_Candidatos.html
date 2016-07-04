@@ -32,7 +32,7 @@
                 <th>Email</th>
                 <th>Status</th>
                 <th>Linkedin</th>
-                <th>Ações</th>
+                <th>Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -46,7 +46,7 @@
                     <a th:href="${candidato.urlLinkedin}" target="_blank"><i class="fa fa-linkedin-square candidatos-acoes"></i ></a>
                 </td>
                 <td>
-                    <span href="#" class="glyphicon glyphicon-list-alt opcao-side-bar" th:attr="data-url='/entrevistas?idCandidato='+${candidato.idCandidato.idCandidato}"></span>           
+                    <span href="#" class="glyphicon glyphicon-list-alt opcao-side-bar link-editar-candidato" th:attr="data-url='/entrevistas?idCandidato='+${candidato.idCandidato.idCandidato}"></span>           
                 </td>
             </tr> 
         </tbody>

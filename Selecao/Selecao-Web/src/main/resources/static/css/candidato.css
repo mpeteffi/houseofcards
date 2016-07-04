@@ -20,3 +20,7 @@
     display: inline-flex;
     margin-bottom: 5px;
 } 
+
+.link-editar-candidato:hover{
+    cursor:pointer;
+}
