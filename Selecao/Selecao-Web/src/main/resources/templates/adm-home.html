@@ -20,7 +20,7 @@
                 <li role="presentation">
                     <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Entrevistas">
                         <span class="round-tab">
-                            <i class="glyphicon glyphicon-picture"></i>
+                            <i class="glyphicon glyphicon-calendar"></i>
                         </span>
                     </a>
                 </li>
@@ -37,19 +37,19 @@
             <div class="tab-content">
                 <div class="tab-pane active" role="tabpanel" id="step1">
                     <h3>Etapa 1 - Inscrições</h3>
-                    <h3>275 Candidatos, até o momento.</h3>
+                    <h3 th:text="${counts[0] + ' Candidatos, até o momento.'}"></h3>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="step2">
                     <h3>Etapa 2 - Provas</h3>
-                    <h3>75 Provas realizadas.</h3>
+                    <h3 th:text="${counts[1] + ' Provas realizadas.'}"></h3>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="step3">
                     <h3>Etapa 3 - Entrevista</h3>
-                    <h3>42 Entrevistas realizadas.</h3>
+                    <h3 th:text="${counts[2] + ' Entrevistas realizadas.'}"></h3>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="complete">
                     <h3>Etapa 4 - Seleção</h3>
-                    <h3>23 Selecionados!</h3>
+                    <h3 th:text="${counts[3] + ' Selecionados!'}"></h3>
                 </div>
                 <div class="clearfix"></div>
             </div>

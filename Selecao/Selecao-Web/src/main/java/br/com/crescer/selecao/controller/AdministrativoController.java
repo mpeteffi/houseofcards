@@ -5,6 +5,7 @@ import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.Usuario;
+import java.util.ArrayList;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,18 +26,20 @@ public class AdministrativoController {
     String adm(Model model) {
         Usuario user = webService.getUsuarioLogadoService().buscarUsuarioLogado();
         model.addAttribute("user", user);
-        String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
-        model.addAttribute("edicao", edicao);
+        model.addAttribute("edicao", webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao());
         return "Administrativo";
     }
 
     @RequestMapping(value = "/novaedicao", method = RequestMethod.GET)
     String novaEdicao() {
         return "nova-edicao";
-    }
-
-    @RequestMapping(value = "/administrativo-home", method = RequestMethod.GET)
-    String home() {
+    } 
+    
+    @RequestMapping(value="/administrativo-home", method = RequestMethod.GET)
+    String home(Model model) {
+        String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
+        ArrayList<Integer> counts = webService.getCandidatoService().buscarContadores(edicao);
+        model.addAttribute("counts", counts);
         return "adm-home";
     }
 

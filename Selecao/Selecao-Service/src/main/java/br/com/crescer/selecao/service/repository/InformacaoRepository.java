@@ -14,4 +14,5 @@ public interface InformacaoRepository extends PagingAndSortingRepository<Informa
     
     Page<Informacao> findByIdProcessoSeletivo_EdicaoContainingIgnoreCaseAndIdCandidato_StatusInAndIdCandidato_NomeContainingIgnoreCaseAndIdCandidato_EmailContainingIgnoreCaseAndTelefoneContainingIgnoreCase(String edicao, StatusCandidato[] status, String nome, String email, String telefone, Pageable pegeable);
     Informacao findByIdCandidato(Candidato candidato);
+    Long countByidProcessoSeletivo_EdicaoContainingIgnoreCase(String edicao);
 }

@@ -5,10 +5,13 @@ import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.repository.CandidatoRepository;
+import br.com.crescer.selecao.service.repository.EntrevistaRepository;
 import br.com.crescer.selecao.service.repository.InformacaoRepository;
 import br.com.crescer.selecao.service.repository.ProcessoseletivoRepository; 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,6 +28,9 @@ public class CandidatoService {
     
     @Autowired
     CandidatoRepository candidatoRepository;
+    
+    @Autowired
+    EntrevistaRepository entrevistaRepository;
     
     @Autowired
     EmailService emailService;
@@ -76,6 +82,17 @@ public class CandidatoService {
         } catch (Exception e){
             return null;
         }
+    }
+    
+    public ArrayList<Integer> buscarContadores(String edicao){
+        ArrayList<Integer> counts = new ArrayList<>();
+        
+        counts.add(informacaoRepository.countByidProcessoSeletivo_EdicaoContainingIgnoreCase(edicao).intValue());
+        counts.add(entrevistaRepository.countByIdGrupoDeProvasIsNotNull().intValue());
+        counts.add(entrevistaRepository.countByParecerRhIsNotNull().intValue());
+        counts.add(candidatoRepository.countByStatus(StatusCandidato.SELECIONADO));
+        
+        return counts;
     }
     
     public Iterable<Candidato> buscarCandidatosPorStatus(String status){

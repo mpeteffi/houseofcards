@@ -1,6 +1,7 @@
 package br.com.crescer.selecao.service.repository;
 
 import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -10,5 +11,6 @@ public interface CandidatoRepository extends PagingAndSortingRepository<Candidat
     
     Candidato findOneByIdCandidato(int idcandidato);
     Iterable<Candidato> findByStatus(String status);
-    Iterable<Candidato>findTop5ByNomeStartingWith(String nome);
+    Iterable<Candidato> findTop5ByNomeStartingWith(String nome);
+    Integer countByStatus(StatusCandidato status);
 }

@@ -20,4 +20,7 @@ public interface EntrevistaRepository extends PagingAndSortingRepository<Entrevi
     Page<Entrevista> findByIdCandidato_StatusIn(StatusCandidato[] status,Pageable pegeable);
     
     Iterable<Entrevista> findByIdCandidato_StatusIn(StatusCandidato[] status);
+    
+    Long countByIdGrupoDeProvasIsNotNull();
+    Long countByParecerRhIsNotNull();
 }
