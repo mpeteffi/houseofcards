@@ -12,99 +12,101 @@
     });
 
     view.appendEventoNoHtml({
-            evento:'submit',
-            obj:'.form-filtro',
-            funcao:function(e){
-                $('.input-pagina').val(0);                
-                view.atualizaView(this);
-                e.preventDefault();
-            }
+        evento: 'submit',
+        obj: '.form-filtro',
+        funcao: function (e) {
+            $('.input-pagina').val(0);
+            view.atualizaView(this);
+            e.preventDefault();
+        }
     });
 
     view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.btn-paginacao',
-            funcao:function(){
-                $('.input-pagina').val($(this).data('page'));                
-                view.atualizaView('.form-filtro');
-            }
+        evento: 'click',
+        obj: '.btn-paginacao',
+        funcao: function () {
+            $('.input-pagina').val($(this).data('page'));
+            view.atualizaView('.form-filtro');
+        }
     });
 
     view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.opcao-side-bar',
-            funcao:function(){                
-                view.atualizaView(this);
-            }
-    });
-    
-    view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.opcao-entrevistados',
-            funcao:function(){                
-                view.atualizaView(this);
-            }
+        evento: 'click',
+        obj: '.opcao-side-bar',
+        funcao: function () {
+            view.atualizaView(this);
+        }
     });
 
     view.appendEventoNoHtml({
-            evento:'submit',
-            obj:'#nova-edicao-form',
-            funcao:function(e){                
-                view.postForm(this);
-                e.preventDefault();
-            }
-    });   
-    view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.editar-candidato',
-            funcao:function(){
-                view.atualizaView(this);
-            }
-    });
-    
-     view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.btn-nova-entrevista',
-            funcao:function(){
-                view.atualizaView(this);
-            }
+        evento: 'click',
+        obj: '.opcao-entrevistados',
+        funcao: function () {
+            view.atualizaView(this);
+        }
     });
 
     view.appendEventoNoHtml({
-            evento:'submit',
-            obj:'.edicao-candidato',
-            funcao:function(){
-                view.atualizaView(this)
-            }
+        evento: 'submit',
+        obj: '#nova-edicao-form',
+        funcao: function (e) {
+            view.postForm(this);
+            e.preventDefault();
+        }
     });
-    
-    
+//    view.appendEventoNoHtml({
+//        evento: 'click',
+//        obj: '.editar-candidato',
+//        funcao: function () {
+//            view.postForm(this);
+//            e.preventDefault();
+//        }
+//    });
+
     view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.btn-novo-agendamento',
-            funcao:function(){                
-                view.atualizaView(this).always(function(){
-                    new calendarioView($('#calendar'),{
-                        lang: 'pt-br',
-                        selectable:true,
-                        selectHelper:true,
-                        editable: true,
-                        hiddenDays: [ 6,0 ] ,
-                        header:
+        evento: 'click',
+        obj: '.btn-nova-entrevista',
+        funcao: function () {
+            view.atualizaView(this);
+        }
+    });
+
+//    view.appendEventoNoHtml({
+//        evento: 'submit',
+//        obj: '#edicao-candidato',
+//        funcao: function (e) {
+//            view.postFormJSON(this);
+//            e.preventDefault();
+//        }
+//    });
+
+
+    view.appendEventoNoHtml({
+        evento: 'click',
+        obj: '.btn-novo-agendamento',
+        funcao: function () {
+            view.atualizaView(this).always(function () {
+                new calendarioView($('#calendar'), {
+                    lang: 'pt-br',
+                    selectable: true,
+                    selectHelper: true,
+                    editable: true,
+                    hiddenDays: [6, 0],
+                    header:
                             {
-                                    left: 'prev,next today',
-                                    center: 'title',
-                                    right: 'month,agendaWeek,agendaDay'
-                            },                            			
-			eventLimit: true 
+                                left: 'prev,next today',
+                                center: 'title',
+                                right: 'month,agendaWeek,agendaDay'
+                            },
+                    eventLimit: true
 
-                    }).init();                    
-                });
-            }
+                }).init();
+            });
+        }
     });
-    
-    
-    
+
+
+
     view.appendEventoNoHtml({
         evento: 'click',
         obj: '.btnLogout',
@@ -129,9 +131,9 @@
         obj: '.btn-new-processo',
         funcao: function () {
             var self = this;
-            
-            $.get('/verificarProcessoSeletivo').done(function(res){
-                if(!res){
+
+            $.get('/verificarProcessoSeletivo').done(function (res) {
+                if (!res) {
                     view.atualizaView(self);
                 } else {
                     swal({
@@ -147,3 +149,16 @@
         }
     });
 })();
+
+$(function () {
+    $('.corpo').on('submit', '#edicao-candidato', function (form) {
+        var baa = form.target[0];
+        debugger;
+        $.ajax({
+            url: '/editar-candidato-michel2016',
+            type: 'POST',
+            data: baa
+        })
+        form.preventDefault();
+    });
+});

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -82,15 +83,16 @@ public class CandidatoController {
     @RequestMapping(value="/entrevistas",method = RequestMethod.GET)
     String entrevistas(Integer idCandidato, Model model) {
         Informacao candidato = webService.getCandidatoService().buscarInformacoesDeCandidato(new Candidato(idCandidato));
-        Iterable<Entrevista> entrevistas = webService.getEntrevistaService().buscarEntrevistasPorCandidato(candidato.getIdCandidato());            
+        Entrevista entrevista = webService.getEntrevistaService().buscarEntrevistaDeCandidato(candidato.getIdCandidato());
+        if(entrevista == null) entrevista = new Entrevista();
         model.addAttribute("candidato", candidato);
-        model.addAttribute("entrevistas", entrevistas);
+        model.addAttribute("entrevista", entrevista);
         return "_entrevistas";
     }
     
     @RequestMapping(value="/nova-entrevista",method = RequestMethod.GET)
     String novaEntrevistaGET(Integer idCandidato, Model model) {        
-        model.addAttribute("idCandidato", idCandidato);        
+        model.addAttribute("idCandidato", idCandidato);
         return "_nova-entrevista";
     }
     
@@ -106,11 +108,10 @@ public class CandidatoController {
                                                                 webService.getUsuarioLogadoService().buscarUsuarioLogado()
                                                             ));   
        return "Sucesso";
-    }
-
+    }    
     
-    @RequestMapping(value="/editar-candidato",method = RequestMethod.POST)
-    String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,StatusCandidato status, String telefone, Date datanascimento, String cidade, String urllinkedin) {
+    @RequestMapping(value="/editar-candidato-michel2016",method = RequestMethod.POST)
+    public String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,StatusCandidato status, String telefone, Date datanascimento, String cidade, String urllinkedin) {
         Candidato candidato = new Candidato(idCandidato,nome,email,instituicaoensino,curso,previsaoformatura,status); 
         webService.getCandidatoService().atualizarInformacao(new Informacao(telefone,
                                                                                     datanascimento,
