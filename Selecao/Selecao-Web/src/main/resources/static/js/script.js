@@ -1,4 +1,5 @@
 "use strict";
+
 (function () {
 
     var view = new mainView({$corpo: $('.corpo'), edicaoAtual: $('#edicao').text()});
@@ -37,6 +38,14 @@
             view.atualizaView(this);
         }
     });
+    
+    view.appendEventoNoHtml({
+            evento:'click',
+            obj:'.opcao-entrevistados',
+            funcao:function(){                
+                view.atualizaView(this);
+            }
+    });
 
     view.appendEventoNoHtml({
         evento: 'click',
@@ -70,6 +79,13 @@
             view.atualizaView(this);
         }
     });
+    view.appendEventoNoHtml({
+            evento:'submit',
+            obj:'.edicao-candidato',
+            funcao:function(){
+                view.atualizaView(this);
+            }
+    });
 
 //    view.appendEventoNoHtml({
 //        evento: 'submit',
@@ -82,17 +98,27 @@
 
 
     view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.btn-novo-agendamento',
-        funcao: function () {
-            view.atualizaView(this).always(function () {
-                new calendarioView($('#calendar'), {
-                    lang: 'pt-br',
-                    selectable: true,
-                    selectHelper: true,
-                    editable: true,
-                    hiddenDays: [6, 0],
-                    header:
+            evento:'click',
+            obj:'.btn-novo-agendamento',
+            funcao:function(){                
+                view.atualizaView(this).always(function(){
+                    new calendarioView($('#calendar'),{
+                        lang: 'pt-br',
+                        timezone:'local',
+                        allDaySlot :false,
+                        selectable:true,
+                        selectHelper:true,
+                        editable: true,
+                        slotLabelFormat:"HH:mm",
+                        hiddenDays: [ 6,0 ] ,
+                        events: 
+                            {
+                                url: '/rest/agendamento/todos',
+                                error: function() {
+                                    swal('Erro!','Não foi possível carregar os eventos','erro') 
+                                }
+                            },
+                        header:
                             {
                                 left: 'prev,next today',
                                 center: 'title',
@@ -158,7 +184,7 @@ $(function () {
             url: '/editar-candidato-teste',
             type: 'POST',
             data: dados
-        })
+        });
         form.preventDefault();
     });
 });

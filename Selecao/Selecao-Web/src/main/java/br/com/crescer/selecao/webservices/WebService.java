@@ -2,8 +2,10 @@ package br.com.crescer.selecao.webservices;
 
 import br.com.crescer.selecao.captcha.RecaptchaService;
 import br.com.crescer.selecao.service.services.CandidatoService;
+import br.com.crescer.selecao.service.services.DataHoraService;
 import br.com.crescer.selecao.service.services.EmailService;
 import br.com.crescer.selecao.service.services.EntrevistaService;
+import br.com.crescer.selecao.service.services.GrupoDeProvasService;
 import br.com.crescer.selecao.service.services.ProcessoseletivoService;
 import br.com.crescer.selecao.service.services.TokenService;
 import br.com.crescer.selecao.service.services.UsuarioLogadoService;
@@ -18,7 +20,9 @@ import org.springframework.stereotype.Service;
 public class WebService {
     
     @Autowired CandidatoService candidatoService;
+    @Autowired DataHoraService dataHoraService;
     @Autowired EmailService emailService;
+    @Autowired GrupoDeProvasService grupodeDeProvasService;
     @Autowired EntrevistaService entrevistaService;
     @Autowired ProcessoseletivoService processoseletivoService;
     @Autowired TokenService tokenService;
@@ -29,7 +33,11 @@ public class WebService {
     public CandidatoService getCandidatoService() {
         return candidatoService;
     }
-
+        
+    public DataHoraService getDataHoraService() {
+        return dataHoraService;
+    }
+    
     public EmailService getEmailService() {
         return emailService;
     }
@@ -48,6 +56,10 @@ public class WebService {
 
     public UsuarioLogadoService getUsuarioLogadoService() {
         return usuarioLogadoService;
+    }
+    
+    public GrupoDeProvasService getGrupoDePovasService() {
+        return grupodeDeProvasService;
     }
 
     public UsuarioService getUsuarioService() {

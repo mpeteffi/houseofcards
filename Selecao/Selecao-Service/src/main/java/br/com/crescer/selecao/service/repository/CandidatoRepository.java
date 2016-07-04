@@ -10,5 +10,5 @@ public interface CandidatoRepository extends PagingAndSortingRepository<Candidat
     
     Candidato findOneByIdCandidato(int idcandidato);
     Iterable<Candidato> findByStatus(String status);
-    
+    Iterable<Candidato>findTop5ByNomeStartingWith(String nome);
 }

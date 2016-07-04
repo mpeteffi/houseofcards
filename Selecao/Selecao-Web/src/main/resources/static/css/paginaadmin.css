@@ -28,9 +28,7 @@
     font-size: 23px;
     font-weight: bold;
 }
-#calendar{
-    background-color: white;
-}
+
 .body-admin{
     background-color: #E5E9EC;
 }
@@ -120,4 +118,47 @@ form label.error{
 
 .input-group{
     margin: 15px 0px;
+}
+
+.btn-deleta-evento{
+    color:white;
+}
+.autocomplete{
+    width: 100%;
+}
+
+.fc-toolbar{
+    background-color: #3E454D;
+    color:#E29012;
+    padding-top:20px;
+}
+
+.fc-view-container{
+    background-color: white;
+}
+.fc-center{
+    border-bottom: 2px solid #737D87;
+}
+
+.fc-left{
+    margin-left: 5%;
+}
+
+.fc-right{
+   margin-right: 5%;
+}
+
+.fc-head,.fc-day-header,.fc-row,.fc-day{
+    background-color: #F3F3F3;
+    border:4px solid white!important;
+}
+.fc-day{
+    border:6px solid white!important;
+}
+.fc-body,.fc-scroller,.fc-widget-contenttable{
+    border: none;
+}
+.fc-button, .fc-state-default{
+    background-color:white!important;
+    color: orange;
 }

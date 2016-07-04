@@ -39,6 +39,10 @@ public class CandidatoService {
         return informacaoRepository.save(informacao);
     }
     
+    public Iterable<Candidato> todosNomesComecam(String nome){
+        return candidatoRepository.findTop5ByNomeStartingWith(nome);
+    }
+    
     public Candidato salvarCandidato(Candidato candidato){
         
         if(candidato.getStatus() == null){
@@ -54,7 +58,7 @@ public class CandidatoService {
             return null;
         }
     }
-    
+          
     public Informacao buscarInformacoesDeCandidato(Candidato candidato){
         return informacaoRepository.findByIdCandidato(candidato);
     }

@@ -1,5 +1,7 @@
 package br.com.crescer.selecao.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -15,6 +17,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * @author murillo.peteffi
@@ -24,50 +27,83 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Datahora implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "DATAHORA_IDDATAHORA_SEQ")
     @SequenceGenerator(name = "DATAHORA_IDDATAHORA_SEQ", sequenceName = "DATAHORA_IDDATAHORA_SEQ", allocationSize = 1)
     @Basic(optional = false)
     @NotNull
     @Column(name = "IDDATAHORA")
+    @JsonProperty("id")
     private Integer idDataHora;
     
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "TITULO")
+    @JsonProperty("title")
     private String titulo;
     
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATAHORAINICIAL")
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonProperty("start")
     private Date dataHoraInicial;
     
     @Basic(optional = false)
     @NotNull
     @Column(name = "DATAHORAFINAL")
     @Temporal(TemporalType.TIMESTAMP)
+    @JsonProperty("end")
     private Date dataHoraFinal;
+    
+    //TODO:Refatorar retirar, pois não terá evento o dia inteiro.
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "TODODIA")
+    @JsonProperty("allDay")
+    private boolean  todoDia;
+    
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "TIPO")
+    @JsonIgnore
+    private String  tipo;
 
     public Datahora() {
     }
 
-    public Datahora(Integer iddatahora) {
-        this.idDataHora = iddatahora;
+    public Datahora(Integer idDataHora) {
+        this.idDataHora = idDataHora;
     }
 
-    public Datahora(Integer iddatahora, String titulo, Date datahorainicial, Date datahorafinal) {
-        this.idDataHora = iddatahora;
+    public Datahora(Integer idDatahora, String titulo, Date dataHoraInicial, Date dataHoraFinal,boolean todoDia,String tipo) {
+        this.idDataHora = idDatahora;
         this.titulo = titulo;
-        this.dataHoraInicial = datahorainicial;
-        this.dataHoraFinal = datahorafinal;
+        this.dataHoraInicial = dataHoraInicial;
+        this.dataHoraFinal = dataHoraFinal;
+        this.todoDia = todoDia;
+        this.tipo = tipo;
     }
+    
+    public Datahora(String titulo, Date dataHoraInicial, Date dataHoraFinal,boolean todoDia,String tipo) {
+        this.titulo = titulo;
+        this.dataHoraInicial = dataHoraInicial;
+        this.dataHoraFinal = dataHoraFinal;
+        this.todoDia = todoDia;
+        this.tipo = tipo;
+    }   
 
     public Integer getIdDataHora() {
         return idDataHora;
+    }
+
+    public boolean isTodoDia() {
+        return todoDia;
+    }
+
+    public void setTodoDia(boolean todoDia) {
+        this.todoDia = todoDia;
     }
 
     public void setIdDataHora(Integer idDataHora) {
@@ -96,11 +132,6 @@ public class Datahora implements Serializable {
 
     public void setDataHoraFinal(Date dataHoraFinal) {
         this.dataHoraFinal = dataHoraFinal;
-    }
-
-    @Override
-    public String toString() {
-        return "br.com.crescer.selecao.entities.Datahora[ iddatahora=" + idDataHora + " ]";
     }
     
 }

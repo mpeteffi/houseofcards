@@ -32,8 +32,8 @@ public class EntrevistaService {
     public Iterable<Entrevista> buscarEntrevistasPorCandidato(Candidato candidato){
         return entrevistaRepository.findAllByIdCandidato(candidato);
     }
-    public void salvarEntrevista(Entrevista entrevista){
-        entrevistaRepository.save(entrevista);
+    public Entrevista salvarEntrevista(Entrevista entrevista){
+        return entrevistaRepository.save(entrevista);
     }
     
     public Page<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status,Integer pagina){
