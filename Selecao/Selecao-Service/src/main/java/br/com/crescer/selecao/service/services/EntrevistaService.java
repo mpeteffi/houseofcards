@@ -25,6 +25,10 @@ public class EntrevistaService {
     @Autowired
     ProcessoseletivoRepository processoseletivoRepository;
     
+    public Entrevista buscarEntrevistaDeCandidato(Candidato candidato){
+        return entrevistaRepository.findOneByIdCandidato(candidato);
+    }
+    
     public Iterable<Entrevista> buscarEntrevistasPorCandidato(Candidato candidato){
         return entrevistaRepository.findAllByIdCandidato(candidato);
     }
