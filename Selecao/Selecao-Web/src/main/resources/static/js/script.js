@@ -38,13 +38,13 @@
             view.atualizaView(this);
         }
     });
-    
+
     view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.opcao-entrevistados',
-            funcao:function(){                
-                view.atualizaView(this);
-            }
+        evento: 'click',
+        obj: '.opcao-entrevistados',
+        funcao: function () {
+            view.atualizaView(this);
+        }
     });
 
     view.appendEventoNoHtml({
@@ -80,11 +80,11 @@
         }
     });
     view.appendEventoNoHtml({
-            evento:'submit',
-            obj:'.edicao-candidato',
-            funcao:function(){
-                view.atualizaView(this);
-            }
+        evento: 'submit',
+        obj: '.edicao-candidato',
+        funcao: function () {
+            view.atualizaView(this);
+        }
     });
 
 //    view.appendEventoNoHtml({
@@ -98,27 +98,27 @@
 
 
     view.appendEventoNoHtml({
-            evento:'click',
-            obj:'.btn-novo-agendamento',
-            funcao:function(){                
-                view.atualizaView(this).always(function(){
-                    new calendarioView($('#calendar'),{
-                        lang: 'pt-br',
-                        timezone:'local',
-                        allDaySlot :false,
-                        selectable:true,
-                        selectHelper:true,
-                        editable: true,
-                        slotLabelFormat:"HH:mm",
-                        hiddenDays: [ 6,0 ] ,
-                        events: 
+        evento: 'click',
+        obj: '.btn-novo-agendamento',
+        funcao: function () {
+            view.atualizaView(this).always(function () {
+                new calendarioView($('#calendar'), {
+                    lang: 'pt-br',
+                    timezone: 'local',
+                    allDaySlot: false,
+                    selectable: true,
+                    selectHelper: true,
+                    editable: true,
+                    slotLabelFormat: "HH:mm",
+                    hiddenDays: [6, 0],
+                    events:
                             {
                                 url: '/rest/agendamento/todos',
-                                error: function() {
-                                    swal('Erro!','Não foi possível carregar os eventos','erro') 
+                                error: function () {
+                                    swal('Erro!', 'Não foi possível carregar os eventos', 'erro')
                                 }
                             },
-                        header:
+                    header:
                             {
                                 left: 'prev,next today',
                                 center: 'title',
@@ -131,7 +131,24 @@
         }
     });
 
-
+    view.appendEventoNoHtml({
+        evento: 'click',
+        obj: '.btnExibirParecer',
+        funcao: function (e) {
+            $.ajax({url: '/buscarParecer', type: 'get', data: {idCandidato: $(this).data('idcandidato')}})
+                    .done(function (res) {
+                        console.log(res);
+                        swal({
+                            width:800,
+                            text: res,
+                            type: 'info',
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Fechar'
+                        }).then().done();
+                    });
+        }
+    });
 
     view.appendEventoNoHtml({
         evento: 'click',
@@ -174,8 +191,8 @@
             });
         }
     });
-    
-    $.get('/administrativo-home').done(function(res){
+
+    $.get('/administrativo-home').done(function (res) {
         $('.corpo').append(res);
     });
 })();

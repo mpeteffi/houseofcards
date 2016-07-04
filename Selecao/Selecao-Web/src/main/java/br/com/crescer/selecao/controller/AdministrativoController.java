@@ -1,5 +1,7 @@
 package br.com.crescer.selecao.controller;
 
+import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.Usuario;
@@ -15,32 +17,40 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class AdministrativoController {
-    
+
     @Autowired
     WebService webService;
-    
-    @RequestMapping(value="/administrativo", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/administrativo", method = RequestMethod.GET)
     String adm(Model model) {
         Usuario user = webService.getUsuarioLogadoService().buscarUsuarioLogado();
         model.addAttribute("user", user);
         String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
         model.addAttribute("edicao", edicao);
         return "Administrativo";
-    } 
-    
-    @RequestMapping(value="/novaedicao", method = RequestMethod.GET)
+    }
+
+    @RequestMapping(value = "/novaedicao", method = RequestMethod.GET)
     String novaEdicao() {
         return "nova-edicao";
-    } 
-    
-    @RequestMapping(value="/administrativo-home", method = RequestMethod.GET)
+    }
+
+    @RequestMapping(value = "/administrativo-home", method = RequestMethod.GET)
     String home() {
         return "adm-home";
-    } 
-    
-    @RequestMapping(value="/cadastro-nova-edicao", method = RequestMethod.POST)
+    }
+
+    @RequestMapping(value = "/cadastro-nova-edicao", method = RequestMethod.POST)
     String save(@Valid Processoseletivo processoseletivo) {
-        webService.getProcessoseletivoService().criarProcessoSeletivo(processoseletivo);    
+        webService.getProcessoseletivoService().criarProcessoSeletivo(processoseletivo);
         return "Administrativo";
     }
+
+    @RequestMapping(value = "/buscarParecer")
+    String buscarParecer(Integer idCandidato,Model model) {
+        Entrevista entrevista = webService.getEntrevistaService().buscarEntrevistaDeCandidato(new Candidato(idCandidato));
+        model.addAttribute("entrevista", entrevista);
+        return "_parecer";
+    }
+
 }

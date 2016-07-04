@@ -22,8 +22,7 @@
                 <th>Prova G36</th>
                 <th>Prova AC</th>
                 <th>Prova Técnica</th>
-                <th>Parecer RH</th>
-                <th>Parecer Técnico</th>
+                <th>Pareceres</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -33,8 +32,9 @@
                 <td th:text="${entrevista.provaG36}"></td>
                 <td th:text="${entrevista.provaAc}"></td>
                 <td th:text="${entrevista.provaTecnica}"></td>
-                <td th:text="${entrevista.parecerRh}"></td>
-                <td th:text="${entrevista.parecerTecnico}"></td>
+                <td><a th:attr="data-idcandidato=${entrevista.idCandidato.idCandidato}" class="btn btn-primary btnExibirParecer">Exibir</a></td>
+<!--                <td th:text="${entrevista.parecerRh}"></td>
+                <td th:text="${entrevista.parecerTecnico}"></td>-->
                 <td th:text="${entrevista.idCandidato.status}"></td>
             </tr> 
         </tbody>
