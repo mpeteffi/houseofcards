@@ -21,9 +21,6 @@
                     <div>
                         <h2 class="text-center fonte-laranja">Confirmar inscrição</h2>
                     </div>
-                    <div th:if="${erros}">
-                        <p class="text-danger" th:each="err:${erros}" th:text="${err.defaultMessage}"></p>
-                    </div>
                     <div th:include="formulario-candidato"> </div>
                 </div>
                 <div class="col-md-3"></div>

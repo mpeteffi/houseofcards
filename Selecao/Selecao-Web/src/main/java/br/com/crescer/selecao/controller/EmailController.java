@@ -36,14 +36,12 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/confirmar-inscricao", method = RequestMethod.GET)
-    String confirmarTokenInscricao(String token, Model model) {
+    String confirmarTokenInscricao(Informacao informacao, String token, Model model) {
 
-        Informacao informacao = new Informacao();
         Candidato candidato = webService.getTokenService().confirmarCandidatura(token);
         informacao.setIdCandidato(candidato);
 
         if (candidato != null) {
-            model.addAttribute("token", token);
             model.addAttribute("informacao", informacao);
             return "FormConfirmarInscricao";
         } else {
@@ -52,7 +50,7 @@ public class EmailController {
     }
 
     @RequestMapping(value = "/confirmar-inscricao", method = RequestMethod.POST)
-    String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult, String token, Model model) {
+    String confirmarTokenInteresse(@Valid Informacao informacao, BindingResult bindingResult, Model model) {
 
         if (!bindingResult.hasErrors()) {
 
@@ -63,8 +61,7 @@ public class EmailController {
             return "Sucesso";
 
         } else {
-            model.addAttribute("erros", bindingResult.getAllErrors());
-            return confirmarTokenInscricao(token, model);
+            return "FormConfirmarInscricao";
         }
     }
 }

@@ -1,6 +1,5 @@
 
 <form th:action="@{/email/confirmar-inscricao}" th:object="${informacao}" method="POST">
-    <input type="hidden" th:value="${token}" name="token"></input>
     <input type="hidden" th:value="${informacao.idCandidato.idCandidato}" name="idCandidato.idCandidato"></input>
     <div class="form-group">
         <label>Nome</label>
@@ -29,7 +28,7 @@
     </div>
     <div class="form-group">
         <label>Telefone</label>
-        <input required="required" class="form-control" type="text" th:value="*{telefone}" name="telefone"/> 
+        <input required="required" class="form-control" type="text" th:value="*{telefone}" name="telefone" placeholder="(51)99999999"/> 
         <p class="text-danger" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></p>
     </div>
     <div class="form-group">

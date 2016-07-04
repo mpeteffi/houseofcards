@@ -14,6 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -35,27 +36,32 @@ public class Candidato implements Serializable {
     @Column(name = "IDCANDIDATO")
     private Integer idCandidato;
     
+    @Size(max = 100, message = "Numero maximo de caracteres: 100")
     @NotBlank(message="Campo Nome deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "NOME")
     private String nome;
     
+    @Size(max = 100, message = "Numero maximo de caracteres: 100")
     @NotBlank(message="Campo Email deve ser preenchido")
     @Email(message="Digite um endereço de email válido")
     @Basic(optional = false)
     @Column(name = "EMAIL")
     private String email;
     
+    @Size(max = 100, message = "Numero maximo de caracteres: 100")
     @NotBlank(message="Campo Instituição de ensino deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "INSTITUICAOENSINO")
     private String instituicaoEnsino;    
     
+    @Size(max = 100, message = "Numero maximo de caracteres: 100")
     @NotBlank(message="Campo Curso deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "CURSO")
     private String curso;
     
+    @Size(max = 30, message = "Numero maximo de caracteres: 30")
     @Pattern(regexp="^\\d{4}\\/(0?[1-9]|1[0-2])",message="Informe a previsão de formatura no formato indicado")
     @NotBlank(message="Campo Previsão de formatura deve ser preenchido")
     @Basic(optional = false)

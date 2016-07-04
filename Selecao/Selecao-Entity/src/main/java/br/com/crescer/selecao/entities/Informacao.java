@@ -41,6 +41,7 @@ public class Informacao implements Serializable {
     @Column(name = "IDINFORMACAO")
     private Integer idInformacao;
     
+    @Size(max = 20, message = "Numero maximo de caracteres: 20")
     @NotNull(message="Campo Telefone deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "TELEFONE")
@@ -54,18 +55,20 @@ public class Informacao implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataNascimento;
     
+    @Size(max = 100, message = "Numero maximo de caracteres: 100")
     @NotBlank(message="Campo Cidade deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "CIDADE")
     private String cidade;
     
+    @Size(max = 100, message = "Numero maximo de caracteres: 100")
     @NotBlank(message="Campo Url linkedin deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "URLLINKEDIN")
     private String urlLinkedin;
     
     @NotEmpty(message="Campo Senha deve ser preenchido")
-    @Size(min=6,message="Sua senha deve conter no mínimo 6 dígitos")
+    @Size(min=6, max=100,message="Sua senha deve conter entre 6 e 100 dígitos")
     @Basic(optional = false)
     @Column(name = "SENHA")
     private String senha;
