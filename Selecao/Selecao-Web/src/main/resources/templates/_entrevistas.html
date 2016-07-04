@@ -7,9 +7,7 @@
     <div class="col-md-10 col-md-offset-1 candidato-entrevista-div">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#home">Inicio</a></li>
-            <li th:each="entrevista : ${entrevistas}">
-                <a data-toggle="tab" th:href="'#menu'+${entrevista.idEntrevista}" th:text="${#dates.format(entrevista.dataEntrevista, 'dd MMM yyyy')}"></a>
-            </li>
+            <li><a data-toggle="tab" href="#menu">Entrevista</a></li>
         </ul> 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
@@ -35,7 +33,7 @@
                     </div>
                     <div class="input-group">
                         <span for="previsaoFormatura" class="input-group-addon" id="basic-addon5">Previsão de formatura:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.previsaoFormatura}" placeholder="2018/1" name="previsaoFormatura" required="required" aria-describedby="basic-addon5"/>
+                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.previsaoFormatura}" placeholder="2018/01" name="previsaoFormatura" required="required" aria-describedby="basic-addon5"/>
                     </div>
                     <div class="input-group">
                         <span for="telefone" class="input-group-addon" id="basic-addon6">Telefone:</span>
@@ -43,7 +41,7 @@
                     </div>
                     <div class="input-group">
                         <span for="dataNascimento" class="input-group-addon" id="basic-addon7">Data de nascimento:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.dataNascimento}" placeholder="dd/mm/aaaa" name="dataNascimento" required="required" aria-describedby="basic-addon7"/>
+                        <input type="text" class="form-control input-data" th:value="(${#dates.format(candidato.dataNascimento, 'dd/MM/yyyy')})" placeholder="dd/mm/aaaa" name="dataNascimento" required="required" aria-describedby="basic-addon7"/>
                     </div>
                     <div class="input-group">
                         <span for="cidade" class="input-group-addon" id="basic-addon8">Cidade</span>
@@ -60,22 +58,32 @@
                     <button type="submit" class="btn btn-default">Salvar</button>
                 </form>    
             </div>
-            <div th:each="entrevista : ${entrevistas}" th:id="'menu'+${entrevista.idEntrevista}" class="tab-pane fade">
-                <h4>Parecer Rh:</h4>
-                <p th:text="${entrevista.parecerRh}" class='pre-scrollable'></p>
-                <h4>Parecer tecnico:</h4>
-                <p th:text="${entrevista.parecerTecnico}" class='pre-scrollable'></p>
-                <h4>Notas das provas:</h4>             
-                <ul class="list-inline">
-                    <li class="h5">G36:</li>
-                    <li th:text="${entrevista.provaG36} != null ? ${entrevista.provaG36}:'--' "></li>
-                    <li class="h5">AC:</li>
-                    <li th:text="${entrevista.provaAc} != null ? ${entrevista.provaAc}:'--'"></li>
-                    <li class="h5">Técnica:</li>
-                    <li th:text="${entrevista.provaTecnica} != null ? ${entrevista.provaTecnica}:'--'"></li>
-                </ul>
-                <p class="text-center"><strong>Usuario:</strong><mark><span th:text="${entrevista.idUsuario.nome}"></span></mark></p>
-            </div>        
+            
+            <div class="tab-pane fade" id="menu">
+                <form role="form" id="edicao-entrevista" data-url="/editar-entrevista" method="POST">
+                    <div class="form-group">
+                        <h4>Parecer Rh:</h4>
+                        <textarea rows="3" class="form-control" th:text="${entrevista.parecerRh}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <h4>Parecer tecnico:</h4>
+                        <textarea rows="3" class="form-control" th:text="${entrevista.parecerTecnico}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <h4>Notas das provas:</h4>             
+                        <ul class="list-inline">
+                            <li class="h5">G36:</li>
+                            <li><input class="form-control" th:value="${entrevista.provaG36}" type="number" width="48"/></li>
+                            <li class="h5">AC:</li>
+                            <li><input class="form-control" th:value="${entrevista.provaAc}" type="number" width="48"/></li>
+                            <li class="h5">Técnica:</li>
+                            <li><input class="form-control" th:value="${entrevista.provaTecnica}" type="number" width="48"/></li>
+                        </ul>
+                    </div>
+                    <p th:if="${entrevista.idUsuario}"  class="text-center"><strong>Usuario:</strong><mark><span th:text="${entrevista.idUsuario.nome}"></span></mark></p>
+                    <button type="submit" class="btn btn-default">Salvar</button>
+                </form>       
+            </div> 
         </div> 
     </div>
 </div>
