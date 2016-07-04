@@ -63,14 +63,6 @@
             e.preventDefault();
         }
     });
-//    view.appendEventoNoHtml({
-//        evento: 'click',
-//        obj: '.editar-candidato',
-//        funcao: function () {
-//            view.postForm(this);
-//            e.preventDefault();
-//        }
-//    });
 
     view.appendEventoNoHtml({
         evento: 'click',
@@ -86,16 +78,6 @@
             view.atualizaView(this);
         }
     });
-
-//    view.appendEventoNoHtml({
-//        evento: 'submit',
-//        obj: '#edicao-candidato',
-//        funcao: function (e) {
-//            view.postFormJSON(this);
-//            e.preventDefault();
-//        }
-//    });
-
 
     view.appendEventoNoHtml({
         evento: 'click',
@@ -137,7 +119,6 @@
         funcao: function (e) {
             $.ajax({url: '/buscarParecer', type: 'get', data: {idCandidato: $(this).data('idcandidato')}})
                     .done(function (res) {
-                        console.log(res);
                         swal({
                             width:800,
                             text: res,
