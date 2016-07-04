@@ -1,5 +1,5 @@
 
-<form th:action="@{/email/confirmar-inscricao}" th:object="${informacao}" method="POST">
+<form id="formulario-confirmar" th:action="@{/email/confirmar-inscricao}" th:object="${informacao}" method="POST">
     <input type="hidden" th:value="${informacao.idCandidato.idCandidato}" name="idCandidato.idCandidato"></input>
     <div class="form-group">
         <label>Nome</label>
@@ -48,8 +48,13 @@
     </div>
     <div class="form-group">
         <label>Senha</label>
-        <input required="required" class="form-control" type="password" name="senha"/> 
+        <input required="required" id="password" class="form-control" type="password" name="senha"/> 
         <p class="text-danger" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}"></p>
+    </div>
+    <div class="form-group">
+        <label>Confirmar senha</label>
+        <input required="required"  id="confirm_password" class="form-control" type="password" /> 
+        <span id='message'></span>
     </div>
     <div class="form-group"><br/>
         <button type="submit" value="Sign In" class="btn btn-success">Enviar</button>
