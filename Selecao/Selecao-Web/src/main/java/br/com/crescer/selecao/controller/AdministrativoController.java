@@ -33,6 +33,11 @@ public class AdministrativoController {
         return "nova-edicao";
     } 
     
+    @RequestMapping(value="/administrativo-home", method = RequestMethod.GET)
+    String home() {
+        return "adm-home";
+    } 
+    
     @RequestMapping(value="/cadastro-nova-edicao", method = RequestMethod.POST)
     String save(@Valid Processoseletivo processoseletivo) {
         webService.getProcessoseletivoService().criarProcessoSeletivo(processoseletivo);    

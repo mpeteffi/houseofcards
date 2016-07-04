@@ -174,6 +174,10 @@
             });
         }
     });
+    
+    $.get('/administrativo-home').done(function(res){
+        $('.corpo').append(res);
+    });
 })();
 
 $(function () {
