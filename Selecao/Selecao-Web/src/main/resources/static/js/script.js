@@ -152,12 +152,12 @@
 
 $(function () {
     $('.corpo').on('submit', '#edicao-candidato', function (form) {
-        var baa = form.target[0];
+        var dados = form.target;
         debugger;
         $.ajax({
-            url: '/editar-candidato-michel2016',
+            url: '/editar-candidato-teste',
             type: 'POST',
-            data: baa
+            data: dados
         })
         form.preventDefault();
     });

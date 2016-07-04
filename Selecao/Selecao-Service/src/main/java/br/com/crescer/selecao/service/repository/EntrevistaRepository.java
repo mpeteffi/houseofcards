@@ -3,6 +3,8 @@ package br.com.crescer.selecao.service.repository;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
@@ -14,5 +16,5 @@ public interface EntrevistaRepository extends PagingAndSortingRepository<Entrevi
     
     Iterable<Entrevista> findAllByIdCandidato(Candidato candidato);
     
-    Iterable<Entrevista> findByIdCandidato_StatusIn(StatusCandidato[] status);
+    Page<Entrevista> findByIdCandidato_StatusIn(StatusCandidato[] status,Pageable pegeable);
 }

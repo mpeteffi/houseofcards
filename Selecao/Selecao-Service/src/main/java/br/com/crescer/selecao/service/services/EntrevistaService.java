@@ -36,13 +36,15 @@ public class EntrevistaService {
         entrevistaRepository.save(entrevista);
     }
     
-    public Iterable<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status){
-        //pagina = pagina != null ? pagina : 0;
+    public Page<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status,Integer pagina){
+        pagina = pagina != null ? pagina : 0;
         edicao = edicao != null ? edicao : processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();
         StatusCandidato[] statusEntrevistados = new StatusCandidato[]{StatusCandidato.ENTREVISTADO,StatusCandidato.EM_ANALISE,StatusCandidato.SELECIONADO,StatusCandidato.NAO_SELECIONADO,StatusCandidato.PRE_SELECIONADO};
         StatusCandidato[] listaStatus = status == null ? statusEntrevistados : new StatusCandidato[]{status};
         
-        Iterable<Entrevista> entrevistas = entrevistaRepository.findByIdCandidato_StatusIn(listaStatus);
+        Pageable pageable = new PageRequest(pagina, 1);
+        
+        Page<Entrevista> entrevistas = entrevistaRepository.findByIdCandidato_StatusIn(listaStatus,pageable);
                 
         return entrevistas;
     }
