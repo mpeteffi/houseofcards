@@ -13,8 +13,14 @@
         <select class="form-control" id="txtStatus" name="status">
             <option value="" class="optionDisable">Status:</option>
             <option value="AGUARDANDO_CONTATO" th:selected="${valorAntigoInput.status} == 'AGUARDANDO_CONTATO'">Aguardando Contato</option>
+            <option value="PROVA_AGENDADA" th:selected="${valorAntigoInput.status} == 'PROVA_AGENDADA'">Prova Agendada</option>
+            <option value="ENTREVISTA_AGENDADA" th:selected="${valorAntigoInput.status} == 'ENTREVISTA_AGENDADA'">Entrevista Agendada</option>
             <option value="ENTREVISTADO" th:selected="${valorAntigoInput.status} == 'ENTREVISTADO'">Entrevistado</option>
             <option value="SEM_INTERESSE" th:selected="${valorAntigoInput.status} == 'SEM_INTERESSE'">Sem Interesse</option>
+            <option value="EM_ANALISE" th:selected="${valorAntigoInput.status} == 'EM_ANALISE'">Em Análise</option>
+            <option value="NAO_SELECIONADO" th:selected="${valorAntigoInput.status} == 'NAO_SELECIONADO'">Não Selecionado</option>
+            <option value="PRE_SELECIONADO" th:selected="${valorAntigoInput.status} == 'PRE_SELECIONADO'">Pré-selecionado</option>
+            <option value="SELECIONADO" th:selected="${valorAntigoInput.status} == 'SELECIONADO'">Selecionado</option>
         </select>
     </div>
     <div class="input-group col-xs-12 col-sm-1 col-md-1">
