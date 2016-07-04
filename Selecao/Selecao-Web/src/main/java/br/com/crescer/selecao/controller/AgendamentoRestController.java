@@ -1,8 +1,10 @@
 package br.com.crescer.selecao.controller;
 
+import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Datahora;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Grupodeprovas;
+import br.com.crescer.selecao.entities.enums.TipoAgendamento;
 import br.com.crescer.selecao.webservices.WebService;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +28,17 @@ public class AgendamentoRestController {
         return  webService.getDataHoraService().todosAgendamentos();
     }
     
-    @RequestMapping(value = "/rest/agendamento/delete", method = RequestMethod.DELETE)
-    public void deletarAgendamento(Integer id) {
-        //webService.getDataHoraService().deletarAgendamento(new Datahora(1));
+    @RequestMapping(value = "/rest/agendamento/delete", method = RequestMethod.POST)
+    public @ResponseBody String deletarAgendamento(Integer id) {
+        Datahora data = webService.getDataHoraService().findById(new Datahora(id));
+        TipoAgendamento tipo = data.getTipo();
+        
+        if(tipo == TipoAgendamento.GRUPO_PROVA){
+            webService.getGrupoDeProvasService().deleteByDataHora(data);
+        }else{
+            webService.getDataHoraService().deletarAgendamento(data);
+        }
+        return "Sucesso";
     }
             
     @RequestMapping(value = "/rest/agendamento/update", method = RequestMethod.PUT)
@@ -46,22 +56,33 @@ public class AgendamentoRestController {
     public @ResponseBody Integer novoAgendamento(String title,Integer idCandidato,@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")Date start,@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")Date end,boolean allDay) {
         
         if(idCandidato != null){
-            return webService
-                        .getEntrevistaService()
-                        .salvarEntrevista(
-                            new Entrevista(
-                                idCandidato,
-                                new Datahora(title,start,end,allDay,"ENTREVISA_RH")
+            Entrevista entrevista= webService.getEntrevistaService().buscarEntrevistaDeCandidato(new Candidato(idCandidato));
+            if(entrevista == null){
+                return webService
+                            .getEntrevistaService()
+                            .salvarEntrevista(
+                                new Entrevista(
+                                    new Candidato(idCandidato),
+                                    new Datahora(title,start,end,allDay,TipoAgendamento.ENTREVISA_RH),
+                                    webService.getUsuarioLogadoService().buscarUsuarioLogado()
+                                )
                             )
-                        )
-                        .getIdDataHora()
-                        .getIdDataHora();
+                            .getIdDataHora()
+                            .getIdDataHora();
+            }else{
+                entrevista.setIdDataHora(new Datahora(title,start,end,allDay,TipoAgendamento.ENTREVISA_RH));
+                return webService
+                            .getEntrevistaService()
+                            .salvarEntrevista(entrevista)
+                            .getIdDataHora()
+                            .getIdDataHora();
+            }
         }else{
             return webService
-                        .getGrupoDePovasService()
+                        .getGrupoDeProvasService()
                         .salvar(
                             new Grupodeprovas(
-                                new Datahora(title,start,end,allDay,"GRUPO_PROVA")
+                                new Datahora(title,start,end,allDay,TipoAgendamento.GRUPO_PROVA)
                             )
                         )
                         .getIdDataHora()

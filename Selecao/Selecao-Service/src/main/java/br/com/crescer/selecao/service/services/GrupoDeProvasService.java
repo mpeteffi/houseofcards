@@ -1,5 +1,6 @@
 package br.com.crescer.selecao.service.services;
 
+import br.com.crescer.selecao.entities.Datahora;
 import br.com.crescer.selecao.entities.Grupodeprovas;
 import br.com.crescer.selecao.service.repository.GrupoDeProvasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,7 @@ public class GrupoDeProvasService {
     }
     
     
+    public void deleteByDataHora(Datahora data){
+        grupoDeProvasRepositorio.deleteByIdDataHora(data);
+    }    
 }

@@ -58,7 +58,7 @@ public class WebService {
         return usuarioLogadoService;
     }
     
-    public GrupoDeProvasService getGrupoDePovasService() {
+    public GrupoDeProvasService getGrupoDeProvasService() {
         return grupodeDeProvasService;
     }
 

@@ -15,12 +15,12 @@ calendarioView.prototype.quandoMouseEmCimaEvento = function (evento) {
                         .append(
                             $('<i>').addClass('glyphicon glyphicon-remove')
                             .click(function(){
-                            $.delete('/rest/agendamento/delete',{id:evento.id},function(){
+                            $.post('/rest/agendamento/delete',{id:evento.id},function(){
                                 $('#calendar').fullCalendar('removeEvents',evento.id);
                                 });                        
                             })
                         )
-                    )
+                    );
                     
     
 };

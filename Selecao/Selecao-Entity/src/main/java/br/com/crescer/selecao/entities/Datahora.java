@@ -1,5 +1,6 @@
 package br.com.crescer.selecao.entities;
 
+import br.com.crescer.selecao.entities.enums.TipoAgendamento;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
@@ -7,6 +8,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
@@ -68,7 +71,8 @@ public class Datahora implements Serializable {
     @NotNull
     @Column(name = "TIPO")
     @JsonIgnore
-    private String  tipo;
+    @Enumerated(EnumType.STRING)
+    private TipoAgendamento  tipo;
 
     public Datahora() {
     }
@@ -77,7 +81,7 @@ public class Datahora implements Serializable {
         this.idDataHora = idDataHora;
     }
 
-    public Datahora(Integer idDatahora, String titulo, Date dataHoraInicial, Date dataHoraFinal,boolean todoDia,String tipo) {
+    public Datahora(Integer idDatahora, String titulo, Date dataHoraInicial, Date dataHoraFinal,boolean todoDia,TipoAgendamento tipo) {
         this.idDataHora = idDatahora;
         this.titulo = titulo;
         this.dataHoraInicial = dataHoraInicial;
@@ -86,7 +90,7 @@ public class Datahora implements Serializable {
         this.tipo = tipo;
     }
     
-    public Datahora(String titulo, Date dataHoraInicial, Date dataHoraFinal,boolean todoDia,String tipo) {
+    public Datahora(String titulo, Date dataHoraInicial, Date dataHoraFinal,boolean todoDia,TipoAgendamento tipo) {
         this.titulo = titulo;
         this.dataHoraInicial = dataHoraInicial;
         this.dataHoraFinal = dataHoraFinal;
@@ -134,4 +138,11 @@ public class Datahora implements Serializable {
         this.dataHoraFinal = dataHoraFinal;
     }
     
+    public TipoAgendamento getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoAgendamento tipo) {
+        this.tipo = tipo;
+    }
 }

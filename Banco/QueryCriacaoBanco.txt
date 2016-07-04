@@ -28,8 +28,10 @@ CREATE TABLE DATAHORA
   (
     IdDataHora      INTEGER NOT NULL ,
     Titulo          VARCHAR2 (100) NOT NULL ,
-    DataHoraInicial DATE NOT NULL ,
-    DataHoraFinal   DATE NOT NULL
+    DataHoraInicial TIMESTAMP NOT NULL ,
+    DataHoraFinal   TIMESTAMP NOT NULL,
+    Tipo	    VARCHAR2(40) NOT NULL,
+    AllDay          NUMBER(1)    NOT NULL
   ) ;
 CREATE INDEX DATAHORA_IDX ON DATAHORA
   ( IdDataHora ASC
