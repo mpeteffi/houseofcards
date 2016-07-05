@@ -6,6 +6,7 @@ import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.repository.EntrevistaRepository;
 import br.com.crescer.selecao.service.repository.ProcessoseletivoRepository;
+import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -36,7 +37,7 @@ public class EntrevistaService {
         return entrevistaRepository.save(entrevista);
     }
     
-    public Page<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status,Integer pagina){
+    public Page<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status, Integer pagina){
         pagina = pagina != null ? pagina : 0;
         edicao = edicao != null ? edicao : processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();
         StatusCandidato[] statusEntrevistados = new StatusCandidato[]{StatusCandidato.ENTREVISTADO,StatusCandidato.EM_ANALISE,StatusCandidato.SELECIONADO,StatusCandidato.NAO_SELECIONADO,StatusCandidato.PRE_SELECIONADO};
@@ -44,9 +45,13 @@ public class EntrevistaService {
         
         Pageable pageable = new PageRequest(pagina, 1);
         
-        Page<Entrevista> entrevistas = entrevistaRepository.findByIdCandidato_StatusIn(listaStatus,pageable);
+        Page<Entrevista> entrevistas = entrevistaRepository.findByIdCandidato_StatusIn(listaStatus, pageable);
                 
         return entrevistas;
     }
     
+    public Page<Entrevista> buscarProximasEntrevistas(){
+        Pageable pageable = new PageRequest(0, 10, Sort.Direction.DESC, "idDataHora_DataHoraInicial");
+        return entrevistaRepository.findByIdDataHora_DataHoraInicialAfter(new Date(), pageable);
+    }   
 }

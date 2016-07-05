@@ -56,22 +56,27 @@
         </div>
     </div>
 </section>
-<section>
-    <div class="panel col-md-offset-1 col-md-5" >
-        <div class="panel-heading  panel-default">
-
+<section class="col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Próximas Entrevistas</h3>
         </div>
-        <div class="panel-body">
-
+        <div th:unless="${entrevistas.iterator().hasNext()}" class="panel-body">
+            <h4>Não há entrevistas marcadas para os próximos dois dias.</h4>
         </div>
-    </div>
-
-    <div class="panel col-md-5" >
-        <div class="panel-heading  panel-default">
-
-        </div>
-        <div class="panel-body">
-
-        </div>
+        <table th:if="${entrevistas.iterator().hasNext()}" class="table table-hover">
+            <thead class="thead-inverse">
+                <tr class="active">
+                    <th>Candidato/Turma</th>
+                    <th>Data do Inicio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="entrevista : ${entrevistas}">
+                    <td th:text="${entrevista.idCandidato.nome}"></td>
+                    <td th:text="${#dates.format(entrevista.idDataHora.dataHoraInicial, 'dd/MMM/yyyy HH:mm')}"></td>
+                </tr> 
+            </tbody>
+        </table>
     </div>
 </section>

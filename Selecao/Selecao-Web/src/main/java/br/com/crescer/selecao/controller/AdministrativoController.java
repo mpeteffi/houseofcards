@@ -8,6 +8,7 @@ import br.com.crescer.selecao.entities.Usuario;
 import java.util.ArrayList;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,8 +40,11 @@ public class AdministrativoController {
     String home(Model model) {
         String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
         ArrayList<Integer> counts = webService.getCandidatoService().buscarContadores(edicao);
+        Page<Entrevista> entrevistas = webService.getEntrevistaService().buscarProximasEntrevistas();
+        entrevistas.iterator().hasNext();
         model.addAttribute("counts", counts);
-        return "adm-home";
+        model.addAttribute("entrevistas", entrevistas);
+        return "_adm-home";
     }
 
     @RequestMapping(value = "/cadastro-nova-edicao", method = RequestMethod.POST)
