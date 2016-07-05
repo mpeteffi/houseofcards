@@ -3,6 +3,7 @@ package br.com.crescer.selecao.controller;
 import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Entrevista;
+import br.com.crescer.selecao.entities.Grupodeprovas;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
@@ -99,9 +100,11 @@ public class CandidatoController {
     String entrevistas(Integer idCandidato, Model model) {
         Informacao candidato = webService.getCandidatoService().buscarInformacoesDeCandidato(new Candidato(idCandidato));
         Entrevista entrevista = webService.getEntrevistaService().buscarEntrevistaDeCandidato(candidato.getIdCandidato());
+        Iterable<Grupodeprovas> grupos = webService.getGrupoDeProvasService().buscarGrupoDeProvasEdicaoAtual();
         if(entrevista == null) entrevista = new Entrevista();
         model.addAttribute("candidato", candidato);
         model.addAttribute("entrevista", entrevista);
+        model.addAttribute("GruposDeProvas", grupos);
         return "_entrevistas";
     }
     

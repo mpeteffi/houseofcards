@@ -2,6 +2,8 @@ package br.com.crescer.selecao.service.services;
 
 import br.com.crescer.selecao.entities.Datahora;
 import br.com.crescer.selecao.entities.Grupodeprovas;
+import br.com.crescer.selecao.entities.Processoseletivo;
+import br.com.crescer.selecao.entities.enums.TipoAgendamento;
 import br.com.crescer.selecao.service.repository.GrupoDeProvasRepository;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,12 @@ public class GrupoDeProvasService {
     @Autowired
     GrupoDeProvasRepository grupoDeProvasRepositorio;
     
+    @Autowired
+    ProcessoseletivoService processoSeletivoService;
+    
+    @Autowired
+    DataHoraService dataHoraService;
+    
     public Grupodeprovas salvar(Grupodeprovas grupo){
         
         try{
@@ -25,6 +33,19 @@ public class GrupoDeProvasService {
         } catch (Exception e){
             return null;
         }
+    }
+    
+    public Iterable<Grupodeprovas> buscarGrupoDeProvasEdicaoAtual(){
+        Iterable<Grupodeprovas> grupos = null;
+        if(processoSeletivoService.verificarExistenciaDeProcessoAtivo()){
+            Processoseletivo crescerAtual= processoSeletivoService.buscarProcessoAtual();
+            Iterable<Datahora> datas =  dataHoraService
+                                        .findByTipoAndDataHoraInicialBetween(TipoAgendamento.GRUPO_PROVA,
+                                                                             crescerAtual.getInicioSelecao(),
+                                                                             crescerAtual.getFinalAula());
+            grupos = grupoDeProvasRepositorio.findByIdDataHoraIn(datas);
+        }
+        return grupos;
     }
     
     @Transactional

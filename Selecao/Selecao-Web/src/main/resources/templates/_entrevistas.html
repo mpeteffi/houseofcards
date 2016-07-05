@@ -6,8 +6,8 @@
 <div class="row top25">
     <div class="col-md-10 col-md-offset-1 candidato-entrevista-div">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#home">Inicio</a></li>
-            <li><a data-toggle="tab" href="#menu">Entrevista</a></li>
+            <li class="active"><a data-toggle="tab" href="#home">Informações do Candidato</a></li>
+            <li><a data-toggle="tab" href="#menu">Pareceres, notas e datas</a></li>
         </ul> 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
@@ -50,10 +50,12 @@
                     <div class="input-group">
                         <span for="urlLinkedin" class="input-group-addon" id="basic-addon9">Url Linkedin:</span>
                         <input type="text" class="form-control input-data" th:value="${candidato.urlLinkedin}" placeholder="www.linkedin.com/fulano" name="urlLinkedin" required="required" aria-describedby="basic-addon9"/>
-                    </div>
+                    </div>                    
                     <div class="input-group">
                         <span for="status" class="input-group-addon" id="basic-addon10">Status:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.status}" placeholder="Sem interesse" name="status" required="required" aria-describedby="basic-addon10"/>
+                        <select class="form-control input-data" th:value="${candidato.idCandidato.status}" name="status">
+                            <option   th:each="status : ${T(br.com.crescer.selecao.entities.enums.StatusCandidato).values()}" th:value="${status}" th:text="${#strings.replace(status, '_', ' ')}"></option>
+                        </select>                       
                     </div>
                     <button type="submit" class="btn btn-default">Salvar</button>
                 </form>    
@@ -61,6 +63,17 @@
             
             <div class="tab-pane fade" id="menu">
                 <form role="form" id="edicao-entrevista" data-url="/editar-entrevista" method="POST">
+                    <div class="input-group">
+                        <span for="status" class="input-group-addon" id="basic-addon10">Grupo de Prova:</span>
+                        <select class="form-control input-data" th:value="${entrevista.idGrupoDeProvas}" name="idGrupoDeProvas">
+                            <option>Sem grupo ainda</option>
+                            <option   th:each="grupos : ${GruposDeProvas}" th:value="${grupos.idGrupoDeProvas}" th:text="${grupos.idDataHora.titulo+' | '+#dates.format(grupos.idDataHora.dataHoraInicial,'dd/MM - HH:mm')+' ás '+#dates.format(grupos.idDataHora.dataHoraFinal,'HH:mm')} "></option>
+                        </select>                       
+                    </div>
+                    <div class="input-group">
+                        <h4 >Horário de Entrevista Rh:</h4>
+                        <h5 th:text="${entrevista.idDataHora != null} ? ${#dates.format(entrevista.idDataHora.dataHoraInicial,'dd/MM - HH:mm')+' ás '+#dates.format(entrevista.idDataHora.dataHoraFinal,'HH:mm')}:'Não há entrevista marcada'"></h5>                   
+                    </div>
                     <div class="form-group">
                         <h4>Parecer Rh:</h4>
                         <textarea rows="3" class="form-control" th:text="${entrevista.parecerRh}"></textarea>
@@ -73,11 +86,11 @@
                         <h4>Notas das provas:</h4>             
                         <ul class="list-inline">
                             <li class="h5">G36:</li>
-                            <li><input class="form-control" th:value="${entrevista.provaG36}" type="number" width="48"/></li>
+                            <li><input class="form-control" th:value="${entrevista.provaG36}" type="number" step="0.1" width="48"/></li>
                             <li class="h5">AC:</li>
-                            <li><input class="form-control" th:value="${entrevista.provaAc}" type="number" width="48"/></li>
+                            <li><input class="form-control" th:value="${entrevista.provaAc}" type="number" step="0.1" width="48"/></li>
                             <li class="h5">Técnica:</li>
-                            <li><input class="form-control" th:value="${entrevista.provaTecnica}" type="number" width="48"/></li>
+                            <li><input class="form-control" th:value="${entrevista.provaTecnica}" type="number" step="0.1" width="48"/></li>
                         </ul>
                     </div>
                     <p th:if="${entrevista.idUsuario}"  class="text-center"><strong>Usuario:</strong><mark><span th:text="${entrevista.idUsuario.nome}"></span></mark></p>

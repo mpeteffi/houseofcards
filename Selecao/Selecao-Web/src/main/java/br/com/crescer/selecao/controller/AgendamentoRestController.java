@@ -26,8 +26,8 @@ public class AgendamentoRestController {
     WebService webService;
     
     @RequestMapping(value = "/rest/agendamento/todos", method = RequestMethod.GET)
-    public @ResponseBody Iterable<Datahora> todosAgendamentos() {
-        return  webService.getDataHoraService().todosAgendamentos();
+    public @ResponseBody Iterable<Datahora> todosAgendamentos(@DateTimeFormat(pattern = "yyyy-MM-dd")Date end,@DateTimeFormat(pattern = "yyyy-MM-dd")Date start ) {
+        return  webService.getDataHoraService().todosAgendamentosRageDatas(end,start);
     }
     
     @RequestMapping(value = "/rest/agendamento/grupo-prova/delete", method = RequestMethod.POST)
@@ -52,7 +52,7 @@ public class AgendamentoRestController {
         return "Sucesso";
     }
     
-    @RequestMapping(value = "/rest/agendamento/novo", method = RequestMethod.POST)
+   @RequestMapping(value = "/rest/agendamento/novo", method = RequestMethod.POST)
    public @ResponseBody ResponseEntity<Object> novoAgendamento(String title,Integer idCandidato,@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")Date start,@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")Date end,boolean allDay) { 
         if(idCandidato != null){
            try{

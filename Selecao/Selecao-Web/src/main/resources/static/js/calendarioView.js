@@ -7,7 +7,7 @@ function calendarioView($objeto,opcaoFullCalendar) {
 };
 
 calendarioView.prototype.quandoMouseEmCimaEvento = function (evento) {
-    if(evento.title.startsWith('Entrevista'))return;
+    if(evento.title && evento.title.startsWith('Entrevista'))return;
     $('.fc-content', this)
             .prepend( 
                     $('<span>')
@@ -29,7 +29,7 @@ calendarioView.prototype.quandoMouseEmCimaEvento = function (evento) {
 };
 
 calendarioView.prototype.quandoMouseSairDeCimaEvento = function (evento) {
-    if(evento.title.startsWith('Entrevista'))return;
+    if(evento.title && evento.title.startsWith('Entrevista'))return;
     $('#'+evento.id).remove();
 };
 

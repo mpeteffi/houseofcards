@@ -47,7 +47,7 @@
                 <td th:text="${candidato.telefone}"></td>
                 <td th:text="(${#dates.format(candidato.dataNascimento, 'yyyy')} - 1970)"></td>
                 <td th:text="${candidato.idCandidato.email}"></td>
-                <td th:text="${candidato.idCandidato.status}"></td>
+                <td th:text="${#strings.replace(candidato.idCandidato.status, '_', ' ')}"></td>
                 <td>
                     <a th:href="${candidato.urlLinkedin}" target="_blank"><i class="fa fa-linkedin-square candidatos-acoes"></i ></a>
                 </td>

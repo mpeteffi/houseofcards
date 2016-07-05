@@ -97,7 +97,7 @@
                             {
                                 url: '/rest/agendamento/todos',
                                 error: function () {
-                                    swal('Erro!', 'Não foi possível carregar os eventos', 'erro')
+                                    swal('Erro!', 'Não foi possível carregar os eventos', 'error')
                                 }
                             },
                     header:

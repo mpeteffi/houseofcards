@@ -58,7 +58,7 @@ public class Entrevista implements Serializable {
     private Double provaTecnica;
     
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false,cascade = CascadeType.MERGE)
     private Candidato idCandidato;
     
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")

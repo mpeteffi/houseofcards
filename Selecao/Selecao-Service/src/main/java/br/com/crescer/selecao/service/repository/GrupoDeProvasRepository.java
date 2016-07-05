@@ -9,5 +9,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  */
 public interface GrupoDeProvasRepository extends PagingAndSortingRepository<Grupodeprovas, Integer> {
     
-    void deleteByIdDataHora(Datahora hora);
+    void deleteByIdDataHora(Datahora data);
+    
+    Iterable<Grupodeprovas> findByIdDataHoraIn(Iterable<Datahora> datas);
 }

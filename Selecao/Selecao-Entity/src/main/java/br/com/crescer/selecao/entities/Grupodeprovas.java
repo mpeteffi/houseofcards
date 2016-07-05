@@ -1,6 +1,7 @@
 package br.com.crescer.selecao.entities;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -36,7 +37,8 @@ public class Grupodeprovas implements Serializable {
     @JoinColumn(name = "IDDATAHORA", referencedColumnName = "IDDATAHORA")
     @OneToOne(optional = false,cascade = CascadeType.ALL)
     private Datahora idDataHora;
-
+    
+    
     public Grupodeprovas() {
     }
 
@@ -52,6 +54,7 @@ public class Grupodeprovas implements Serializable {
         this.idGrupoDeProvas = idgrupodeprovas;
         this.idDataHora = dataHora;
     }
+
     
     public Integer getIdGrupoDeProvas() {
         return idGrupoDeProvas;

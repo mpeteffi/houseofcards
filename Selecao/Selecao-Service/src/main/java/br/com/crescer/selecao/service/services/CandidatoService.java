@@ -45,7 +45,7 @@ public class CandidatoService {
     }
     
     public Iterable<Candidato> todosNomesComecam(String nome){
-        return candidatoRepository.findTop5ByNomeStartingWith(nome);
+        return candidatoRepository.findTop5ByNomeIgnoreCaseStartingWith(nome);
     }
     
     public Candidato salvarCandidato(Candidato candidato){

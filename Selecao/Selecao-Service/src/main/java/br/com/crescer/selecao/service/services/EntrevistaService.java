@@ -39,25 +39,28 @@ public class EntrevistaService {
     }
     
     public Integer salvarEntrevista(Integer idCandidato,Datahora data,Usuario usuario) throws Exception {
-         Entrevista entrevista= this.buscarEntrevistaDeCandidato(new Candidato(idCandidato)); 
-            if(entrevista == null){ 
-                return this.salvarEntrevista( 
-                                new Entrevista( 
-                                    new Candidato(idCandidato), 
-                                    data, 
-                                    usuario 
-                                ) 
-                            )
-                            .getIdDataHora() 
-                            .getIdDataHora();  
-            }else if(entrevista.getIdDataHora() != null){ 
-                throw new Exception("Candidato já tem uma entrevista");
-            }else{ 
-                entrevista.setIdDataHora(data); 
-                return this.salvarEntrevista(entrevista) 
-                            .getIdDataHora() 
-                            .getIdDataHora(); 
-            }
+        Entrevista entrevista= this.buscarEntrevistaDeCandidato(new Candidato(idCandidato)); 
+        if(entrevista == null){ 
+            return this.salvarEntrevista( 
+                            new Entrevista( 
+                                new Candidato(idCandidato,StatusCandidato.ENTREVISTA_AGENDADA), 
+                                data, 
+                                usuario 
+                            ) 
+                        )
+                        .getIdDataHora() 
+                        .getIdDataHora();  
+        }else if(entrevista.getIdDataHora() != null){ 
+            throw new Exception("Candidato já tem uma entrevista");
+        }else{ 
+            entrevista.setIdDataHora(data);
+            entrevista.getIdCandidato().setStatus(StatusCandidato.ENTREVISTA_AGENDADA);
+            return this.salvarEntrevista(entrevista) 
+                        .getIdDataHora() 
+                        .getIdDataHora(); 
+        }
+        
+            
     }
     
     

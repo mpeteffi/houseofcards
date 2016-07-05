@@ -79,6 +79,11 @@ public class Candidato implements Serializable {
     public Candidato(Integer idcandidato) {
         this.idCandidato = idcandidato;
     }
+    
+    public Candidato(Integer idcandidato, StatusCandidato status) {
+        this.idCandidato = idcandidato;
+        this.status = status;
+    }
 
     public Candidato(String nome, String email, String instituicaoensino, String curso, String previsaoformatura, StatusCandidato status) {
         this.nome = nome;

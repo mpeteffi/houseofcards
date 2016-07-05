@@ -162,3 +162,6 @@ form label.error{
     background-color:white!important;
     color: orange;
 }
+
+
+.font-bold {font-weight: bold;}
