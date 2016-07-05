@@ -65,12 +65,16 @@
             <thead class="thead-inverse">
                 <tr class="active">
                     <th>Grupos</th>
+                    <th>Data</th>
+                    <th>Horário</th>
                     <th>Candidatos</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="grupo, interation : ${grupos}">
                     <td th:text="${#strings.replace(grupo.idDataHora.titulo,'Grupo: ','')}"></td>
+                    <td th:text="${#dates.format(grupo.idDataHora.dataHoraInicial,'dd/MM')}"></td>                    
+                    <td th:text="${#dates.format(grupo.idDataHora.dataHoraInicial,'HH:mm')+' - '+#dates.format(grupo.idDataHora.dataHoraFinal,'HH:mm')}"></td>                    
                     <td th:text="${contadoresGrupos[interation.count - 1]}"></td>
                 </tr> 
             </tbody></table>
@@ -87,14 +91,16 @@
         <table th:if="${entrevistas.iterator().hasNext()}" class="table table-hover">
             <thead class="thead-inverse">
                 <tr class="active">
-                    <th>Candidato/Turma</th>
-                    <th>Data do Inicio</th>
+                    <th>Candidato</th>
+                    <th>Data</th>
+                    <th>Horário</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="entrevista : ${entrevistas}">
                     <td th:text="${entrevista.idCandidato.nome}"></td>
-                    <td th:text="${#dates.format(entrevista.idDataHora.dataHoraInicial, 'dd/MMM/yyyy HH:mm')}"></td>
+                    <td th:text="${#dates.format(entrevista.idDataHora.dataHoraInicial, 'dd/MM')}"></td>
+                    <td th:text="${#dates.format(entrevista.idDataHora.dataHoraInicial, 'HH:mm')+' - '+#dates.format(entrevista.idDataHora.dataHoraFinal, 'HH:mm')}"></td>
                 </tr> 
             </tbody>
         </table>
