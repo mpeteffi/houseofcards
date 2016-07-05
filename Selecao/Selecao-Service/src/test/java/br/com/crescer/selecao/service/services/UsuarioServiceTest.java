@@ -1,9 +1,7 @@
 package br.com.crescer.selecao.service.services;
 
-import br.com.crescer.selecao.entities.Token;
 import br.com.crescer.selecao.entities.Usuario;
 import br.com.crescer.selecao.service.repository.UsuarioRepository;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
