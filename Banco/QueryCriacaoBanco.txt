@@ -29,9 +29,7 @@ CREATE TABLE DATAHORA
     IdDataHora      INTEGER NOT NULL ,
     Titulo          VARCHAR2 (100) NOT NULL ,
     DataHoraInicial TIMESTAMP NOT NULL ,
-    DataHoraFinal   TIMESTAMP NOT NULL,
-    Tipo	    VARCHAR2(40) NOT NULL,
-    AllDay          NUMBER(1)    NOT NULL
+    DataHoraFinal   TIMESTAMP NOT NULL
   ) ;
 CREATE INDEX DATAHORA_IDX ON DATAHORA
   ( IdDataHora ASC
@@ -42,7 +40,6 @@ ALTER TABLE DATAHORA ADD CONSTRAINT DATAHORA_PK PRIMARY KEY ( IdDataHora ) ;
 CREATE TABLE ENTREVISTA
   (
     IdEntrevista    INTEGER NOT NULL ,
-    DataEntrevista  DATE ,
     ParecerRH       VARCHAR2 (4000) ,
     ParecerTecnico  VARCHAR2 (4000) ,
     ProvaG36        NUMBER (3,1) ,

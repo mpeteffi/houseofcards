@@ -20,17 +20,6 @@
 <identityColumn>true</identityColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="DataEntrevista" id="FBB10ECB-488F-D498-5ACD-C31B2B5CFBEF">
-<createdBy>Murillo</createdBy>
-<createdTime>2016-06-25 01:38:18 UTC</createdTime>
-<ownerDesignName>Modelagem</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="ParecerRH" id="1E3D559E-AA39-5D30-5DE3-FDF8085C78A9">
 <createdBy>Murillo</createdBy>
 <createdTime>2016-06-25 01:38:18 UTC</createdTime>
