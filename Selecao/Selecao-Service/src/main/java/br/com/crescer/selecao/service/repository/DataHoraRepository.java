@@ -6,8 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 /**
  * @author Andrews Kuhn
  */
-public interface DataHoraRepository extends PagingAndSortingRepository<Datahora, Long> {
+public interface DataHoraRepository extends PagingAndSortingRepository<Datahora, Integer> {
     
-    Datahora findByIdDataHora(Datahora dataHora);
-    
+    Datahora findByIdDataHora(Integer id);
 }

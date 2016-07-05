@@ -3,6 +3,7 @@ package br.com.crescer.selecao.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -65,8 +66,9 @@ public class Entrevista implements Serializable {
     private Usuario idUsuario;
     
     @JoinColumn(name = "IDDATAHORA", referencedColumnName = "IDDATAHORA")
-    @ManyToOne
+    @ManyToOne(optional = true,cascade = CascadeType.PERSIST)
     private Datahora idDataHora;
+   
     
     @JoinColumn(name = "IDGRUPODEPROVAS", referencedColumnName = "IDGRUPODEPROVAS")
     @ManyToOne

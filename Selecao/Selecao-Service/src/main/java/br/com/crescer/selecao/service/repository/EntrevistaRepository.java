@@ -11,7 +11,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 /**
  * @author Murillo
  */
-public interface EntrevistaRepository extends PagingAndSortingRepository<Entrevista, Long> {
+public interface EntrevistaRepository extends PagingAndSortingRepository<Entrevista, Integer> {
     
     Entrevista findOneByIdCandidato(Candidato candidato);
     

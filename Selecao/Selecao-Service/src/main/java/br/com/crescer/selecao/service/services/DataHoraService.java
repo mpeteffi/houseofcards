@@ -18,12 +18,12 @@ public class DataHoraService {
         return dataHoraRepository.findAll();
     }
     
-    public void deletarAgendamento(Datahora data){
-        dataHoraRepository.delete(data);
+    public Datahora findByIdDataHora(Integer id){
+        return dataHoraRepository.findByIdDataHora(id);
     }
     
-     public Datahora findById(Datahora dataHora){
-        return dataHoraRepository.findByIdDataHora(dataHora);
+    public void deletarAgendamento(Datahora data){
+        dataHoraRepository.delete(data);
     }
     
     public void salvarAgendamento(Datahora data){

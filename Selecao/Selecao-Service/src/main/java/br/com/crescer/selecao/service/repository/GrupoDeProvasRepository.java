@@ -7,8 +7,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 /**
  * @author Andrews Kuhn
  */
-public interface GrupoDeProvasRepository extends PagingAndSortingRepository<Grupodeprovas, Long> {
+public interface GrupoDeProvasRepository extends PagingAndSortingRepository<Grupodeprovas, Integer> {
     
-    void deleteByIdDataHora(Datahora data); 
-    
+    void deleteByIdDataHora(Datahora hora);
 }

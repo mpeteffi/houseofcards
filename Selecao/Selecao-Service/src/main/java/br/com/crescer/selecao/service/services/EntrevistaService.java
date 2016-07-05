@@ -1,13 +1,16 @@
 package br.com.crescer.selecao.service.services;
 
 import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.Datahora;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Informacao;
+import br.com.crescer.selecao.entities.Usuario;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.repository.EntrevistaRepository;
 import br.com.crescer.selecao.service.repository.ProcessoseletivoRepository;
 import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -37,7 +40,30 @@ public class EntrevistaService {
         return entrevistaRepository.save(entrevista);
     }
     
-    public Page<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status, Integer pagina){
+    public Integer salvarEntrevista(Integer idCandidato,Datahora data,Usuario usuario) throws Exception {
+         Entrevista entrevista= this.buscarEntrevistaDeCandidato(new Candidato(idCandidato)); 
+            if(entrevista == null){ 
+                return this.salvarEntrevista( 
+                                new Entrevista( 
+                                    new Candidato(idCandidato), 
+                                    data, 
+                                    usuario 
+                                ) 
+                            )
+                            .getIdDataHora() 
+                            .getIdDataHora();  
+            }else if(entrevista.getIdDataHora() != null){ 
+                throw new Exception("Candidato já tem uma entrevista");
+            }else{ 
+                entrevista.setIdDataHora(data); 
+                return this.salvarEntrevista(entrevista) 
+                            .getIdDataHora() 
+                            .getIdDataHora(); 
+            }
+    }
+    
+    
+    public Page<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status,Integer pagina){
         pagina = pagina != null ? pagina : 0;
         edicao = edicao != null ? edicao : processoseletivoRepository.findTopByOrderByEdicaoDesc().getEdicao();
         StatusCandidato[] statusEntrevistados = new StatusCandidato[]{StatusCandidato.ENTREVISTADO,StatusCandidato.EM_ANALISE,StatusCandidato.SELECIONADO,StatusCandidato.NAO_SELECIONADO,StatusCandidato.PRE_SELECIONADO};
