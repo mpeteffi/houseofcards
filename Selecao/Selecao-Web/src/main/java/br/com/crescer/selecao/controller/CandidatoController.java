@@ -68,6 +68,7 @@ public class CandidatoController {
                 put("status", status);
             }
         });
+        if(page==null)page=0;
         model.addAttribute("candidatos", candidatos);
         model.addAttribute("pagina", page);
         return "_Candidatos";
@@ -76,6 +77,7 @@ public class CandidatoController {
     @RequestMapping(value = "/entrevistados")
     String entrevistados(String edicao,StatusCandidato status,Integer page ,Model model) {
         Page<Entrevista> entrevistas = webService.getEntrevistaService().buscarEntrevistasPorFiltros(edicao,status,page);
+        if(page==null)page=0;
         model.addAttribute("entrevistas", entrevistas);
         model.addAttribute("pagina", page);
         return "_entrevistados";
