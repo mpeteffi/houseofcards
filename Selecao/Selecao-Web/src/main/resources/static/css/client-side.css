@@ -37,7 +37,12 @@
     font-style: italic;
     /*font-family: Georgia,sans-serif;*/
 }
-
+.margin-cima{
+    margin-top: 115px;
+}
+.img-success{
+    width: 107px;
+}
 .form-captcha{
     margin: 10px auto;
 }
