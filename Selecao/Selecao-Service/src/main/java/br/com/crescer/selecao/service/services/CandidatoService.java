@@ -41,7 +41,6 @@ public class CandidatoService {
     InformacaoRepository informacaoRepository;
     
     public Informacao atualizarInformacao(Informacao informacao){
-        
         return informacaoRepository.save(informacao);
     }
     
