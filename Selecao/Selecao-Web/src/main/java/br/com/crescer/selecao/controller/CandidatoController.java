@@ -33,23 +33,25 @@ public class CandidatoController {
         return new Candidato();
     }
     
+    @ModelAttribute("processo")
+    public Processoseletivo processoseletivo(){
+        return webService.getProcessoseletivoService().buscarProcessoAtual();
+    }
+    
+    @ModelAttribute("inscricoesEncerradas")
+    public boolean inscricoesEncerradas(){
+        return webService.getProcessoseletivoService().verificarExistenciaDeProcessoAtivo();
+    }
+    
     @RequestMapping(value = "/", method = RequestMethod.GET)
     String index(Model model) {
-        Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
-        boolean inscricoesEncerradas = webService.getProcessoseletivoService().verificarExistenciaDeProcessoAtivo();
-        model.addAttribute("processo", processo);
-        model.addAttribute("inscricoesEncerradas", inscricoesEncerradas);
+        
         return "index";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     String save(@Valid Candidato candidato, BindingResult bindingResult, HttpServletRequest req, Model model) {
-        
-        Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
-        boolean inscricoesEncerradas = webService.getProcessoseletivoService().verificarExistenciaDeProcessoAtivo();
-        model.addAttribute("processo", processo);
-        model.addAttribute("inscricoesEncerradas", inscricoesEncerradas);
-        
+                
         String response = req.getParameter("g-recaptcha-response");
         String ipAcesso = req.getRemoteAddr();
         boolean captchaValido = webService.getRecaptchaService().isResponseValid(ipAcesso, response);
