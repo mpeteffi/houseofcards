@@ -83,6 +83,11 @@ public class Entrevista implements Serializable {
         this.idUsuario = usuario;
     }
     
+    public Entrevista(Candidato candidato, Usuario usuario ) {
+        this.idCandidato = candidato;
+        this.idUsuario = usuario;
+    }
+    
     public Entrevista( String parecerRh, String parecerTecnico, Double provaG36, Double provaAc, Double provaTecnica, Candidato idCandidato, Usuario idUsuario) {
         this.parecerRh = parecerRh;
         this.parecerTecnico = parecerTecnico;

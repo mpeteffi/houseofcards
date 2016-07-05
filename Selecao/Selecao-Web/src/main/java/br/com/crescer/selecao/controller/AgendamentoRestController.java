@@ -40,7 +40,7 @@ public class AgendamentoRestController {
             webService.getGrupoDeProvasService().deletarGrupoDeProvasByIdDataHora(new Datahora(id));
             return ResponseEntity.status(HttpStatus.OK).body("Sucesso");
         }catch(DataIntegrityViolationException e ){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Há integrantes no grupo");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Há candidatos no grupo.");
         }
     }
             

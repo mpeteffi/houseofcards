@@ -80,6 +80,9 @@ public class CandidatoRestController {
         entrevista.setProvaG36(provaG36);
         entrevista.setProvaTecnica(provaTecnica);
         entrevista.setIdUsuario(usuario);
+        if(grupoDeProvas != null){
+            entrevista.getIdCandidato().setStatus(StatusCandidato.PROVA_AGENDADA);
+        }
         
         webService.getEntrevistaService().salvarEntrevista(entrevista);
         

@@ -6,6 +6,7 @@ import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Grupodeprovas;
 import br.com.crescer.selecao.entities.Informacao;
 import br.com.crescer.selecao.entities.Processoseletivo;
+import br.com.crescer.selecao.entities.Usuario;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import java.util.Date;
 import java.util.HashMap;
@@ -101,7 +102,10 @@ public class CandidatoController {
         Informacao candidato = webService.getCandidatoService().buscarInformacoesDeCandidato(new Candidato(idCandidato));
         Entrevista entrevista = webService.getEntrevistaService().buscarEntrevistaDeCandidato(candidato.getIdCandidato());
         Iterable<Grupodeprovas> grupos = webService.getGrupoDeProvasService().buscarGrupoDeProvasEdicaoAtual();
-        if(entrevista == null) entrevista = new Entrevista();
+        if(entrevista == null){
+            Usuario usuario = webService.getUsuarioLogadoService().buscarUsuarioLogado();
+            entrevista = webService.getEntrevistaService().salvarEntrevista(new Entrevista(candidato.getIdCandidato(),usuario));
+        } 
         model.addAttribute("candidato", candidato);
         model.addAttribute("entrevista", entrevista);
         model.addAttribute("GruposDeProvas", grupos);
