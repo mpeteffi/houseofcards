@@ -70,7 +70,7 @@ public class EntrevistaService {
         StatusCandidato[] statusEntrevistados = new StatusCandidato[]{StatusCandidato.ENTREVISTADO,StatusCandidato.EM_ANALISE,StatusCandidato.SELECIONADO,StatusCandidato.NAO_SELECIONADO,StatusCandidato.PRE_SELECIONADO};
         StatusCandidato[] listaStatus = status == null ? statusEntrevistados : new StatusCandidato[]{status};
         
-        Pageable pageable = new PageRequest(pagina, 2,Sort.Direction.DESC,"idEntrevista");
+        Pageable pageable = new PageRequest(pagina, 7,Sort.Direction.DESC,"idEntrevista");
         
         Page<Entrevista> entrevistas = entrevistaRepository.findByIdCandidato_StatusIn(listaStatus, pageable);
                 
