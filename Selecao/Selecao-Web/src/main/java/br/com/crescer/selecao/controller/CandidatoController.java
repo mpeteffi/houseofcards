@@ -61,7 +61,8 @@ public class CandidatoController {
                 model.addAttribute("mensagemFormCadastro", "Confirme a inscrição acessando seu email e clicando no link de confirmação");
                 return "Sucesso";
             } else {
-                return "redirect:index?erroEmail";
+                model.addAttribute("erroEmail", "Este email ja está cadastrado");
+                return "index";
             }
         } else {
             return "index";
