@@ -17,39 +17,39 @@
                     <input type="number" hidden="hidden" th:value="${candidato.idInformacao}" name="idInformacao" />
                     <div class="input-group">
                         <span for="nome" class="input-group-addon" id="basic-addon1">Nome</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.nome}" placeholder="fulano" name="nome" aria-describedby="basic-addon1"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.idCandidato.nome}" placeholder="fulano" name="nome" aria-describedby="basic-addon1"/>
                     </div>
                     <div class="input-group">
                         <span for="email" class="input-group-addon" id="basic-addon2">Email:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.email}" placeholder="fulano@exemplo.com" name="email"  aria-describedby="basic-addon2"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.idCandidato.email}" placeholder="fulano@exemplo.com" name="email"  aria-describedby="basic-addon2"/>
                     </div>
                     <div class="input-group">
                         <span for="instituicaoEnsino" class="input-group-addon" id="basic-addon3">Instituição de ensino:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.instituicaoEnsino}" placeholder="Unisinos" name="instituicaoEnsino" aria-describedby="basic-addon3"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.idCandidato.instituicaoEnsino}" placeholder="Unisinos" name="instituicaoEnsino" aria-describedby="basic-addon3"/>
                     </div>
                     <div class="input-group">
                         <span for="curso" class="input-group-addon" id="basic-addon4">Curso:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.curso}" placeholder="Ciência da computação" name="curso"  aria-describedby="basic-addon4"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.idCandidato.curso}" placeholder="Ciência da computação" name="curso"  aria-describedby="basic-addon4"/>
                     </div>
                     <div class="input-group">
                         <span for="previsaoFormatura" class="input-group-addon" id="basic-addon5">Previsão de formatura:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.idCandidato.previsaoFormatura}" placeholder="2018/01" name="previsaoFormatura" aria-describedby="basic-addon5"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.idCandidato.previsaoFormatura}" placeholder="2018/01" name="previsaoFormatura" aria-describedby="basic-addon5"/>
                     </div>
                     <div class="input-group">
                         <span for="telefone" class="input-group-addon" id="basic-addon6">Telefone:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.telefone}" placeholder="(51)99999999" name="telefone"  aria-describedby="basic-addon6"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.telefone}" placeholder="(51)99999999" name="telefone"  aria-describedby="basic-addon6"/>
                     </div>
                     <div class="input-group">
                         <span for="dataNascimento" class="input-group-addon" id="basic-addon7">Data de nascimento:</span>
-                        <input type="text" class="form-control input-data" th:value="(${#dates.format(candidato.dataNascimento, 'dd/MM/yyyy')})" placeholder="dd/mm/aaaa" name="dataNascimento"  aria-describedby="basic-addon7"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="(${#dates.format(candidato.dataNascimento, 'dd/MM/yyyy')})" placeholder="dd/mm/aaaa" name="dataNascimento"  aria-describedby="basic-addon7"/>
                     </div>
                     <div class="input-group">
                         <span for="cidade" class="input-group-addon" id="basic-addon8">Cidade</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.cidade}" placeholder="São Leopoldo" name="cidade"  aria-describedby="basic-addon8"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.cidade}" placeholder="São Leopoldo" name="cidade"  aria-describedby="basic-addon8"/>
                     </div>
                     <div class="input-group">
                         <span for="urlLinkedin" class="input-group-addon" id="basic-addon9">Url Linkedin:</span>
-                        <input type="text" class="form-control input-data" th:value="${candidato.urlLinkedin}" placeholder="www.linkedin.com/fulano" name="urlLinkedin"  aria-describedby="basic-addon9"/>
+                        <input type="text" required="required" class="form-control input-data" th:value="${candidato.urlLinkedin}" placeholder="www.linkedin.com/fulano" name="urlLinkedin"  aria-describedby="basic-addon9"/>
                     </div>                    
                     <div class="input-group">
                         <span for="status" class="input-group-addon" id="basic-addon10">Status:</span>
