@@ -91,6 +91,7 @@
                         <label class="fonte-laranja">E-mail</label>
                         <input required="required" class="form-control input-form" type="email" th:field="*{email}" placeholder="Ex: email@email.com.br"/>
                         <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                        <p class="text-danger" th:if="${erroEmail}" th:text="${erroEmail}"></p>
                     </div>
                     <div class="form-group col-md-6">
                         <label class="fonte-laranja">Instituição de Ensino</label>

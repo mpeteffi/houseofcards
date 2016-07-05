@@ -5,25 +5,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>    
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-        <link rel="stylesheet" th:href="@{/css/login.css}"/>
+        <link rel="stylesheet" th:href="@{/css/client-side.css}"/>
         <title>Titulo do Projeto</title>
     </head>
-    <body class="background-cinza">
-        <div class="container">
+    <body class="corpo">
+        <div class="container col-md-offset-2 col-md-8 ">
             <div class="row">
-                <div class="col-md-12"> 
-                    <h1 class="text-center" style="color:white;">Sucesso</h1>
-                    <div class="alert btn-login" th:if="${mensagemFormCadastro}">
-                        <h3 style="color:white;" class="text-center" th:text="${mensagemFormCadastro}"></h3>
-                    </div>
-                    <div class="alert btn-login" th:if="${mensagemConfirmacaoEmail}">
-                        <h3 style="color:white;" class="text-center" th:text="${mensagemConfirmacaoEmail}"></h3>
-                    </div>
-                    <div class="alert btn-login" th:if="${mensagemSucessoInscricao}">
-                        <h3 style="color:white;" class="text-center" th:text="${mensagemSucessoInscricao}"></h3>
-                    </div>   
+                <div class="text-center">
+                    <h1 class="text-center titulo">Sucesso</h1>
                 </div>
             </div>
+            
+            <div th:if="${mensagemFormCadastro}">
+                <h3 class="text-center" th:text="${mensagemFormCadastro}"></h3>
+            </div>
+            <div th:if="${mensagemConfirmacaoEmail}">
+                <h3 class="text-center" th:text="${mensagemConfirmacaoEmail}"></h3>
+            </div>
+            <div th:if="${mensagemSucessoInscricao}">
+                <h3 class="text-center" th:text="${mensagemSucessoInscricao}"></h3>
+            </div>   
+
         </div>
         <script th:src="@{/js/jquery-2.2.4.min.js}" type="text/javascript"></script>
         <script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
