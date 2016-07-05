@@ -42,7 +42,7 @@ public class Informacao implements Serializable {
     private Integer idInformacao;
     
     @Size(max = 20, message = "Numero maximo de caracteres: 20")
-    @NotNull(message="Campo Telefone deve ser preenchido")
+    @NotBlank(message="Campo Telefone deve ser preenchido")
     @Basic(optional = false)
     @Column(name = "TELEFONE")
     private String telefone;

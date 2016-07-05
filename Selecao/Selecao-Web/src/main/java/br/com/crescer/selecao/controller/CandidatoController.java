@@ -45,6 +45,11 @@ public class CandidatoController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     String save(@Valid Candidato candidato, BindingResult bindingResult, HttpServletRequest req, Model model) {
         
+        Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
+        boolean inscricoesEncerradas = webService.getProcessoseletivoService().verificarExistenciaDeProcessoAtivo();
+        model.addAttribute("processo", processo);
+        model.addAttribute("inscricoesEncerradas", inscricoesEncerradas);
+        
         String response = req.getParameter("g-recaptcha-response");
         String ipAcesso = req.getRemoteAddr();
         boolean captchaValido = webService.getRecaptchaService().isResponseValid(ipAcesso, response);
