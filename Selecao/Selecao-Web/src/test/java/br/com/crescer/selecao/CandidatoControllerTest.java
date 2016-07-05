@@ -3,11 +3,13 @@ package br.com.crescer.selecao;
 import br.com.crescer.selecao.captcha.RecaptchaService;
 import br.com.crescer.selecao.controller.CandidatoController;
 import br.com.crescer.selecao.entities.Candidato;
-import br.com.crescer.selecao.entities.Informacao;
+import br.com.crescer.selecao.entities.Entrevista;
+import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.services.CandidatoService;
+import br.com.crescer.selecao.service.services.EntrevistaService;
+import br.com.crescer.selecao.service.services.ProcessoseletivoService;
 import br.com.crescer.selecao.webservices.WebService;
-import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,21 +40,30 @@ public class CandidatoControllerTest {
     @Mock WebService webService;
     @Mock RecaptchaService recaptchaService;
     @Mock CandidatoService candidatoService;
+    @Mock EntrevistaService entrevistaService;
+    @Mock ProcessoseletivoService processoseletivoService;
     
     @Mock BindingResult bindingResult;
     @Mock HttpServletRequest request;
     @Mock Candidato candidato;
+    @Mock Entrevista entrevista;
       
     @Before
     public void setUp() {
-        Iterable<Informacao> candidatos = new ArrayList<>();
         doReturn(false).when(bindingResult).hasErrors();
         doReturn(recaptchaService).when(webService).getRecaptchaService();
         doReturn(true).when(recaptchaService).isResponseValid("127.0.0.1", "TOKEN_VALIDO");
         doReturn(false).when(recaptchaService).isResponseValid("127.0.0.1", "TOKEN_INVALIDO");
         doReturn(candidatoService).when(webService).getCandidatoService();
         doReturn(new Candidato()).when(candidatoService).salvarCandidato(any(Candidato.class));
-        //doReturn(candidatos).when(candidatoService).buscarCandidatosPorFiltros("",StatusCandidato.ENTREVISTADO,"","","",0);
+        doReturn(null).when(candidatoService).buscarCandidatosPorFiltros("",StatusCandidato.ENTREVISTADO,"","","",0);
+        doReturn(processoseletivoService).when(webService).getProcessoseletivoService();
+        doReturn(new Processoseletivo()).when(processoseletivoService).buscarProcessoAtual();
+        doReturn(true).when(processoseletivoService).verificarExistenciaDeProcessoAtivo();
+        doReturn(entrevistaService).when(webService).getEntrevistaService();
+        doReturn(null).when(entrevistaService).buscarEntrevistasPorFiltros("", StatusCandidato.INICIAL, 1);
+        doReturn(null).when(entrevistaService).buscarEntrevistasPorFiltros("", StatusCandidato.INICIAL, 0);
+        doReturn(null).when(entrevistaService).salvarEntrevista(any(Entrevista.class));
         
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/templates/");
@@ -122,15 +133,53 @@ public class CandidatoControllerTest {
     }
     
     @Test
-    public void candidatos() throws Exception{
-        mockMvc.perform(post("/")
-            .param("g-recaptcha-response", "TOKEN_INVALIDO")
-            .param("nome", "Candidato")
-            .param("email", "EMAIL_INVALIDO")
-            .param("instituicaoEnsino", "Crescer")
-            .param("curso", "Crescer")
-            .param("previsaoFormatura", "2016/01"))
+    public void candidatosRetornaAtributosCorretos() throws Exception{
+        mockMvc.perform(get("/candidatos")
+            .param("page", "1")
+            .param("status", StatusCandidato.ENTREVISTADO.toString()))
                 .andExpect(status().isOk())
-                .andExpect(view().name("index"));
+                .andExpect(model().attribute("pagina", 1))
+                .andExpect(view().name("_Candidatos"));
+    }
+    
+    @Test
+    public void candidatosSemParametroDePageRetornaPageZero() throws Exception{
+        mockMvc.perform(get("/candidatos")
+            .param("status", StatusCandidato.ENTREVISTADO.toString()))
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("pagina", 0))
+                .andExpect(view().name("_Candidatos"));
+    }
+    
+    @Test
+    public void entrevistadosRetornaAtributosCorretos() throws Exception{
+        mockMvc.perform(get("/entrevistados")
+            .param("page", "1")
+            .param("status", StatusCandidato.INICIAL.toString()))
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("pagina", 1))
+                .andExpect(view().name("_entrevistados"));
+    }
+    
+    @Test
+    public void entrevistadosSemParametroDePageRetornaPageZero() throws Exception{
+        mockMvc.perform(get("/entrevistados")
+            .param("status", StatusCandidato.INICIAL.toString()))
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("pagina", 0))
+                .andExpect(view().name("_entrevistados"));
+    }
+    
+    @Test
+    public void entrevistasEdicaoNaoAceitaPost() throws Exception{
+        mockMvc.perform(post("/entrevistas"))
+                .andExpect(status().isMethodNotAllowed());
+    }
+    
+    @Test
+    public void getNovaEntrevistaRetornaCorreto() throws Exception{
+        mockMvc.perform(get("/nova-entrevista"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("_nova-entrevista"));
     }
 }

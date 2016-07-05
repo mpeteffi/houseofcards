@@ -59,5 +59,4 @@ public class AdministrativoController {
         model.addAttribute("entrevista", entrevista);
         return "_parecer";
     }
-
 }

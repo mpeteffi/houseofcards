@@ -1,8 +1,11 @@
 package br.com.crescer.selecao;
 
 import br.com.crescer.selecao.controller.AdministrativoController;
+import br.com.crescer.selecao.entities.Candidato;
+import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.Usuario;
+import br.com.crescer.selecao.service.services.EntrevistaService;
 import br.com.crescer.selecao.service.services.ProcessoseletivoService;
 import br.com.crescer.selecao.service.services.UsuarioLogadoService;
 import br.com.crescer.selecao.webservices.WebService;
@@ -10,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import static org.mockito.Matchers.any;
 import org.mockito.Mock;
 import static org.mockito.Mockito.doReturn;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -33,8 +37,10 @@ public class AdministrativoControllerTest {
     @Mock WebService webService;
     @Mock UsuarioLogadoService usuarioLogadoService;
     @Mock ProcessoseletivoService processoSeletivoService;
+    @Mock EntrevistaService entrevistaService;
     
     @Mock Usuario usuario;
+    @Mock Entrevista entrevista;
     @Mock Processoseletivo processoseletivo;
     
     @Before
@@ -44,6 +50,8 @@ public class AdministrativoControllerTest {
         doReturn(processoSeletivoService).when(webService).getProcessoseletivoService();
         doReturn(processoseletivo).when(processoSeletivoService).buscarProcessoAtual();
         doReturn("EDICAO").when(processoseletivo).getEdicao();
+        doReturn(entrevistaService).when(webService).getEntrevistaService();
+        doReturn(entrevista).when(entrevistaService).buscarEntrevistaDeCandidato(any(Candidato.class));
         
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/templates/");
@@ -91,5 +99,13 @@ public class AdministrativoControllerTest {
     public void cadastroNovaEdicaoNaoAceitaGet() throws Exception{
         mockMvc.perform(get("/cadastro-nova-edicao"))
                 .andExpect(status().isMethodNotAllowed());
+    }
+    
+    @Test
+    public void buscaParecerRetornaCorretamente() throws Exception{
+        mockMvc.perform(get("/buscarParecer"))
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("entrevista", entrevista))
+                .andExpect(view().name("_parecer"));
     }
 }
