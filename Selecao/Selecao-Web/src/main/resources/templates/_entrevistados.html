@@ -34,7 +34,7 @@
                 <td th:text="${entrevista.provaAc}"></td>
                 <td th:text="${entrevista.provaTecnica}"></td>
                 <td><a th:attr="data-idcandidato=${entrevista.idCandidato.idCandidato}" class="btn btn-primary btnExibirParecer">Exibir</a></td>
-                <td th:text="${entrevista.idCandidato.status}"></td>
+                <td th:text="${#strings.replace(entrevista.idCandidato.status, '_', ' ')}"></td>
             </tr> 
         </tbody>
     </table>
