@@ -19,7 +19,12 @@ public class GrupoDeProvasService {
     GrupoDeProvasRepository grupoDeProvasRepositorio;
     
     public Grupodeprovas salvar(Grupodeprovas grupo){
-        return grupoDeProvasRepositorio.save(grupo);
+        
+        try{
+            return grupoDeProvasRepositorio.save(grupo);
+        } catch (Exception e){
+            return null;
+        }
     }
     
     @Transactional

@@ -65,6 +65,6 @@ public class ProcessoseletivoServiceTest {
     
     @Test(expected=NullPointerException.class)
     public void salvarProcessoNullRetornaNullPointerException(){
-        boolean save = processoseletivoService.criarProcessoSeletivo(null);
-    } 
+        processoseletivoService.criarProcessoSeletivo(null);
+    }
 }

@@ -29,6 +29,4 @@ public class DataHoraService {
     public void salvarAgendamento(Datahora data){
         dataHoraRepository.save(data);
     }
-    
-    
 }
