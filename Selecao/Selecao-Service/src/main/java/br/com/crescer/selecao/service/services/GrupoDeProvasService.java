@@ -5,6 +5,7 @@ import br.com.crescer.selecao.entities.Grupodeprovas;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.TipoAgendamento;
 import br.com.crescer.selecao.service.repository.GrupoDeProvasRepository;
+import java.util.ArrayList;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -22,6 +23,9 @@ public class GrupoDeProvasService {
     
     @Autowired
     ProcessoseletivoService processoSeletivoService;
+    
+    @Autowired
+    EntrevistaService entrevistaService;
     
     @Autowired
     DataHoraService dataHoraService;
@@ -46,6 +50,14 @@ public class GrupoDeProvasService {
             grupos = grupoDeProvasRepositorio.findByIdDataHoraIn(datas);
         }
         return grupos;
+    }
+    
+    public ArrayList<Integer> buscarEntrevistasPorGrupo(Iterable<Grupodeprovas> grupos){
+        ArrayList<Integer> array = new ArrayList<>();
+        for(Grupodeprovas grupo : grupos){
+            array.add(entrevistaService.contarPorGrupo(grupo));
+        }        
+        return array;
     }
     
     @Transactional

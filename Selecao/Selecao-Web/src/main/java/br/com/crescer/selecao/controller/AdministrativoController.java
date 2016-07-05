@@ -2,6 +2,7 @@ package br.com.crescer.selecao.controller;
 
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Entrevista;
+import br.com.crescer.selecao.entities.Grupodeprovas;
 import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.Usuario;
@@ -41,7 +42,12 @@ public class AdministrativoController {
         String edicao = webService.getProcessoseletivoService().buscarProcessoAtual().getEdicao();
         ArrayList<Integer> counts = webService.getCandidatoService().buscarContadores(edicao);
         Page<Entrevista> entrevistas = webService.getEntrevistaService().buscarProximasEntrevistas();
+        Iterable<Grupodeprovas> grupos = webService.getGrupoDeProvasService().buscarGrupoDeProvasEdicaoAtual();
+        ArrayList<Integer> contadoresGrupos = webService.getGrupoDeProvasService().buscarEntrevistasPorGrupo(grupos);
+        
         entrevistas.iterator().hasNext();
+        model.addAttribute("grupos",grupos);
+        model.addAttribute("contadoresGrupos",contadoresGrupos);
         model.addAttribute("counts", counts);
         model.addAttribute("entrevistas", entrevistas);
         return "_adm-home";

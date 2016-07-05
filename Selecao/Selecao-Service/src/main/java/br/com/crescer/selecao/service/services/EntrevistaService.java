@@ -3,6 +3,7 @@ package br.com.crescer.selecao.service.services;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Datahora;
 import br.com.crescer.selecao.entities.Entrevista;
+import br.com.crescer.selecao.entities.Grupodeprovas;
 import br.com.crescer.selecao.entities.Usuario;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.service.repository.EntrevistaRepository;
@@ -63,6 +64,9 @@ public class EntrevistaService {
             
     }
     
+    public Integer contarPorGrupo(Grupodeprovas grupo){
+        return entrevistaRepository.countByIdGrupoDeProvas(grupo);
+    }
     
     public Page<Entrevista> buscarEntrevistasPorFiltros(String edicao, StatusCandidato status,Integer pagina){
         pagina = pagina != null ? pagina : 0;

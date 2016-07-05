@@ -57,6 +57,14 @@
     </div>
 </section>
 <section class="col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
+    <div th:each="grupo, interation : ${grupos}" class="col-md-3">
+        <div class="well">
+            <h4 th:text="${grupo.idDataHora.titulo}"></h4>
+            <p th:text="${contadoresGrupos[interation.count - 1]} + ' candidatos'"></p>
+        </div>
+    </div>
+</section>
+<section class="col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3>Próximas Entrevistas</h3>

@@ -2,6 +2,7 @@ package br.com.crescer.selecao.service.repository;
 
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Entrevista;
+import br.com.crescer.selecao.entities.Grupodeprovas;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
@@ -22,6 +23,8 @@ public interface EntrevistaRepository extends PagingAndSortingRepository<Entrevi
     Iterable<Entrevista> findByIdCandidato_StatusIn(StatusCandidato[] status);
     
     Page<Entrevista> findByIdDataHora_DataHoraInicialAfter(Date dataHoraInicial, Pageable pageable);
+    
+    Integer countByIdGrupoDeProvas(Grupodeprovas idGrupoDeProvas);
     
     Long countByIdGrupoDeProvasIsNotNull();
     Long countByParecerRhIsNotNull();
