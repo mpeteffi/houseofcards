@@ -18,8 +18,8 @@ mainView.prototype.atualizaView = function (obj) {
 };
 
 mainView.prototype.postForm = function (obj) { 
-    dados = dados || {};
-    pagina = $(obj).data('url');    
+    var dados = obj ? this.serializeArrayToObj($(obj).serializeArray()) : {};
+    var pagina = $(obj).data('url');    
     return $.post(pagina,dados);
 };
 

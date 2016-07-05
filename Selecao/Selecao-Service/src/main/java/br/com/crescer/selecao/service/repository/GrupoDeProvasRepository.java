@@ -12,4 +12,6 @@ public interface GrupoDeProvasRepository extends PagingAndSortingRepository<Grup
     void deleteByIdDataHora(Datahora data);
     
     Iterable<Grupodeprovas> findByIdDataHoraIn(Iterable<Datahora> datas);
+    
+    Grupodeprovas findByIdGrupoDeProvas(Integer id);
 }

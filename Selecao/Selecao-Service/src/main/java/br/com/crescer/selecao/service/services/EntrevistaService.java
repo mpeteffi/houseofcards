@@ -32,6 +32,11 @@ public class EntrevistaService {
         return entrevistaRepository.findOneByIdCandidato(candidato);
     }
     
+    public Entrevista findByIdEntrevista(Integer id){
+        return entrevistaRepository.findByIdEntrevista(id);
+    }
+    
+    
     public Iterable<Entrevista> buscarEntrevistasPorCandidato(Candidato candidato){
         return entrevistaRepository.findAllByIdCandidato(candidato);
     }

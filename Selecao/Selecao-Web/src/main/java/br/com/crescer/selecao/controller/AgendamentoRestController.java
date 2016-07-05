@@ -1,8 +1,11 @@
 package br.com.crescer.selecao.controller;
 
+import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Datahora;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Grupodeprovas;
+import br.com.crescer.selecao.entities.Informacao;
+import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import br.com.crescer.selecao.entities.enums.TipoAgendamento;
 import br.com.crescer.selecao.webservices.WebService;
 import java.util.Date;
@@ -54,7 +57,7 @@ public class AgendamentoRestController {
     
    @RequestMapping(value = "/rest/agendamento/novo", method = RequestMethod.POST)
    public @ResponseBody ResponseEntity<Object> novoAgendamento(String title,Integer idCandidato,@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")Date start,@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")Date end,boolean allDay) { 
-        if(idCandidato != null){
+        if(idCandidato != null && title.startsWith("Entrevista")){
            try{
              Integer id = webService.getEntrevistaService()
                                     .salvarEntrevista(
@@ -66,7 +69,7 @@ public class AgendamentoRestController {
            }catch(Exception e){
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage()); 
            }
-        }else{ 
+        }else if(title.startsWith("Grupo")){ 
             Integer id =  webService
                             .getGrupoDeProvasService() 
                             .salvar( 
@@ -78,6 +81,8 @@ public class AgendamentoRestController {
                              .getIdDataHora();
             return ResponseEntity.status(HttpStatus.OK).body(id); 
         }
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Request com erro");
    }
+     
 
 }

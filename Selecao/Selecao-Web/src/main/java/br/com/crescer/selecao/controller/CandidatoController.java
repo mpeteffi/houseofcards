@@ -114,28 +114,19 @@ public class CandidatoController {
         return "_nova-entrevista";
     }
     
-    @RequestMapping(value="/nova-entrevista",method = RequestMethod.POST)
-    String salvarEntrevistaPOST(Integer idCandidato,Date dataentrevista,String parecerrh,String  parecertecnico,Double provag36,Double provaac,Double provatecnica) {        
-       webService.getEntrevistaService().salvarEntrevista(new Entrevista(dataentrevista,
-                                                                parecerrh,
-                                                                parecertecnico,
-                                                                provag36,
-                                                                provaac,
-                                                                provatecnica,
-                                                                new Candidato(idCandidato),
-                                                                webService.getUsuarioLogadoService().buscarUsuarioLogado()
-                                                            ));   
-       return "Sucesso";
-    }    
+//    @RequestMapping(value="/nova-entrevista",method = RequestMethod.POST)
+//    String salvarEntrevistaPOST(Integer idCandidato,Date dataentrevista,String parecerrh,String  parecertecnico,Double provag36,Double provaac,Double provatecnica) {        
+//       webService.getEntrevistaService().salvarEntrevista(new Entrevista(dataentrevista,
+//                                                                parecerrh,
+//                                                                parecertecnico,
+//                                                                provag36,
+//                                                                provaac,
+//                                                                provatecnica,
+//                                                                new Candidato(idCandidato),
+//                                                                webService.getUsuarioLogadoService().buscarUsuarioLogado()
+//                                                            ));   
+//       return "Sucesso";
+//    }    
     
-    @RequestMapping(value="/editar-candidato-teste",method = RequestMethod.POST)
-    public String salvarCandidatoPOST(int idCandidato,String nome,String email,String  instituicaoensino,String curso,String previsaoformatura,StatusCandidato status, String telefone, Date datanascimento, String cidade, String urllinkedin) {
-        Candidato candidato = new Candidato(idCandidato,nome,email,instituicaoensino,curso,previsaoformatura,status); 
-        webService.getCandidatoService().atualizarInformacao(new Informacao(telefone,
-                                                                                    datanascimento,
-                                                                                    cidade,
-                                                                                    urllinkedin,
-                                                                                    candidato));   
-        return "Sucesso";
-    }
+    
 }

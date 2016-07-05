@@ -136,9 +136,6 @@ form label.error{
 .fc-view-container{
     background-color: white;
 }
-.fc-center{
-    border-bottom: 2px solid #737D87;
-}
 
 .fc-left{
     margin-left: 5%;
@@ -158,10 +155,7 @@ form label.error{
 .fc-body,.fc-scroller,.fc-widget-contenttable{
     border: none;
 }
-.fc-button, .fc-state-default{
-    background-color:white!important;
-    color: orange;
-}
+
 
 
 .font-bold {font-weight: bold;}

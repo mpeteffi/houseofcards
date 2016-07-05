@@ -11,7 +11,7 @@
             $("#wrapper").toggleClass("toggled");
         }
     });
-
+    
     view.appendEventoNoHtml({
         evento: 'submit',
         obj: '.form-filtro',
@@ -33,51 +33,24 @@
 
     view.appendEventoNoHtml({
         evento: 'click',
-        obj: '.opcao-side-bar',
+        obj: '.opcao-entrevistados,.btn-nova-entrevista,.opcao-entrevistados,.opcao-side-bar',
         funcao: function () {
             view.atualizaView(this);
         }
     });
-
-    view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.opcao-entrevistados',
-        funcao: function () {
-            view.atualizaView(this);
-        }
-    });
-
-    view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.opcao-entrevistados',
-        funcao: function () {
-            view.atualizaView(this);
-        }
-    });
-
+ 
     view.appendEventoNoHtml({
         evento: 'submit',
-        obj: '#nova-edicao-form',
+        obj: '#edicao-candidato,#edicao-entrevista,#nova-edicao-form',
         funcao: function (e) {
-            view.postForm(this);
+            view.postForm(this).done(function(){
+                swal('Sucesso!','Operação feita com sucesso!','success');
+            }).fail(function(){
+                swal('Erro!','Houve um erro!','error');
+            });
             e.preventDefault();
         }
-    });
-
-    view.appendEventoNoHtml({
-        evento: 'click',
-        obj: '.btn-nova-entrevista',
-        funcao: function () {
-            view.atualizaView(this);
-        }
-    });
-    view.appendEventoNoHtml({
-        evento: 'submit',
-        obj: '.edicao-candidato',
-        funcao: function () {
-            view.atualizaView(this);
-        }
-    });
+    });   
 
     view.appendEventoNoHtml({
         evento: 'click',
@@ -177,16 +150,3 @@
         $('.corpo').append(res);
     });
 })();
-
-$(function () {
-    $('.corpo').on('submit', '#edicao-candidato', function (form) {
-        var dados = form.target;
-        debugger;
-        $.ajax({
-            url: '/editar-candidato-teste',
-            type: 'POST',
-            data: dados
-        });
-        form.preventDefault();
-    });
-});

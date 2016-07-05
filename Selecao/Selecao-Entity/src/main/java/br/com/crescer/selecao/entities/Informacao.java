@@ -3,6 +3,7 @@ package br.com.crescer.selecao.entities;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @XmlRootElement
 public class Informacao implements Serializable {
 
-    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "INFORMACAO_IDINFORMACAO_SEQ")
@@ -75,7 +75,7 @@ public class Informacao implements Serializable {
     
     @Valid
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = false, cascade=CascadeType.ALL)
     private Candidato idCandidato;
     
     @JoinColumn(name = "IDPROCESSOSELETIVO", referencedColumnName = "IDPROCESSOSELETIVO")
@@ -89,7 +89,8 @@ public class Informacao implements Serializable {
         this.idInformacao = idinformacao;
     }
 
-    public Informacao(String telefone, Date datanascimento, String cidade, String urllinkedin, String senha, Candidato candidato, Processoseletivo processoseletivo) {
+    public Informacao(Integer idinformacao,String telefone, Date datanascimento, String cidade, String urllinkedin, String senha, Candidato candidato, Processoseletivo processoseletivo) {
+        this.idInformacao = idinformacao;
         this.telefone = telefone;
         this.dataNascimento = datanascimento;
         this.cidade = cidade;
@@ -97,6 +98,15 @@ public class Informacao implements Serializable {
         this.senha = senha;
         this.idCandidato = candidato;
         this.idProcessoSeletivo = processoseletivo;
+    }
+     public Informacao(Integer idinformacao,String telefone, Date datanascimento, String cidade, String urllinkedin, String senha, Candidato candidato) {
+        this.idInformacao = idinformacao;
+        this.telefone = telefone;
+        this.dataNascimento = datanascimento;
+        this.cidade = cidade;
+        this.urlLinkedin = urllinkedin;
+        this.senha = senha;
+        this.idCandidato = candidato;
     }
 
     public Informacao(String telefone, Date datanascimento, String cidade, String urllinkedin, Candidato candidato) {

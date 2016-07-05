@@ -64,4 +64,8 @@ public class GrupoDeProvasService {
     public void deletarGrupoDeProvasByIdDataHora(Datahora data) throws DataIntegrityViolationException{
          grupoDeProvasRepositorio.deleteByIdDataHora(data);
     }
+    
+    public Grupodeprovas findByIdGrupoDeProvas(Integer id){
+        return grupoDeProvasRepositorio.findByIdGrupoDeProvas(id);
+    }
 }

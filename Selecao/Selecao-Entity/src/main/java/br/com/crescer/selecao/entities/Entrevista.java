@@ -35,11 +35,7 @@ public class Entrevista implements Serializable {
     @NotNull
     @Column(name = "IDENTREVISTA")
     private Integer idEntrevista;
-    
-    @Column(name = "DATAENTREVISTA")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataEntrevista;
-    
+        
     @Size(max = 4000)
     @Column(name = "PARECERRH")
     private String parecerRh;
@@ -58,7 +54,7 @@ public class Entrevista implements Serializable {
     private Double provaTecnica;
     
     @JoinColumn(name = "IDCANDIDATO", referencedColumnName = "IDCANDIDATO")
-    @ManyToOne(optional = false,cascade = CascadeType.MERGE)
+    @ManyToOne(optional = false,cascade = CascadeType.PERSIST)
     private Candidato idCandidato;
     
     @JoinColumn(name = "IDUSUARIO", referencedColumnName = "IDUSUARIO")
@@ -87,8 +83,7 @@ public class Entrevista implements Serializable {
         this.idUsuario = usuario;
     }
     
-    public Entrevista(Date dataEntrevista, String parecerRh, String parecerTecnico, Double provaG36, Double provaAc, Double provaTecnica, Candidato idCandidato, Usuario idUsuario) {
-        this.dataEntrevista = dataEntrevista;
+    public Entrevista( String parecerRh, String parecerTecnico, Double provaG36, Double provaAc, Double provaTecnica, Candidato idCandidato, Usuario idUsuario) {
         this.parecerRh = parecerRh;
         this.parecerTecnico = parecerTecnico;
         this.provaG36 = provaG36;
@@ -122,14 +117,7 @@ public class Entrevista implements Serializable {
         this.idEntrevista = idEntrevista;
     }
 
-    public Date getDataEntrevista() {
-        return dataEntrevista;
-    }
-
-    public void setDataEntrevista(Date dataEntrevista) {
-        this.dataEntrevista = dataEntrevista;
-    }
-
+ 
     public String getParecerRh() {
         return parecerRh;
     }
