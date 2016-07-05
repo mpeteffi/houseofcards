@@ -68,7 +68,7 @@ public class Informacao implements Serializable {
     private String urlLinkedin;
     
     @NotEmpty(message="Campo Senha deve ser preenchido")
-    @Size(min=6, max=100,message="Sua senha deve conter entre 6 e 100 dígitos")
+    @Size(min=6, max=50,message="Sua senha deve conter entre 6 e 50 dígitos")
     @Basic(optional = false)
     @Column(name = "SENHA")
     private String senha;
