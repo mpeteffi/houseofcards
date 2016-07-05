@@ -1,40 +1,56 @@
 .corpo{
-    background-color: #fff;    
+    background-color: #f3f3f4;    
 }
 .laranja{
-    color: rgb(255, 102, 0);
+    color: rgb(251, 176, 65);
 }
 .titulo{
-    font-style: italic;
-    font-family: Georgia,sans-serif;
+    margin: 10px auto;
+    font-weight: bold;
     font-size: 45px;
 }
-.fundo-cinza{
-    background-color: #3e3f3a;
-    color: #fff
-}
+
 .row-central{
     margin-top: 30px;
     margin-bottom: 35px;
 }
+
+.interessado-header{
+    margin-top: 0px;
+    padding: 20px!important;
+}
+
+.form-group{
+    margin-bottom: 5px;
+}
+
 .botao-submit{
     width:100%;
     height: 50px;
     background-color: white;
     font-weight: bold;
     color:black;
-    border-radius: 30px;
-    border:2px solid rgb(255, 102, 0);
+/*    border-radius: 30px;*/
+    border:2px solid rgb(251, 176, 65);
     transition: background-color 0.5s ease;
     font-size: 22px;
     font-style: italic;
-    font-family: Georgia,sans-serif;
+    /*font-family: Georgia,sans-serif;*/
 }
+
+.form-captcha{
+    margin: 10px auto;
+}
+
+.divs{
+    margin: 40px 0px;
+}
+
 .botao-submit:hover{
-    background-color: rgb(255, 102, 0);
+    background-color: rgb(251, 176, 65);
 }
 .input-form{
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     height: 37px;
 }
 input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */

@@ -4,6 +4,7 @@ import br.com.crescer.selecao.webservices.WebService;
 import br.com.crescer.selecao.entities.Candidato;
 import br.com.crescer.selecao.entities.Entrevista;
 import br.com.crescer.selecao.entities.Informacao;
+import br.com.crescer.selecao.entities.Processoseletivo;
 import br.com.crescer.selecao.entities.enums.StatusCandidato;
 import java.util.Date;
 import java.util.HashMap;
@@ -34,7 +35,11 @@ public class CandidatoController {
     }
     
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    String index() {
+    String index(Model model) {
+        Processoseletivo processo = webService.getProcessoseletivoService().buscarProcessoAtual();
+        boolean inscricoesEncerradas = webService.getProcessoseletivoService().verificarExistenciaDeProcessoAtivo();
+        model.addAttribute("processo", processo);
+        model.addAttribute("inscricoesEncerradas", inscricoesEncerradas);
         return "index";
     }
 

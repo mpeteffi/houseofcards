@@ -6,79 +6,120 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <link rel="stylesheet" th:href="@{/css/client-side.css}"/>
+        <link rel="stylesheet" th:href="@{/css/administrador-home.css}"/>
         <link rel="shortcut icon" th:href="@{/img/favicon.ico}"/>
         <title>Titulo do Projeto</title>
     </head>
     <body class="corpo">
-        <div class="container">
+        <div class="container col-md-offset-1 col-md-10 ">
             <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center titulo">Inscreva-se no <span class="laranja">projeto crescer</span></h1>
+                <div class="text-center">
+                    <div class="panel-heading" ><img src="/img/logo-escuro.png"/></div>
+                    <h1 class="text-center titulo">Projeto<span class="laranja">Crescer</span></h1>
                 </div>
             </div>
-            <div class="row row-central">
-                <div class="col-md-6 divs">
-                    <h2 class="titulo">Sobre o projeto</h2>
-                    <p>Sed ac accumsan lorem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum molestie faucibus interdum. Etiam nec feugiat tellus, sed viverra metus. Cras pretium metus id lectus pulvinar, consectetur rhoncus metus tincidunt. Vivamus id ligula tempus ante placerat laoreet. Integer tincidunt augue eu felis ornare, quis cursus elit faucibus. In vitae tortor id libero gravida porttitor. Duis sodales justo ut tellus viverra, sed lacinia libero placerat. Donec id lacus iaculis, dignissim arcu sit amet, efficitur sapien. Etiam mauris enim, sodales non leo pharetra, volutpat accumsan metus. Sed at orci dolor. Proin ligula sapien, lobortis blandit sodales vel, suscipit sit amet nisl. Suspendisse iaculis lorem ipsum, quis scelerisque tortor posuere et. </p>
+            <div class="wizard panel divs">
+                <div class="wizard-inner panel-heading">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active" role="presentation">
+                            <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Inscrições">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-list"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Provas">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Entrevistas">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-calendar"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Selecionados">
+                                <span class="round-tab">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-4 divs">
-                    <form th:action="@{/}" th:object="${candidato}" method="POST">
-                        <div class="form-group">
-                            <label class="fonte-laranja">Nome</label>
-                            <input required="required" class="form-control input-form" type="text" th:field="*{nome}"/> 
-                            <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+                <div role="form" class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane active" role="tabpanel" id="step1">
+                            <h3>Etapa 1 - Inscrições</h3>
+                            <h4 th:if="${inscricoesEncerradas}" th:text="${'O prazo de inscrição para a edição ' + processo.edicao + ' do Projeto Crescer já está encerrado.'}"></h4>
+                            <h4 th:if="${inscricoesEncerradas}" th:text="${'Mesmo assim, você pode enviar sua inscrição. Lhe avisaremos quando um novo processo seletivo iniciar.'}"></h4>
+                            <h4 th:unless="${inscricoesEncerradas}" th:text="${'As inscrições para a edição ' + processo.edicao + ' do Projeto Crescer estão abertas. Aproveite!'}"></h4>
                         </div>
-                        <div class="form-group">
-                            <label class="fonte-laranja">Email</label>
-                            <input required="required" class="form-control input-form" type="email" th:field="*{email}"/>
-                            <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                        <div class="tab-pane" role="tabpanel" id="step2">
+                            <h3>Etapa 2 - Provas</h3>
+                            <h4 th:text="${'A segunda etapa do processo seletivo é composta de provas diversas.'}"></h4>
+                            <h4 th:text="${'Estas, bem como as entrevistas e aulas, ocorrem na unidade da CWI Software em São Leopoldo.'}"></h4>
                         </div>
-                        <div class="form-group">
-                            <label class="fonte-laranja">Instituição de Ensino</label>
-                            <input required="required" class="form-control input-form" type="text" th:field="*{instituicaoEnsino}"/> 
-                            <p class="text-danger" th:if="${#fields.hasErrors('instituicaoEnsino')}" th:errors="*{instituicaoEnsino}"></p>
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <h3>Etapa 3 - Entrevistas</h3>
+                            <h4 th:text="${'Após as provas, os pré-selecionados passam para a etapa de entrevistas.'}"></h4>
+                            <h4 th:text="${'As entrevistas do processo seletivo ' + processo.edicao + ' serão realizadas até o dia ' + #dates.format(processo.finalSelecao, 'dd/MM/yyyy') + '.'}"></h4>
                         </div>
-                        <div class="form-group">
-                            <label class="fonte-laranja">Curso</label>
-                            <input required="required" class="form-control input-form" type="text" th:field="*{curso}"/>
-                            <p class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></p>
+                        <div class="tab-pane" role="tabpanel" id="complete">
+                            <h3>Etapa 4 - Aulas</h3>
+                            <h4 th:text="${'Após a escolha dos alunos, já é hora de começarem os 3 mesês de dedicação e aprendizado.'}"></h4>
+                            <h4 th:text="${'As aulas do processo seletivo ' + processo.edicao + ' serão realizadas a partir do dia ' + #dates.format(processo.inicioAula, 'dd/MM/yyyy') + '.'}"></h4>
                         </div>
-                        <div class="form-group">
-                            <label class="fonte-laranja">Previsao Formatura</label>
-                            <input required="required" class="form-control input-form" type="text" th:field="*{previsaoFormatura}" placeholder="aaaa/mm"/>
-                            <p class="text-danger" th:if="${#fields.hasErrors('previsaoFormatura')}" th:errors="*{previsaoFormatura}"></p>
-                        </div>
-                        <div class="form-group"><br/>
-                            <button type="submit" value="Sign In" class=" botao-submit">Enviar</button>
-                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="divs panel panel-default">
+                <h3 class="panel-heading text-center interessado-header">Inscreva-se para a próxima edição!</h3>
+                <form class="panel-body" th:action="@{/}" th:object="${candidato}" method="POST">
+                    <div class="form-group col-md-6">
+                        <label class="fonte-laranja">Nome</label>
+                        <input required="required" class="form-control input-form" type="text" th:field="*{nome}" placeholder="Seu Nome"/> 
+                        <p class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="fonte-laranja">E-mail</label>
+                        <input required="required" class="form-control input-form" type="email" th:field="*{email}" placeholder="Ex: email@email.com.br"/>
+                        <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="fonte-laranja">Instituição de Ensino</label>
+                        <input required="required" class="form-control input-form" type="text" th:field="*{instituicaoEnsino}" placeholder="Ex: Unisinos"/> 
+                        <p class="text-danger" th:if="${#fields.hasErrors('instituicaoEnsino')}" th:errors="*{instituicaoEnsino}"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="fonte-laranja">Curso</label>
+                        <input required="required" class="form-control input-form" type="text" th:field="*{curso}" placeholder="Ex: Desenvolvimento de Software"/>
+                        <p class="text-danger" th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"></p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="fonte-laranja">Previsão de Formatura</label>
+                        <input required="required" class="form-control input-form" type="text" th:field="*{previsaoFormatura}" placeholder="aaaa/mm"/>
+                        <p class="text-danger" th:if="${#fields.hasErrors('previsaoFormatura')}" th:errors="*{previsaoFormatura}"></p>
+                    </div>
+                    <div class="form-group form-captcha col-md-6">
                         <div class="g-recaptcha" data-sitekey="6LcUhyMTAAAAABPX40yyDe8DzhWp3U8_N69d7lD6"></div>
-                        
-                    </form>
-                </div>
-                <div class="col-md-1"></div>
+                    </div>
+                    <div class="form-group col-md-offset-2 col-md-8">
+                        <button type="submit" value="Sign In" class=" botao-submit">Enviar</button>
+                    </div>
+                </form>
             </div>
-            <div class="row fundo-cinza">
-                <div class="col-md-3 col-sm-3 text-center">
-                    <h4>Porto Alegre - RS</h4>
-                    <p>+55 (51) 3092-7500</p>
-                </div>
-                <div class="col-md-3 col-sm-3 text-center">
-                    <h4>São Leopoldo - RS</h4>
-                    <p>+55 (51) 3081-3600</p>
-                </div>
-                <div class="col-md-3 col-sm-3 text-center">
-                    <h4>Rio de Janeiro - RJ</h4>
-                    <p>+55 (21) 2586-6327</p>
-                </div>
-                <div class="col-md-3 col-sm-3 text-center">
-                    <h4>São Paulo - SP</h4>
-                    <p>+55 (11) 3614-7800</p>
-                </div>
-            </div>
+            <div class="col-md-1"></div>
         </div>
-        <script th:src="@{/js/jquery-2.2.3.min.js}" type="text/javascript"></script>
+
+        <script th:src="@{/js/jquery-2.2.4.min.js}" type="text/javascript"></script>
         <script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
-        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <script src="https://www.google.com/recaptcha/api.js?hl=pt-BR" type="text/javascript"></script>
     </body>
 </html>
