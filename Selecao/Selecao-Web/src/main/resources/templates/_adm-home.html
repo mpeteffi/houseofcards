@@ -61,14 +61,19 @@
         <div class="panel-heading">
             <h3>Grupos de provas</h3>
         </div>
-        <div class="panel-body">
-            <div th:each="grupo, interation : ${grupos}" class="col-md-3">
-                <div class="well">
-                    <h4 th:text="${grupo.idDataHora.titulo}"></h4>
-                    <p th:text="${contadoresGrupos[interation.count - 1]} + ' candidatos'"></p>
-                </div>
-            </div>
-        </div>
+        <table class="table table-hover">
+            <thead class="thead-inverse">
+                <tr class="active">
+                    <th>Grupos</th>
+                    <th>Candidatos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="grupo, interation : ${grupos}">
+                    <td th:text="${#strings.replace(grupo.idDataHora.titulo,'Grupo: ','')}"></td>
+                    <td th:text="${contadoresGrupos[interation.count - 1]}"></td>
+                </tr> 
+            </tbody></table>
     </div>
 </section>
 <section class="col-sm-12 col-sm-offset-0 col-md-offset-1 col-md-10">
