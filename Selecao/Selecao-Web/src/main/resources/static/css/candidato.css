@@ -1,26 +1,32 @@
-.candidatoList{
-    margin-bottom: 2px;
-}
-
-.candidatoList > .panel-heading > p {
-    font-weight: bold;
-}
-
-.candidatoList p, .candidatoList a {
-    display: inline-block;
-    padding: 0px 10px;
-    margin: 0px;
-}
-
 #pesq {
-    margin-bottom: 15px;
+margin-bottom:15px
 }
 
 #pesq > .input-group {
-    display: inline-flex;
-    margin-bottom: 5px;
-} 
+display:inline-flex;
+margin-bottom:5px
+}
 
-.link-editar-candidato:hover{
-    cursor:pointer;
+.candidatoList {
+margin-bottom:2px
+}
+
+.candidatoList > .panel-heading > p {
+font-weight:700
+}
+
+.candidatoList a {
+display:inline-block;
+margin:0;
+padding:0 10px
+}
+
+.candidatoList p {
+display:inline-block;
+margin:0;
+padding:0 10px
+}
+
+.link-editar-candidato:hover {
+cursor:pointer
 }

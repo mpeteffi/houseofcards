@@ -1,72 +1,79 @@
-.corpo{
-    background-color: #f3f3f4;    
-}
-.laranja{
-    color: rgb(251, 176, 65);
-}
-.titulo{
-    margin: 10px auto;
-    font-weight: bold;
-    font-size: 45px;
-}
-
-.row-central{
-    margin-top: 30px;
-    margin-bottom: 35px;
+.botao-submit {
+width:100%;
+height:50px;
+background-color:#FFF;
+font-weight:700;
+color:#000;
+border:2px solid #fbb041;
+transition:background-color .5s ease;
+font-size:22px;
+font-style:italic
 }
 
-.interessado-header{
-    margin-top: 0px;
-    padding: 20px!important;
+.botao-submit:hover {
+background-color:#fbb041
 }
 
-.form-group{
-    margin-bottom: 5px;
+.corpo {
+background-color:#f3f3f4
 }
 
-.botao-submit{
-    width:100%;
-    height: 50px;
-    background-color: white;
-    font-weight: bold;
-    color:black;
-/*    border-radius: 30px;*/
-    border:2px solid rgb(251, 176, 65);
-    transition: background-color 0.5s ease;
-    font-size: 22px;
-    font-style: italic;
-    /*font-family: Georgia,sans-serif;*/
-}
-.margin-cima{
-    margin-top: 115px;
-}
-.img-success{
-    width: 107px;
-}
-.form-captcha{
-    margin: 10px auto;
+.divs {
+margin:40px 0
 }
 
-.divs{
-    margin: 40px 0px;
+.form-captcha {
+margin:10px auto
 }
 
-.botao-submit:hover{
-    background-color: rgb(251, 176, 65);
+.form-group {
+margin-bottom:5px
 }
-.input-form{
-    /*border-radius: 20px;*/
-    height: 37px;
+
+.img-success {
+width:107px
 }
-input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: gray;
+
+.input-form {
+height:37px
 }
-input[type="text"]::-moz-placeholder { /* Firefox 19+ */
-    color: gray;
+
+.interessado-header {
+margin-top:0;
+padding:20px!important
 }
-input[type="text"]:-ms-input-placeholder { /* IE 10+ */
-    color: gray;
+
+.laranja {
+color:#fbb041
 }
-input[type="text"]:-moz-placeholder { /* Firefox 18- */
-    color: gray;
+
+.margin-cima {
+margin-top:115px
+}
+
+.row-central {
+margin-top:30px;
+margin-bottom:35px
+}
+
+.titulo {
+font-weight:700;
+font-size:45px;
+margin:10px auto
+}
+
+input[type=text]:-moz-placeholder {
+color:gray
+}
+
+input[type=text]:-ms-input-placeholder {
+color:gray
+}
+
+input[type=text]::-moz-placeholder {
+color:gray
+}
+
+input[type=text]::-webkit-input-placeholder {
+color:gray
 }

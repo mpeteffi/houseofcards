@@ -1,161 +1,204 @@
-.img-perfil{
-    width: 100px;
-    height: 100px;
+#logo-adm {
+width:9em;
+height:4em
 }
 
-.menu-nav{
-    top:0;
-    width: 100%;
-    border: none;
-    border-radius: 0px;
+#logo-descricao {
+color:#FFF
 }
 
-.sidebar-brand{
-    background-color: #262A33;
+#logo-nome {
+color:#EF940F;
+font-size:23px;
+font-weight:700
 }
 
-#logo-adm{
-    width: 9em;
-    height: 4em;
+#nova-edicao-form {
+margin-top:10%
 }
 
-#logo-descricao{
-    color:white; 
+.autocomplete {
+width:100%
 }
 
-#logo-nome{
-    color:#EF940F;
-    font-size: 23px;
-    font-weight: bold;
+.body-admin {
+background-color:#E5E9EC
 }
 
-.body-admin{
-    background-color: #E5E9EC;
+.btn-deleta-evento {
+color:#FFF
 }
 
-.nav-admin{
-    height: 55px;
+.candidato-entrevista-div {
+background-color:#FFF;
+border-radius:10px;
+min-height:400px;
+padding:20px
 }
 
-.div-perfil{
-    margin-top: 24px;
-    text-indent: 0px!important;
+.candidatos-acoes {
+margin-left:12px;
+cursor:pointer;
+font-size:20px
 }
 
-.sidebar-lista-titulo{
-    background-color: #23272E;
-    color:#EF940F;
-    font-weight: bold;
-}
-.icon-menu{
-    margin-right: 10px;
+.div-perfil {
+margin-top:24px;
+text-indent:0!important
 }
 
-.li-opcao-menu{
-    border-bottom: 1px solid #14161A !important;
+.error {
+color:red
 }
 
-.error{
-    color: red;
-}
-#nova-edicao-form{
-    margin-top: 10%;
-}
 .error:focus {
-    border: 1px solid red;
+border:1px solid red
 }
 
-form label.error{
-    font:13px Tahoma,sans-serif;
-    color:#ED7476;
-    margin-left:5px;
-    display:inline;
+.fc-body {
+border:none
 }
 
-.navbar-right{
-    position: absolute;
-    right: 25px;
-    top: 15px;
+.fc-day {
+background-color:#F3F3F3;
+border:6px solid #FFF!important
 }
 
-.welcome-corpo{
-    min-width: 280px;
-    max-width: 450px;
-    margin: 10px auto;
+.fc-day-header {
+background-color:#F3F3F3;
+border:4px solid #FFF!important
 }
 
-.welcome-panel{
-    text-align: center;
+.fc-head {
+background-color:#F3F3F3;
+border:4px solid #FFF!important
+}
+
+.fc-left {
+margin-left:5%
+}
+
+.fc-right {
+margin-right:5%
+}
+
+.fc-row {
+background-color:#F3F3F3;
+border:4px solid #FFF!important
+}
+
+.fc-scroller {
+border:none
+}
+
+.fc-toolbar {
+background-color:#3E454D;
+color:#E29012;
+padding-top:20px
+}
+
+.fc-view-container {
+background-color:#FFF
+}
+
+.fc-widget-contenttable {
+border:none
+}
+
+.font-bold {
+font-weight:700
+}
+
+.icon-menu {
+margin-right:10px
+}
+
+.img-perfil {
+width:100px;
+height:100px
+}
+
+.input-group {
+margin:15px 0
+}
+
+.li-opcao-menu {
+border-bottom:1px solid #14161A!important
+}
+
+.menu-nav {
+top:0;
+width:100%;
+border:none;
+border-radius:0
+}
+
+.nav-admin {
+height:55px
+}
+
+.nav-tabs li a {
+color:#CF940F
+}
+
+.navbar-right {
+position:absolute;
+right:25px;
+top:15px
+}
+
+.sidebar-brand {
+background-color:#262A33
+}
+
+.sidebar-lista-titulo {
+background-color:#23272E;
+color:#EF940F;
+font-weight:700
+}
+
+.table {
+background-color:#FFF
+}
+
+.top10 {
+margin-top:10px
+}
+
+.top15 {
+margin-top:15px
+}
+
+.top25 {
+margin-top:25px
+}
+
+.top5 {
+margin-top:5px
+}
+
+.top7 {
+margin-top:7px
+}
+
+.welcome-corpo {
+min-width:280px;
+max-width:450px;
+margin:10px auto
+}
+
+.welcome-panel {
+text-align:center
 }
 
 .welcome-panel > h1 > span {
-    color:#EF940F;
-    font-weight: bold;
+color:#EF940F;
+font-weight:700
 }
 
-.table{
-    background-color: white;   
+form label.error {
+font:13px Tahoma,sans-serif;
+color:#ED7476;
+margin-left:5px;
+display:inline
 }
-
-.candidatos-acoes{
-    margin-left:12px;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.candidato-entrevista-div{
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    min-height: 400px;
-}
-.nav-tabs li a {color:#CF940F;}
-.top5 { margin-top:5px; }
-.top7 { margin-top:7px; }
-.top10 { margin-top:10px; }
-.top15 { margin-top:15px; }
-.top25 { margin-top:25px; }
-
-.input-group{
-    margin: 15px 0px;
-}
-
-.btn-deleta-evento{
-    color:white;
-}
-.autocomplete{
-    width: 100%;
-}
-
-.fc-toolbar{
-    background-color: #3E454D;
-    color:#E29012;
-    padding-top:20px;
-}
-
-.fc-view-container{
-    background-color: white;
-}
-
-.fc-left{
-    margin-left: 5%;
-}
-
-.fc-right{
-   margin-right: 5%;
-}
-
-.fc-head,.fc-day-header,.fc-row,.fc-day{
-    background-color: #F3F3F3;
-    border:4px solid white!important;
-}
-.fc-day{
-    border:6px solid white!important;
-}
-.fc-body,.fc-scroller,.fc-widget-contenttable{
-    border: none;
-}
-
-
-
-.font-bold {font-weight: bold;}

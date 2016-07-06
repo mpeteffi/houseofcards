@@ -1,38 +1,56 @@
-/*----Inicio_Login---- */
-.background-cinza{
-    background-color: #262A33;
-}
-.content-wrapper{
-    margin-top: 6%;
-}
-#form-nome-login{
-    color:white;
-    font-size: 40px;
-}
-.form-login .form-group input::-webkit-input-placeholder{
-    color:#A4A9AC;
+#form-nome-login {
+color:#FFF;
+font-size:40px
 }
 
-.panel,.panel-default,.panel-body,.panel-heading{
-    border:none;
-    background-color: #262A33 !important;
+.background-cinza {
+background-color:#262A33
 }
-.btn-login{
-    width: 100%;
-    background-color:#EF940F;
+
+.btn-login {
+width:100%;
+background-color:#EF940F
 }
-.btn-login:hover{
-    background-color:#EF940F;
+
+.btn-login:focus {
+background-color:#EF940F!important;
+border:none!important
 }
-.btn-login:focus{
-    background-color:#EF940F !important;
-    border:none!important;
+
+.btn-login:hover {
+background-color:#EF940F
 }
-/*-----Fim_Login---- */
+
+.content-wrapper {
+margin-top:6%
+}
+
+.form-login .form-group input::-webkit-input-placeholder {
+color:#A4A9AC
+}
+
+.panel {
+border:none;
+background-color:#262A33!important
+}
+
+.panel-body {
+border:none;
+background-color:#262A33!important
+}
+
+.panel-default {
+border:none;
+background-color:#262A33!important
+}
+
+.panel-heading {
+border:none;
+background-color:#262A33!important
+}
+
 @media all and (min-width:0px) and (max-width: 500px) {
-    /*----Inicio_Login---- */
-    .content-wrapper{
-        margin-top: 10%;
-    }
-    /*-----Fim_Login---- */
+.content-wrapper {
+margin-top:10%
+}    
 }
