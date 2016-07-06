@@ -57,7 +57,7 @@
                         <div class="tab-pane active" role="tabpanel" id="step1">
                             <h3>Etapa 1 - Inscrições</h3>
                             <h4 th:if="${inscricoesEncerradas}" th:text="${'O prazo de inscrição para a edição ' + processo.edicao + ' do Projeto Crescer já está encerrado.'}"></h4>
-                            <h4 th:if="${inscricoesEncerradas}" th:text="${'Mesmo assim, você pode enviar sua inscrição. Lhe avisaremos quando um novo processo seletivo iniciar.'}"></h4>
+                            <h4 th:if="${inscricoesEncerradas}" th:text="${'Mesmo assim, você pode enviar sua inscrição. Avisaremos quando um novo processo seletivo iniciar.'}"></h4>
                             <h4 th:unless="${inscricoesEncerradas}" th:text="${'As inscrições para a edição ' + processo.edicao + ' do Projeto Crescer estão abertas. Aproveite!'}"></h4>
                         </div>
                         <div class="tab-pane" role="tabpanel" id="step2">
