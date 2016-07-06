@@ -4,20 +4,12 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" th:href="@{/css/min/custom.min.css}"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/4.0.6/sweetalert2.min.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.min.css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.print.css" media="print"/>
-        <link rel="stylesheet" th:href="@{/css/autocomplete.min.css}"/>
-        <link rel="stylesheet" th:href="@{/css/menulateral.css}"/>
-        <link rel="stylesheet" th:href="@{/css/paginaadmin.css}"/>
-        <link rel="stylesheet" th:href="@{/css/candidato.css}"/>
-        <link rel="stylesheet" th:href="@{/css/administrador-home.css}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.min.css"/>        
         <link rel="shortcut icon" th:href="@{/img/favicon.ico}"/>
         <title>Projeto Crescer</title>
-
-
     </head>
     <body>
         <div id="sidebar-wrapper" th:fragment="sidebar-wrapper">
@@ -33,29 +25,29 @@
                     <span>PÁGINAS</span>
                 </li>
                 <li class="li-opcao-menu">
-                    <a href="#" data-url="/administrativo-home" class="opcao-side-bar" ><span class="glyphicon glyphicon-home icon-menu"></span>Inicio</a>
+                    <a href="#" data-url="/administrativo-home" class="opcao-side-bar" ><span class="fa fa-home icon-menu"></span>Inicio</a>
                 </li>
                 <li class="li-opcao-menu">
-                    <a href="#" data-url="/candidatos" class="opcao-side-bar" ><span class="glyphicon glyphicon-list icon-menu"></span>Lista de Candidatos</a>
+                    <a href="#" data-url="/candidatos" class="opcao-side-bar" ><span class="fa fa-th-list icon-menu"></span>Lista de Candidatos</a>
                 </li>
                 <li class="li-opcao-menu">
-                    <a href="#"  data-url="/entrevistados" class="opcao-side-bar" ><span class="glyphicon glyphicon-filter icon-menu"></span>Entrevistados</a>
+                    <a href="#"  data-url="/entrevistados" class="opcao-side-bar" ><span class="fa fa-wpforms icon-menu"></span>Entrevistados</a>
                 </li>
                 <li class="li-opcao-menu">
-                    <a href="#"  data-url="/agendamento" class="btn-novo-agendamento" ><span class="glyphicon glyphicon-calendar icon-menu"></span>Agendamento</a>
+                    <a href="#"  data-url="/agendamento" class="btn-novo-agendamento" ><span class="fa fa-calendar icon-menu"></span>Agendamento</a>
                 </li>
                 <li class="li-opcao-menu">
-                    <a href="#"  data-url="/novaedicao" class="btn-new-processo" ><span class="glyphicon glyphicon-education icon-menu"></span>Nova Edição</a>
+                    <a href="#"  data-url="/novaedicao" class="btn-new-processo" ><span class="fa fa-graduation-cap icon-menu"></span>Nova Edição</a>
                 </li>
                 <li class="li-opcao-menu">
-                    <a href="#" class="btnLogout"><span class="glyphicon glyphicon-log-out icon-menu"></span>Sair</a>
+                    <a href="#" class="btnLogout"><span class="fa fa-sign-out icon-menu"></span>Sair</a>
                 </li>
             </ul>
         </div>
         <nav class="navbar navbar-default menu-nav nav-admin" th:fragment="nav">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#" id="menu-toggle">
-                    <span class="glyphicon glyphicon-align-justify"></span>
+                    <span class="fa fa-bars"></span>
                 </a>
                 <span class="navbar-right">
                     <span class="edicao" th:text="${'Crescer - Edição '}"></span>

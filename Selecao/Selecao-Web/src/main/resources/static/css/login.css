@@ -29,22 +29,25 @@ margin-top:6%
 color:#A4A9AC
 }
 
-.panel {
+
+login > .panel {
 border:none;
 background-color:#262A33!important
 }
 
-.panel-body {
+
+login > .panel-body {
 border:none;
 background-color:#262A33!important
 }
 
-.panel-default {
+
+login > .panel-default {
 border:none;
 background-color:#262A33!important
 }
 
-.panel-heading {
+login > .panel-heading {
 border:none;
 background-color:#262A33!important
 }
