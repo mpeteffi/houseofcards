@@ -61,7 +61,10 @@
         <div class="panel-heading">
             <h3>Grupos de provas</h3>
         </div>
-        <table class="table table-hover">
+        <div th:unless="${grupos.iterator().hasNext()}" class="panel-body">
+            <h4>Não há grupos de prova agendados.</h4>
+        </div>
+        <table th:if="${grupos.iterator().hasNext()}" class="table table-hover">
             <thead class="thead-inverse">
                 <tr class="active">
                     <th>Grupos</th>

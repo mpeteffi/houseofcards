@@ -2,14 +2,6 @@ section:first-child{
     margin-bottom: 40px;
 }
 
-section:nth-child(2) > .panel:first-child{
-    margin-right: 10px;
-}
-
-section:nth-child(2) > .panel:last-child{
-    margin-left: 10px;
-}
-
 .wizard {
     margin: 0px auto;
     background: transparent;
